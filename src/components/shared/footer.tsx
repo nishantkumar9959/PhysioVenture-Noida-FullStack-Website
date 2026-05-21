@@ -1,0 +1,126 @@
+import Link from "next/link";
+import { Activity, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { BUSINESS } from "@/lib/constants";
+
+export default function Footer() {
+  return (
+    <footer className="bg-primary text-primary-foreground border-t border-border mt-auto" aria-label="Site footer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Logo & Description */}
+          <div className="space-y-4">
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-primary">
+                <Activity className="w-5 h-5" />
+              </div>
+              <span className="font-display font-extrabold text-xl tracking-tight text-white">
+                Physio<span className="text-accent">Venture</span>
+              </span>
+            </Link>
+            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
+              Premium Neurological &amp; Orthopaedic physical rehabilitation clinic in Noida. 7+ years of expert care delivered at our modern facility or directly in your home.
+            </p>
+            <div className="flex space-y-2 flex-col pt-2 text-sm text-primary-foreground/70">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-accent shrink-0" />
+                <span>{BUSINESS.hoursShort}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-display font-semibold text-white tracking-wide text-sm uppercase mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-sm text-primary-foreground/70">
+              <li>
+                <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-accent transition-colors">Physiotherapy Services</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-accent transition-colors">About Founder &amp; Clinic</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-accent transition-colors">Contact &amp; Location</Link>
+              </li>
+              <li>
+                <Link href="/book" className="hover:text-accent transition-colors">Book Appointment</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Top Services */}
+          <div>
+            <h3 className="font-display font-semibold text-white tracking-wide text-sm uppercase mb-4">
+              Rehab Services
+            </h3>
+            <ul className="space-y-2 text-sm text-primary-foreground/70">
+              <li>
+                <Link href="/services/neurological-physiotherapy" className="hover:text-accent transition-colors">Neurological Physiotherapy</Link>
+              </li>
+              <li>
+                <Link href="/services/orthopaedic-rehabilitation" className="hover:text-accent transition-colors">Orthopaedic Rehabilitation</Link>
+              </li>
+              <li>
+                <Link href="/services/back-pain-treatment" className="hover:text-accent transition-colors">Back Pain &amp; Sciatica Treatment</Link>
+              </li>
+              <li>
+                <Link href="/services/post-surgery-rehabilitation" className="hover:text-accent transition-colors">Post-Surgery Rehabilitation</Link>
+              </li>
+              <li>
+                <Link href="/services/chiropractic-care" className="hover:text-accent transition-colors">Chiropractic Adjustment</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div className="space-y-4">
+            <h3 className="font-display font-semibold text-white tracking-wide text-sm uppercase mb-4">
+              Get in Touch
+            </h3>
+            <ul className="space-y-3 text-sm text-primary-foreground/70">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <span>{BUSINESS.address}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-accent shrink-0" />
+                <a href={`tel:${BUSINESS.phone}`} className="hover:text-accent transition-colors">
+                  {BUSINESS.phoneDisplay}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-accent shrink-0" />
+                <a href={`mailto:${BUSINESS.email}`} className="hover:text-accent transition-colors">
+                  {BUSINESS.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-primary-foreground/15 my-10" />
+
+        {/* Disclaimer and Copyright */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <div className="space-y-1 max-w-xl">
+            <p className="text-xs text-primary-foreground/60 leading-relaxed">
+              <strong>Medical Disclaimer:</strong> The content on this website is for educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physiotherapist or primary healthcare provider with any questions regarding a medical condition.
+            </p>
+            <p className="text-xs text-primary-foreground/60">
+              &copy; {new Date().getFullYear()} PhysioVenture. All rights reserved.
+            </p>
+          </div>
+          <div className="text-xs text-primary-foreground/60 flex gap-4">
+            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

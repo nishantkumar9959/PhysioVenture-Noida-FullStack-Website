@@ -1,0 +1,36 @@
+{
+  "name": "pventure-noida",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "copy-services": "node -e \"const fs = require('fs'); const bPath = 'C:/Users/Nishant/.gemini/antigravity/brain/492f4d37-beff-45b1-afca-f2a014f0e1b9/'; fs.copyFileSync(bPath + 'service_neuro_1779355365301.png', 'public/images/service_neuro.png'); fs.copyFileSync(bPath + 'service_back_1779355386832.png', 'public/images/service_back.png'); fs.copyFileSync(bPath + 'service_knee_1779355407466.png', 'public/images/service_knee.png'); fs.copyFileSync(bPath + 'service_chiro_1779355429720.png', 'public/images/service_chiro.png'); fs.copyFileSync(bPath + 'service_sports_1779355453607.png', 'public/images/service_sports.png'); fs.copyFileSync(bPath + 'service_geriatric_1779355475729.png', 'public/images/service_geriatric.png'); fs.copyFileSync('public/images/home_visit.png', 'public/images/service_post_op.png'); fs.copyFileSync('public/images/stroke_recovery_blog.png', 'public/images/service_vestibular.png');\""
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@supabase/supabase-js": "^2.106.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.39.0",
+    "lucide-react": "^1.16.0",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.76.0",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
