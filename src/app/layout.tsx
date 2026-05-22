@@ -55,6 +55,17 @@ export const metadata: Metadata = {
     description: "Premium physiotherapy clinic in Sector 49, Noida. Expert stroke recovery, joint pain treatment, and home visits.",
     images: ["/images/hero_physiotherapy_bg.jpg"],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico?v=5' },
+      { url: '/favicon-16x16.png?v=5', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png?v=5', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png?v=5', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: "/site.webmanifest?v=5",
 };
 
 export default function RootLayout({

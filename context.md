@@ -96,3 +96,4 @@ The website must support individual, SEO-optimized landing pages for each of the
 3.  **Local Schema:** Global `MedicalBusiness` schema + nested `Physiotherapy` page schema.
 4.  **Internal Linking:** Hub-and-Spoke model. Home page links to Services Overview, which links to individual services. Individual services link back to home, related service categories, and the booking form.
 5.  **GBP Integration:** Map embed using Google Maps API + real-time review pull.
+feat: update branding, mobile responsiveness and UI improvements

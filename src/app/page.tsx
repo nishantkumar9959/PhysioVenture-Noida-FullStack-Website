@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, useAnimationFrame, useMotionValue, useReducedMotion, animate } from "framer-motion";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { 
   ShieldCheck, 
   MapPin, 
@@ -138,14 +140,70 @@ const PATIENT_TESTIMONIALS = [
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   // Carousel Navigation Arrows State
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
+  // Category Scroll State
+  const [showLeftCatFade, setShowLeftCatFade] = useState(false);
+  const [showRightCatFade, setShowRightCatFade] = useState(true);
+  const [hasUserScrolledCat, setHasUserScrolledCat] = useState(false);
+  const categoryScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleCategoryScroll = () => {
+    if (categoryScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = categoryScrollRef.current;
+      setShowLeftCatFade(scrollLeft > 0);
+      setShowRightCatFade(scrollLeft < scrollWidth - clientWidth - 2);
+      
+      if (scrollLeft > 5) {
+        setHasUserScrolledCat(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    handleCategoryScroll();
+    window.addEventListener('resize', handleCategoryScroll);
+    return () => window.removeEventListener('resize', handleCategoryScroll);
+  }, []);
+
+  // One-time exaggerated onboarding scroll animation
+  useEffect(() => {
+    if (isMobile && !hasUserScrolledCat) {
+      const timer = setTimeout(() => {
+        if (categoryScrollRef.current && !hasUserScrolledCat) {
+          // EXAGGERATED NUDGE: Scroll 80px right so it's impossible to miss
+          categoryScrollRef.current.scrollBy({ left: 80, behavior: 'smooth' });
+          
+          setTimeout(() => {
+            if (categoryScrollRef.current && !hasUserScrolledCat) {
+              categoryScrollRef.current.scrollBy({ left: -80, behavior: 'smooth' });
+            }
+          }, 1000);
+        }
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile, hasUserScrolledCat]);
+
+  // Auto-scroll Animation State
+  const x = useMotionValue(0);
+  const [trackWidth, setTrackWidth] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
   const filteredServices = selectedCategory === "all"
     ? SERVICES_DATA
     : SERVICES_DATA.filter(s => getHomeCategory(s) === selectedCategory);
+
+  const displayServices = selectedCategory === "all" && !prefersReducedMotion
+    ? [...SERVICES_DATA, ...SERVICES_DATA]
+    : filteredServices;
 
   const checkScrollLimits = () => {
     if (scrollRef.current) {
@@ -155,15 +213,61 @@ export default function Home() {
     }
   };
 
+  // Measure track width for infinite looping safely by comparing children offsets
+  useEffect(() => {
+    if (selectedCategory !== "all" || prefersReducedMotion) return;
+    
+    const updateWidth = () => {
+      if (trackRef.current && trackRef.current.children.length > SERVICES_DATA.length) {
+        const firstCard = trackRef.current.children[0] as HTMLElement;
+        const middleCard = trackRef.current.children[SERVICES_DATA.length] as HTMLElement;
+        setTrackWidth(middleCard.offsetLeft - firstCard.offsetLeft);
+      }
+    };
+
+    // Small delay to ensure DOM is fully laid out
+    const timeout = setTimeout(updateWidth, 100);
+    window.addEventListener("resize", updateWidth);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, [selectedCategory, prefersReducedMotion]);
+
+  // Continuous loop animation
+  useAnimationFrame((t, delta) => {
+    if (selectedCategory !== "all" || prefersReducedMotion || isHovered || trackWidth === 0) return;
+    
+    // Calibrate speed: 85 seconds for desktop, 105 seconds for mobile
+    const loopDuration = isMobile ? 105000 : 85000;
+    const moveBy = (trackWidth / loopDuration) * delta;
+    let newX = x.get() - moveBy;
+    
+    if (newX <= -trackWidth) {
+      newX += trackWidth;
+    }
+    x.set(newX);
+  });
+
   // Run limit check on resize, scroll, or category change
   useEffect(() => {
-    checkScrollLimits();
-    window.addEventListener("resize", checkScrollLimits);
-    return () => window.removeEventListener("resize", checkScrollLimits);
-  }, [filteredServices]);
+    if (selectedCategory !== "all") {
+      checkScrollLimits();
+      window.addEventListener("resize", checkScrollLimits);
+      return () => window.removeEventListener("resize", checkScrollLimits);
+    }
+  }, [filteredServices, selectedCategory]);
 
   const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
+    if (selectedCategory === "all" && !prefersReducedMotion) {
+      if (!trackRef.current) return;
+      const shiftAmount = trackRef.current.clientWidth * 0.85;
+      const shift = direction === "left" ? shiftAmount : -shiftAmount;
+      let newX = x.get() + shift;
+      if (newX <= -trackWidth) newX += trackWidth;
+      if (newX > 0) newX -= trackWidth;
+      animate(x, newX, { type: "tween", duration: 0.5, ease: "easeOut" });
+    } else if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
       const scrollAmount = clientWidth * 0.85;
       scrollRef.current.scrollTo({
@@ -225,18 +329,18 @@ export default function Home() {
       <div id="hero" className="relative w-full border-b border-border/20 bg-background/50 overflow-hidden">
         {/* Absolute Background Image fading to the left */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Background image container positioned on the right */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 h-full">
+          {/* Background image container covering the entire hero area */}
+          <div className="absolute inset-0 w-full h-full">
             <Image
               src="/images/hero_physiotherapy_bg.jpg"
               alt="Hands-on Physiotherapy Session in Noida by Dr. Rohit Kumar"
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="100vw"
               className="object-cover object-center lg:object-right opacity-25 lg:opacity-100 transition-opacity duration-700"
             />
             {/* Horizontal fade on desktop, solid light shield overlay on mobile to guarantee accessibility contrast */}
-            <div className="absolute inset-0 bg-background/90 lg:bg-transparent lg:bg-gradient-to-r lg:from-background lg:via-background/80 lg:to-transparent" />
+            <div className="absolute inset-0 hero-gradient" />
           </div>
           {/* Subtle colored glow blur effects to enrich the canvas */}
           <div className="absolute top-1/2 -left-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
@@ -246,9 +350,9 @@ export default function Home() {
         {/* Hero Content Section */}
         <section className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/60 border border-accent/20 w-fit backdrop-blur-xs">
-              <Sparkles className="w-4 h-4 text-accent animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-wider text-primary">Noida's Premier Home-Visit & Clinic Rehab</span>
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:py-1.5 rounded-full bg-secondary/60 border border-accent/20 w-fit backdrop-blur-xs">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent animate-pulse shrink-0" />
+              <span className="text-[12px] sm:text-[13px] font-semibold text-primary">Noida's Premier Home-Visit & Clinic Rehab</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-primary leading-[1.1] max-w-2xl">
@@ -274,9 +378,9 @@ export default function Home() {
               </Button>
               
               {/* Clinical Grade Safety Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-secondary/60 border border-primary/10 w-fit backdrop-blur-xs">
-                <ShieldCheck className="w-4.5 h-4.5 text-accent shrink-0" />
-                <span className="text-xs font-bold text-primary">Clinical Grade Sterile Safety</span>
+              <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 h-8 sm:h-auto px-3 sm:px-3 sm:py-2 rounded-full sm:rounded-xl bg-secondary/60 border border-primary/10 w-fit backdrop-blur-xs self-center sm:self-auto mt-2 sm:mt-0">
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 text-accent shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold text-primary whitespace-nowrap">Clinical Grade Sterile Safety</span>
               </div>
             </div>
 
@@ -347,50 +451,66 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Selector Tabs */}
-        <div className="flex flex-row overflow-x-auto md:flex-wrap scrollbar-none gap-2 mb-8 bg-secondary/30 p-1.5 rounded-2xl md:rounded-full border border-border/30 w-full md:w-fit whitespace-nowrap">
-          {SYMPTOM_CATEGORIES.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none ${
-                selectedCategory === cat.id
-                  ? "bg-primary text-white shadow-xs"
-                  : "text-muted-foreground hover:text-primary"
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
+        {/* Selector Tabs with Layout-Level Chevron */}
+        <div className="flex items-center w-full md:w-fit mb-8 gap-2">
+          
+          {/* Scrollable Container (Takes remaining space, never overlaps) */}
+          <div 
+            ref={categoryScrollRef}
+            onScroll={handleCategoryScroll}
+            className="flex-1 flex flex-row overflow-x-auto md:flex-wrap scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-2 bg-secondary/30 p-1.5 rounded-2xl md:rounded-full border border-border/30 whitespace-nowrap min-w-0"
+          >
+            {SYMPTOM_CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`snap-start shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none ${
+                  selectedCategory === cat.id
+                    ? "bg-primary text-white shadow-xs"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Explicit Un-overlapped Chevron Indicator (Mobile Only) */}
+          <div className={`w-6 shrink-0 flex items-center justify-center md:hidden transition-opacity duration-300 ${showRightCatFade ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+             <ChevronRight className="w-6 h-6 text-primary animate-pulse" />
+          </div>
+
         </div>
 
         {/* Horizontal Scroll Services Container */}
         <div className="relative w-full group/slider overflow-hidden">
           {/* Left Arrow Button */}
-          {canScrollLeft && (
+          {(canScrollLeft || selectedCategory === "all") && (
             <button
               onClick={() => scroll("left")}
-              className="absolute left-2 sm:left-4 top-[72%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-border bg-background/95 backdrop-blur-xs flex items-center justify-center text-primary shadow-md hover:bg-secondary hover:text-accent hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none"
+              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-border bg-background/95 backdrop-blur-xs items-center justify-center text-primary shadow-md hover:bg-secondary hover:text-accent hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none"
               aria-label="Scroll left"
             >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+              <ChevronLeft className="w-6 h-6" />
             </button>
           )}
 
-          {/* Scrollable track with native momentum swipe on mobile and snapping */}
-          <div 
-            ref={scrollRef}
-            onScroll={checkScrollLimits}
-            className="flex flex-row gap-3 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth py-3 scrollbar-none w-full"
-          >
-            {filteredServices.map((service, idx) => {
-              return (
+          {selectedCategory === "all" && !prefersReducedMotion ? (
+            <motion.div 
+              ref={trackRef}
+              style={{ x }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onFocusCapture={() => setIsHovered(true)}
+              onBlurCapture={() => setIsHovered(false)}
+              className="flex flex-row gap-3 md:gap-6 py-3 w-full"
+            >
+              {displayServices.map((service, idx) => (
                 <Link
                   key={idx}
                   href={`/services/${service.slug}`}
-                  className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start shadow-xs hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none"
+                  className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
                 >
-                  {/* Top Text Section */}
                   <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
                     <h3 className="text-xs md:text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
                       {service.name}
@@ -400,21 +520,36 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Lower Section Realistic Image with Gradient Fade */}
-                  <div className="absolute inset-x-0 top-[50%] md:top-[35%] bottom-0 w-full overflow-hidden z-10 pointer-events-none">
+                  <div className="absolute inset-x-0 top-[28%] bottom-0 w-full overflow-hidden z-10 pointer-events-none">
                     <Image
                       src={getServiceImage(service.slug)}
                       alt={`Physiotherapy treatment for ${service.name}`}
                       fill
                       loading="lazy"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                      className="object-cover object-center transition-transform duration-500 ease-out transform-gpu group-hover:scale-100 md:group-hover:scale-[1.015] lg:group-hover:scale-[1.025]"
                     />
-                    {/* Gradient Overlay (concentrated near the top edge of the image to protect text readability while keeping the bottom 80% fully visible and vibrant) */}
-                    <div className="absolute top-0 left-0 right-0 h-[30px] md:h-[50px] bg-gradient-to-b from-card to-transparent" />
                   </div>
 
-                  {/* Bottom-left Arrow Button */}
+                  <div
+                    className="absolute inset-0 z-[15] rounded-2xl pointer-events-none"
+                    style={{
+                      background: `linear-gradient(
+                        to bottom,
+                        hsl(var(--card)) 0%,
+                        hsl(var(--card)) 24%,
+                        hsl(var(--card) / 0.98) 27%,
+                        hsl(var(--card) / 0.95) 29%,
+                        hsl(var(--card) / 0.88) 32%,
+                        hsl(var(--card) / 0.7) 36%,
+                        hsl(var(--card) / 0.45) 41%,
+                        hsl(var(--card) / 0.2) 47%,
+                        hsl(var(--card) / 0.05) 54%,
+                        hsl(var(--card) / 0) 65%
+                      )`
+                    }}
+                  />
+
                   <div className="p-3 md:p-6 pt-0 pb-3 md:pb-6 flex flex-col mt-auto w-full relative z-20 pointer-events-none">
                     <div className="flex items-center justify-start w-full">
                       <div
@@ -426,18 +561,82 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
-              );
-            })}
-          </div>
+              ))}
+            </motion.div>
+          ) : (
+            <div 
+              ref={scrollRef}
+              onScroll={checkScrollLimits}
+              className="flex flex-row gap-3 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth py-3 scrollbar-none w-full"
+            >
+              {filteredServices.map((service, idx) => (
+                <Link
+                  key={idx}
+                  href={`/services/${service.slug}`}
+                  className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
+                >
+                  <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
+                    <h3 className="text-xs md:text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
+                      {service.name}
+                    </h3>
+                    <p className="line-clamp-2 md:line-clamp-3 text-xs leading-relaxed mt-2 font-medium text-muted-foreground/90">
+                      {service.shortDesc}
+                    </p>
+                  </div>
+
+                  <div className="absolute inset-x-0 top-[28%] bottom-0 w-full overflow-hidden z-10 pointer-events-none">
+                    <Image
+                      src={getServiceImage(service.slug)}
+                      alt={`Physiotherapy treatment for ${service.name}`}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-center transition-transform duration-500 ease-out transform-gpu group-hover:scale-100 md:group-hover:scale-[1.015] lg:group-hover:scale-[1.025]"
+                    />
+                  </div>
+
+                  <div
+                    className="absolute inset-0 z-[15] rounded-2xl pointer-events-none"
+                    style={{
+                      background: `linear-gradient(
+                        to bottom,
+                        hsl(var(--card)) 0%,
+                        hsl(var(--card)) 24%,
+                        hsl(var(--card) / 0.98) 27%,
+                        hsl(var(--card) / 0.95) 29%,
+                        hsl(var(--card) / 0.88) 32%,
+                        hsl(var(--card) / 0.7) 36%,
+                        hsl(var(--card) / 0.45) 41%,
+                        hsl(var(--card) / 0.2) 47%,
+                        hsl(var(--card) / 0.05) 54%,
+                        hsl(var(--card) / 0) 65%
+                      )`
+                    }}
+                  />
+
+                  <div className="p-3 md:p-6 pt-0 pb-3 md:pb-6 flex flex-col mt-auto w-full relative z-20 pointer-events-none">
+                    <div className="flex items-center justify-start w-full">
+                      <div
+                        className="w-8 h-8 rounded-full bg-white dark:bg-secondary shadow-md flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300"
+                        aria-hidden="true"
+                      >
+                        <ArrowRight className="w-4.5 h-4.5" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Right Arrow Button */}
-          {canScrollRight && (
+          {(canScrollRight || selectedCategory === "all") && (
             <button
               onClick={() => scroll("right")}
-              className="absolute right-2 sm:right-4 top-[72%] md:top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full border border-border bg-background/95 backdrop-blur-xs flex items-center justify-center text-primary shadow-md hover:bg-secondary hover:text-accent hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none"
+              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-border bg-background/95 backdrop-blur-xs items-center justify-center text-primary shadow-md hover:bg-secondary hover:text-accent hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none"
               aria-label="Scroll right"
             >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+              <ChevronRight className="w-6 h-6" />
             </button>
           )}
 

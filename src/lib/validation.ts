@@ -18,7 +18,7 @@ export const appointmentSchema = z.object({
     .regex(phoneRegex, { message: "Please enter a valid 10-digit phone number." }),
   service_id: z
     .string({ message: "Please select a service." })
-    .uuid({ message: "Invalid service selection." }),
+    .min(1, { message: "Invalid service selection." }),
   preferred_date: z
     .string()
     .refine((dateStr) => {

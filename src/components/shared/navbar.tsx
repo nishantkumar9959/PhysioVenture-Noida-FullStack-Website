@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Activity, Calendar } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -69,8 +70,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-12">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white transition-transform group-hover:scale-105">
-              <Activity className="w-5 h-5 text-accent" />
+            <div className="relative w-10 h-10 md:w-11 md:h-11 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/images/logo.png"
+                alt="PhysioVenture Logo"
+                fill
+                sizes="(max-width: 768px) 40px, 44px"
+                className="object-contain"
+                priority
+              />
             </div>
             <span className="font-display font-extrabold text-xl tracking-tight text-primary">
               Physio<span className="text-accent">Venture</span>

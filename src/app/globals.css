@@ -138,3 +138,24 @@
     scroll-behavior: auto !important;
   }
 }
+
+@utility hero-gradient {
+  background: hsl(var(--background) / 0.9);
+  
+  @media (min-width: 1024px) {
+    background: linear-gradient(
+      to right,
+      hsl(var(--background)) 0%,
+      hsl(var(--background)) 30%,
+      hsl(var(--background) / 0.98) 33%,
+      hsl(var(--background) / 0.95) 36%,
+      hsl(var(--background) / 0.88) 40%,
+      hsl(var(--background) / 0.75) 45%,
+      hsl(var(--background) / 0.55) 51%,
+      hsl(var(--background) / 0.3) 57%,
+      hsl(var(--background) / 0.1) 62%,
+      hsl(var(--background) / 0) 65%,
+      hsl(var(--background) / 0) 100%
+    );
+  }
+}

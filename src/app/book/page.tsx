@@ -1,30 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { Calendar as CalendarIcon, Clock, Phone, Mail, User, AlertCircle, CheckCircle2, Sparkles, MapPin } from "lucide-react";
-import { supabase } from "@/lib/supabase";
 import { appointmentSchema, type AppointmentInput } from "@/lib/validation";
+import { SERVICES_DATA } from "@/lib/services-data";
+import { ServiceCombobox } from "@/components/service-combobox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-// Fallback services list with placeholder UUIDs in case DB connection is not initialized
-const FALLBACK_SERVICES = [
-  { id: "00000000-0000-0000-0000-000000000001", name: "Neurological Physiotherapy" },
-  { id: "00000000-0000-0000-0000-000000000002", name: "Back Pain Treatment" },
-  { id: "00000000-0000-0000-0000-000000000003", name: "Knee Pain Treatment" },
-  { id: "00000000-0000-0000-0000-000000000004", name: "Chiropractic Care" },
-  { id: "00000000-0000-0000-0000-000000000005", name: "Sports Injury Rehab" },
-  { id: "00000000-0000-0000-0000-000000000006", name: "Geriatric Physiotherapy" },
-  { id: "00000000-0000-0000-0000-000000000007", name: "Post-Surgery Rehabilitation" },
-  { id: "00000000-0000-0000-0000-000000000008", name: "Balance Exercise Therapy" }
-];
-
 export default function Book() {
-  const [services, setServices] = useState<{ id: string; name: string }[]>(FALLBACK_SERVICES);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -33,6 +21,7 @@ export default function Book() {
     register,
     handleSubmit,
     setValue,
+    control,
     formState: { errors },
     reset
   } = useForm<AppointmentInput>({
@@ -48,28 +37,11 @@ export default function Book() {
     }
   });
 
-  // Fetch active services from Supabase
+  // Set default service selection
   useEffect(() => {
-    async function loadServices() {
-      try {
-        const { data, error } = await supabase
-          .from("services")
-          .select("id, name")
-          .eq("is_active", true)
-          .order("name", { ascending: true });
-
-        if (error) throw error;
-        if (data && data.length > 0) {
-          setServices(data);
-          // Set first service as default selection if none selected yet
-          setValue("service_id", data[0].id);
-        }
-      } catch (err) {
-        console.warn("Could not load services from Supabase. Falling back to default list.", err);
-        setValue("service_id", FALLBACK_SERVICES[0].id);
-      }
+    if (SERVICES_DATA && SERVICES_DATA.length > 0) {
+      setValue("service_id", SERVICES_DATA[0].slug);
     }
-    loadServices();
   }, [setValue]);
 
   const onSubmit = async (data: AppointmentInput) => {
@@ -227,16 +199,16 @@ export default function Book() {
                   <label className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">
                     Select Required Treatment
                   </label>
-                  <select
-                    className="flex h-11 w-full rounded-xl border border-border bg-card/60 px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:border-transparent transition-all duration-200"
-                    {...register("service_id")}
-                  >
-                    {services.map((srv) => (
-                      <option key={srv.id} value={srv.id}>
-                        {srv.name}
-                      </option>
-                    ))}
-                  </select>
+                  <Controller
+                    control={control}
+                    name="service_id"
+                    render={({ field }) => (
+                      <ServiceCombobox
+                        value={field.value}
+                        onChange={field.onChange}
+                      />
+                    )}
+                  />
                   {errors.service_id && (
                     <span className="text-xs text-destructive font-medium ml-1">
                       {errors.service_id.message}

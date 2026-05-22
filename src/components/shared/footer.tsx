@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Activity, MapPin, Phone, Mail, Clock } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 export default function Footer() {
@@ -9,9 +10,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-primary">
-                <Activity className="w-5 h-5" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="bg-white p-1.5 sm:p-2 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/10 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center shrink-0">
+                <div className="relative w-7 h-7 sm:w-8 sm:h-8">
+                  <Image
+                    src="/images/logo.png"
+                    alt="PhysioVenture Logo"
+                    fill
+                    sizes="(max-width: 768px) 28px, 32px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <span className="font-display font-extrabold text-xl tracking-tight text-white">
                 Physio<span className="text-accent">Venture</span>
