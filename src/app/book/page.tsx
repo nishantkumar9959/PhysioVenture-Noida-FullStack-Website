@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { Calendar as CalendarIcon, Clock, Phone, Mail, User, AlertCircle, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import { Clock, Phone, AlertCircle, CheckCircle2, Sparkles, MapPin } from "lucide-react";
 import { appointmentSchema, type AppointmentInput } from "@/lib/validation";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceCombobox } from "@/components/service-combobox";
@@ -12,10 +12,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Turnstile } from "@/components/ui/turnstile";
+
 export default function Book() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [turnstileKey, setTurnstileKey] = useState(0);
 
   const {
     register,
@@ -33,7 +36,8 @@ export default function Book() {
       service_id: "",
       preferred_date: "",
       preferred_time_slot: "morning",
-      additional_notes: ""
+      additional_notes: "",
+      turnstileToken: ""
     }
   });
 
@@ -66,9 +70,13 @@ export default function Book() {
 
       setSubmitSuccess(true);
       reset();
-    } catch (err: any) {
-      console.error("Booking error:", err);
-      setSubmitError(err?.message || "Something went wrong while booking. Please try again or contact us via WhatsApp.");
+      setTurnstileKey((prev) => prev + 1);
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err));
+      console.error("Booking error:", error);
+      setSubmitError(error.message || "Something went wrong while booking. Please try again or contact us via WhatsApp.");
+      setValue("turnstileToken", "");
+      setTurnstileKey((prev) => prev + 1);
     } finally {
       setIsSubmitting(false);
     }
@@ -265,6 +273,21 @@ export default function Book() {
                 error={errors.additional_notes?.message}
                 {...register("additional_notes")}
               />
+
+              {/* Security Check */}
+              <div className="flex flex-col gap-1.5 my-2">
+                <Turnstile
+                  key={turnstileKey}
+                  onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
+                  onExpire={() => setValue("turnstileToken", "")}
+                  onError={() => setValue("turnstileToken", "")}
+                />
+                {errors.turnstileToken && (
+                  <span className="text-xs text-destructive font-semibold text-center mt-1">
+                    {errors.turnstileToken.message}
+                  </span>
+                )}
+              </div>
 
               <Button
                 variant="primary"

@@ -31,6 +31,7 @@ export const appointmentSchema = z.object({
     message: "Please select a preferred time slot.",
   }),
   additional_notes: z.string().max(500).optional().or(z.literal("")),
+  turnstileToken: z.string().min(1, { message: "Please complete the security check." }),
 });
 
 export const contactSchema = z.object({
@@ -48,6 +49,7 @@ export const contactSchema = z.object({
     .string()
     .min(10, { message: "Message must be at least 10 characters." })
     .max(1000),
+  turnstileToken: z.string().min(1, { message: "Please complete the security check." }),
 });
 
 export const enquirySchema = z.object({
@@ -59,6 +61,7 @@ export const enquirySchema = z.object({
     .regex(phoneRegex, { message: "Please enter a valid 10-digit phone number." }),
   symptom_details: z.string().max(500).optional().or(z.literal("")),
   source_service: z.string().optional().or(z.literal("")),
+  turnstileToken: z.string().min(1, { message: "Please complete the security check." }),
 });
 
 export type AppointmentInput = z.infer<typeof appointmentSchema>;

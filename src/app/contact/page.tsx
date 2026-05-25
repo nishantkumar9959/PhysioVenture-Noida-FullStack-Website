@@ -10,22 +10,25 @@ import {
   Clock, 
   MessageSquare, 
   AlertCircle, 
-  CheckCircle2, 
-  Sparkles 
+  CheckCircle2
 } from "lucide-react";
 import { contactSchema, type ContactInput } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Turnstile } from "@/components/ui/turnstile";
+
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [turnstileKey, setTurnstileKey] = useState(0);
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset
   } = useForm<ContactInput>({
@@ -34,7 +37,8 @@ export default function Contact() {
       name: "",
       email: "",
       phone: "",
-      message: ""
+      message: "",
+      turnstileToken: ""
     }
   });
 
@@ -60,9 +64,13 @@ export default function Contact() {
 
       setSubmitSuccess(true);
       reset();
-    } catch (err: any) {
-      console.error("Contact error:", err);
-      setSubmitError(err?.message || "Something went wrong while sending your inquiry. Please try again or contact us via WhatsApp.");
+      setTurnstileKey((prev) => prev + 1);
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err));
+      console.error("Contact error:", error);
+      setSubmitError(error.message || "Something went wrong while sending your inquiry. Please try again or contact us via WhatsApp.");
+      setValue("turnstileToken", "");
+      setTurnstileKey((prev) => prev + 1);
     } finally {
       setIsSubmitting(false);
     }
@@ -221,6 +229,21 @@ export default function Contact() {
                   error={errors.message?.message}
                   {...register("message")}
                 />
+
+                {/* Security Check */}
+                <div className="flex flex-col gap-1.5 my-2">
+                  <Turnstile
+                    key={turnstileKey}
+                    onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
+                    onExpire={() => setValue("turnstileToken", "")}
+                    onError={() => setValue("turnstileToken", "")}
+                  />
+                  {errors.turnstileToken && (
+                    <span className="text-xs text-destructive font-semibold text-center mt-1">
+                      {errors.turnstileToken.message}
+                    </span>
+                  )}
+                </div>
 
                 <Button
                   variant="primary"
