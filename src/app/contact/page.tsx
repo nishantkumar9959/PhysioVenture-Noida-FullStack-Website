@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { 
@@ -17,13 +17,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import { Turnstile } from "@/components/ui/turnstile";
+import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [turnstileKey, setTurnstileKey] = useState(0);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const {
     register,
@@ -64,13 +64,13 @@ export default function Contact() {
 
       setSubmitSuccess(true);
       reset();
-      setTurnstileKey((prev) => prev + 1);
+      turnstileRef.current?.reset();
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err));
       console.error("Contact error:", error);
       setSubmitError(error.message || "Something went wrong while sending your inquiry. Please try again or contact us via WhatsApp.");
       setValue("turnstileToken", "");
-      setTurnstileKey((prev) => prev + 1);
+      turnstileRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -185,7 +185,11 @@ export default function Contact() {
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+              <form 
+                // eslint-disable-next-line react-hooks/refs
+                onSubmit={handleSubmit(onSubmit)} 
+                className="flex flex-col gap-5"
+              >
                 <h3 className="font-display font-extrabold text-base text-primary mb-2">Send Us an Inquiry</h3>
                 
                 {submitError && (
@@ -233,7 +237,7 @@ export default function Contact() {
                 {/* Security Check */}
                 <div className="flex flex-col gap-1.5 my-2">
                   <Turnstile
-                    key={turnstileKey}
+                    ref={turnstileRef}
                     onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
                     onExpire={() => setValue("turnstileToken", "")}
                     onError={() => setValue("turnstileToken", "")}

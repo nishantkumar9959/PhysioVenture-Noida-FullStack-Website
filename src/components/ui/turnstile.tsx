@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from "react";
 import { Shield, Check } from "lucide-react";
 
 interface TurnstileProps {
@@ -8,6 +8,10 @@ interface TurnstileProps {
   onExpire?: () => void;
   onError?: () => void;
   theme?: "light" | "dark" | "auto";
+}
+
+export interface TurnstileInstance {
+  reset: () => void;
 }
 
 declare global {
@@ -31,13 +35,14 @@ declare global {
   }
 }
 
-export function Turnstile({
+export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
   onSuccess,
   onExpire,
   onError,
   theme = "auto"
-}: TurnstileProps) {
+}, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
   
   const siteKey = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY;
   const isPlaceholder = !siteKey || siteKey === "PLACEHOLDER_SITE_KEY";
@@ -46,28 +51,58 @@ export function Turnstile({
   const [demoVerified, setDemoVerified] = useState(false);
   const [demoVerifying, setDemoVerifying] = useState(false);
 
+  // Keep references to the latest callbacks to avoid triggering the useEffect dependency array
+  const onSuccessRef = useRef(onSuccess);
+  const onExpireRef = useRef(onExpire);
+  const onErrorRef = useRef(onError);
+
+  useEffect(() => {
+    onSuccessRef.current = onSuccess;
+    onExpireRef.current = onExpire;
+    onErrorRef.current = onError;
+  });
+
+  // Expose the reset function to parent components imperatively
+  useImperativeHandle(ref, () => ({
+    reset: () => {
+      if (isDemoMode) {
+        setDemoVerified(false);
+        setDemoVerifying(false);
+      } else if (window.turnstile) {
+        try {
+          if (widgetIdRef.current) {
+            window.turnstile.reset(widgetIdRef.current);
+          } else {
+            window.turnstile.reset();
+          }
+        } catch (e) {
+          console.error("Failed to reset Turnstile widget:", e);
+        }
+      }
+    }
+  }), [isDemoMode]);
+
   useEffect(() => {
     if (isPlaceholder) {
       return;
     }
 
     let script = document.getElementById("cloudflare-turnstile-script") as HTMLScriptElement | null;
-    let widgetId: string | null = null;
     const currentRef = containerRef.current;
 
     const initializeTurnstile = () => {
       if (currentRef && window.turnstile) {
         try {
-          widgetId = window.turnstile.render(currentRef, {
+          widgetIdRef.current = window.turnstile.render(currentRef, {
             sitekey: siteKey || "",
             callback: (token) => {
-              onSuccess(token);
+              onSuccessRef.current(token);
             },
             "expired-callback": () => {
-              if (onExpire) onExpire();
+              if (onExpireRef.current) onExpireRef.current();
             },
             "error-callback": () => {
-              if (onError) onError();
+              if (onErrorRef.current) onErrorRef.current();
             },
             theme: theme,
             size: "normal"
@@ -96,15 +131,16 @@ export function Turnstile({
     }
 
     return () => {
-      if (currentRef && window.turnstile && widgetId) {
+      if (currentRef && window.turnstile && widgetIdRef.current) {
         try {
-          window.turnstile.remove(widgetId);
+          window.turnstile.remove(widgetIdRef.current);
+          widgetIdRef.current = null;
         } catch {
           // Ignore removal errors on unmount
         }
       }
     };
-  }, [siteKey, isPlaceholder, onSuccess, onExpire, onError, theme]);
+  }, [siteKey, isPlaceholder, theme]);
 
   // Handle human verification click in Demo Mode
   const handleDemoVerify = () => {
@@ -115,7 +151,7 @@ export function Turnstile({
     setTimeout(() => {
       setDemoVerifying(false);
       setDemoVerified(true);
-      onSuccess("mock-turnstile-token");
+      onSuccessRef.current("mock-turnstile-token");
     }, 700);
   };
 
@@ -177,4 +213,6 @@ export function Turnstile({
       />
     </div>
   );
-}
+});
+
+Turnstile.displayName = "Turnstile";

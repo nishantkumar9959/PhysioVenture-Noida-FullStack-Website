@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -12,13 +12,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import { Turnstile } from "@/components/ui/turnstile";
+import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
 
 export default function Book() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [turnstileKey, setTurnstileKey] = useState(0);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const {
     register,
@@ -70,13 +70,13 @@ export default function Book() {
 
       setSubmitSuccess(true);
       reset();
-      setTurnstileKey((prev) => prev + 1);
+      turnstileRef.current?.reset();
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err));
       console.error("Booking error:", error);
       setSubmitError(error.message || "Something went wrong while booking. Please try again or contact us via WhatsApp.");
       setValue("turnstileToken", "");
-      setTurnstileKey((prev) => prev + 1);
+      turnstileRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -164,6 +164,7 @@ export default function Book() {
             </div>
           ) : (
             <form
+              // eslint-disable-next-line react-hooks/refs
               onSubmit={handleSubmit(onSubmit)}
               className="bg-white dark:bg-card border border-border shadow-xs rounded-2xl p-6 sm:p-8 flex flex-col gap-6 text-left"
             >
@@ -277,7 +278,7 @@ export default function Book() {
               {/* Security Check */}
               <div className="flex flex-col gap-1.5 my-2">
                 <Turnstile
-                  key={turnstileKey}
+                  ref={turnstileRef}
                   onSuccess={(token) => setValue("turnstileToken", token, { shouldValidate: true })}
                   onExpire={() => setValue("turnstileToken", "")}
                   onError={() => setValue("turnstileToken", "")}
