@@ -78,40 +78,62 @@ alter table appointments enable row level security;
 alter table contact_submissions enable row level security;
 alter table patient_enquiries enable row level security;
 
+-- Helper function to check if the current user is an admin
+create or replace function public.is_admin()
+returns boolean security definer as $$
+begin
+  return (
+    coalesce((auth.jwt() -> 'app_metadata' ->> 'is_admin')::boolean, false)
+    or
+    coalesce(auth.jwt() ->> 'email' = 'admin@physioventurenoida.com', false)
+  );
+end;
+$$ language plpgsql;
+
 -- A. Locations Policies
-create policy "Allow anonymous select on locations" 
+create policy "Allow public select on locations" 
   on locations for select using (true);
 
-create policy "Allow authenticated admin changes on locations" 
-  on locations for all to authenticated using (true) with check (true);
+create policy "Allow admin changes on locations" 
+  on locations for all to authenticated 
+  using (public.is_admin()) 
+  with check (public.is_admin());
 
 -- B. Services Policies
-create policy "Allow anonymous select on services" 
+create policy "Allow public select on services" 
   on services for select using (true);
 
-create policy "Allow authenticated admin changes on services" 
-  on services for all to authenticated using (true) with check (true);
+create policy "Allow admin changes on services" 
+  on services for all to authenticated 
+  using (public.is_admin()) 
+  with check (public.is_admin());
 
 -- C. Appointments Policies
-create policy "Allow anonymous inserts on appointments" 
+create policy "Allow public inserts on appointments" 
   on appointments for insert with check (true);
 
-create policy "Allow authenticated admin management on appointments" 
-  on appointments for all to authenticated using (true) with check (true);
+create policy "Allow admin management on appointments" 
+  on appointments for all to authenticated 
+  using (public.is_admin()) 
+  with check (public.is_admin());
 
 -- D. Contact Submissions Policies
-create policy "Allow anonymous inserts on contact_submissions" 
+create policy "Allow public inserts on contact_submissions" 
   on contact_submissions for insert with check (true);
 
-create policy "Allow authenticated admin management on contact_submissions" 
-  on contact_submissions for all to authenticated using (true) with check (true);
+create policy "Allow admin management on contact_submissions" 
+  on contact_submissions for all to authenticated 
+  using (public.is_admin()) 
+  with check (public.is_admin());
 
 -- E. Patient Enquiries Policies
-create policy "Allow anonymous inserts on patient_enquiries" 
+create policy "Allow public inserts on patient_enquiries" 
   on patient_enquiries for insert with check (true);
 
-create policy "Allow authenticated admin management on patient_enquiries" 
-  on patient_enquiries for all to authenticated using (true) with check (true);
+create policy "Allow admin management on patient_enquiries" 
+  on patient_enquiries for all to authenticated 
+  using (public.is_admin()) 
+  with check (public.is_admin());
 
 -- =========================================================================
 -- 3. SEED INITIAL DATA

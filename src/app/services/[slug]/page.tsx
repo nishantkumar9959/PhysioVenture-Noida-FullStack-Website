@@ -53,11 +53,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `Stroke rehab Noida`,
       `Joint pain treatment Noida`
     ],
+    alternates: {
+      canonical: `https://physioventure.vercel.app/services/${resolvedParams.slug}`,
+    },
     openGraph: {
       title: `${service.name} in Noida | PhysioVenture`,
       description: service.shortDesc,
       type: "website",
       locale: "en_IN",
+      url: `https://physioventure.vercel.app/services/${resolvedParams.slug}`,
     }
   };
 }

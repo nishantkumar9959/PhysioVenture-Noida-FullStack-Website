@@ -21,10 +21,10 @@
     --muted: 160 15% 90%;
     --muted-foreground: 160 20% 40%;
     
-    --accent: 160 60% 45%;        /* Mint Active Accent */
+    --accent: 160 75% 28%;        /* Mint Active Accent - WCAG AA Contrast Compliant */
     --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 45%;     /* Darker Red - WCAG AA Contrast Compliant */
     --destructive-foreground: 210 40% 98%;
     
     --border: 160 15% 88%;        /* Soft Greenish Slate Border */

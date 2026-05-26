@@ -4,6 +4,15 @@ import { BUSINESS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: `Terms of Service | ${BUSINESS.shortName}`,
   description: `Terms of service for ${BUSINESS.name}. Review our terms regarding physiotherapy services, appointments, and medical disclaimers.`,
+  alternates: {
+    canonical: "https://physioventure.vercel.app/terms",
+  },
+  openGraph: {
+    title: `Terms of Service | ${BUSINESS.shortName}`,
+    description: `Terms of service for ${BUSINESS.name}. Review our terms regarding physiotherapy services, appointments, and medical disclaimers.`,
+    url: "https://physioventure.vercel.app/terms",
+    type: "website",
+  },
 };
 
 export default function TermsOfServicePage() {

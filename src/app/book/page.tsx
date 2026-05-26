@@ -202,10 +202,10 @@ export default function Book() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Service Dropdown */}
                 <div className="w-full flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">
+                  <label htmlFor="service-select" className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">
                     Select Required Treatment
                   </label>
                   <Controller
@@ -213,6 +213,7 @@ export default function Book() {
                     name="service_id"
                     render={({ field }) => (
                       <ServiceCombobox
+                        id="service-select"
                         value={field.value}
                         onChange={field.onChange}
                       />
@@ -235,10 +236,10 @@ export default function Book() {
               </div>
 
               {/* Preferred Time Slot */}
-              <div className="w-full flex flex-col gap-1.5">
-                <label className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">
+              <div className="w-full flex flex-col gap-1.5" role="radiogroup" aria-labelledby="time-slot-label">
+                <span id="time-slot-label" className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">
                   Preferred Time of Day
-                </label>
+                </span>
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     { val: "morning", label: "Morning", desc: "8 AM - 12 PM" },

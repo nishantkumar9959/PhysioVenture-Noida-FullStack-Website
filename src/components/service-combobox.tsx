@@ -29,9 +29,11 @@ import { SERVICES_DATA } from "@/lib/services-data"
 export function ServiceCombobox({
   value,
   onChange,
+  id = "service-select",
 }: {
   value: string
   onChange: (value: string) => void
+  id?: string
 }) {
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
@@ -50,7 +52,7 @@ export function ServiceCombobox({
   const ServiceList = (
     <Command>
       <CommandInput placeholder="Search treatments..." />
-      <CommandList>
+      <CommandList id={`${id}-listbox`}>
         <CommandEmpty>No service found.</CommandEmpty>
         {Object.entries(groupedServices).map(([category, srvs]) => (
           <CommandGroup key={category} heading={category}>
@@ -83,9 +85,12 @@ export function ServiceCombobox({
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
+            id={id}
             variant="outline"
             role="combobox"
             aria-expanded={open}
+            aria-haspopup="listbox"
+            aria-controls={open ? `${id}-listbox` : undefined}
             className="w-full justify-between h-11 bg-card/60 hover:bg-card/80 font-normal rounded-xl border-border"
           >
             {selectedService ? selectedService.name : "Select Required Treatment"}
@@ -103,9 +108,12 @@ export function ServiceCombobox({
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button
+          id={id}
           variant="outline"
           role="combobox"
           aria-expanded={open}
+          aria-haspopup="listbox"
+          aria-controls={open ? `${id}-listbox` : undefined}
           className="w-full justify-between h-11 bg-card/60 hover:bg-card/80 font-normal rounded-xl border-border"
         >
           {selectedService ? selectedService.name : "Select Required Treatment"}

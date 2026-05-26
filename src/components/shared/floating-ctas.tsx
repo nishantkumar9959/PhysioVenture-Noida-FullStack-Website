@@ -1,12 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 export default function FloatingCTAs() {
   const defaultMessage = encodeURIComponent(BUSINESS.whatsappMessage);
   const whatsappUrl = `https://wa.me/${BUSINESS.whatsappNumber}?text=${defaultMessage}`;
+  const shouldReduceMotion = useReducedMotion();
+
+  // Animation variants depending on user preferences
+  const initialAnimation = shouldReduceMotion ? { opacity: 0 } : { scale: 0, opacity: 0 };
+  const animateState = shouldReduceMotion ? { opacity: 1 } : { scale: 1, opacity: 1 };
+  const transitionSettings = shouldReduceMotion 
+    ? { duration: 0.1 } 
+    : { type: "spring" as const, stiffness: 260, damping: 20 };
 
   return (
     <>
@@ -16,26 +24,25 @@ export default function FloatingCTAs() {
         {/* WhatsApp Button Wrapper to support sonar ping behind it */}
         <motion.div
           className="relative"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            delay: 0.6,
-          }}
+          initial={initialAnimation}
+          animate={animateState}
+          transition={{ ...transitionSettings, delay: 0.6 }}
         >
-          {/* Sonar Ping Rings */}
-          <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none scale-105" />
-          <span className="absolute inset-0 rounded-full bg-[#25D366]/20 animate-pulse pointer-events-none" />
+          {/* Sonar Ping Rings - Hidden when reduced motion is preferred */}
+          {!shouldReduceMotion && (
+            <>
+              <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none scale-105" />
+              <span className="absolute inset-0 rounded-full bg-[#25D366]/20 animate-pulse pointer-events-none" />
+            </>
+          )}
 
           <motion.a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20ba5a] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366] cursor-pointer"
-            whileHover={{ y: -5, scale: 1.06, rotate: 5 }}
-            whileTap={{ scale: 0.92 }}
+            whileHover={shouldReduceMotion ? { y: -2 } : { y: -5, scale: 1.06, rotate: 5 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.92 }}
             aria-label="Chat on WhatsApp"
           >
             <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -46,20 +53,15 @@ export default function FloatingCTAs() {
 
         {/* Phone Button */}
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            delay: 0.75,
-          }}
+          initial={initialAnimation}
+          animate={animateState}
+          transition={{ ...transitionSettings, delay: 0.75 }}
         >
           <motion.a
             href="tel:+918932082549"
             className="flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl hover:bg-primary/90 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary cursor-pointer"
-            whileHover={{ y: -5, scale: 1.06, rotate: -5 }}
-            whileTap={{ scale: 0.92 }}
+            whileHover={shouldReduceMotion ? { y: -2 } : { y: -5, scale: 1.06, rotate: -5 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.92 }}
             aria-label="Call clinic"
           >
             <Phone className="w-6 h-6 stroke-[2.2]" />
