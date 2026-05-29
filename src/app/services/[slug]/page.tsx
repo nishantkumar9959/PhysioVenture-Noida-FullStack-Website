@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { 
-  ArrowLeft, 
-  CheckCircle, 
-  MapPin, 
-  Phone, 
-  Calendar, 
+import {
+  ArrowLeft,
+  CheckCircle,
+  MapPin,
+  Phone,
+  Calendar,
   HelpCircle,
   Activity,
   Sparkles,
@@ -17,6 +17,7 @@ import { SERVICES_DATA, getServiceBySlug } from "@/lib/services-data";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Accordion } from "@/components/ui/accordion";
+import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${service.name} in Noida | PhysioVenture Home Rehabilitation`,
-    description: `Specialized ${service.name} by Dr. Rohit Kumar (7+ Yrs Exp) in Sector 49, Noida. We treat ${service.symptoms.slice(0, 3).join(", ")}. Book a premium home visit session today.`,
+    description: `Specialized ${service.name} by Dr. Rohit Verma (7+ Yrs Exp) in Sector 49, Noida. We treat ${service.symptoms.slice(0, 3).join(", ")}. Book a premium home visit session today.`,
     keywords: [
       `${service.name} Noida`,
       `Best ${service.name} in Noida`,
@@ -54,14 +55,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `Joint pain treatment Noida`
     ],
     alternates: {
-      canonical: `https://physioventure.vercel.app/services/${resolvedParams.slug}`,
+      canonical: `/services/${resolvedParams.slug}`,
     },
     openGraph: {
       title: `${service.name} in Noida | PhysioVenture`,
       description: service.shortDesc,
       type: "website",
       locale: "en_IN",
-      url: `https://physioventure.vercel.app/services/${resolvedParams.slug}`,
+      url: `/services/${resolvedParams.slug}`,
     }
   };
 }
@@ -97,11 +98,64 @@ export default async function ServicePage({ params }: Props) {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": SITE_URL
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": `${SITE_URL}/services`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": service.name,
+        "item": `${SITE_URL}/services/${resolvedParams.slug}`
+      }
+    ]
+  };
+
+  const medicalWebPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": `${SITE_URL}/services/${resolvedParams.slug}#webpage`,
+    "url": `${SITE_URL}/services/${resolvedParams.slug}`,
+    "name": `${service.name} in Noida`,
+    "description": service.shortDesc,
+    "inLanguage": "en-IN",
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "about": {
+      "@type": "MedicalBusiness",
+      "name": "PhysioVenture Neuro & Ortho Physiotherapy Clinic"
+    },
+    "author": {
+      "@type": "Person",
+      "name": DOCTOR_NAME,
+      "url": `${SITE_URL}/about`
+    }
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-left">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
       />
       {/* Dynamic Breadcrumbs */}
       <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium mb-6">
@@ -113,8 +167,8 @@ export default async function ServicePage({ params }: Props) {
       </div>
 
       {/* Back button */}
-      <Link 
-        href="/services" 
+      <Link
+        href="/services"
         className="inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-primary transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Services Hub
@@ -128,9 +182,9 @@ export default async function ServicePage({ params }: Props) {
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-primary leading-tight">
           {service.name}
         </h1>
-        <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mt-2">
+        <h2 className="text-muted-foreground text-base sm:text-lg lg:text-xl leading-relaxed mt-2 font-medium">
           {service.shortDesc}
-        </p>
+        </h2>
       </div>
 
       {/* Two Column Details Grid */}
@@ -145,6 +199,20 @@ export default async function ServicePage({ params }: Props) {
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed border-l-2 border-accent/20 pl-4 py-1">
               {service.longDesc}
             </p>
+            {/* Expert Citation Component */}
+            <blockquote
+              className="p-5 my-6 rounded-r-2xl border-l-4 italic text-sm sm:text-base leading-relaxed shadow-xs"
+              style={{
+                borderLeft: "4px solid hsl(160, 60%, 45%)",
+                backgroundColor: "hsl(210, 20%, 98%)",
+                color: "hsl(160, 84%, 12%)"
+              }}
+            >
+              "Consistent, evidence-based physical therapy is essential to restore proper biomechanics. By bringing specialized clinical care directly to your home, we optimize safety and speed up recovery times."
+              <span className="block mt-2 text-xs font-bold not-italic text-muted-foreground">
+                — {DOCTOR_NAME}, Lead Physiotherapist & Clinical Director
+              </span>
+            </blockquote>
           </div>
 
           {/* Treatment step by step timeline */}
@@ -152,7 +220,7 @@ export default async function ServicePage({ params }: Props) {
             <h3 className="text-xl font-display font-extrabold text-primary flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-accent" /> Progressive Rehabilitation Timeline
             </h3>
-            
+
             <div className="space-y-6 relative border-l border-border/60 pl-6 ml-3">
               {service.timeline.map((step, idx) => (
                 <div key={idx} className="relative">
@@ -187,7 +255,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="bg-secondary/40 rounded-2xl p-6 border border-border/40 text-left flex flex-col gap-4">
             <h4 className="font-display font-extrabold text-sm uppercase tracking-wider text-primary">Noida Home Visits</h4>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Dr. Rohit Kumar brings certified sterile modalities, chiropractic adjusters, and exercise Prescriptions directly to your home.
+              Dr. Rohit Verma brings certified sterile modalities, chiropractic adjusters, and exercise Prescriptions directly to your home.
             </p>
             <div className="space-y-2.5 text-xs text-muted-foreground border-t border-border/40 pt-4">
               <div className="flex justify-between">
@@ -200,10 +268,10 @@ export default async function ServicePage({ params }: Props) {
               </div>
               <div className="flex justify-between">
                 <span>Consultant</span>
-                <span className="font-bold text-accent">Dr. Rohit Kumar (7+ Yrs Exp)</span>
+                <span className="font-bold text-accent">Dr. Rohit Verma (7+ Yrs Exp)</span>
               </div>
             </div>
-            
+
             <div className="flex flex-col gap-3 pt-2">
               <Button variant="primary" asChild>
                 <Link href="/book" className="flex items-center justify-center gap-2">

@@ -3,7 +3,7 @@ import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://physioventure.vercel.app";
+  const baseUrl = "https://physioventurenoida.vercel.app";
 
   const staticRoutes = [
     "",

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with PhysioVenture clinic in Sector 49, Noida. Call, WhatsApp, or visit us for expert neurological and orthopaedic physiotherapy. Mon-Sat 8AM-8PM.",
   alternates: {
-    canonical: "https://physioventure.vercel.app/contact",
+    canonical: "/contact",
   },
   openGraph: {
     title: "Contact Us | PhysioVenture Noida",

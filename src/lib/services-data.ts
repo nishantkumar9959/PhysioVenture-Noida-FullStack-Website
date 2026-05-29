@@ -65,7 +65,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     faqs: [
       { question: "When should I choose home visits for back pain?", answer: "If you have acute sciatica or a slip disc flare-up making it difficult to sit in a car or stand, home-visit physical therapy is highly recommended to start initial relief therapy immediately." },
-      { question: "Is a doctor referral necessary for back pain treatment?", answer: "No, a referral is not required. Dr. Rohit Kumar conducts a complete diagnostic screen during the first session. If red flags are identified, we will refer you for an MRI or specialist consultation." }
+      { question: "Is a doctor referral necessary for back pain treatment?", answer: "No, a referral is not required. Dr. Rohit Verma conducts a complete diagnostic screen during the first session. If red flags are identified, we will refer you for an MRI or specialist consultation." }
     ]
   },
   {
@@ -93,7 +93,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     category: "ortho",
     categoryLabel: "Orthopaedic & Spine",
     shortDesc: "Manual spinal adjustment and joint mobilization techniques to restore alignment and relieve pressure.",
-    longDesc: "Chiropractic Care at PhysioVenture combines manual spine manipulation with physical therapeutic modalities. Dr. Rohit Kumar uses precise, gentle thrusts to adjust misaligned spinal segments, restoring normal joint biomechanics, relieving compressed nerves, and relaxing chronic muscle splinting. Highly effective for neck stiffness, tension headaches, and chronic lower back pain.",
+    longDesc: "Chiropractic Care at PhysioVenture combines manual spine manipulation with physical therapeutic modalities. Dr. Rohit Verma uses precise, gentle thrusts to adjust misaligned spinal segments, restoring normal joint biomechanics, relieving compressed nerves, and relaxing chronic muscle splinting. Highly effective for neck stiffness, tension headaches, and chronic lower back pain.",
     symptoms: ["Spinal stiffness and restricted neck rotation", "Tension headaches and shoulder tightness", "Facet joint lock or localized back catches", "Postural misalignment", "Chronic pelvis tilt"],
     timeline: [
       "Palpation study of spinal segments and active range-of-motion testing.",
@@ -102,7 +102,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Stabilizing therapeutic exercises to maintain the corrected alignment."
     ],
     faqs: [
-      { question: "Are chiropractic adjustments safe?", answer: "Yes, when performed by a qualified physical therapist like Dr. Rohit Kumar who has advanced training in manual adjustments. We screen for contraindications like osteoporosis first." },
+      { question: "Are chiropractic adjustments safe?", answer: "Yes, when performed by a qualified physical therapist like Dr. Rohit Verma who has advanced training in manual adjustments. We screen for contraindications like osteoporosis first." },
       { question: "What is the 'popping' sound during an adjustment?", answer: "The sound is called cavitation. It is simply the release of gas bubbles (nitrogen) from the joint fluid when the joint space is gently opened, relieving pressure." }
     ]
   },
@@ -179,7 +179,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     faqs: [
       { question: "How long does rehab take after a total hip replacement?", answer: "Total hip rehabilitation spans 6-12 weeks. Initial mobility starts day one, with progressive strengthening continuing to restore full walking function by week 8." },
-      { question: "What is causing pain in my groin when I walk?", answer: "Groin pain is often a sign of hip joint involvement, such as osteoarthritis, labral tears, or hip flexor strains. Dr. Rohit Kumar will diagnose this during your evaluation." }
+      { question: "What is causing pain in my groin when I walk?", answer: "Groin pain is often a sign of hip joint involvement, such as osteoarthritis, labral tears, or hip flexor strains. Dr. Rohit Verma will diagnose this during your evaluation." }
     ]
   },
   {
@@ -245,7 +245,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     category: "specialized",
     categoryLabel: "Specialized Programs",
     shortDesc: "Clinical myofascial release, deep tissue therapy, and trigger point targeting for recovery.",
-    longDesc: "Clinical Massage Therapy at PhysioVenture goes beyond basic spa relaxation. Dr. Rohit Kumar applies anatomical expertise to perform myofascial release, deep tissue friction, and trigger point therapy. This breaks down muscle adhesions (scar tissue), improves lymphatic drainage, flushes out metabolic waste, and relieves chronic muscular tension.",
+    longDesc: "Clinical Massage Therapy at PhysioVenture goes beyond basic spa relaxation. Dr. Rohit Verma applies anatomical expertise to perform myofascial release, deep tissue friction, and trigger point therapy. This breaks down muscle adhesions (scar tissue), improves lymphatic drainage, flushes out metabolic waste, and relieves chronic muscular tension.",
     symptoms: ["Chronic muscle knots and trigger points", "Muscle tightness from intense workouts", "Post-exercise soreness and lactic acid buildup", "Reduced range of motion due to tight muscles", "Stress-induced shoulder and neck tension"],
     timeline: [
       "Assessment of muscle tone, identification of active trigger points, and pain mapping.",
@@ -264,7 +264,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     category: "neuro",
     categoryLabel: "Neurological & Stroke",
     shortDesc: "Specialized neural plasticity programs for stroke recovery, Parkinson's disease, and balance disorders.",
-    longDesc: "Neurological Physiotherapy focuses on re-wiring the nervous system through neuroplasticity. We treat stroke (hemiplegia), Parkinson's disease, Multiple Sclerosis, Guillain-Barré Syndrome (GBS), and facial palsy. Dr. Rohit Kumar designs progressive sensory-motor retraining, balance tracks, and functional coordination tasks to help neurological patients reclaim control over their bodies.",
+    longDesc: "Neurological Physiotherapy focuses on re-wiring the nervous system through neuroplasticity. We treat stroke (hemiplegia), Parkinson's disease, Multiple Sclerosis, Guillain-Barré Syndrome (GBS), and facial palsy. Dr. Rohit Verma designs progressive sensory-motor retraining, balance tracks, and functional coordination tasks to help neurological patients reclaim control over their bodies.",
     symptoms: ["One-sided body weakness or paralysis (Hemiplegia)", "Loss of hand function and coordination", "Tremors, rigidity, or shuffling gait", "Difficulty speaking or facial asymmetry (Palsy)", "Impaired spatial awareness and balance"],
     timeline: [
       "Comprehensive neurological screening: muscle tone (spasticity check), reflexes, and functional safety.",
@@ -321,7 +321,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     category: "specialized",
     categoryLabel: "Specialized Programs",
     shortDesc: "Developmental assessment and therapeutic movement training for children with delays.",
-    longDesc: "Paediatric Physiotherapy addresses gross motor development and neuromuscular health in infants, toddlers, and children. We treat cerebral palsy, developmental delays, torticollis, and gait abnormalities. Dr. Rohit Kumar uses fun, play-based exercises to stimulate motor planning, improve muscle tone, and encourage normal developmental milestones.",
+    longDesc: "Paediatric Physiotherapy addresses gross motor development and neuromuscular health in infants, toddlers, and children. We treat cerebral palsy, developmental delays, torticollis, and gait abnormalities. Dr. Rohit Verma uses fun, play-based exercises to stimulate motor planning, improve muscle tone, and encourage normal developmental milestones.",
     symptoms: ["Delayed rolling, sitting, crawling, or walking", "Asymmetric movements or tilting the head to one side", "Toe walking or frequent tripping", "Floppy muscle tone or severe stiffness", "Cerebral palsy motor difficulties"],
     timeline: [
       "Developmental milestone check, muscle tone evaluation, and reflex analysis.",
@@ -369,7 +369,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     faqs: [
       { question: "Why is post-surgery rehab important?", answer: "Without structured rehab, surgical joints can develop severe scar tissue adhesions, leading to permanent stiffness, muscle weakness, and chronic pain. Rehabilitation ensures you get the full benefit of your surgery." },
-      { question: "Do you coordinate with my operating surgeon?", answer: "Yes. Dr. Rohit Kumar carefully reviews your surgeon's discharge notes and specific protocol guidelines to ensure our home therapy matches their surgical parameters." }
+      { question: "Do you coordinate with my operating surgeon?", answer: "Yes. Dr. Rohit Verma carefully reviews your surgeon's discharge notes and specific protocol guidelines to ensure our home therapy matches their surgical parameters." }
     ]
   },
   {
@@ -444,7 +444,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Dynamic balance and habituation training to eliminate residual walking instability."
     ],
     faqs: [
-      { question: "What is BPPV, and how does physical therapy help?", answer: "Benign Paroxysmal Positional Vertigo (BPPV) occurs when tiny calcium crystals in the inner ear shift out of place. Dr. Rohit Kumar can perform gentle head positioning maneuvers to guide these crystals back, resolving vertigo in just 1-2 sessions." },
+      { question: "What is BPPV, and how does physical therapy help?", answer: "Benign Paroxysmal Positional Vertigo (BPPV) occurs when tiny calcium crystals in the inner ear shift out of place. Dr. Rohit Verma can perform gentle head positioning maneuvers to guide these crystals back, resolving vertigo in just 1-2 sessions." },
       { question: "Will the exercises make me feel dizzy temporarily?", answer: "Yes, some gaze exercises may trigger mild, brief dizziness initially. This is a normal part of desensitizing the brain, and the therapist monitors you closely throughout." }
     ]
   }

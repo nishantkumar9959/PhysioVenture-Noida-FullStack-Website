@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "stroke rehabilitation Noida",
   ],
   alternates: {
-    canonical: "https://physioventure.vercel.app/services",
+    canonical: "https://physioventurenoida.vercel.app/services",
   },
   openGraph: {
     title: "23+ Physiotherapy Services | PhysioVenture Noida",
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
       "Comprehensive physiotherapy services including neuro, ortho, sports, geriatric, and home-visit treatments in Noida.",
     type: "website",
     locale: "en_IN",
+    url: "https://physioventurenoida.vercel.app/services",
   },
 };
 

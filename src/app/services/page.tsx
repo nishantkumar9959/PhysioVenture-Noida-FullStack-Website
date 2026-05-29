@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { 
-  Activity, 
-  Phone, 
-  Sparkles 
+import {
+  Activity,
+  Phone,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServicesFilterList from "@/components/services/ServicesFilterList";
@@ -20,7 +20,7 @@ export default function ServicesHub() {
           Specialized Physiotherapy Programs
         </h1>
         <p className="text-muted-foreground text-base leading-relaxed max-w-2xl">
-          Explore our portfolio of 23 clinical treatments. From stroke neuro-rehab to post-surgery mobilization, Dr. Rohit Kumar delivers personalized recovery protocols directly to your Noida residence or clinic.
+          Explore our portfolio of 23 clinical treatments. From stroke neuro-rehab to post-surgery mobilization, Dr. Rohit Verma delivers personalized recovery protocols directly to your Noida residence or clinic.
         </p>
       </div>
 
@@ -38,7 +38,7 @@ export default function ServicesHub() {
             Can't Travel to the Clinic?
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            All 23 services are available as clinical home visits. Dr. Rohit Kumar travels with compact electrotherapy modalities, chiropractic adjusters, and diagnostic gear to deliver custom recovery sessions directly to you in Noida.
+            All 23 services are available as clinical home visits. Dr. Rohit Verma travels with compact electrotherapy modalities, chiropractic adjusters, and diagnostic gear to deliver custom recovery sessions directly to you in Noida.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
@@ -47,7 +47,7 @@ export default function ServicesHub() {
           </Button>
           <Button variant="outline" size="md" asChild>
             <Link href="/contact" className="flex items-center gap-2">
-              <Phone className="w-4 h-4" /> Speak with Dr. Rohit Kumar
+              <Phone className="w-4 h-4" /> Speak with Dr. Rohit Verma
             </Link>
           </Button>
         </div>

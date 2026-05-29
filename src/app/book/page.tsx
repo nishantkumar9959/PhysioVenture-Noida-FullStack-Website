@@ -94,7 +94,7 @@ export default function Book() {
           Schedule Your Consultation
         </h1>
         <p className="text-muted-foreground text-sm leading-relaxed">
-          Book an expert home visit or clinic consultation. Fill out the details below, and Dr. Rohit Kumar will reach out to confirm your session.
+          Book an expert home visit or clinic consultation. Fill out the details below, and Dr. Rohit Verma will reach out to confirm your session.
         </p>
       </div>
 
@@ -103,7 +103,7 @@ export default function Book() {
         <div className="lg:col-span-4 flex flex-col gap-6">
           <div className="bg-secondary/40 rounded-2xl p-6 border border-border/50 text-left">
             <h3 className="font-display font-extrabold text-base text-primary mb-3">Rehab Booking Info</h3>
-            
+
             <div className="space-y-4">
               <div className="flex gap-3">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -112,7 +112,7 @@ export default function Book() {
                   <p className="text-xs text-muted-foreground mt-0.5">All sectors in Noida, Greater Noida, and nearby regions.</p>
                 </div>
               </div>
-              
+
               <div className="flex gap-3">
                 <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
@@ -137,7 +137,7 @@ export default function Book() {
             <div className="absolute -right-10 -bottom-10 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
             <h4 className="font-display font-extrabold text-sm uppercase tracking-wider text-accent mb-2">Home Visit Advantage</h4>
             <p className="text-xs text-primary-foreground/95 leading-relaxed">
-              Skip the painful commutes. Dr. Rohit Kumar brings high-end clinical mobilization bands, electrotherapy modalities, and diagnostic expertise directly to your home.
+              Skip the painful commutes. Dr. Rohit Verma brings high-end clinical mobilization bands, electrotherapy modalities, and diagnostic expertise directly to your home.
             </p>
           </div>
         </div>
@@ -151,7 +151,7 @@ export default function Book() {
               </div>
               <h2 className="text-2xl font-display font-extrabold text-primary">Booking Requested!</h2>
               <p className="text-muted-foreground text-sm max-w-md">
-                Thank you for scheduling with PhysioVenture. Dr. Rohit Kumar will call you shortly on your provided number to coordinate the session timing and address.
+                Thank you for scheduling with PhysioVenture. Dr. Rohit Verma will call you shortly on your provided number to coordinate the session timing and address.
               </p>
               <div className="flex gap-4 mt-4">
                 <Button variant="primary" onClick={() => setSubmitSuccess(false)}>
@@ -202,7 +202,7 @@ export default function Book() {
                 />
               </div>
 
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Service Dropdown */}
                 <div className="w-full flex flex-col gap-1.5">
                   <label htmlFor="service-select" className="text-xs font-semibold tracking-wider uppercase text-muted-foreground ml-1">

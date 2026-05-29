@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SEO / GEO Optimization documents
+/PRINCETON_GEO_OPTIMIZATION.md
+/SEO_GEO_FINDINGS.md
+/SEO_GEO_KEYWORD_RESEARCH_EXPANDED.md
+/SEO_KEYWORD_RESEARCH.md

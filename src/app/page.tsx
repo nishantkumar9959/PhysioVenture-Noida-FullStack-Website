@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  ShieldCheck, 
-  MapPin, 
-  Clock, 
-  Phone, 
-  MessageSquare, 
-  Award, 
+import {
+  ShieldCheck,
+  MapPin,
+  Clock,
+  Phone,
+  MessageSquare,
+  Award,
   ArrowRight,
   ChevronRight,
-  HeartHandshake, 
+  HeartHandshake,
   CheckCircle,
   Sparkles,
   Star,
@@ -22,6 +22,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import SymptomServicesSection from "@/components/home/SymptomServicesSection";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
+import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 const PATIENT_TESTIMONIALS = [
   {
@@ -29,7 +30,7 @@ const PATIENT_TESTIMONIALS = [
     role: "Son of Stroke Patient",
     location: "Sector 50, Noida",
     condition: "Stroke & Neuro Mobility",
-    quote: "Dr. Rohit Kumar's home visits were a game changer for my 70-year-old mother recovering from a stroke. Within 3 months of customized balance and motor therapy, she regained her confidence to walk independently. Truly professional and highly recommended.",
+    quote: "Dr. Rohit Verma's home visits were a game changer for my 70-year-old mother recovering from a stroke. Within 3 months of customized balance and motor therapy, she regained her confidence to walk independently. Truly professional and highly recommended.",
     rating: 5,
     type: "Home Visit",
   },
@@ -38,7 +39,7 @@ const PATIENT_TESTIMONIALS = [
     role: "Software Architect",
     location: "Sector 62, Noida",
     condition: "Slip Disc & Sciatica",
-    quote: "Suffered from persistent slip disc pain for months due to sitting. Dr. Rohit Kumar's chiropractic adjustments and core strengthening exercises did wonders. His explanation of the biomechanics was reassuring. Best therapist in Noida!",
+    quote: "Suffered from persistent slip disc pain for months due to sitting. Dr. Rohit Verma's chiropractic adjustments and core strengthening exercises did wonders. His explanation of the biomechanics was reassuring. Best therapist in Noida!",
     rating: 5,
     type: "Clinic Visit",
   },
@@ -47,7 +48,7 @@ const PATIENT_TESTIMONIALS = [
     role: "Retired Teacher",
     location: "Sector 49, Noida",
     condition: "Post-OP Knee Replacement",
-    quote: "Post-surgery knee rehab at home was incredibly convenient. Dr. Rohit Kumar brought advanced mobilization tools, checked my progress diligently, and guided me back to climbing stairs pain-free. A dedicated, experienced professional.",
+    quote: "Post-surgery knee rehab at home was incredibly convenient. Dr. Rohit Verma brought advanced mobilization tools, checked my progress diligently, and guided me back to climbing stairs pain-free. A dedicated, experienced professional.",
     rating: 5,
     type: "Home Visit",
   }
@@ -59,11 +60,15 @@ export default function Home() {
     "@type": "MedicalBusiness",
     "name": "PhysioVenture Neuro & Ortho Physiotherapy Clinic",
     "alternateName": "PhysioVenture",
-    "image": "https://physioventure.vercel.app/images/hero_physiotherapy_bg.jpg",
-    "@id": "https://physioventure.vercel.app/#medicalbusiness",
-    "url": "https://physioventure.vercel.app",
+    "description": "Premium neurological and orthopaedic physiotherapy clinic in Sector 49, Noida. Specializing in stroke recovery, joint pain, sports injuries, and post-surgery rehabilitation with expert home-visit services across all Noida sectors.",
+    "image": `${SITE_URL}/images/hero_physiotherapy_bg.jpg`,
+    "@id": `${SITE_URL}/#medicalbusiness`,
+    "url": SITE_URL,
     "telephone": "+91 89320 82549",
+    "email": "contact@physioventurenoida.com",
     "priceRange": "$$",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, UPI, Bank Transfer",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "A-31, Block A, Sector 49",
@@ -92,7 +97,144 @@ export default function Home() {
     },
     "medicalSpecialty": [
       "Physiotherapy",
-      "PhysicalTherapy"
+      "PhysicalTherapy",
+      "Neurological Rehabilitation",
+      "Orthopaedic Rehabilitation"
+    ],
+    "availableLanguage": ["English", "Hindi"],
+    "areaServed": [
+      { "@type": "Place", "name": "Sector 49, Noida" },
+      { "@type": "Place", "name": "Sector 50, Noida" },
+      { "@type": "Place", "name": "Sector 51, Noida" },
+      { "@type": "Place", "name": "Sector 62, Noida" },
+      { "@type": "Place", "name": "Sector 78, Noida" },
+      { "@type": "Place", "name": "Sector 150, Noida" },
+      { "@type": "Place", "name": "Noida Expressway" },
+      { "@type": "Place", "name": "Noida, Uttar Pradesh" }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": DOCTOR_NAME,
+      "jobTitle": "Lead Physiotherapist & Clinical Director",
+      "description": `Dr. Rohit Verma has 7+ years of clinical expertise in Neurological and Orthopaedic Rehabilitation serving 1200+ patients in Noida.`,
+      "url": `${SITE_URL}/about`,
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "B.P.T (Bachelor of Physiotherapy)" },
+        { "@type": "EducationalOccupationalCredential", "name": "M.P.T (Neuro Rehabilitation & Musculoskeletal Recovery)" },
+        { "@type": "EducationalOccupationalCredential", "name": "Stroke Rehabilitation Expert Certification" }
+      ]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Physiotherapy Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Neurological Physiotherapy", "url": `${SITE_URL}/services/neurological-physiotherapy` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Orthopaedic Rehabilitation", "url": `${SITE_URL}/services/orthopaedic-rehabilitation` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Back Pain & Sciatica Treatment", "url": `${SITE_URL}/services/back-pain-treatment` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Post-Surgery Rehabilitation", "url": `${SITE_URL}/services/post-surgery-rehabilitation` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Chiropractic Care", "url": `${SITE_URL}/services/chiropractic-care` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Knee Pain Treatment", "url": `${SITE_URL}/services/knee-pain-treatment` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Shoulder Pain Treatment", "url": `${SITE_URL}/services/shoulder-pain-treatment` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Geriatric Physiotherapy", "url": `${SITE_URL}/services/geriatric-physiotherapy` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Stroke Rehabilitation", "url": `${SITE_URL}/services/neurological-physiotherapy` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Home Visit Physiotherapy", "url": SITE_URL } }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    "url": SITE_URL,
+    "name": "PhysioVenture",
+    "description": "Premier Neurological & Orthopaedic Physiotherapy Clinic in Noida",
+    "inLanguage": "en-IN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${SITE_URL}/services?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is home visit physiotherapy in Noida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Home visit physiotherapy in Noida is a professional rehabilitation service where a licensed physiotherapist — like ${DOCTOR_NAME} at PhysioVenture — visits your home with clinical-grade equipment including TENS units, electrotherapy devices, and chiropractic adjustment instruments. With over 7 years of clinical expertise, this localized delivery eliminates the need for painful commutes and provides 1-on-1 focused care.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which areas in Noida does PhysioVenture cover for home visits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PhysioVenture provides home visit physiotherapy across all major Noida sectors including Sectors 49, 50, 51, 62, 74, 78, 93, 100, 137, 150, Noida Expressway, and Greater Noida West."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many sessions are required for stroke rehabilitation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stroke rehabilitation typically requires 30-60 sessions for meaningful recovery, with dynamic exercises recommended to maximize neuroplasticity optimization within the first 3 months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a doctor referral required for physiotherapy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `No doctor referral is required for physiotherapy in India. You can directly schedule a biomechanical assessment with ${DOCTOR_NAME} at PhysioVenture.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between orthopaedic and neurological physiotherapy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Orthopaedic physiotherapy focuses on musculoskeletal targets (bones, joints, muscles, and ligaments), while neurological physiotherapy targets the nervous system (rehabilitation for stroke, Parkinson's disease, and Multiple Sclerosis)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What equipment does PhysioVenture bring for home visits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PhysioVenture brings portable clinical machines including IFT/TENS electrotherapy units, chiropractic adjustment devices, traction equipment, and resistance tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a home visit physiotherapy session cost in Noida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Home visit physiotherapy session costs in Noida by PhysioVenture are highly competitive and nominal. Rates vary based on specialized treatment requirements. Please call or book online to discuss packages and pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can physiotherapy help with chronic back pain and sciatica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Physiotherapy is highly effective for chronic back pain and sciatica. Evidence-based treatments including core stabilization, McKenzie Method, and spinal manual manipulation can significantly reduce nerve compression and pain."
+        }
+      }
     ]
   };
 
@@ -102,6 +244,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* 1. Hero Section Wrapper with Fading Background Image */}
       <div id="hero" className="relative w-full border-b border-border/20 bg-background/50 overflow-hidden">
         {/* Absolute Background Image fading to the left */}
@@ -110,7 +260,7 @@ export default function Home() {
           <div className="absolute inset-0 w-full h-full">
             <Image
               src="/images/hero_physiotherapy_bg.jpg"
-              alt="Hands-on Physiotherapy Session in Noida by Dr. Rohit Kumar"
+              alt="Hands-on Physiotherapy Session in Noida by Dr. Rohit Verma"
               fill
               priority
               sizes="100vw"
@@ -153,7 +303,7 @@ export default function Home() {
                   Explore Services
                 </Link>
               </Button>
-              
+
               {/* Clinical Grade Safety Badge */}
               <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 h-8 sm:h-auto px-3 sm:px-3 sm:py-2 rounded-full sm:rounded-xl bg-secondary/60 border border-primary/10 w-fit backdrop-blur-xs self-center sm:self-auto mt-2 sm:mt-0">
                 <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 text-accent shrink-0" />
@@ -177,7 +327,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           {/* Empty spacer column to keep left layout balanced and let the background image shine */}
           <div className="hidden lg:block lg:col-span-5 pointer-events-none" />
         </section>
@@ -225,7 +375,7 @@ export default function Home() {
             <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 dark:border-primary/10">
               <Image
                 src="/images/home_visit.png"
-                alt="Dr. Rohit Kumar providing physical therapy at patient's home"
+                alt="Dr. Rohit Verma providing physical therapy at patient's home"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
                 className="object-cover"
@@ -297,16 +447,16 @@ export default function Home() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-primary leading-tight">
-              Meet Dr. Rohit Kumar
+              Meet Dr. Rohit Verma
               <span className="block text-sm font-medium text-accent mt-1">B.P.T, M.P.T (Neuro Rehabilitation & Musculoskeletal Recovery)</span>
             </h2>
 
             <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
-                Dr. Rohit Kumar is Noida's leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 1,200 patients back to peak mobility and pain-free living.
+                Dr. Rohit Verma is Noida's leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 1,200 patients back to peak mobility and pain-free living.
               </p>
               <p>
-                Having worked across renowned multi-specialty hospitals and active sports academies, Dr. Rohit Kumar recognized that recovery is fastest, safest, and most lasting when clinical expertise is combined with a stress-free environment. This realization drove him to pioneer the <strong>PhysioVenture Home Rehabilitation Program</strong> in Noida.
+                Having worked across renowned multi-specialty hospitals and active sports academies, Dr. Rohit Verma recognized that recovery is fastest, safest, and most lasting when clinical expertise is combined with a stress-free environment. This realization drove him to pioneer the <strong>PhysioVenture Home Rehabilitation Program</strong> in Noida.
               </p>
               <p>
                 He combines cutting-edge physical therapeutic methods (like neuro-developmental therapy, chiropractic spine adjustments, dry needling, and clinical myofascial release) with empathetic, personalized care, ensuring every treatment plan aligns with the patient's lifestyle goals.
@@ -339,14 +489,14 @@ export default function Home() {
             <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
               <Image
                 src="/images/doctor_profile.png"
-                alt="Dr. Rohit Kumar - Lead Physiotherapist in Noida"
+                alt="Dr. Rohit Verma - Lead Physiotherapist in Noida"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 340px"
                 className="object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-left">
-                <p className="font-display font-extrabold text-lg">Dr. Rohit Kumar</p>
+                <p className="font-display font-extrabold text-lg">Dr. Rohit Verma</p>
                 <p className="text-xs text-accent font-semibold tracking-wider uppercase mt-0.5">7+ Years Clinical Experience</p>
               </div>
             </div>
@@ -366,7 +516,7 @@ export default function Home() {
               Success Stories of Restored Mobility
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
-              Hear directly from our patients in Noida about their recovery journeys and how Dr. Rohit Kumar’s customized therapy helped them regain active, pain-free lives.
+              Hear directly from our patients in Noida about their recovery journeys and how Dr. Rohit Verma’s customized therapy helped them regain active, pain-free lives.
             </p>
           </div>
 
@@ -375,14 +525,14 @@ export default function Home() {
               <Card key={idx} hoverEffect className="bg-card border border-border/50 flex flex-col justify-between h-full p-6 shadow-xs relative overflow-hidden">
                 {/* Visual quote indicator */}
                 <span className="absolute right-6 top-4 text-6xl font-display font-extrabold text-accent/10 select-none">“</span>
-                
+
                 <div>
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-4.5 h-4.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed italic mb-6 relative z-10">
                     "{testimonial.quote}"
                   </p>
@@ -403,7 +553,7 @@ export default function Home() {
                       )}
                     </span>
                   </div>
-                  
+
                   <div className="flex flex-col gap-0.5">
                     <span className="text-xs text-muted-foreground font-medium">{testimonial.role} · {testimonial.location}</span>
                     <span className="text-[11px] text-accent font-bold tracking-wide uppercase mt-1 flex items-center gap-1">
@@ -502,7 +652,7 @@ export default function Home() {
               Ready to Recover Without the Travel Stress?
             </h2>
             <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed">
-              Schedule your detailed biomechanical evaluation today. Choose between a clinic visit or have Dr. Rohit Kumar bring the treatment to your Noida home.
+              Schedule your detailed biomechanical evaluation today. Choose between a clinic visit or have Dr. Rohit Verma bring the treatment to your Noida home.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
@@ -515,7 +665,7 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-            
+
             <div className="text-xs text-primary-foreground/60 mt-2 flex flex-col sm:flex-row gap-4 items-center">
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-accent" /> Serving all Sectors in Noida

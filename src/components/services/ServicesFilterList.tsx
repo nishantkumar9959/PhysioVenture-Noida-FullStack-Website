@@ -2,23 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { 
-  Search, 
-  ArrowRight, 
-  Sparkles, 
-  Activity, 
-  Brain, 
-  Bone, 
-  Waves, 
-  Droplets, 
-  Dumbbell, 
-  Flame, 
-  Heart, 
-  ShieldCheck, 
-  Scale, 
-  Baby, 
-  Home 
-} from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -30,47 +14,6 @@ const CATEGORIES = [
   { id: "active", name: "Active & Water Therapy" },
   { id: "specialized", name: "Specialized Programs" }
 ];
-
-export function getServiceIcon(slug: string) {
-  switch (slug) {
-    case "neurological-physiotherapy":
-    case "vestibular-rehabilitation":
-      return Brain;
-    case "back-pain-treatment":
-    case "arthritis-treatment":
-    case "chiropractic-care":
-    case "foot-ankle-pain-treatment":
-    case "hip-pain-treatment":
-    case "knee-pain-treatment":
-    case "orthopaedic-rehabilitation":
-    case "shoulder-pain-treatment":
-    case "spinal-injury-rehabilitation":
-      return Bone;
-    case "aquatic-physiotherapy":
-      return Waves;
-    case "hydrotherapy-training":
-      return Droplets;
-    case "geriatric-physiotherapy":
-      return Heart;
-    case "heat-therapy":
-      return Flame;
-    case "massage-therapy":
-      return Sparkles;
-    case "paediatric-physiotherapy":
-      return Baby;
-    case "physical-therapy":
-    case "therapeutic-exercise":
-      return Dumbbell;
-    case "inpatient-physiotherapy":
-      return Home;
-    case "post-surgery-rehabilitation":
-      return ShieldCheck;
-    case "balance-exercise-therapy":
-      return Scale;
-    default:
-      return Activity;
-  }
-}
 
 export default function ServicesFilterList() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -122,14 +65,10 @@ export default function ServicesFilterList() {
       {filteredServices.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {filteredServices.map((service, idx) => {
-            const Icon = getServiceIcon(service.slug);
             return (
               <Card key={idx} hoverEffect className="group flex flex-col justify-between h-full border border-border/40">
                 <CardHeader className="pb-3 text-left">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-secondary/80 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                      <Icon className="w-5 h-5" />
-                    </div>
+                  <div className="mb-2.5">
                     <span className="text-[10px] font-bold text-accent uppercase tracking-wider">
                       {service.categoryLabel}
                     </span>

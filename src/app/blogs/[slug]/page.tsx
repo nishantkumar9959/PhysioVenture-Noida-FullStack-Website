@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogArticleBySlug, BLOG_ARTICLES } from "@/lib/blogs-data";
 import { Calendar, ChevronRight } from "lucide-react";
+import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,14 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: {
-      canonical: `https://physioventure.vercel.app/blogs/${resolvedParams.slug}`,
+      canonical: `/blogs/${resolvedParams.slug}`,
     },
+    authors: [{ name: "Dr. Rohit Verma", url: "/about" }],
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
       type: "article",
       locale: "en_IN",
-      url: `https://physioventure.vercel.app/blogs/${resolvedParams.slug}`,
+      url: `/blogs/${resolvedParams.slug}`,
+      images: [
+        {
+          url: `${article.image}`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        }
+      ],
     },
   };
 }
@@ -46,8 +56,74 @@ export default async function BlogArticlePage({ params }: Props) {
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.metaDescription,
+    "image": `${SITE_URL}${article.image}`,
+    "url": `${SITE_URL}/blogs/${resolvedParams.slug}`,
+    "datePublished": article.date,
+    "dateModified": article.date,
+    "inLanguage": "en-IN",
+    "author": {
+      "@type": "Person",
+      "name": DOCTOR_NAME,
+      "@id": `${SITE_URL}/about#physician`
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PhysioVenture",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/images/logo.png`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blogs/${resolvedParams.slug}`
+    },
+    "keywords": article.category,
+    "articleSection": article.category,
+    "wordCount": article.body ? article.body.join(" ").split(" ").length : undefined
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": SITE_URL
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": `${SITE_URL}/blogs`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": article.title,
+        "item": `${SITE_URL}/blogs/${resolvedParams.slug}`
+      }
+    ]
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5 flex-wrap">
@@ -83,7 +159,7 @@ export default async function BlogArticlePage({ params }: Props) {
           {article.title}
         </h1>
         <p className="text-sm text-muted-foreground">
-          By Dr. Rohit Kumar · PhysioVenture Noida
+          By Dr. Rohit Verma · PhysioVenture Noida
         </p>
       </header>
 
@@ -102,7 +178,7 @@ export default async function BlogArticlePage({ params }: Props) {
           Need Expert Physiotherapy in Noida?
         </h2>
         <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-          Book a consultation with Dr. Rohit Kumar — at our Sector 49 clinic or through a convenient home visit.
+          Book a consultation with Dr. Rohit Verma — at our Sector 49 clinic or through a convenient home visit.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link

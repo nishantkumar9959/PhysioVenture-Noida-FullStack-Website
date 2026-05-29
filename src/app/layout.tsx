@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import FloatingCTAs from "@/components/shared/floating-ctas";
+import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -18,7 +19,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PhysioVenture | Premier Neurological & Orthopaedic Physiotherapy Noida",
+  title: {
+    default: "PhysioVenture | Premier Neurological & Orthopaedic Physiotherapy Noida",
+    template: "%s | PhysioVenture Noida",
+  },
   description: "Premium physiotherapy clinic in Sector 49, Noida. Specialized in stroke recovery, joint pain, sports injuries, and advanced post-surgery recovery with a strong focus on home visits.",
   keywords: [
     "Physiotherapist in Noida",
@@ -28,18 +32,37 @@ export const metadata: Metadata = {
     "Back Pain Treatment Noida",
     "Physiotherapy Near Me",
     "Home Visit Physiotherapist Noida",
-    "Home Physiotherapy Noida"
+    "Home Physiotherapy Noida",
+    "Stroke Rehabilitation Noida",
+    "Physiotherapy Sector 49 Noida",
+    "Physiotherapy at home Noida",
+    "Best physiotherapist for home visits in Noida",
+    "Physiotherapy Sector 50 Noida",
+    "Physiotherapy Sector 78 Noida",
+    "Physiotherapy Sector 137 Noida",
+    "Physiotherapy Sector 150 Noida",
+    "Chiropractor near me Sector 50 Noida",
+    "Stroke rehabilitation home visits Sector 50 Noida",
+    "Dr Rohit Verma physiotherapist",
+    "PhysioVenture Noida",
   ],
-  metadataBase: new URL("https://physioventure.vercel.app"), // Default staging fallback
+  // Correct canonical base — all relative URLs in metadata resolve against this
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "https://physioventure.vercel.app",
+    canonical: "/",
   },
+  // Authorship & geo signals for GEO (AI citation engines)
+  authors: [{ name: "Dr. Rohit Verma", url: "/about" }],
+  creator: "Dr. Rohit Verma — PhysioVenture",
+  publisher: "PhysioVenture Neuro & Ortho Physiotherapy Clinic",
+  category: "Health & Medical",
   openGraph: {
     title: "PhysioVenture | Premier Neurological & Orthopaedic Physiotherapy Noida",
     description: "Premium physiotherapy clinic in Sector 49, Noida. Specialized in stroke recovery, joint pain, sports injuries, and advanced post-surgery recovery with a strong focus on home visits.",
+    siteName: "PhysioVenture",
     locale: "en_IN",
     type: "website",
-    url: "https://physioventure.vercel.app",
+    url: "/",
     images: [
       {
         url: "/images/hero_physiotherapy_bg.jpg",
@@ -54,6 +77,18 @@ export const metadata: Metadata = {
     title: "PhysioVenture | Premier Physiotherapy Noida",
     description: "Premium physiotherapy clinic in Sector 49, Noida. Expert stroke recovery, joint pain treatment, and home visits.",
     images: ["/images/hero_physiotherapy_bg.jpg"],
+  },
+  // Robots: allow all indexing, enable AI snippet reading
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: [

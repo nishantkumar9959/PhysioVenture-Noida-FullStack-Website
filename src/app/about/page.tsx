@@ -1,23 +1,92 @@
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  Award, 
-  MapPin, 
-  CheckCircle, 
-  HeartHandshake, 
+import {
+  Award,
+  MapPin,
+  CheckCircle,
+  HeartHandshake,
   Calendar,
-  Activity, 
-  Compass, 
-  ShieldCheck, 
+  Activity,
+  Compass,
+  ShieldCheck,
   Zap,
   Bookmark
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 export default function About() {
+  const physicianSchema = {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": `${SITE_URL}/about#physician`,
+    "name": DOCTOR_NAME,
+    "givenName": "Rohit",
+    "familyName": "Verma",
+    "honorificPrefix": "Dr.",
+    "jobTitle": "Lead Physiotherapist & Clinical Director",
+    "description": `${DOCTOR_NAME} is Noida's leading physiotherapist with 7+ years of clinical experience in neurological and orthopaedic rehabilitation. He has successfully treated over 1,200 patients with conditions including stroke, slip disc, and post-surgical joint replacement.`,
+    "url": `${SITE_URL}/about`,
+    "image": `${SITE_URL}/images/doctor_profile.png`,
+    "telephone": "+918932082549",
+    "email": "contact@physioventurenoida.com",
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Indian Association of Physiotherapists (IAP)"
+    },
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "Bachelor of Physiotherapy (B.P.T)" },
+      { "@type": "EducationalOccupationalCredential", "name": "Master of Physiotherapy — Neuro Rehabilitation & Musculoskeletal Recovery (M.P.T)" },
+      { "@type": "EducationalOccupationalCredential", "name": "Neuro-Developmental Therapy (NDT) Certification" },
+      { "@type": "EducationalOccupationalCredential", "name": "Advanced Chiropractic Manual Adjustment Certification" }
+    ],
+    "knowsAbout": [
+      "Neurological Physiotherapy",
+      "Orthopaedic Rehabilitation",
+      "Stroke Rehabilitation",
+      "Chiropractic Care",
+      "Dry Needling",
+      "Post-Surgery Rehabilitation",
+      "Geriatric Physiotherapy"
+    ],
+    "availableLanguage": ["English", "Hindi"],
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "@id": `${SITE_URL}/#medicalbusiness`,
+      "name": "PhysioVenture Neuro & Ortho Physiotherapy Clinic"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": SITE_URL
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": `${SITE_URL}/about`
+      }
+    ]
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* 1. Header Hero */}
       <div className="text-center max-w-3xl mx-auto flex flex-col gap-4 items-center mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 border border-primary/10 w-fit">
@@ -69,7 +138,7 @@ export default function About() {
           <div className="relative w-full aspect-[3/4] max-w-[360px] rounded-3xl overflow-hidden shadow-lg border border-border/80 bg-secondary/40">
             <Image
               src="/images/doctor_profile.png"
-              alt="Dr. Rohit Kumar - Senior Physiotherapist"
+              alt="Dr. Rohit Verma - Senior Physiotherapist"
               fill
               className="object-cover"
             />
@@ -78,7 +147,7 @@ export default function About() {
 
         <div className="lg:col-span-7 flex flex-col gap-6 text-left">
           <div>
-            <h2 className="text-3xl font-display font-extrabold text-primary">Dr. Rohit Kumar</h2>
+            <h2 className="text-3xl font-display font-extrabold text-primary">Dr. Rohit Verma</h2>
             <p className="text-sm font-semibold text-accent uppercase tracking-wider mt-1">
               Founder & Lead Physical Therapist
             </p>
@@ -89,10 +158,10 @@ export default function About() {
 
           <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
             <p>
-              Dr. Rohit Kumar established PhysioVenture with a simple mission: to bridge the gap between high-end hospital-level physical therapy and patient comfort. Throughout his 7+ years of clinical practice, he observed that patients, especially stroke survivors or those post joint replacement surgeries, faced severe stress and pain commuting to clinics daily.
+              Dr. Rohit Verma established PhysioVenture with a simple mission: to bridge the gap between high-end hospital-level physical therapy and patient comfort. Throughout his 7+ years of clinical practice, he observed that patients, especially stroke survivors or those post joint replacement surgeries, faced severe stress and pain commuting to clinics daily.
             </p>
             <p>
-              Recognizing that rehabilitation works best when patients feel relaxed, safe, and supported, Dr. Rohit Kumar customized his practice to specialize in **evidence-based home visit treatments**.
+              Recognizing that rehabilitation works best when patients feel relaxed, safe, and supported, Dr. Rohit Verma customized his practice to specialize in **evidence-based home visit treatments**.
             </p>
             <p>
               He brings clinical-grade specialized equipment (including portable neuromuscular stimulators, ultrasound devices, chiropractic tables, dry needles, and kinesiology tapes) directly to patients' homes.
@@ -180,7 +249,7 @@ export default function About() {
               <div className="w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</div>
               <div>
                 <h5 className="text-xs font-bold text-primary uppercase tracking-wider">Initial Detailed Assessment</h5>
-                <p className="text-xs text-muted-foreground mt-0.5">Dr. Rohit Kumar conducts a 60-minute diagnostic session examining range of motion, muscle strength, and gait pattern.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Dr. Rohit Verma conducts a 60-minute diagnostic session examining range of motion, muscle strength, and gait pattern.</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -207,7 +276,7 @@ export default function About() {
           <p className="text-xs text-muted-foreground leading-relaxed mb-4">
             We provide prompt visits to Noida, Greater Noida, and Indirapuram. Typical session duration ranges from <strong>45 to 60 minutes</strong>.
           </p>
-          
+
           <div className="space-y-2 border-t border-border/60 pt-4 mb-6">
             <div className="flex justify-between text-xs">
               <span className="font-medium text-muted-foreground">Availability</span>

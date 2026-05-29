@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: `Privacy Policy | ${BUSINESS.shortName}`,
   description: `Privacy policy for ${BUSINESS.name}. Learn how we collect, use, and protect your personal information.`,
   alternates: {
-    canonical: "https://physioventure.vercel.app/privacy",
+    canonical: "/privacy",
   },
   openGraph: {
     title: `Privacy Policy | ${BUSINESS.shortName}`,
     description: `Privacy policy for ${BUSINESS.name}. Learn how we collect, use, and protect your personal information.`,
-    url: "https://physioventure.vercel.app/privacy",
+    url: "/privacy",
     type: "website",
   },
 };

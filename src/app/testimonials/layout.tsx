@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Patient Recovery Success Stories & Testimonials | PhysioVenture Noida",
-  description: "Read real recovery testimonials from patients at PhysioVenture Noida. See how Dr. Rohit Kumar helps patients overcome stroke, slip disc, back pain, and joint mobility issues.",
+  description: "Read real recovery testimonials from patients at PhysioVenture Noida. See how Dr. Rohit Verma helps patients overcome stroke, slip disc, back pain, and joint mobility issues.",
   alternates: {
-    canonical: "https://physioventure.vercel.app/testimonials",
+    canonical: "/testimonials",
   },
   openGraph: {
     title: "Patient Recovery Success Stories & Testimonials | PhysioVenture Noida",
-    description: "Read real recovery testimonials from patients at PhysioVenture Noida. See how Dr. Rohit Kumar helps patients overcome stroke, slip disc, back pain, and joint mobility issues.",
-    url: "https://physioventure.vercel.app/testimonials",
+    description: "Read real recovery testimonials from patients at PhysioVenture Noida. See how Dr. Rohit Verma helps patients overcome stroke, slip disc, back pain, and joint mobility issues.",
+    url: "/testimonials",
     type: "website",
   },
 };

@@ -22,7 +22,7 @@ const ALL_TESTIMONIALS: Testimonial[] = [
     location: "Sector 50, Noida",
     condition: "Stroke Recovery & Neuro Mobility",
     category: "neuro",
-    quote: "Dr. Rohit Kumar's home visits were a game changer for my 70-year-old mother recovering from a stroke. Within 3 months of customized balance and motor therapy, she regained her confidence to walk independently. Truly professional and highly recommended.",
+    quote: "Dr. Rohit Verma's home visits were a game changer for my 70-year-old mother recovering from a stroke. Within 3 months of customized balance and motor therapy, she regained her confidence to walk independently. Truly professional and highly recommended.",
     rating: 5,
     type: "Home Visit",
   },
@@ -32,7 +32,7 @@ const ALL_TESTIMONIALS: Testimonial[] = [
     location: "Sector 62, Noida",
     condition: "Slip Disc & Sciatica",
     category: "spine",
-    quote: "Suffered from persistent slip disc pain for months due to sitting. Dr. Rohit Kumar's chiropractic adjustments and core strengthening exercises did wonders. His explanation of the biomechanics was reassuring. Best therapist in Noida!",
+    quote: "Suffered from persistent slip disc pain for months due to sitting. Dr. Rohit Verma's chiropractic adjustments and core strengthening exercises did wonders. His explanation of the biomechanics was reassuring. Best therapist in Noida!",
     rating: 5,
     type: "Clinic Visit",
   },
@@ -42,7 +42,7 @@ const ALL_TESTIMONIALS: Testimonial[] = [
     location: "Sector 49, Noida",
     condition: "Post-OP Knee Replacement",
     category: "ortho",
-    quote: "Post-surgery knee rehab at home was incredibly convenient. Dr. Rohit Kumar brought advanced mobilization tools, checked my progress diligently, and guided me back to climbing stairs pain-free. A dedicated, experienced professional.",
+    quote: "Post-surgery knee rehab at home was incredibly convenient. Dr. Rohit Verma brought advanced mobilization tools, checked my progress diligently, and guided me back to climbing stairs pain-free. A dedicated, experienced professional.",
     rating: 5,
     type: "Home Visit",
   },
@@ -123,11 +123,10 @@ export default function TestimonialsFilterList() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 ${
-                  selectedCategory === cat.id
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 ${selectedCategory === cat.id
                     ? "bg-primary text-primary-foreground shadow-xs"
                     : "bg-secondary/40 text-muted-foreground hover:bg-secondary/80 hover:text-primary"
-                }`}
+                  }`}
               >
                 {cat.name}
               </button>
@@ -140,11 +139,10 @@ export default function TestimonialsFilterList() {
               <button
                 key={t.id}
                 onClick={() => setSelectedType(t.id)}
-                className={`px-3 py-1.5 rounded-full text-[11px] font-bold transition-all duration-300 ${
-                  selectedType === t.id
+                className={`px-3 py-1.5 rounded-full text-[11px] font-bold transition-all duration-300 ${selectedType === t.id
                     ? "bg-white dark:bg-card text-primary shadow-xs"
                     : "text-muted-foreground hover:text-primary"
-                }`}
+                  }`}
               >
                 {t.name}
               </button>

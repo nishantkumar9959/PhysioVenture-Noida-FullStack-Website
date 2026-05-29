@@ -7,7 +7,7 @@ export default function TestimonialsPage() {
   return (
     <div className="w-full py-12 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
           <ol className="flex items-center gap-1.5 flex-wrap">
@@ -31,7 +31,7 @@ export default function TestimonialsPage() {
             Success Stories of Restored Mobility
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
-            Read real stories from our patients across Noida. Learn how Dr. Rohit Kumar’s tailored therapeutic programs helped them overcome complex pain, stroke impairments, and joint limitations.
+            Read real stories from our patients across Noida. Learn how Dr. Rohit Verma’s tailored therapeutic programs helped them overcome complex pain, stroke impairments, and joint limitations.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function TestimonialsPage() {
               Begin Your Own Success Story
             </h2>
             <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed">
-              Schedule your comprehensive initial assessment. Choose between a home visit by Dr. Rohit Kumar or a consultation at our Sector 49 clinic.
+              Schedule your comprehensive initial assessment. Choose between a home visit by Dr. Rohit Verma or a consultation at our Sector 49 clinic.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Button variant="accent" size="md" asChild>

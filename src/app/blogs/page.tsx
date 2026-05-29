@@ -33,7 +33,7 @@ export default function BlogsPage() {
   return (
     <div className="w-full py-12 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
           <ol className="flex items-center gap-1.5 flex-wrap">
@@ -57,7 +57,7 @@ export default function BlogsPage() {
             PhysioVenture Clinical Blog & Health Hub
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
-            Explore advanced physical rehabilitation insights, spine ergonomics guides, and recovery tips curated by Dr. Rohit Kumar and our specialist team in Noida.
+            Explore advanced physical rehabilitation insights, spine ergonomics guides, and recovery tips curated by Dr. Rohit Verma and our specialist team in Noida.
           </p>
         </div>
 
@@ -69,11 +69,10 @@ export default function BlogsPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 ${
-                  selectedCategory === category
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 ${selectedCategory === category
                     ? "bg-primary text-primary-foreground shadow-xs"
                     : "bg-secondary/40 text-muted-foreground hover:bg-secondary/80 hover:text-primary"
-                }`}
+                  }`}
               >
                 {category}
               </button>

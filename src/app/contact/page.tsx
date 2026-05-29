@@ -3,13 +3,13 @@
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  MessageSquare, 
-  AlertCircle, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageSquare,
+  AlertCircle,
   CheckCircle2
 } from "lucide-react";
 import { contactSchema, type ContactInput } from "@/lib/validation";
@@ -98,7 +98,7 @@ export default function Contact() {
           {/* Clinic Details */}
           <div className="bg-secondary/30 rounded-3xl p-6 md:p-8 border border-border/50">
             <h3 className="font-display font-extrabold text-lg text-primary mb-6">PhysioVenture Noida</h3>
-            
+
             <div className="space-y-6">
               {/* Address */}
               <div className="flex gap-4">
@@ -162,7 +162,7 @@ export default function Contact() {
             <div className="absolute -right-10 -bottom-10 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
             <h4 className="font-display font-extrabold text-sm uppercase tracking-wider text-accent mb-2">Home Rehabilitation Notice</h4>
             <p className="text-xs text-primary-foreground/95 leading-relaxed">
-              Dr. Rohit Kumar primarily provides physically-distanced home rehabilitation assessments. If scheduling a clinic visit, please book at least 24 hours in advance.
+              Dr. Rohit Verma primarily provides physically-distanced home rehabilitation assessments. If scheduling a clinic visit, please book at least 24 hours in advance.
             </p>
           </div>
         </div>
@@ -178,20 +178,20 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-display font-extrabold text-primary">Message Sent Successfully</h3>
                 <p className="text-muted-foreground text-xs max-w-sm">
-                  Thank you for writing to us. We will review your message details and Dr. Rohit Kumar will get back to you shortly.
+                  Thank you for writing to us. We will review your message details and Dr. Rohit Verma will get back to you shortly.
                 </p>
                 <Button variant="outline" className="mt-4" onClick={() => setSubmitSuccess(false)}>
                   Send Another Message
                 </Button>
               </div>
             ) : (
-              <form 
+              <form
                 // eslint-disable-next-line react-hooks/refs
-                onSubmit={handleSubmit(onSubmit)} 
+                onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col gap-5"
               >
                 <h3 className="font-display font-extrabold text-base text-primary mb-2">Send Us an Inquiry</h3>
-                
+
                 {submitError && (
                   <div className="bg-destructive/10 border border-destructive/20 text-destructive rounded-xl p-4 flex gap-3 items-center">
                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
