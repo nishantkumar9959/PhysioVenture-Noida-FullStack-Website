@@ -1,37 +1,40 @@
 import { MetadataRoute } from "next";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
+import { SITE_URL } from "@/lib/constants";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://physioventurenoida.vercel.app";
+  const baseUrl = SITE_URL.replace(/\/$/, ""); // strip trailing slash if present
 
   const staticRoutes = [
-    "",
-    "/services",
-    "/about",
-    "/testimonials",
-    "/blogs",
-    "/contact",
-    "/book",
+    "/",
+    "/services/",
+    "/about/",
+    "/testimonials/",
+    "/blogs/",
+    "/contact/",
+    "/book/",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: route === "" ? 1.0 : 0.8,
+    priority: route === "/" ? 1.0 : 0.8,
   }));
 
   const serviceRoutes = SERVICES_DATA.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
+    url: `${baseUrl}/services/${service.slug}/`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: 0.8,
   }));
 
   const blogRoutes = BLOG_ARTICLES.map((article) => ({
-    url: `${baseUrl}/blogs/${article.slug}`,
+    url: `${baseUrl}/blogs/${article.slug}/`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: 0.7,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...blogRoutes];

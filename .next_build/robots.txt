@@ -1,0 +1,49 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /api/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /api/
+
+User-Agent: meta-externalagent
+Allow: /
+Disallow: /api/
+
+User-Agent: Applebot
+Allow: /
+Disallow: /api/
+
+User-Agent: cohere-ai
+Allow: /
+Disallow: /api/
+
+Sitemap: https://physioventurenoida.vercel.app/sitemap.xml
