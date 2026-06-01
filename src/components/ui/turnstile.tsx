@@ -46,6 +46,8 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
   
   const siteKey = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY;
   const isPlaceholder = !siteKey || siteKey === "PLACEHOLDER_SITE_KEY";
+  const isProduction = process.env.NODE_ENV === "production";
+  const showConfigError = isPlaceholder && isProduction;
 
   const [scriptReady, setScriptReady] = useState(false);
   const [scriptFailed, setScriptFailed] = useState(false);
@@ -151,6 +153,20 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
       onSuccessRef.current("mock-turnstile-token");
     }, 700);
   };
+
+  if (showConfigError) {
+    return (
+      <div
+        className="w-full max-w-[300px] min-h-[65px] rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 mx-auto text-center"
+        style={{ contentVisibility: "auto" }}
+      >
+        <p className="text-[11px] font-bold text-destructive tracking-wide">Turnstile is not configured in this build</p>
+        <p className="text-[10px] text-destructive/80 mt-1">
+          Add <code>NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY</code> to the Cloudflare Pages build environment and redeploy.
+        </p>
+      </div>
+    );
+  }
 
   // 1. Premium Glassmorphic Demo Verification Box (Fallback)
   if (isDemoMode) {
