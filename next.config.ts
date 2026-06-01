@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  distDir: ".next_build",
   output: "export",
   trailingSlash: true,
   images: {
