@@ -115,18 +115,24 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
     };
 
     if (!script) {
+      window.onloadTurnstileCallback = initializeTurnstile;
+      
       script = document.createElement("script");
       script.id = "cloudflare-turnstile-script";
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback";
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
-      script.onload = initializeTurnstile;
     } else {
       if (window.turnstile) {
         initializeTurnstile();
       } else {
-        script.addEventListener("load", initializeTurnstile);
+        // If script is already injecting but not ready, hook into the global callback
+        const existingCallback = window.onloadTurnstileCallback;
+        window.onloadTurnstileCallback = () => {
+          if (existingCallback) existingCallback();
+          initializeTurnstile();
+        };
       }
     }
 
