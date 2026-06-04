@@ -115,12 +115,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
-        <Navbar />
-        <main className="flex-1 w-full flex flex-col pt-16">
-          {children}
-        </main>
-        <Footer />
-        <FloatingCTAs />
+        {children}
       </body>
     </html>
   );
