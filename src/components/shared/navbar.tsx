@@ -20,6 +20,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  
 
   // Throttled scroll listener via requestAnimationFrame
   useEffect(() => {
