@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 
 const resendApiKey = process.env.RESEND_API_KEY;
-const recipientEmail = process.env.NOTIFICATION_EMAIL_RECIPIENT || "webstudio.n16@gmail.com";
+const recipientEmail = process.env.NOTIFICATION_EMAIL_RECIPIENT || "";
 const fromEmail = process.env.RESEND_FROM || "onboarding@resend.dev";
 
 // Initialize Resend client only if API key is present
@@ -14,16 +14,10 @@ interface EmailParams {
 }
 
 export async function sendEmail({ subject, html, text }: EmailParams): Promise<boolean> {
-  if (!resend) {
-    console.log("=========================================");
-    console.log(`[MOCK EMAIL SENT] (Resend API key not set)`);
-    console.log(`To: ${recipientEmail}`);
-    console.log(`From: ${fromEmail}`);
-    console.log(`Subject: ${subject}`);
-    console.log(`Body (Text): ${text || "See HTML representation"}`);
-    console.log(`Body (HTML):\n${html}`);
-    console.log("=========================================");
-    return true;
+  if (!resend || !recipientEmail) {
+    // In development / misconfigured environments, log a non-sensitive notice only.
+    console.warn("[sendEmail] RESEND_API_KEY or NOTIFICATION_EMAIL_RECIPIENT is not configured. Email not sent.");
+    return false;
   }
 
   try {
@@ -40,7 +34,7 @@ export async function sendEmail({ subject, html, text }: EmailParams): Promise<b
       return false;
     }
 
-    console.log(`Email successfully sent to ${recipientEmail}. ID: ${data?.id}`);
+    console.log(`[sendEmail] Email sent successfully. ID: ${data?.id}`);
     return true;
   } catch (error) {
     console.error("Failed to send email via Resend:", error);
