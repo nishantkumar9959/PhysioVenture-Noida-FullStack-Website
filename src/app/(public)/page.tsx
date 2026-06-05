@@ -374,7 +374,7 @@ export default function Home() {
           <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
             <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 dark:border-primary/10">
               <Image
-                src="/images/home_visit.png"
+                src="/images/home_visit.jpg"
                 alt="Dr. Rohit Verma providing physical therapy at patient's home"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
