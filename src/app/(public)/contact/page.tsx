@@ -57,7 +57,7 @@ export default function Contact() {
       };
 
       const { error } = await supabase
-        .from("contact_submissions")
+        .from("contact_inquiries")
         .insert([dbData]);
 
       if (error) {

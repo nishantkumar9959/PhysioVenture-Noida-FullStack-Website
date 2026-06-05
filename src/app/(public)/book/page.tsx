@@ -67,7 +67,7 @@ export default function Book() {
       };
 
       const { error } = await supabase
-        .from("appointments")
+        .from("appointment_requests")
         .insert([dbData]);
 
       if (error) {
