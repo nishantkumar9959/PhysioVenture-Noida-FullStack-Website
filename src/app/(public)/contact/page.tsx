@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
+import { supabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,18 +49,19 @@ export default function Contact() {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+      const dbData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        message: data.message,
+      };
 
-      const resData = await response.json();
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert([dbData]);
 
-      if (!response.ok) {
-        throw new Error(resData.message || "Failed to submit message");
+      if (error) {
+        throw new Error(error.message || "Failed to submit message");
       }
 
       setSubmitSuccess(true);

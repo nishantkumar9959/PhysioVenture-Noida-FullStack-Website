@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
+import { supabase } from "@/lib/supabase";
 
 export default function Book() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,18 +55,23 @@ export default function Book() {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch("/api/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+      const dbData = {
+        patient_name: data.patient_name,
+        phone: data.phone,
+        email: data.email || null,
+        service_id: data.service_id,
+        preferred_date: data.preferred_date,
+        preferred_time_slot: data.preferred_time_slot,
+        additional_notes: data.additional_notes || null,
+        status: "pending",
+      };
 
-      const resData = await response.json();
+      const { error } = await supabase
+        .from("appointments")
+        .insert([dbData]);
 
-      if (!response.ok) {
-        throw new Error(resData.message || "Failed to schedule appointment");
+      if (error) {
+        throw new Error(error.message || "Failed to schedule appointment");
       }
 
       setSubmitSuccess(true);
