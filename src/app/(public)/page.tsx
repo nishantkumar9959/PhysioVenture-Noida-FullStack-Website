@@ -488,7 +488,7 @@ export default function Home() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
               <Image
-                src="/images/doctor_profile.png"
+                src="/images/doctor_profile.jpg"
                 alt="Dr. Rohit Verma - Lead Physiotherapist in Noida"
                 fill
                 priority

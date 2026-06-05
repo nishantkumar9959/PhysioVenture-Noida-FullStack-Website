@@ -28,7 +28,7 @@ export default function About() {
     "jobTitle": "Lead Physiotherapist & Clinical Director",
     "description": `${DOCTOR_NAME} is Noida's leading physiotherapist with 7+ years of clinical experience in neurological and orthopaedic rehabilitation. He has successfully treated over 1,200 patients with conditions including stroke, slip disc, and post-surgical joint replacement.`,
     "url": `${SITE_URL}/about`,
-    "image": `${SITE_URL}/images/doctor_profile.png`,
+    "image": `${SITE_URL}/images/doctor_profile.jpg`,
     "telephone": "+918932082549",
     "email": "contact@physioventurenoida.com",
     "memberOf": {
@@ -137,7 +137,7 @@ export default function About() {
         <div className="lg:col-span-5 relative flex justify-center">
           <div className="relative w-full aspect-[3/4] max-w-[360px] rounded-3xl overflow-hidden shadow-lg border border-border/80 bg-secondary/40">
             <Image
-              src="/images/doctor_profile.png"
+              src="/images/doctor_profile.jpg"
               alt="Dr. Rohit Verma - Senior Physiotherapist"
               fill
               className="object-cover"
