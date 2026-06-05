@@ -5,7 +5,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ServicesFilterList from "@/components/services/ServicesFilterList";
+import ServicesHubList from "@/components/services/ServicesHubList";
 
 export default function ServicesHub() {
   return (
@@ -20,12 +20,12 @@ export default function ServicesHub() {
           Specialized Physiotherapy Programs
         </h1>
         <p className="text-muted-foreground text-base leading-relaxed max-w-2xl">
-          Explore our portfolio of 23 clinical treatments. From stroke neuro-rehab to post-surgery mobilization, Dr. Rohit Verma delivers personalized recovery protocols directly to your Noida residence or clinic.
+          Explore our 6 primary physiotherapy disciplines. From stroke neurological rehabilitation to manual spine adjustments and geriatric conditioning, Dr. Rohit Verma delivers custom recovery protocols directly to your Noida residence.
         </p>
       </div>
 
-      {/* Interactive Search & Filtering Grid */}
-      <ServicesFilterList />
+      {/* 3x2 Grid on Desktop & Horizontal Carousel on Mobile */}
+      <ServicesHubList />
 
       {/* In-Home Spotlight CTA */}
       <div className="bg-secondary/40 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 text-left max-w-5xl mx-auto">
@@ -38,15 +38,15 @@ export default function ServicesHub() {
             Can't Travel to the Clinic?
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            All 23 services are available as clinical home visits. Dr. Rohit Verma travels with compact electrotherapy modalities, chiropractic adjusters, and diagnostic gear to deliver custom recovery sessions directly to you in Noida.
+            All services are available as clinical home visits. Dr. Rohit Verma travels with compact electrotherapy modalities, chiropractic adjusters, and diagnostic gear to deliver custom recovery sessions directly to you in Noida.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
           <Button variant="primary" size="md" asChild>
-            <Link href="/book">Schedule Home Session</Link>
+            <Link href="/book/">Schedule Home Session</Link>
           </Button>
           <Button variant="outline" size="md" asChild>
-            <Link href="/contact" className="flex items-center gap-2">
+            <Link href="/contact/" className="flex items-center gap-2">
               <Phone className="w-4 h-4" /> Speak with Dr. Rohit Verma
             </Link>
           </Button>

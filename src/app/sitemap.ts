@@ -30,6 +30,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const blogCategorySlugs = [
+    "orthopedic-care",
+    "neurological-rehabilitation",
+    "sports-rehabilitation",
+    "home-physiotherapy",
+    "geriatric-care"
+  ];
+
+  const blogCategoryRoutes = blogCategorySlugs.map((slug) => ({
+    url: `${baseUrl}/blogs/category/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
   const blogRoutes = BLOG_ARTICLES.map((article) => ({
     url: `${baseUrl}/blogs/${article.slug}/`,
     lastModified: new Date(),
@@ -37,5 +52,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...blogCategoryRoutes, ...blogRoutes];
 }

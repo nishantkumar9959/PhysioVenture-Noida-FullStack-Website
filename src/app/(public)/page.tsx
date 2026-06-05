@@ -254,24 +254,17 @@ export default function Home() {
       />
       {/* 1. Hero Section Wrapper with Fading Background Image */}
       <div id="hero" className="relative w-full border-b border-border/20 bg-background/50 overflow-hidden">
-        {/* Absolute Background Image fading to the left */}
+        {/* Absolute Background Video */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Background image container covering the entire hero area */}
-          <div className="absolute inset-0 w-full h-full">
-            <Image
-              src="/images/hero_physiotherapy_bg.jpg"
-              alt="Hands-on Physiotherapy Session in Noida by Dr. Rohit Verma"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center lg:object-right opacity-25 lg:opacity-100 transition-opacity duration-700"
-            />
-            {/* Horizontal fade on desktop, solid light shield overlay on mobile to guarantee accessibility contrast */}
-            <div className="absolute inset-0 hero-gradient" />
-          </div>
-          {/* Subtle colored glow blur effects to enrich the canvas */}
-          <div className="absolute top-1/2 -left-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60 lg:opacity-70"
+          >
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Hero Content Section */}

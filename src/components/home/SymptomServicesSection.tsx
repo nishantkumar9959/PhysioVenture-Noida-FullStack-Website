@@ -1,83 +1,55 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useAnimationFrame, useMotionValue, useReducedMotion, animate } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { 
-  ChevronLeft,
+  ChevronLeft, 
   ChevronRight, 
-  ArrowRight
+  ArrowRight 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SERVICES_DATA, ServiceDetail } from "@/lib/services-data";
 
-function getHomeCategory(service: ServiceDetail): "back" | "joint" | "neuro" | "sports" {
+function getHomeCategories(service: ServiceDetail): string[] {
   const slug = service.slug;
-  if (["back-pain-treatment", "chiropractic-care", "spinal-injury-rehabilitation"].includes(slug)) {
-    return "back";
+  if (slug === "orthopedic-rehabilitation") {
+    return ["back", "joint"];
   }
-  if ([
-    "arthritis-treatment",
-    "foot-ankle-pain-treatment",
-    "hip-pain-treatment",
-    "knee-pain-treatment",
-    "shoulder-pain-treatment",
-    "post-surgery-rehabilitation",
-    "heat-therapy"
-  ].includes(slug)) {
-    return "joint";
+  if (slug === "neurological-rehabilitation") {
+    return ["neuro"];
   }
-  if ([
-    "neurological-physiotherapy",
-    "vestibular-rehabilitation",
-    "inpatient-physiotherapy",
-    "occupational-therapy",
-    "paediatric-physiotherapy"
-  ].includes(slug)) {
-    return "neuro";
+  if (slug === "sports-injury-rehabilitation") {
+    return ["sports"];
   }
-  return "sports";
+  if (slug === "home-visit-physiotherapy") {
+    return ["back", "joint", "neuro", "sports"];
+  }
+  if (slug === "chiropractic-manual-therapy") {
+    return ["back", "joint"];
+  }
+  if (slug === "geriatric-rehabilitation") {
+    return ["joint", "sports"];
+  }
+  return [];
 }
 
 function getServiceImage(slug: string): string {
   switch (slug) {
-    case "aquatic-physiotherapy":
-    case "hydrotherapy-training":
-      return "/images/service_aquatic.png";
-    case "arthritis-treatment":
-      return "/images/service_arthritis.png";
-    case "back-pain-treatment":
-    case "spinal-injury-rehabilitation":
-      return "/images/service_back.png";
-    case "balance-exercise-therapy":
-    case "physical-therapy":
-    case "therapeutic-exercise":
-      return "/images/service_sports.png";
-    case "chiropractic-care":
-    case "massage-therapy":
-      return "/images/service_chiro.png";
-    case "foot-ankle-pain-treatment":
-      return "/images/service_foot_ankle.png";
-    case "geriatric-physiotherapy":
-      return "/images/service_geriatric.png";
-    case "heat-therapy":
-      return "/images/service_heat_therapy.png";
-    case "hip-pain-treatment":
-    case "knee-pain-treatment":
-    case "orthopaedic-rehabilitation":
-      return "/images/service_knee.png";
-    case "inpatient-physiotherapy":
-    case "neurological-physiotherapy":
-    case "occupational-therapy":
+    case "orthopedic-rehabilitation":
+      return "/images/service_ortho.png";
+    case "neurological-rehabilitation":
       return "/images/service_neuro.png";
-    case "post-surgery-rehabilitation":
-      return "/images/service_post_op.png";
-    case "shoulder-pain-treatment":
-      return "/images/service_shoulder.png";
-    case "vestibular-rehabilitation":
-      return "/images/service_vestibular.png";
+    case "sports-injury-rehabilitation":
+      return "/images/service_sports.png";
+    case "home-visit-physiotherapy":
+      return "/images/service_home.png";
+    case "chiropractic-manual-therapy":
+      return "/images/service_chiro.png";
+    case "geriatric-rehabilitation":
+      return "/images/service_geriatric.png";
     default:
       return "/images/service_sports.png";
   }
@@ -125,12 +97,11 @@ export default function SymptomServicesSection() {
     return () => window.removeEventListener('resize', handleCategoryScroll);
   }, []);
 
-  // One-time exaggerated onboarding scroll animation
+  // One-time onboarding scroll animation
   useEffect(() => {
     if (isMobile && !hasUserScrolledCat) {
       const timer = setTimeout(() => {
         if (categoryScrollRef.current && !hasUserScrolledCat) {
-          // EXAGGERATED NUDGE: Scroll 80px right so it's impossible to miss
           categoryScrollRef.current.scrollBy({ left: 80, behavior: 'smooth' });
           
           setTimeout(() => {
@@ -150,14 +121,35 @@ export default function SymptomServicesSection() {
   const [trackWidth, setTrackWidth] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const isDraggingRef = useRef(false);
 
-  const filteredServices = selectedCategory === "all"
-    ? SERVICES_DATA
-    : SERVICES_DATA.filter(s => getHomeCategory(s) === selectedCategory);
+  const handleDragEnd = () => {
+    isDraggingRef.current = false;
+    setIsHovered(false);
+    
+    let currentX = x.get();
+    if (trackWidth > 0) {
+      while (currentX <= -trackWidth) {
+        currentX += trackWidth;
+      }
+      while (currentX > 0) {
+        currentX -= trackWidth;
+      }
+      x.set(currentX);
+    }
+  };
 
-  const displayServices = selectedCategory === "all" && !prefersReducedMotion
-    ? [...SERVICES_DATA, ...SERVICES_DATA]
-    : filteredServices;
+  const filteredServices = useMemo(() => {
+    return selectedCategory === "all"
+      ? SERVICES_DATA
+      : SERVICES_DATA.filter(s => getHomeCategories(s).includes(selectedCategory));
+  }, [selectedCategory]);
+
+  const displayServices = useMemo(() => {
+    return selectedCategory === "all" && !prefersReducedMotion
+      ? [...SERVICES_DATA, ...SERVICES_DATA]
+      : filteredServices;
+  }, [filteredServices, selectedCategory, prefersReducedMotion]);
 
   const checkScrollLimits = () => {
     if (scrollRef.current) {
@@ -167,7 +159,7 @@ export default function SymptomServicesSection() {
     }
   };
 
-  // Measure track width for infinite looping safely by comparing children offsets
+  // Measure track width for infinite looping safely using ResizeObserver
   useEffect(() => {
     if (selectedCategory !== "all" || prefersReducedMotion) return;
     
@@ -175,30 +167,46 @@ export default function SymptomServicesSection() {
       if (trackRef.current && trackRef.current.children.length > SERVICES_DATA.length) {
         const firstCard = trackRef.current.children[0] as HTMLElement;
         const middleCard = trackRef.current.children[SERVICES_DATA.length] as HTMLElement;
-        setTrackWidth(middleCard.offsetLeft - firstCard.offsetLeft);
+        
+        const firstRect = firstCard.getBoundingClientRect();
+        const middleRect = middleCard.getBoundingClientRect();
+        
+        setTrackWidth(middleRect.left - firstRect.left);
       }
     };
 
-    // Small delay to ensure DOM is fully laid out
-    const timeout = setTimeout(updateWidth, 100);
+    // Run initial measurement
+    updateWidth();
+
+    // Use ResizeObserver to monitor layout updates (images loading, responsive scaling)
+    const observer = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    if (trackRef.current) {
+      observer.observe(trackRef.current);
+    }
+
     window.addEventListener("resize", updateWidth);
     return () => {
-      clearTimeout(timeout);
+      observer.disconnect();
       window.removeEventListener("resize", updateWidth);
     };
   }, [selectedCategory, prefersReducedMotion]);
 
   // Continuous loop animation
   useAnimationFrame((t, delta) => {
-    if (selectedCategory !== "all" || prefersReducedMotion || isHovered || trackWidth === 0) return;
+    if (selectedCategory !== "all" || prefersReducedMotion || isDraggingRef.current || isHovered || trackWidth === 0) return;
     
-    // Calibrate speed: 85 seconds for desktop, 105 seconds for mobile
-    const loopDuration = isMobile ? 105000 : 85000;
+    // Calibrate speed: 35 seconds for desktop, 40 seconds for mobile (fast & dynamic)
+    const loopDuration = isMobile ? 40000 : 35000;
     const moveBy = (trackWidth / loopDuration) * delta;
     let newX = x.get() - moveBy;
     
-    if (newX <= -trackWidth) {
-      newX += trackWidth;
+    if (trackWidth > 0) {
+      while (newX <= -trackWidth) {
+        newX += trackWidth;
+      }
     }
     x.set(newX);
   });
@@ -246,7 +254,6 @@ export default function SymptomServicesSection() {
 
       {/* Selector Tabs with Layout-Level Chevron */}
       <div className="flex items-center w-full md:w-fit mb-8 gap-2">
-        {/* Scrollable Container (Takes remaining space, never overlaps) */}
         <div 
           ref={categoryScrollRef}
           onScroll={handleCategoryScroll}
@@ -290,16 +297,28 @@ export default function SymptomServicesSection() {
           <motion.div 
             ref={trackRef}
             style={{ x }}
+            drag="x"
+            dragConstraints={{ left: -trackWidth, right: 0 }}
+            dragElastic={0.2}
+            onDragStart={() => {
+              isDraggingRef.current = true;
+              setIsHovered(true);
+            }}
+            onDragEnd={handleDragEnd}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseLeave={() => {
+              if (!isDraggingRef.current) {
+                setIsHovered(false);
+              }
+            }}
             onFocusCapture={() => setIsHovered(true)}
             onBlurCapture={() => setIsHovered(false)}
-            className="flex flex-row gap-3 md:gap-6 py-3 w-full"
+            className="flex flex-row gap-3 md:gap-6 py-3 w-full cursor-grab active:cursor-grabbing"
           >
             {displayServices.map((service, idx) => (
               <Link
                 key={idx}
-                href={`/services/${service.slug}`}
+                href={`/services/${service.slug}/`}
                 className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
               >
                 <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
@@ -363,7 +382,7 @@ export default function SymptomServicesSection() {
             {filteredServices.map((service, idx) => (
               <Link
                 key={idx}
-                href={`/services/${service.slug}`}
+                href={`/services/${service.slug}/`}
                 className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
               >
                 <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
@@ -438,7 +457,7 @@ export default function SymptomServicesSection() {
 
       <div className="w-full flex justify-center mt-6">
         <Button variant="outline" size="md" asChild>
-          <Link href="/services">View All 23 Specialized Services</Link>
+          <Link href="/services/">View All Specialized Services</Link>
         </Button>
       </div>
     </section>
