@@ -26,7 +26,7 @@ export default function About() {
     "familyName": "Verma",
     "honorificPrefix": "Dr.",
     "jobTitle": "Lead Physiotherapist & Clinical Director",
-    "description": `${DOCTOR_NAME} is Noida's leading physiotherapist with 7+ years of clinical experience in neurological and orthopaedic rehabilitation. He has successfully treated over 1,200 patients with conditions including stroke, slip disc, and post-surgical joint replacement.`,
+    "description": `${DOCTOR_NAME} is Noida's leading physiotherapist with 7+ years of clinical experience in neurological and orthopaedic rehabilitation. He has successfully treated over 2,100 patients with conditions including stroke, slip disc, and post-surgical joint replacement.`,
     "url": `${SITE_URL}/about`,
     "image": `${SITE_URL}/images/doctor_profile.jpg`,
     "telephone": "+918932082549",
@@ -189,7 +189,7 @@ export default function About() {
               </li>
               <li className="flex items-start gap-2.5 text-xs text-muted-foreground">
                 <CheckCircle className="w-4.5 h-4.5 text-accent flex-shrink-0 mt-0.5" />
-                <span>Successfully treated 1200+ stroke recovery, slip-disc, and post-surgery knee patients.</span>
+                <span>Successfully treated 2100+ stroke recovery, slip-disc, and post-surgery knee patients.</span>
               </li>
               <li className="flex items-start gap-2.5 text-xs text-muted-foreground">
                 <CheckCircle className="w-4.5 h-4.5 text-accent flex-shrink-0 mt-0.5" />

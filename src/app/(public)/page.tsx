@@ -13,24 +13,35 @@ import {
   CheckCircle,
   Sparkles,
   Star,
-  Home as HomeIcon,
   BookOpen,
   Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+
 
 import SymptomServicesSection from "@/components/home/SymptomServicesSection";
+import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
+import SuccessStoriesCarousel from "@/components/home/SuccessStoriesCarousel";
+import HeroVideo from "@/components/home/HeroVideo";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
-const PATIENT_TESTIMONIALS = [
+const PATIENT_TESTIMONIALS: {
+  name: string;
+  role: string;
+  location: string;
+  condition: string;
+  quote: string;
+  rating: number;
+  type: "Home Visit" | "Clinic Visit";
+}[] = [
   {
     name: "Vikram Mehta",
     role: "Son of Stroke Patient",
     location: "Sector 50, Noida",
     condition: "Stroke & Neuro Mobility",
-    quote: "Dr. Rohit Verma's home visits were a game changer for my 70-year-old mother recovering from a stroke. Within 3 months of customized balance and motor therapy, she regained her confidence to walk independently. Truly professional and highly recommended.",
+    quote: "Honestly didn't know what to expect when we first called. My mother had the stroke in March and by April Dr. Rohit was visiting us at home three times a week. She could barely hold a spoon when we started. Four months later she's walking to the kitchen on her own. I still can't believe the change.",
     rating: 5,
     type: "Home Visit",
   },
@@ -39,19 +50,64 @@ const PATIENT_TESTIMONIALS = [
     role: "Software Architect",
     location: "Sector 62, Noida",
     condition: "Slip Disc & Sciatica",
-    quote: "Suffered from persistent slip disc pain for months due to sitting. Dr. Rohit Verma's chiropractic adjustments and core strengthening exercises did wonders. His explanation of the biomechanics was reassuring. Best therapist in Noida!",
+    quote: "I'd been dealing with that sharp shooting pain down my left leg for almost eight months. Tried two other physiotherapists before this. Dr. Rohit actually sat with me, looked at my posture at my desk, and explained exactly why the pain was radiating. The dry needling session was a bit intense but the relief after was real. Back to running 5k now.",
     rating: 5,
     type: "Clinic Visit",
   },
   {
-    name: "Mrs. Rajeshwari Goel",
-    role: "Retired Teacher",
+    name: "Rajeshwari Goel",
+    role: "Retired School Teacher",
     location: "Sector 49, Noida",
-    condition: "Post-OP Knee Replacement",
-    quote: "Post-surgery knee rehab at home was incredibly convenient. Dr. Rohit Verma brought advanced mobilization tools, checked my progress diligently, and guided me back to climbing stairs pain-free. A dedicated, experienced professional.",
+    condition: "Post-Knee Replacement Rehab",
+    quote: "My daughter-in-law found PhysioVenture after my knee surgery. Dr. Rohit came home with all his equipment — I was a bit nervous but he was very patient and gentle. He never pushed too hard but always pushed enough. Getting up and down stairs was my goal, and I can do it now without holding the rail.",
     rating: 5,
     type: "Home Visit",
-  }
+  },
+  {
+    name: "Rahul Verma",
+    role: "Amateur Marathoner",
+    location: "Sector 137, Noida",
+    condition: "ACL Tear & Sports Recovery",
+    quote: "Tore my ACL in November, surgery was done by December, and I genuinely thought my running days were behind me. Dr. Rohit's rehab plan was structured week by week — no rushing, but no slacking either. He kept me honest about form. Ran a half marathon in September. That says everything.",
+    rating: 5,
+    type: "Clinic Visit",
+  },
+  {
+    name: "Sonal Gupta",
+    role: "Homemaker",
+    location: "Sector 15, Noida",
+    condition: "Frozen Shoulder",
+    quote: "Six weeks of not being able to raise my arm properly. Couldn't even put on a dupatta without wincing. My husband booked a home session because I honestly couldn't travel. Dr. Rohit was punctual and very thorough. The heat therapy followed by the joint mobilization — week three I felt real movement returning. By week six it was nearly normal.",
+    rating: 5,
+    type: "Home Visit",
+  },
+  {
+    name: "Devendra Nath",
+    role: "Retired Civil Engineer",
+    location: "Sector 22, Noida",
+    condition: "Geriatric Balance & Fall Prevention",
+    quote: "I'm 78 and had two small falls in six months. My son was very worried. Dr. Rohit came home, did a proper assessment of how I walk and where I wobble, and then started balance training right there in my drawing room. My confidence walking outdoors has come back a lot. Even my doctor noticed the improvement.",
+    rating: 5,
+    type: "Home Visit",
+  },
+  {
+    name: "Priya Sen",
+    role: "Marketing Director",
+    location: "Sector 78, Noida",
+    condition: "Cervical Pain & Posture Strain",
+    quote: "The tension headaches were almost daily — I just assumed it was stress from work. Turned out it was entirely posture-related from years of bad laptop habits. Dr. Rohit showed me what my spine actually looked like on assessment and it was eye-opening. Four clinic sessions plus the exercises he gave me, and the headaches are down to maybe once a month.",
+    rating: 5,
+    type: "Clinic Visit",
+  },
+  {
+    name: "Meena Kapoor",
+    role: "Daughter of Parkinson's Patient",
+    location: "Sector 93, Noida",
+    condition: "Parkinson's Gait Rehabilitation",
+    quote: "Papa was diagnosed two years ago and his walking had become very shuffled and slow. We were scared of falls constantly. Dr. Rohit specializes in this — he knew exactly which exercises to work on. The treadmill gait work at clinic and the home exercises together made a visible difference. Papa is steadier now and that means the world to us.",
+    rating: 5,
+    type: "Home Visit",
+  },
 ];
 
 export default function Home() {
@@ -116,7 +172,7 @@ export default function Home() {
       "@type": "Person",
       "name": DOCTOR_NAME,
       "jobTitle": "Lead Physiotherapist & Clinical Director",
-      "description": `Dr. Rohit Verma has 7+ years of clinical expertise in Neurological and Orthopaedic Rehabilitation serving 1200+ patients in Noida.`,
+      "description": `Dr. Rohit Verma has 7+ years of clinical expertise in Neurological and Orthopaedic Rehabilitation serving 2100+ patients in Noida.`,
       "url": `${SITE_URL}/about`,
       "hasCredential": [
         { "@type": "EducationalOccupationalCredential", "name": "B.P.T (Bachelor of Physiotherapy)" },
@@ -255,16 +311,11 @@ export default function Home() {
       {/* 1. Hero Section Wrapper with Fading Background Image */}
       <div id="hero" className="relative w-full border-b border-border/20 bg-background/50 overflow-hidden">
         {/* Absolute Background Video */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-55 lg:opacity-70"
-          >
-            <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          </video>
+        {/* On mobile: clip to ~72% height with a bottom fade so video ends at the Clinical Grade badge */}
+        <div className="absolute inset-x-0 top-0 h-[72%] lg:inset-0 lg:h-full z-0 pointer-events-none overflow-hidden">
+          <HeroVideo />
+          {/* Soft bottom fade on mobile only */}
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent lg:hidden z-20" />
         </div>
 
         {/* Hero Content Section */}
@@ -281,7 +332,7 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">In Your Own Home.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-[11px] sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
               Personalized, high-end Neuro and Orthopaedic physical therapy. Get clinic-grade treatment delivered directly to your doorstep in Noida by an expert practitioner with 7+ years of experience.
             </p>
 
@@ -311,7 +362,7 @@ export default function Home() {
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Expertise</span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="font-display font-extrabold text-2xl text-primary">1200+</span>
+                <span className="font-display font-extrabold text-2xl text-primary">2100+</span>
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Patients Restored</span>
               </div>
               <div className="flex flex-col gap-1">
@@ -327,36 +378,24 @@ export default function Home() {
       </div>
 
       {/* 2. Google Review / Social Proof Strip */}
-      <section className="w-full bg-secondary/30 border-y border-border/40 py-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex-shrink-0 text-center md:text-left">
-            <h2 className="font-display font-extrabold text-lg text-primary">Trusted by Noida Residents</h2>
-            <div className="flex items-center gap-1.5 justify-center md:justify-start mt-1" role="img" aria-label="4.9 out of 5 stars rating">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-              <span className="text-sm font-semibold text-muted-foreground ml-2">4.9 Star Rating (150+ Reviews)</span>
+      <section className="w-full bg-secondary/30 border-y border-border/40 py-10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <h2 className="font-display font-extrabold text-lg text-primary">Trusted by Noida Residents</h2>
+              <div className="flex items-center gap-1.5 justify-start mt-1" role="img" aria-label="4.9 out of 5 stars rating">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                ))}
+                <span className="text-sm font-semibold text-muted-foreground ml-2">4.9 Star Rating (150+ Reviews)</span>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 flex-1 max-w-4xl overflow-x-auto pb-2 scrollbar-none">
-            {PATIENT_TESTIMONIALS.map((t, idx) => (
-              <div key={idx} className="bg-card dark:bg-card/50 border border-border/40 p-4 rounded-xl shadow-xs min-w-[280px] flex-1">
-                <div className="flex items-center gap-1 mb-2" role="img" aria-label={`${t.rating} out of 5 stars`}>
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-xs italic text-muted-foreground leading-relaxed">"{t.quote}"</p>
-                <div className="mt-3 flex flex-col">
-                  <span className="text-xs font-bold text-primary">{t.name}</span>
-                  <span className="text-xs text-muted-foreground">{t.role} · {t.location}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialsCarousel testimonials={PATIENT_TESTIMONIALS} />
         </div>
       </section>
+
 
       {/* 3. Diagnostic / Symptom Selector & Stories Carousel */}
       <SymptomServicesSection />
@@ -444,9 +483,27 @@ export default function Home() {
               <span className="block text-sm font-medium text-accent mt-1">B.P.T, M.P.T (Neuro Rehabilitation & Musculoskeletal Recovery)</span>
             </h2>
 
+            {/* Mobile Image (Visible only on smaller screens) */}
+            <div className="flex lg:hidden justify-center w-full my-2">
+              <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
+                <Image
+                  src="/images/doctor_profile.jpg"
+                  alt="Dr. Rohit Verma - Lead Physiotherapist in Noida"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 340px"
+                  className="object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-left">
+                  <p className="font-display font-extrabold text-lg">Dr. Rohit Verma</p>
+                  <p className="text-xs text-accent font-semibold tracking-wider uppercase mt-0.5">7+ Years Clinical Experience</p>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
-                Dr. Rohit Verma is Noida's leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 1,200 patients back to peak mobility and pain-free living.
+                Dr. Rohit Verma is Noida's leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 2,100 patients back to peak mobility and pain-free living.
               </p>
               <p>
                 Having worked across renowned multi-specialty hospitals and active sports academies, Dr. Rohit Verma recognized that recovery is fastest, safest, and most lasting when clinical expertise is combined with a stress-free environment. This realization drove him to pioneer the <strong>PhysioVenture Home Rehabilitation Program</strong> in Noida.
@@ -478,7 +535,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex justify-center">
+          {/* Desktop Image (Visible only on large screens) */}
+          <div className="hidden lg:flex lg:col-span-5 justify-center">
             <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
               <Image
                 src="/images/doctor_profile.jpg"
@@ -512,53 +570,9 @@ export default function Home() {
               Hear directly from our patients in Noida about their recovery journeys and how Dr. Rohit Verma’s customized therapy helped them regain active, pain-free lives.
             </p>
           </div>
+          <SuccessStoriesCarousel testimonials={PATIENT_TESTIMONIALS} autoPlayInterval={5500} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {PATIENT_TESTIMONIALS.map((testimonial, idx) => (
-              <Card key={idx} hoverEffect className="bg-card border border-border/50 flex flex-col justify-between h-full p-6 shadow-xs relative overflow-hidden">
-                {/* Visual quote indicator */}
-                <span className="absolute right-6 top-4 text-6xl font-display font-extrabold text-accent/10 select-none">“</span>
-
-                <div>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4.5 h-4.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed italic mb-6 relative z-10">
-                    "{testimonial.quote}"
-                  </p>
-                </div>
-
-                <div className="border-t border-border/40 pt-4 mt-auto">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-display font-bold text-primary text-base">{testimonial.name}</span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-secondary/80 text-primary border border-primary/5">
-                      {testimonial.type === "Home Visit" ? (
-                        <>
-                          <HomeIcon className="w-3.5 h-3.5 text-accent shrink-0" /> Home Visit
-                        </>
-                      ) : (
-                        <>
-                          <MapPin className="w-3.5 h-3.5 text-accent shrink-0" /> Clinic
-                        </>
-                      )}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-xs text-muted-foreground font-medium">{testimonial.role} · {testimonial.location}</span>
-                    <span className="text-[11px] text-accent font-bold tracking-wide uppercase mt-1 flex items-center gap-1">
-                      <CheckCircle className="w-3.5 h-3.5" /> {testimonial.condition}
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="w-full flex justify-center mt-12">
+          <div className="w-full flex justify-center mt-10">
             <Button variant="outline" size="md" asChild>
               <Link href="/testimonials">View All Patient Reviews</Link>
             </Button>
@@ -582,7 +596,9 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {BLOG_ARTICLES.map((article, idx) => (
+          {BLOG_ARTICLES.filter((article, index, self) => 
+            index === self.findIndex((a) => a.category === article.category)
+          ).slice(0, 3).map((article, idx) => (
             <Link key={idx} href={`/blogs/${article.slug}`} className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none">
               {/* Blog Card Image wrapper */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/20">

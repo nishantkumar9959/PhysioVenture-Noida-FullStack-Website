@@ -451,8 +451,8 @@ export default function SymptomServicesSection() {
         )}
 
         {/* Faded edges to indicate scroll track depth on overflow */}
-        <div className={`absolute top-3 bottom-3 left-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none transition-opacity duration-300 ${canScrollLeft ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
-        <div className={`absolute top-3 bottom-3 right-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none transition-opacity duration-300 ${canScrollRight ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
+        <div className={`absolute top-3 bottom-3 left-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none z-10 transition-opacity duration-300 ${canScrollLeft || selectedCategory === "all" ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
+        <div className={`absolute top-3 bottom-3 right-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none z-10 transition-opacity duration-300 ${canScrollRight || selectedCategory === "all" ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
       </div>
 
       <div className="w-full flex justify-center mt-6">

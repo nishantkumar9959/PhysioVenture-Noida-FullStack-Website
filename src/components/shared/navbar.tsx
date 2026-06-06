@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -19,19 +19,39 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
-  
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   // Throttled scroll listener via requestAnimationFrame
+  // Hides navbar on scroll down, reveals on scroll up
   useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
+      if (!ticking.current) {
         requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
+          const currentScrollY = window.scrollY;
+          const diff = currentScrollY - lastScrollY.current;
+
+          // Mark as scrolled past threshold for compact styling
+          setScrolled(currentScrollY > 20);
+
+          // Hide on scroll down (after 80px), show on scroll up
+          if (currentScrollY > 80) {
+            if (diff > 4) {
+              setHidden(true);
+              setIsOpen(false);
+            } else if (diff < -4) {
+              setHidden(false);
+            }
+          } else {
+            setHidden(false);
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking.current = false;
         });
-        ticking = true;
+        ticking.current = true;
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -64,7 +84,8 @@ export default function Navbar() {
       aria-label="Main navigation"
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full bg-white dark:bg-background border-b border-border/80 shadow-xs",
-        scrolled ? "py-2.5" : "py-4"
+        scrolled ? "py-2.5" : "py-4",
+        hidden ? "-translate-y-full" : "translate-y-0"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

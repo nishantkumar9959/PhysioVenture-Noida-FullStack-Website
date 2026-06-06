@@ -101,6 +101,19 @@
   
   html {
     scroll-behavior: smooth;
+    font-size: 100%;
+  }
+  
+  @media (max-width: 1024px) {
+    html {
+      font-size: 93.75%; /* 1rem = 15px */
+    }
+  }
+  
+  @media (max-width: 640px) {
+    html {
+      font-size: 87.5%; /* 1rem = 14px */
+    }
   }
   
   body {
