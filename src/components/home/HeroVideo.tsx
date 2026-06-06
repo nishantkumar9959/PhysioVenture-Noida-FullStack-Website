@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 
 const PLAYLIST = [
   "/videos/hero-bg.mp4",
-  "/videos/hero-bg-2.mp4",
   "/videos/hero-bg-3.mp4",
 ];
 
