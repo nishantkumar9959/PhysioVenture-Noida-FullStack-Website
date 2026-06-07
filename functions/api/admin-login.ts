@@ -46,8 +46,9 @@ export async function onRequestPost(context: { request: Request; env: any }) {
     const turnstileSecret = env.CF_TURNSTILE_SECRET_KEY;
     const supabaseUrl = env.SUPABASE_URL;
     const supabaseServiceKey = env.SUPABASE_SECRET_KEY;
+    const supabasePublishableKey = env.SUPABASE_PUBLISHABLE_KEY;
 
-    if (!turnstileSecret || !supabaseUrl || !supabaseServiceKey) {
+    if (!turnstileSecret || !supabaseUrl || !supabaseServiceKey || !supabasePublishableKey) {
       return new Response(
         JSON.stringify({ error: "Server misconfiguration. Environment variables are missing." }),
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
@@ -63,15 +64,9 @@ export async function onRequestPost(context: { request: Request; env: any }) {
     }
 
     const body = await request.json();
-    const {
-      name,
-      email,
-      phone,
-      message,
-      turnstileToken
-    } = body;
+    const { email, password, turnstileToken } = body;
 
-    // Validate token
+    // Validate turnstile token
     const clientIp = request.headers.get("CF-Connecting-IP") || "";
     const isTokenValid = await verifyTurnstile(turnstileToken, turnstileSecret, clientIp);
     if (!isTokenValid) {
@@ -81,57 +76,99 @@ export async function onRequestPost(context: { request: Request; env: any }) {
       );
     }
 
-    // Basic server-side validations
-    if (!name || !email || !message) {
+    // Validate email/password presence
+    if (!email || !password) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields." }),
+        JSON.stringify({ error: "Email and password are required." }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
-    // Insert into Supabase
-    const dbData = {
-      name,
-      email,
-      phone: phone || null,
-      message,
-    };
-
-    const supabaseResponse = await fetch(`${supabaseUrl}/rest/v1/contact_inquiries`, {
+    // Call Supabase Auth API
+    const authResponse = await fetch(`${supabaseUrl}/auth/v1/token?grant_type=password`, {
       method: "POST",
       headers: {
-        "apikey": supabaseServiceKey,
-        "Authorization": `Bearer ${supabaseServiceKey}`,
+        "apikey": supabasePublishableKey,
         "Content-Type": "application/json",
-        "Prefer": "return=representation"
       },
-      body: JSON.stringify(dbData)
+      body: JSON.stringify({ email, password })
     });
 
-    if (!supabaseResponse.ok) {
-      const dbErrorText = await supabaseResponse.text();
-      console.error("Supabase insert error:", dbErrorText);
+    if (!authResponse.ok) {
       return new Response(
-        JSON.stringify({ error: "Failed to store contact inquiry in database." }),
+        JSON.stringify({ error: "Invalid email or password." }),
+        { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    const authData: any = await authResponse.json();
+    const { access_token, refresh_token, expires_in, user } = authData;
+
+    if (!user || !user.id) {
+      return new Response(
+        JSON.stringify({ error: "Invalid response from authorization server." }),
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
-    const responseData = await supabaseResponse.json();
+    // Query admin_users to verify user is an admin
+    const adminResponse = await fetch(`${supabaseUrl}/rest/v1/admin_users?id=eq.${user.id}`, {
+      method: "GET",
+      headers: {
+        "apikey": supabaseServiceKey,
+        "Authorization": `Bearer ${supabaseServiceKey}`,
+      }
+    });
 
+    if (!adminResponse.ok) {
+      // Invalidate the session
+      await fetch(`${supabaseUrl}/auth/v1/logout`, {
+        method: "POST",
+        headers: {
+          "apikey": supabasePublishableKey,
+          "Authorization": `Bearer ${access_token}`
+        }
+      });
+
+      return new Response(
+        JSON.stringify({ error: "Access denied. Failed to check privileges." }),
+        { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    const adminData: any = await adminResponse.json();
+
+    if (!Array.isArray(adminData) || adminData.length === 0) {
+      // User is not in admin_users, log them out immediately to invalidate session
+      await fetch(`${supabaseUrl}/auth/v1/logout`, {
+        method: "POST",
+        headers: {
+          "apikey": supabasePublishableKey,
+          "Authorization": `Bearer ${access_token}`
+        }
+      });
+
+      return new Response(
+        JSON.stringify({ error: "Access denied. You do not have administrator privileges." }),
+        { status: 403, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Return the session tokens
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Contact inquiry recorded successfully.",
-        data: responseData
+        access_token,
+        refresh_token,
+        expires_in,
       }),
       {
-        status: 201,
+        status: 200,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
   } catch (err) {
-    console.error("Internal server error in contact:", err);
+    console.error("Internal server error in admin-login:", err);
     return new Response(
       JSON.stringify({
         error: "Internal server error",

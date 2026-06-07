@@ -652,14 +652,14 @@ function Dashboard() {
     try {
       const { data: appts, error: apptsErr } = await supabase
         .from('appointment_requests')
-        .select('*')
+        .select('id, patient_name, phone, email, service_id, preferred_date, preferred_time_slot, additional_notes, status, created_at, updated_at')
         .order('created_at', { ascending: false });
 
       if (apptsErr) throw apptsErr;
 
       const { data: inqs, error: inqsErr } = await supabase
         .from('contact_inquiries')
-        .select('*')
+        .select('id, name, email, phone, message, status, created_at')
         .order('created_at', { ascending: false });
 
       if (inqsErr) throw inqsErr;

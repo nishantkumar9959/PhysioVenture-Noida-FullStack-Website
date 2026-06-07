@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Physiotherapy Services in Noida — 23+ Specialized Treatments | PhysioVenture",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     "stroke rehabilitation Noida",
   ],
   alternates: {
-    canonical: "https://physioventurenoida.vercel.app/services",
+    canonical: `${SITE_URL}/services`,
   },
   openGraph: {
     title: "23+ Physiotherapy Services | PhysioVenture Noida",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
       "Comprehensive physiotherapy services including neuro, ortho, sports, geriatric, and home-visit treatments in Noida.",
     type: "website",
     locale: "en_IN",
-    url: "https://physioventurenoida.vercel.app/services",
+    url: `${SITE_URL}/services`,
   },
 };
 

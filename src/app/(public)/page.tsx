@@ -121,7 +121,7 @@ export default function Home() {
     "@id": `${SITE_URL}/#medicalbusiness`,
     "url": SITE_URL,
     "telephone": "+91 89320 82549",
-    "email": "contact@physioventurenoida.com",
+    "email": "info@physioventure.in",
     "priceRange": "$$",
     "currenciesAccepted": "INR",
     "paymentAccepted": "Cash, UPI, Bank Transfer",

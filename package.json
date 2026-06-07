@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "copy-services": "node -e \"const fs = require('fs'); const bPath = 'C:/Users/Nishant/.gemini/antigravity/brain/492f4d37-beff-45b1-afca-f2a014f0e1b9/'; fs.copyFileSync(bPath + 'service_neuro_1779355365301.png', 'public/images/service_neuro.png'); fs.copyFileSync(bPath + 'service_back_1779355386832.png', 'public/images/service_back.png'); fs.copyFileSync(bPath + 'service_knee_1779355407466.png', 'public/images/service_knee.png'); fs.copyFileSync(bPath + 'service_chiro_1779355429720.png', 'public/images/service_chiro.png'); fs.copyFileSync(bPath + 'service_sports_1779355453607.png', 'public/images/service_sports.png'); fs.copyFileSync(bPath + 'service_geriatric_1779355475729.png', 'public/images/service_geriatric.png'); fs.copyFileSync('public/images/home_visit.png', 'public/images/service_post_op.png'); fs.copyFileSync('public/images/stroke_recovery_blog.png', 'public/images/service_vestibular.png');\""
+    "lint": "eslint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

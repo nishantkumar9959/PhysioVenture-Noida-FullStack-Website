@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
-import { supabase } from "@/lib/supabase";
 
 export default function Book() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,32 +54,26 @@ export default function Book() {
     setSubmitSuccess(false);
 
     try {
-      const dbData = {
-        patient_name: data.patient_name,
-        phone: data.phone,
-        email: data.email || null,
-        service_id: data.service_id,
-        preferred_date: data.preferred_date,
-        preferred_time_slot: data.preferred_time_slot,
-        additional_notes: data.additional_notes || null,
-        status: "pending",
-      };
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      const { error } = await supabase
-        .from("appointment_requests")
-        .insert([dbData]);
+      const result = await response.json();
 
-      if (error) {
-        throw new Error(error.message || "Failed to schedule appointment");
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to schedule appointment");
       }
 
       setSubmitSuccess(true);
       reset();
       turnstileRef.current?.reset();
     } catch (err) {
-      const error = err instanceof Error ? err : new Error(String(err));
-      console.error("Booking error:", error);
-      setSubmitError(error.message || "Something went wrong while booking. Please try again or contact us via WhatsApp.");
+      console.error("Booking error:", err);
+      setSubmitError("Something went wrong while booking. Please try again or contact us via WhatsApp.");
       setValue("turnstileToken", "");
       turnstileRef.current?.reset();
     } finally {

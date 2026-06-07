@@ -30,7 +30,7 @@ export default function About() {
     "url": `${SITE_URL}/about`,
     "image": `${SITE_URL}/images/doctor_profile.jpg`,
     "telephone": "+918932082549",
-    "email": "contact@physioventurenoida.com",
+    "email": "info@physioventure.in",
     "memberOf": {
       "@type": "Organization",
       "name": "Indian Association of Physiotherapists (IAP)"

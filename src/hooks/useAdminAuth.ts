@@ -11,9 +11,9 @@ export function useAdminAuth() {
   const [loading, setLoading] = useState(true);
 
   const checkAuth = useCallback(async () => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { user } } = await supabase.auth.getUser();
 
-    if (!session?.user) {
+    if (!user) {
       router.replace('/admin-cr7m10vk18msd7r45n16/login');
       return;
     }
@@ -22,7 +22,7 @@ export function useAdminAuth() {
     const { data: adminUser, error } = await supabase
       .from('admin_users')
       .select('role')
-      .eq('id', session.user.id)
+      .eq('id', user.id)
       .single();
 
     if (error || !adminUser) {
@@ -31,7 +31,7 @@ export function useAdminAuth() {
       return;
     }
 
-    setUser(session.user);
+    setUser(user);
     setLoading(false);
   }, [router]);
 

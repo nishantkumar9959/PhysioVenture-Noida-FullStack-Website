@@ -18,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
-import { supabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,28 +48,26 @@ export default function Contact() {
     setSubmitSuccess(false);
 
     try {
-      const dbData = {
-        name: data.name,
-        email: data.email,
-        phone: data.phone || null,
-        message: data.message,
-      };
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      const { error } = await supabase
-        .from("contact_inquiries")
-        .insert([dbData]);
+      const result = await response.json();
 
-      if (error) {
-        throw new Error(error.message || "Failed to submit message");
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit message");
       }
 
       setSubmitSuccess(true);
       reset();
       turnstileRef.current?.reset();
     } catch (err) {
-      const error = err instanceof Error ? err : new Error(String(err));
-      console.error("Contact error:", error);
-      setSubmitError(error.message || "Something went wrong while sending your inquiry. Please try again or contact us via WhatsApp.");
+      console.error("Contact error:", err);
+      setSubmitError("Something went wrong while sending your inquiry. Please try again or contact us via WhatsApp.");
       setValue("turnstileToken", "");
       turnstileRef.current?.reset();
     } finally {
@@ -138,7 +135,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Email Inquiry</h4>
                   <p className="text-xs text-muted-foreground mt-1 font-semibold text-primary">
-                    contact@physioventurenoida.com
+                    info@physioventure.in
                   </p>
                 </div>
               </div>

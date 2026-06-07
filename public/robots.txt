@@ -1,5 +1,5 @@
 # PhysioVenture Noida — Crawler Access Rules
-# https://physioventurenoida.vercel.app
+# https://physioventure.in
 
 User-agent: *
 Allow: /
@@ -49,4 +49,4 @@ User-agent: cohere-ai
 Allow: /
 Disallow: /api/
 
-Sitemap: https://physioventurenoida.vercel.app/sitemap.xml
+Sitemap: https://physioventure.in/sitemap.xml

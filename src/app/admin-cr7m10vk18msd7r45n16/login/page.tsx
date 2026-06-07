@@ -40,26 +40,40 @@ export default function AdminLogin() {
 
     setLoading(true);
     try {
-      const { data, error: signInErr } = await supabase.auth.signInWithPassword({
-        email: parsed.data.email,
-        password: parsed.data.password,
+      const response = await fetch('/api/admin-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: parsed.data.email,
+          password: parsed.data.password,
+          turnstileToken: cfToken,
+        }),
       });
-      if (signInErr) {
-        setError(signInErr.message);
-        // Reset Turnstile on failed login so bot can't retry with old token
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setError(result.error || 'Authentication failed. Please try again.');
         setCfToken('');
         turnstileRef.current?.reset();
         return;
       }
-      const { data: admin, error: roleErr } = await supabase
-        .from('admin_users').select('role').eq('id', data.user.id).single();
-      if (roleErr || !admin) {
-        await supabase.auth.signOut();
-        setError(roleErr ? `Auth check failed: ${roleErr.message}` : 'Unauthorized. Only admin users are allowed.');
+
+      // Restores session client-side using the tokens returned by the server-side verification
+      const { error: sessionErr } = await supabase.auth.setSession({
+        access_token: result.access_token,
+        refresh_token: result.refresh_token,
+      });
+
+      if (sessionErr) {
+        setError(`Failed to establish session: ${sessionErr.message}`);
         setCfToken('');
         turnstileRef.current?.reset();
         return;
       }
+
       router.replace('/admin-cr7m10vk18msd7r45n16');
     } catch {
       setError('Unexpected error. Please try again.');

@@ -2,7 +2,7 @@
  * Canonical business data — single source of truth for all pages.
  * Import from here instead of hard-coding values.
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.CF_PAGES_URL || "https://physioventure-noida.pages.dev";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.CF_PAGES_URL || "https://physioventure.in";
 export const DOCTOR_NAME = "Dr. Rohit Verma";
 
 export const BUSINESS = {
@@ -10,7 +10,7 @@ export const BUSINESS = {
   shortName: "PhysioVenture",
   phone: "+918932082549",
   phoneDisplay: "+91 89320 82549",
-  email: "contact@physioventurenoida.com",
+  email: "info@physioventure.in",
   address: "A-31, Block A, Sector 49, Noida, Uttar Pradesh 201303",
   hours: "Monday – Saturday: 8:00 AM – 8:00 PM",
   hoursShort: "Mon - Sat: 8:00 AM - 8:00 PM",

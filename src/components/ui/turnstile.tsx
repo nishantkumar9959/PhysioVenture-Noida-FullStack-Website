@@ -51,7 +51,7 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
 
   const [scriptReady, setScriptReady] = useState(false);
   const [scriptFailed, setScriptFailed] = useState(false);
-  const [isDemoMode, setIsDemoMode] = useState(isPlaceholder);
+  const [isDemoMode, setIsDemoMode] = useState(!isProduction && isPlaceholder);
   const [demoVerified, setDemoVerified] = useState(false);
   const [demoVerifying, setDemoVerifying] = useState(false);
 
@@ -67,8 +67,12 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
   });
 
   useEffect(() => {
-    setIsDemoMode(isPlaceholder || scriptFailed);
-  }, [isPlaceholder, scriptFailed]);
+    if (isProduction) {
+      setIsDemoMode(false);
+    } else {
+      setIsDemoMode(isPlaceholder || scriptFailed);
+    }
+  }, [isPlaceholder, scriptFailed, isProduction]);
 
   useEffect(() => {
     if (!isPlaceholder && window.turnstile) {
@@ -154,15 +158,19 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
     }, 700);
   };
 
-  if (showConfigError) {
+  if (showConfigError || (isProduction && (scriptFailed || isDemoMode))) {
     return (
       <div
         className="w-full max-w-[300px] min-h-[65px] rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 mx-auto text-center"
         style={{ contentVisibility: "auto" }}
       >
-        <p className="text-[11px] font-bold text-destructive tracking-wide">Turnstile is not configured in this build</p>
+        <p className="text-[11px] font-bold text-destructive tracking-wide">
+          {showConfigError ? "Turnstile is not configured in this build" : "Security check failed to load"}
+        </p>
         <p className="text-[10px] text-destructive/80 mt-1">
-          Add <code>NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY</code> to the Cloudflare Pages build environment and redeploy.
+          {showConfigError
+            ? "Add NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY to the Cloudflare Pages build environment and redeploy."
+            : "Please check your connection or disable ad-blockers and refresh the page."}
         </p>
       </div>
     );
