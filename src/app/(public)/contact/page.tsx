@@ -166,7 +166,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Form and Map Column */}
+        {/* Form Column */}
         <div className="lg:col-span-7 flex flex-col gap-8">
           {/* Inquiry Form */}
           <div className="bg-card border border-border shadow-xs rounded-3xl p-6 sm:p-8">
@@ -259,21 +259,21 @@ export default function Contact() {
               </form>
             )}
           </div>
+        </div>
 
-          {/* Embedded Google Map */}
-          <div className="bg-card border border-border shadow-xs rounded-3xl overflow-hidden p-2 h-[320px] relative w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.743126868516!2d77.362143!3d28.577488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5d9842a201d%3A0xe96cfbfa8b14a2c!2sSector%2049%2C%20Noida%2C%20Uttar%20Pradesh%20201303!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-2xl"
-              title="PhysioVenture Noida Location Map"
-            />
-          </div>
+        {/* Embedded Google Map */}
+        <div className="lg:col-span-12 bg-card border border-border shadow-xs rounded-3xl overflow-hidden p-2 h-[320px] md:h-[400px] relative w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.743126868516!2d77.362143!3d28.577488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5d9842a201d%3A0xe96cfbfa8b14a2c!2sSector%2049%2C%20Noida%2C%20Uttar%20Pradesh%20201303!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-2xl"
+            title="PhysioVenture Noida Location Map"
+          />
         </div>
       </div>
     </div>
