@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
 import { Lock, Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
+import { Turnstile, type TurnstileInstance } from '@/components/ui/turnstile';
 
 const schema = z.object({
   email: z.string().email('Invalid email address'),
@@ -14,16 +15,26 @@ const schema = z.object({
 
 export default function AdminLogin() {
   const router = useRouter();
-  const [email, setEmail]       = useState('');
-  const [password, setPassword] = useState('');
-  const [show, setShow]         = useState(false);
-  const [error, setError]       = useState('');
-  const [loading, setLoading]   = useState(false);
-  const [focused, setFocused]   = useState<'email' | 'password' | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
+
+  const [email, setEmail]         = useState('');
+  const [password, setPassword]   = useState('');
+  const [show, setShow]           = useState(false);
+  const [error, setError]         = useState('');
+  const [loading, setLoading]     = useState(false);
+  const [focused, setFocused]     = useState<'email' | 'password' | null>(null);
+  const [cfToken, setCfToken]     = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError('');
+
+    // Block submission if Turnstile has not verified yet
+    if (!cfToken) {
+      setError('Please complete the security check before logging in.');
+      return;
+    }
+
     const parsed = schema.safeParse({ email, password });
     if (!parsed.success) { setError(parsed.error.issues[0].message); return; }
 
@@ -33,17 +44,27 @@ export default function AdminLogin() {
         email: parsed.data.email,
         password: parsed.data.password,
       });
-      if (signInErr) { setError(signInErr.message); return; }
+      if (signInErr) {
+        setError(signInErr.message);
+        // Reset Turnstile on failed login so bot can't retry with old token
+        setCfToken('');
+        turnstileRef.current?.reset();
+        return;
+      }
       const { data: admin, error: roleErr } = await supabase
         .from('admin_users').select('role').eq('id', data.user.id).single();
       if (roleErr || !admin) {
         await supabase.auth.signOut();
         setError(roleErr ? `Auth check failed: ${roleErr.message}` : 'Unauthorized. Only admin users are allowed.');
+        setCfToken('');
+        turnstileRef.current?.reset();
         return;
       }
       router.replace('/admin-cr7m10vk18msd7r45n16');
     } catch {
       setError('Unexpected error. Please try again.');
+      setCfToken('');
+      turnstileRef.current?.reset();
     } finally {
       setLoading(false);
     }
@@ -124,7 +145,6 @@ export default function AdminLogin() {
                 required
                 className="flex-1 h-10 pl-3.5 text-[13px] text-gray-800 placeholder-gray-400 outline-none bg-transparent"
               />
-              {/* Eye — right-side sibling, not absolute */}
               <button
                 type="button"
                 tabIndex={-1}
@@ -139,6 +159,16 @@ export default function AdminLogin() {
             </div>
           </div>
 
+          {/* ── Turnstile Security Check ── */}
+          <div className="flex flex-col items-center gap-1 py-1">
+            <Turnstile
+              ref={turnstileRef}
+              onSuccess={(token) => setCfToken(token)}
+              onExpire={() => setCfToken('')}
+              onError={() => setCfToken('')}
+            />
+          </div>
+
           {/* Error */}
           {error && (
             <div className="flex items-start gap-2 text-[12px] text-red-600 bg-red-50 border border-red-100 px-3 py-2 rounded-lg">
@@ -147,12 +177,12 @@ export default function AdminLogin() {
             </div>
           )}
 
-          {/* Submit */}
+          {/* Submit — disabled until Turnstile verified */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !cfToken}
             className="w-full h-10 rounded-lg font-semibold text-[14px] text-white mt-1
-                       bg-primary hover:bg-primary/90 active:scale-[0.98] disabled:opacity-60
+                       bg-primary hover:bg-primary/90 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed
                        flex items-center justify-center gap-2 shadow-sm transition-all duration-150"
           >
             {loading ? (
