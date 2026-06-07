@@ -8,7 +8,6 @@ import {
 } from 'lucide-react';
 import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import { useAdminRealtime } from '@/hooks/useAdminRealtime';
 
 /* ─────────────────────────── types ─────────────────────────── */
@@ -650,22 +649,17 @@ function Dashboard() {
 
   const fetchData = useCallback(async () => {
     try {
-      const { data: appts, error: apptsErr } = await supabase
-        .from('appointment_requests')
-        .select('id, patient_name, phone, email, service_id, preferred_date, preferred_time_slot, additional_notes, status, created_at, updated_at')
-        .order('created_at', { ascending: false });
-
-      if (apptsErr) throw apptsErr;
-
-      const { data: inqs, error: inqsErr } = await supabase
-        .from('contact_inquiries')
-        .select('id, name, email, phone, message, status, created_at')
-        .order('created_at', { ascending: false });
-
-      if (inqsErr) throw inqsErr;
-
-      setAppointments(appts || []);
-      setInquiries(inqs || []);
+      const response = await fetch('/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/get-bookings');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const result = await response.json();
+      if (result.success) {
+        setAppointments(result.appointments || []);
+        setInquiries(result.inquiries || []);
+      } else {
+        throw new Error(result.error || 'Failed to fetch data');
+      }
     } catch (err) {
       console.error('Error fetching dashboard database data:', err);
     } finally {
@@ -682,21 +676,19 @@ function Dashboard() {
 
   const updateStatus = async (id: string, type: 'appointment' | 'inquiry', newStatus: string) => {
     try {
-      if (type === 'appointment') {
-        const { error } = await supabase
-          .from('appointment_requests')
-          .update({ status: newStatus, updated_at: new Date().toISOString() })
-          .eq('id', id);
+      const response = await fetch('/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/update-status', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id, type, status: newStatus }),
+      });
 
-        if (error) throw error;
-      } else {
-        const { error } = await supabase
-          .from('contact_inquiries')
-          .update({ status: newStatus })
-          .eq('id', id);
-
-        if (error) throw error;
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.error || 'Failed to update status');
       }
+
       fetchData();
     } catch (err) {
       console.error(`Error updating status for ${type}:`, err);
