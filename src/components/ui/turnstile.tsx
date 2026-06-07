@@ -159,18 +159,25 @@ export const Turnstile = forwardRef<TurnstileInstance, TurnstileProps>(({
   };
 
   if (showConfigError || (isProduction && (scriptFailed || isDemoMode))) {
+    // Log the configuration error to the console for developer troubleshooting
+    if (showConfigError) {
+      console.error(
+        "Turnstile Configuration Error: NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY is missing in this build. " +
+        "Please add it to your Cloudflare Pages build environment and redeploy."
+      );
+    }
+
     return (
       <div
-        className="w-full max-w-[300px] min-h-[65px] rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 mx-auto text-center"
+        className="w-full max-w-[320px] min-h-[65px] rounded-2xl border border-secondary/80 bg-secondary/35 px-4 py-3 mx-auto text-center flex flex-col items-center justify-center gap-1.5"
         style={{ contentVisibility: "auto" }}
       >
-        <p className="text-[11px] font-bold text-destructive tracking-wide">
-          {showConfigError ? "Turnstile is not configured in this build" : "Security check failed to load"}
-        </p>
-        <p className="text-[10px] text-destructive/80 mt-1">
-          {showConfigError
-            ? "Add NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY to the Cloudflare Pages build environment and redeploy."
-            : "Please check your connection or disable ad-blockers and refresh the page."}
+        <div className="flex items-center gap-1.5 text-primary">
+          <Shield className="w-4 h-4 text-accent" />
+          <span className="text-[11px] font-bold tracking-wide">Security Check Unavailable</span>
+        </div>
+        <p className="text-[10px] text-muted-foreground leading-relaxed">
+          Please contact us directly at <span className="font-semibold text-primary">+91 89320 82549</span> via Call or WhatsApp to request an appointment.
         </p>
       </div>
     );
