@@ -17,15 +17,16 @@ function getCorsHeaders(request: Request) {
 async function verifyTurnstile(token: string, secretKey: string, ip: string) {
   if (!token) return false;
   try {
-    const formData = new FormData();
-    formData.append("secret", secretKey);
-    formData.append("response", token);
-    if (ip) {
-      formData.append("remoteip", ip);
-    }
     const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        secret: secretKey,
+        response: token,
+        remoteip: ip || undefined,
+      }),
     });
     const outcome: any = await result.json();
     return outcome.success === true;
