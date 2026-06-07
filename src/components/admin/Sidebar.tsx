@@ -11,15 +11,15 @@ import { cn } from '@/lib/utils';
 import { logoutAdmin } from '@/app/actions/admin';
 
 const NAV = [
-  { label: 'Dashboard',    href: '/admin',              icon: LayoutDashboard },
-  { label: 'Appointments', href: '/admin?tab=appointments', icon: Calendar        },
-  { label: 'Inquiries',    href: '/admin?tab=inquiries',    icon: MessageSquare   },
-  { label: 'Patients',     href: '/admin?tab=patients',     icon: Users           },
-  { label: 'Treatments',   href: '/admin?tab=treatments',   icon: Stethoscope     },
-  { label: 'Therapists',   href: '/admin?tab=therapists',   icon: UserRound       },
-  { label: 'Reports',      href: '/admin?tab=reports',      icon: BarChart2       },
-  { label: 'Messages',     href: '/admin?tab=messages',     icon: Mail            },
-  { label: 'Settings',     href: '/admin?tab=settings',     icon: Settings        },
+  { label: 'Dashboard',    href: '/admin-cr7m10vk18msd7r45n16',              icon: LayoutDashboard },
+  { label: 'Appointments', href: '/admin-cr7m10vk18msd7r45n16?tab=appointments', icon: Calendar        },
+  { label: 'Inquiries',    href: '/admin-cr7m10vk18msd7r45n16?tab=inquiries',    icon: MessageSquare   },
+  { label: 'Patients',     href: '/admin-cr7m10vk18msd7r45n16?tab=patients',     icon: Users           },
+  { label: 'Treatments',   href: '/admin-cr7m10vk18msd7r45n16?tab=treatments',   icon: Stethoscope     },
+  { label: 'Therapists',   href: '/admin-cr7m10vk18msd7r45n16?tab=therapists',   icon: UserRound       },
+  { label: 'Reports',      href: '/admin-cr7m10vk18msd7r45n16?tab=reports',      icon: BarChart2       },
+  { label: 'Messages',     href: '/admin-cr7m10vk18msd7r45n16?tab=messages',     icon: Mail            },
+  { label: 'Settings',     href: '/admin-cr7m10vk18msd7r45n16?tab=settings',     icon: Settings        },
 ];
 
 interface SidebarProps {
@@ -35,7 +35,7 @@ export function Sidebar({ onClose }: SidebarProps) {
     <aside className="w-full h-full bg-white flex flex-col">
       {/* Logo Header */}
       <div className="flex items-center justify-between px-6 pt-5 pb-3 lg:px-6 lg:pt-6 lg:pb-4 border-b border-gray-50/50 lg:border-none">
-        <Link href="/admin" onClick={onClose} className="flex items-center gap-2.5">
+        <Link href="/admin-cr7m10vk18msd7r45n16" onClick={onClose} className="flex items-center gap-2.5">
           <div className="relative w-8 h-8 lg:w-9 lg:h-9 shrink-0">
             <Image src="/images/logo.png" alt="PhysioVenture" fill sizes="36px" className="object-contain" priority />
           </div>
@@ -49,11 +49,11 @@ export function Sidebar({ onClose }: SidebarProps) {
       <nav className="flex-1 px-3 py-2 space-y-0.5 overflow-y-auto scrollbar-none">
         {NAV.map(({ label, href, icon: Icon }) => {
           let active = false;
-          if (href === '/admin') {
-            active = pathname === '/admin' && (!searchParams.get('tab') || searchParams.get('tab') === 'dashboard');
+          if (href === '/admin-cr7m10vk18msd7r45n16') {
+            active = pathname === '/admin-cr7m10vk18msd7r45n16' && (!searchParams.get('tab') || searchParams.get('tab') === 'dashboard');
           } else if (href.includes('tab=')) {
             const tabName = href.split('tab=')[1];
-            active = pathname === '/admin' && currentTab === tabName;
+            active = pathname === '/admin-cr7m10vk18msd7r45n16' && currentTab === tabName;
           } else {
             active = pathname === href;
           }

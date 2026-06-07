@@ -14,7 +14,7 @@ export function useAdminAuth() {
     const { data: { session } } = await supabase.auth.getSession();
 
     if (!session?.user) {
-      router.replace('/admin/login');
+      router.replace('/admin-cr7m10vk18msd7r45n16/login');
       return;
     }
 
@@ -27,7 +27,7 @@ export function useAdminAuth() {
 
     if (error || !adminUser) {
       await supabase.auth.signOut();
-      router.replace('/admin/login');
+      router.replace('/admin-cr7m10vk18msd7r45n16/login');
       return;
     }
 
@@ -41,7 +41,7 @@ export function useAdminAuth() {
     // Listen for auth state changes (logout from another tab, token expiry)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_OUT') {
-        router.replace('/admin/login');
+        router.replace('/admin-cr7m10vk18msd7r45n16/login');
       }
     });
 

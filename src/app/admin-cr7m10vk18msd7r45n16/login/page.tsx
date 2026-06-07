@@ -25,7 +25,8 @@ export default function AdminLogin() {
     e.preventDefault();
     setError('');
     const parsed = schema.safeParse({ email, password });
-    if (!parsed.success) { setError(parsed.error.errors[0].message); return; }
+    if (!parsed.success) { setError(parsed.error.issues[0].message); return; }
+
     setLoading(true);
     try {
       const { data, error: signInErr } = await supabase.auth.signInWithPassword({
@@ -40,7 +41,7 @@ export default function AdminLogin() {
         setError(roleErr ? `Auth check failed: ${roleErr.message}` : 'Unauthorized. Only admin users are allowed.');
         return;
       }
-      router.replace('/admin');
+      router.replace('/admin-cr7m10vk18msd7r45n16');
     } catch {
       setError('Unexpected error. Please try again.');
     } finally {

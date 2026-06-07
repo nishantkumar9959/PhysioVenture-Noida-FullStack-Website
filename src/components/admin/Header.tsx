@@ -16,7 +16,7 @@ export function Header() {
 
       {/* Left — Logo (mobile only) */}
       <div className="flex items-center lg:hidden">
-        <Link href="/admin" className="flex items-center gap-2">
+        <Link href="/admin-cr7m10vk18msd7r45n16" className="flex items-center gap-2">
           <div className="relative w-7 h-7 shrink-0">
             <Image
               src="/images/logo.png"

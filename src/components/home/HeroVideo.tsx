@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
+
 const PLAYLIST = [
   "/videos/hero-bg.mp4",
   "/videos/hero-bg-3.mp4",
@@ -85,6 +86,7 @@ export default function HeroVideo() {
         autoPlay
         muted
         playsInline
+        preload="auto"
         onEnded={handleEnded}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
           activeElement === "A" ? "opacity-90 z-10" : "opacity-0 z-0"
@@ -96,6 +98,7 @@ export default function HeroVideo() {
         ref={videoRefB}
         muted
         playsInline
+        preload="auto"
         onEnded={handleEnded}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
           activeElement === "B" ? "opacity-90 z-10" : "opacity-0 z-0"

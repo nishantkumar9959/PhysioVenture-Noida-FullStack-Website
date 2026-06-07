@@ -18,7 +18,7 @@ export async function getAdminRole(userId: string): Promise<AdminRole | null> {
 
 export async function logoutAdmin() {
   await supabase.auth.signOut();
-  window.location.href = '/admin/login';
+  window.location.href = '/admin-cr7m10vk18msd7r45n16/login';
 }
 
 export async function updateAppointmentStatus(id: string, status: string) {
