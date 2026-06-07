@@ -38,40 +38,75 @@ export function ServiceCombobox({
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
-  // Group services
-  const groupedServices = React.useMemo(() => {
-    return SERVICES_DATA.reduce((acc, srv) => {
-      if (!acc[srv.categoryLabel]) acc[srv.categoryLabel] = []
-      acc[srv.categoryLabel].push(srv)
-      return acc
-    }, {} as Record<string, typeof SERVICES_DATA>)
-  }, [])
+  // Generate all options dynamically (including sub-services/symptoms)
+  const allOptions = React.useMemo(() => {
+    const slugify = (text: string) =>
+      text
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/[\s_]+/g, "-");
 
-  const selectedService = SERVICES_DATA.find((s) => s.slug === value)
+    const options: { slug: string; name: string; categoryLabel: string }[] = [];
+
+    SERVICES_DATA.forEach((srv) => {
+      // Add the primary service
+      options.push({
+        slug: srv.slug,
+        name: srv.name,
+        categoryLabel: srv.categoryLabel,
+      });
+
+      // Add each symptom/treatment as a selectable option
+      srv.symptoms.forEach((symptom) => {
+        const symptomSlug = slugify(symptom);
+        if (!options.some((opt) => opt.slug === symptomSlug)) {
+          options.push({
+            slug: symptomSlug,
+            name: symptom,
+            categoryLabel: srv.categoryLabel,
+          });
+        }
+      });
+    });
+
+    return options;
+  }, []);
+
+  // Group options
+  const groupedOptions = React.useMemo(() => {
+    return allOptions.reduce((acc, opt) => {
+      if (!acc[opt.categoryLabel]) acc[opt.categoryLabel] = []
+      acc[opt.categoryLabel].push(opt)
+      return acc
+    }, {} as Record<string, typeof allOptions>)
+  }, [allOptions])
+
+  const selectedOption = allOptions.find((opt) => opt.slug === value)
 
   const ServiceList = (
     <Command>
       <CommandInput placeholder="Search treatments..." />
       <CommandList id={`${id}-listbox`}>
         <CommandEmpty>No service found.</CommandEmpty>
-        {Object.entries(groupedServices).map(([category, srvs]) => (
+        {Object.entries(groupedOptions).map(([category, opts]) => (
           <CommandGroup key={category} heading={category}>
-            {srvs.map((srv) => (
+            {opts.map((opt) => (
               <CommandItem
-                key={srv.slug}
-                value={srv.name}
+                key={opt.slug}
+                value={opt.name}
                 onSelect={() => {
-                  onChange(srv.slug)
+                  onChange(opt.slug)
                   setOpen(false)
                 }}
               >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    value === srv.slug ? "opacity-100" : "opacity-0"
+                    value === opt.slug ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {srv.name}
+                {opt.name}
               </CommandItem>
             ))}
           </CommandGroup>
@@ -93,7 +128,7 @@ export function ServiceCombobox({
             aria-controls={open ? `${id}-listbox` : undefined}
             className="w-full justify-between h-11 bg-card/60 hover:bg-card/80 font-normal rounded-xl border-border"
           >
-            {selectedService ? selectedService.name : "Select Required Treatment"}
+            {selectedOption ? selectedOption.name : "Select Required Treatment"}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -116,7 +151,7 @@ export function ServiceCombobox({
           aria-controls={open ? `${id}-listbox` : undefined}
           className="w-full justify-between h-11 bg-card/60 hover:bg-card/80 font-normal rounded-xl border-border"
         >
-          {selectedService ? selectedService.name : "Select Required Treatment"}
+          {selectedOption ? selectedOption.name : "Select Required Treatment"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </DrawerTrigger>
