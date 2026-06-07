@@ -36,79 +36,79 @@ const PATIENT_TESTIMONIALS: {
   rating: number;
   type: "Home Visit" | "Clinic Visit";
 }[] = [
-  {
-    name: "Vikram Mehta",
-    role: "Son of Stroke Patient",
-    location: "Sector 50, Noida",
-    condition: "Stroke & Neuro Mobility",
-    quote: "Honestly didn't know what to expect when we first called. My mother had the stroke in March and by April Dr. Rohit was visiting us at home three times a week. She could barely hold a spoon when we started. Four months later she's walking to the kitchen on her own. I still can't believe the change.",
-    rating: 5,
-    type: "Home Visit",
-  },
-  {
-    name: "Aarav Sharma",
-    role: "Software Architect",
-    location: "Sector 62, Noida",
-    condition: "Slip Disc & Sciatica",
-    quote: "I'd been dealing with that sharp shooting pain down my left leg for almost eight months. Tried two other physiotherapists before this. Dr. Rohit actually sat with me, looked at my posture at my desk, and explained exactly why the pain was radiating. The dry needling session was a bit intense but the relief after was real. Back to running 5k now.",
-    rating: 5,
-    type: "Clinic Visit",
-  },
-  {
-    name: "Rajeshwari Goel",
-    role: "Retired School Teacher",
-    location: "Sector 49, Noida",
-    condition: "Post-Knee Replacement Rehab",
-    quote: "My daughter-in-law found PhysioVenture after my knee surgery. Dr. Rohit came home with all his equipment — I was a bit nervous but he was very patient and gentle. He never pushed too hard but always pushed enough. Getting up and down stairs was my goal, and I can do it now without holding the rail.",
-    rating: 5,
-    type: "Home Visit",
-  },
-  {
-    name: "Rahul Verma",
-    role: "Amateur Marathoner",
-    location: "Sector 137, Noida",
-    condition: "ACL Tear & Sports Recovery",
-    quote: "Tore my ACL in November, surgery was done by December, and I genuinely thought my running days were behind me. Dr. Rohit's rehab plan was structured week by week — no rushing, but no slacking either. He kept me honest about form. Ran a half marathon in September. That says everything.",
-    rating: 5,
-    type: "Clinic Visit",
-  },
-  {
-    name: "Sonal Gupta",
-    role: "Homemaker",
-    location: "Sector 15, Noida",
-    condition: "Frozen Shoulder",
-    quote: "Six weeks of not being able to raise my arm properly. Couldn't even put on a dupatta without wincing. My husband booked a home session because I honestly couldn't travel. Dr. Rohit was punctual and very thorough. The heat therapy followed by the joint mobilization — week three I felt real movement returning. By week six it was nearly normal.",
-    rating: 5,
-    type: "Home Visit",
-  },
-  {
-    name: "Devendra Nath",
-    role: "Retired Civil Engineer",
-    location: "Sector 22, Noida",
-    condition: "Geriatric Balance & Fall Prevention",
-    quote: "I'm 78 and had two small falls in six months. My son was very worried. Dr. Rohit came home, did a proper assessment of how I walk and where I wobble, and then started balance training right there in my drawing room. My confidence walking outdoors has come back a lot. Even my doctor noticed the improvement.",
-    rating: 5,
-    type: "Home Visit",
-  },
-  {
-    name: "Priya Sen",
-    role: "Marketing Director",
-    location: "Sector 78, Noida",
-    condition: "Cervical Pain & Posture Strain",
-    quote: "The tension headaches were almost daily — I just assumed it was stress from work. Turned out it was entirely posture-related from years of bad laptop habits. Dr. Rohit showed me what my spine actually looked like on assessment and it was eye-opening. Four clinic sessions plus the exercises he gave me, and the headaches are down to maybe once a month.",
-    rating: 5,
-    type: "Clinic Visit",
-  },
-  {
-    name: "Meena Kapoor",
-    role: "Daughter of Parkinson's Patient",
-    location: "Sector 93, Noida",
-    condition: "Parkinson's Gait Rehabilitation",
-    quote: "Papa was diagnosed two years ago and his walking had become very shuffled and slow. We were scared of falls constantly. Dr. Rohit specializes in this — he knew exactly which exercises to work on. The treadmill gait work at clinic and the home exercises together made a visible difference. Papa is steadier now and that means the world to us.",
-    rating: 5,
-    type: "Home Visit",
-  },
-];
+    {
+      name: "Vikram Mehta",
+      role: "Son of Stroke Patient",
+      location: "Sector 50, Noida",
+      condition: "Stroke & Neuro Mobility",
+      quote: "Honestly didn't know what to expect when we first called. My mother had the stroke in March and by April Dr. Rohit was visiting us at home three times a week. She could barely hold a spoon when we started. Four months later she's walking to the kitchen on her own. I still can't believe the change.",
+      rating: 5,
+      type: "Home Visit",
+    },
+    {
+      name: "Aarav Sharma",
+      role: "Software Architect",
+      location: "Sector 62, Noida",
+      condition: "Slip Disc & Sciatica",
+      quote: "I'd been dealing with that sharp shooting pain down my left leg for almost eight months. Tried two other physiotherapists before this. Dr. Rohit actually sat with me, looked at my posture at my desk, and explained exactly why the pain was radiating. The dry needling session was a bit intense but the relief after was real. Back to running 5k now.",
+      rating: 5,
+      type: "Clinic Visit",
+    },
+    {
+      name: "Rajeshwari Goel",
+      role: "Retired School Teacher",
+      location: "Sector 49, Noida",
+      condition: "Post-Knee Replacement Rehab",
+      quote: "My daughter-in-law found PhysioVenture after my knee surgery. Dr. Rohit came home with all his equipment — I was a bit nervous but he was very patient and gentle. He never pushed too hard but always pushed enough. Getting up and down stairs was my goal, and I can do it now without holding the rail.",
+      rating: 5,
+      type: "Home Visit",
+    },
+    {
+      name: "Rahul Verma",
+      role: "Amateur Marathoner",
+      location: "Sector 137, Noida",
+      condition: "ACL Tear & Sports Recovery",
+      quote: "Tore my ACL in November, surgery was done by December, and I genuinely thought my running days were behind me. Dr. Rohit's rehab plan was structured week by week — no rushing, but no slacking either. He kept me honest about form. Ran a half marathon in September. That says everything.",
+      rating: 5,
+      type: "Clinic Visit",
+    },
+    {
+      name: "Sonal Gupta",
+      role: "Homemaker",
+      location: "Sector 15, Noida",
+      condition: "Frozen Shoulder",
+      quote: "Six weeks of not being able to raise my arm properly. Couldn't even put on a dupatta without wincing. My husband booked a home session because I honestly couldn't travel. Dr. Rohit was punctual and very thorough. The heat therapy followed by the joint mobilization — week three I felt real movement returning. By week six it was nearly normal.",
+      rating: 5,
+      type: "Home Visit",
+    },
+    {
+      name: "Devendra Nath",
+      role: "Retired Civil Engineer",
+      location: "Sector 22, Noida",
+      condition: "Geriatric Balance & Fall Prevention",
+      quote: "I'm 78 and had two small falls in six months. My son was very worried. Dr. Rohit came home, did a proper assessment of how I walk and where I wobble, and then started balance training right there in my drawing room. My confidence walking outdoors has come back a lot. Even my doctor noticed the improvement.",
+      rating: 5,
+      type: "Home Visit",
+    },
+    {
+      name: "Priya Sen",
+      role: "Marketing Director",
+      location: "Sector 78, Noida",
+      condition: "Cervical Pain & Posture Strain",
+      quote: "The tension headaches were almost daily — I just assumed it was stress from work. Turned out it was entirely posture-related from years of bad laptop habits. Dr. Rohit showed me what my spine actually looked like on assessment and it was eye-opening. Four clinic sessions plus the exercises he gave me, and the headaches are down to maybe once a month.",
+      rating: 5,
+      type: "Clinic Visit",
+    },
+    {
+      name: "Meena Kapoor",
+      role: "Daughter of Parkinson's Patient",
+      location: "Sector 93, Noida",
+      condition: "Parkinson's Gait Rehabilitation",
+      quote: "Papa was diagnosed two years ago and his walking had become very shuffled and slow. We were scared of falls constantly. Dr. Rohit specializes in this — he knew exactly which exercises to work on. The treadmill gait work at clinic and the home exercises together made a visible difference. Papa is steadier now and that means the world to us.",
+      rating: 5,
+      type: "Home Visit",
+    },
+  ];
 
 export default function Home() {
   const jsonLd = {
@@ -518,7 +518,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-accent">
                   <CheckCircle className="w-4 h-4" />
                 </div>
-                <span className="text-xs font-bold text-primary">Member of IAP (Indian Association)</span>
+                <span className="text-xs font-bold text-primary">Member of IAP (Indian Association of Physiotherapist)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-accent">
@@ -596,7 +596,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {BLOG_ARTICLES.filter((article, index, self) => 
+          {BLOG_ARTICLES.filter((article, index, self) =>
             index === self.findIndex((a) => a.category === article.category)
           ).slice(0, 3).map((article, idx) => (
             <Link key={idx} href={`/blogs/${article.slug}`} className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none">
