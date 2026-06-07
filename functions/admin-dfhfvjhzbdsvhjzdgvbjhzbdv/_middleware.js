@@ -8,10 +8,10 @@ export async function onRequest(context) {
 
   const supabaseUrl = env.SUPABASE_URL;
   const supabaseServiceKey = env.SUPABASE_SECRET_KEY;
-  const supabasePublishableKey = env.SUPABASE_PUBLISHABLE_KEY;
+  const supabasePublishableKey = env.SUPABASE_PUBLISHABLE_KEY || env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_SECRET_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey || !supabasePublishableKey) {
-    console.error("Supabase environment variables are missing.");
+    console.error("Supabase environment variables (SUPABASE_URL or SUPABASE_SECRET_KEY) are missing.");
     return new Response(
       JSON.stringify({ error: "Server misconfiguration. API keys are missing." }),
       { status: 500, headers: { "Content-Type": "application/json" } }

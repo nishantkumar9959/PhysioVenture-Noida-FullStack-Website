@@ -47,11 +47,11 @@ export async function onRequestPost(context: { request: Request; env: any }) {
     const turnstileSecret = env.CF_TURNSTILE_SECRET_KEY;
     const supabaseUrl = env.SUPABASE_URL;
     const supabaseServiceKey = env.SUPABASE_SECRET_KEY;
-    const supabasePublishableKey = env.SUPABASE_PUBLISHABLE_KEY;
+    const supabasePublishableKey = env.SUPABASE_PUBLISHABLE_KEY || env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_SECRET_KEY;
 
     if (!turnstileSecret || !supabaseUrl || !supabaseServiceKey || !supabasePublishableKey) {
       return new Response(
-        JSON.stringify({ error: "Server misconfiguration. Environment variables are missing." }),
+        JSON.stringify({ error: "Server misconfiguration. Environment variables (SUPABASE_URL, SUPABASE_SECRET_KEY, or CF_TURNSTILE_SECRET_KEY) are missing." }),
         { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
