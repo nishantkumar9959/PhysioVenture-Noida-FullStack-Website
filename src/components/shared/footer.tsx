@@ -70,19 +70,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <Link href="/services/neurological-physiotherapy" className="hover:text-accent transition-colors">Neurological Physiotherapy</Link>
+                <Link href="/services/neurological-rehabilitation/" className="hover:text-accent transition-colors">Neurological Rehabilitation</Link>
               </li>
               <li>
-                <Link href="/services/orthopaedic-rehabilitation" className="hover:text-accent transition-colors">Orthopaedic Rehabilitation</Link>
+                <Link href="/services/orthopedic-rehabilitation/" className="hover:text-accent transition-colors">Orthopedic Rehabilitation</Link>
               </li>
               <li>
-                <Link href="/services/back-pain-treatment" className="hover:text-accent transition-colors">Back Pain &amp; Sciatica Treatment</Link>
+                <Link href="/services/sports-injury-rehabilitation/" className="hover:text-accent transition-colors">Sports Injury Rehab</Link>
               </li>
               <li>
-                <Link href="/services/post-surgery-rehabilitation" className="hover:text-accent transition-colors">Post-Surgery Rehabilitation</Link>
+                <Link href="/services/home-visit-physiotherapy/" className="hover:text-accent transition-colors">Home Visit Physiotherapy</Link>
               </li>
               <li>
-                <Link href="/services/chiropractic-care" className="hover:text-accent transition-colors">Chiropractic Adjustment</Link>
+                <Link href="/services/chiropractic-manual-therapy/" className="hover:text-accent transition-colors">Chiropractic &amp; Manual Therapy</Link>
+              </li>
+              <li>
+                <Link href="/services/geriatric-rehabilitation/" className="hover:text-accent transition-colors">Geriatric Rehabilitation</Link>
               </li>
             </ul>
           </div>

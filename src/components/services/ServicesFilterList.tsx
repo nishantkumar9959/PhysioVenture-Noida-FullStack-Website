@@ -83,7 +83,7 @@ export default function ServicesFilterList() {
                 <CardContent className="pt-0 pb-6 flex flex-col gap-4 mt-auto">
                   <div className="border-t border-border/30 pt-4 flex items-center justify-end">
                     <Link
-                      href={`/services/${service.slug}`}
+                      href={`/services/${service.slug}/`}
                       className="w-8 h-8 rounded-full bg-secondary/80 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-300"
                       aria-label={`View protocol for ${service.name}`}
                     >

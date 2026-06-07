@@ -184,16 +184,16 @@ export default function Home() {
       "@type": "OfferCatalog",
       "name": "Physiotherapy Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Neurological Physiotherapy", "url": `${SITE_URL}/services/neurological-physiotherapy` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Orthopaedic Rehabilitation", "url": `${SITE_URL}/services/orthopaedic-rehabilitation` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Back Pain & Sciatica Treatment", "url": `${SITE_URL}/services/back-pain-treatment` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Post-Surgery Rehabilitation", "url": `${SITE_URL}/services/post-surgery-rehabilitation` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Chiropractic Care", "url": `${SITE_URL}/services/chiropractic-care` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Knee Pain Treatment", "url": `${SITE_URL}/services/knee-pain-treatment` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Shoulder Pain Treatment", "url": `${SITE_URL}/services/shoulder-pain-treatment` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Geriatric Physiotherapy", "url": `${SITE_URL}/services/geriatric-physiotherapy` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Stroke Rehabilitation", "url": `${SITE_URL}/services/neurological-physiotherapy` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Home Visit Physiotherapy", "url": SITE_URL } }
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Neurological Physiotherapy", "url": `${SITE_URL}/services/neurological-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Orthopaedic Rehabilitation", "url": `${SITE_URL}/services/orthopedic-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Back Pain & Sciatica Treatment", "url": `${SITE_URL}/services/orthopedic-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Post-Surgery Rehabilitation", "url": `${SITE_URL}/services/home-visit-physiotherapy/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Chiropractic Care", "url": `${SITE_URL}/services/chiropractic-manual-therapy/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Knee Pain Treatment", "url": `${SITE_URL}/services/orthopedic-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Shoulder Pain Treatment", "url": `${SITE_URL}/services/orthopedic-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Geriatric Physiotherapy", "url": `${SITE_URL}/services/geriatric-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Stroke Rehabilitation", "url": `${SITE_URL}/services/neurological-rehabilitation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Home Visit Physiotherapy", "url": `${SITE_URL}/services/home-visit-physiotherapy/` } }
       ]
     },
     "aggregateRating": {
