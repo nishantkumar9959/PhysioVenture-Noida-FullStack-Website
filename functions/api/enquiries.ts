@@ -1,3 +1,5 @@
+import { validateEnquiry } from "./_validation";
+
 function getCorsHeaders(request: Request) {
   const origin = request.headers.get("Origin") || "";
   const allowedOrigins = [
@@ -5,7 +7,8 @@ function getCorsHeaders(request: Request) {
     "http://localhost:3000",
     "http://localhost:8788",
   ];
-  const isAllowed = allowedOrigins.includes(origin) || origin.endsWith(".pages.dev");
+  const isAllowed = allowedOrigins.includes(origin) || 
+    (origin.endsWith(".pages.dev") && (origin.includes("physioventure") || origin.includes("pventure")));
   return {
     "Access-Control-Allow-Origin": isAllowed ? origin : "https://physioventure.in",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -64,13 +67,7 @@ export async function onRequestPost(context: { request: Request; env: any }) {
     }
 
     const body = await request.json();
-    const {
-      name,
-      phone,
-      symptom_details,
-      source_service,
-      turnstileToken
-    } = body;
+    const { turnstileToken } = body;
 
     // Validate token
     const clientIp = request.headers.get("CF-Connecting-IP") || "";
@@ -82,13 +79,21 @@ export async function onRequestPost(context: { request: Request; env: any }) {
       );
     }
 
-    // Basic server-side validations
-    if (!name || !phone) {
+    // Run strict server-side validation and sanitization
+    const validation = validateEnquiry(body);
+    if (validation.error || !validation.data) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields." }),
+        JSON.stringify({ error: validation.error || "Invalid input data." }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
+
+    const {
+      name,
+      phone,
+      symptom_details,
+      source_service
+    } = validation.data;
 
     // Insert into Supabase
     const dbData = {

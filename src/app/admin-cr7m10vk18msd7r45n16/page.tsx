@@ -9,6 +9,7 @@ import {
 import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useAdminRealtime } from '@/hooks/useAdminRealtime';
+import { supabase } from '@/lib/supabase';
 
 /* ─────────────────────────── types ─────────────────────────── */
 
@@ -649,7 +650,12 @@ function Dashboard() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch('/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/get-bookings');
+      const { data: { session } } = await supabase.auth.getSession();
+      const headers: HeadersInit = {};
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`;
+      }
+      const response = await fetch('/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/get-bookings', { headers });
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -676,11 +682,16 @@ function Dashboard() {
 
   const updateStatus = async (id: string, type: 'appointment' | 'inquiry', newStatus: string) => {
     try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const headers: HeadersInit = {
+        'Content-Type': 'application/json',
+      };
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`;
+      }
       const response = await fetch('/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/update-status', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers,
         body: JSON.stringify({ id, type, status: newStatus }),
       });
 
