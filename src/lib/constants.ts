@@ -11,7 +11,7 @@ export const BUSINESS = {
   phone: "+918932082549",
   phoneDisplay: "+91 89320 82549",
   email: "info@physioventure.in",
-  address: "A-31, Block A, Sector 49, Noida, Uttar Pradesh 201303",
+  location: "Noida, Gautam Buddha Nagar, Uttar Pradesh, India",
   hours: "Monday – Saturday: 8:00 AM – 8:00 PM",
   hoursShort: "Mon - Sat: 8:00 AM - 8:00 PM",
   sundayClosed: true,

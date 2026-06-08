@@ -96,10 +96,7 @@ export default function Footer() {
               Get in Touch
             </h3>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                <span>{BUSINESS.address}</span>
-              </li>
+
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
                 <a href={`tel:${BUSINESS.phone}`} className="hover:text-accent transition-colors">

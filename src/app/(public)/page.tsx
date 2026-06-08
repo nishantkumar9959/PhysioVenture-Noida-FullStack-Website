@@ -518,7 +518,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-accent">
                   <CheckCircle className="w-4 h-4" />
                 </div>
-                <span className="text-xs font-bold text-primary">Member of IAP (Indian Association of Physiotherapist)</span>
+                <span className="text-xs font-bold text-primary">Member of IAP (Indian Association of Physiotherapists)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-accent">

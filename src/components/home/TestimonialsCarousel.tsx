@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Star, Home as HomeIcon, MapPin } from "lucide-react";
 
 interface Testimonial {
@@ -19,6 +20,8 @@ interface TestimonialsCarouselProps {
 export default function TestimonialsCarousel({
   testimonials,
 }: TestimonialsCarouselProps) {
+  const [isTouched, setIsTouched] = useState(false);
+
   // Duplicate testimonials to create a seamless infinite loop effect
   const loopItems = [...testimonials, ...testimonials];
 
@@ -26,11 +29,17 @@ export default function TestimonialsCarousel({
     <div className="w-full relative py-4 group overflow-hidden">
       
       {/* ── Unified Infinite Marquee Container (Pauses on Hover/Touch) ── */}
-      <div className="flex overflow-hidden relative w-full -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div 
+        className="flex overflow-hidden relative w-full -mx-4 px-4 sm:mx-0 sm:px-0"
+        onTouchStart={() => setIsTouched(true)}
+        onTouchEnd={() => setIsTouched(false)}
+        onTouchCancel={() => setIsTouched(false)}
+      >
         <div
-          className="flex items-stretch gap-4 w-max hover:[animation-play-state:paused] active:[animation-play-state:paused]"
+          className="flex items-stretch gap-4 w-max testimonials-marquee-track"
           style={{
             animation: `infiniteSlide 25s linear infinite`,
+            animationPlayState: isTouched ? "paused" : undefined,
           }}
         >
           {loopItems.map((t, idx) => (
@@ -97,6 +106,11 @@ export default function TestimonialsCarousel({
             /* Shift by exactly half the width. Since there are 2N items with gap-4 (1rem),
                half width = 50% + 0.5rem (half a gap) */
             transform: translateX(calc(-50% - 0.5rem));
+          }
+        }
+        @media (hover: hover) {
+          .testimonials-marquee-track:hover {
+            animation-play-state: paused !important;
           }
         }
       `}</style>

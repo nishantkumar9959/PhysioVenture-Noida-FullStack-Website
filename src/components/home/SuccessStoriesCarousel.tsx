@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Star, Home as HomeIcon, MapPin, CheckCircle } from "lucide-react";
 
 interface Testimonial {
@@ -20,11 +21,18 @@ interface SuccessStoriesCarouselProps {
 export default function SuccessStoriesCarousel({
   testimonials,
 }: SuccessStoriesCarouselProps) {
+  const [isTouched, setIsTouched] = useState(false);
+
   // Duplicate array to create a seamless infinite marquee effect
   const duplicated = [...testimonials, ...testimonials];
 
   return (
-    <div className="w-full overflow-hidden group py-4 relative">
+    <div 
+      className="w-full overflow-hidden group py-4 relative"
+      onTouchStart={() => setIsTouched(true)}
+      onTouchEnd={() => setIsTouched(false)}
+      onTouchCancel={() => setIsTouched(false)}
+    >
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -33,6 +41,7 @@ export default function SuccessStoriesCarousel({
         className="flex w-max ss-marquee-track"
         style={{
           animation: "marqueeLoop 30s linear infinite",
+          animationPlayState: isTouched ? "paused" : undefined,
         }}
       >
         {duplicated.map((t, idx) => (
@@ -86,8 +95,10 @@ export default function SuccessStoriesCarousel({
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        .group:hover .ss-marquee-track {
-          animation-play-state: paused !important;
+        @media (hover: hover) {
+          .group:hover .ss-marquee-track {
+            animation-play-state: paused !important;
+          }
         }
       `}</style>
     </div>
