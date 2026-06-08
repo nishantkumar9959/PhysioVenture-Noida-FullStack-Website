@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "stroke rehabilitation Noida",
   ],
   alternates: {
-    canonical: `${SITE_URL}/services`,
+    canonical: `${SITE_URL}/services/`,
   },
   openGraph: {
     title: "23+ Physiotherapy Services | PhysioVenture Noida",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Comprehensive physiotherapy services including neuro, ortho, sports, geriatric, and home-visit treatments in Noida.",
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/services`,
+    url: `${SITE_URL}/services/`,
   },
 };
 

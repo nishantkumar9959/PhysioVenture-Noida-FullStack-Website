@@ -19,7 +19,7 @@ export default function ServicesFilterList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const filteredServices = SERVICES_DATA.filter((service) => {
+  const filteredServices = SERVICES_DATA.filter(s => !s.isSubService).filter((service) => {
     const matchesSearch =
       service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       service.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());

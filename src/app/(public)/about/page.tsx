@@ -27,7 +27,7 @@ export default function About() {
     "honorificPrefix": "Dr.",
     "jobTitle": "Lead Physiotherapist & Clinical Director",
     "description": `${DOCTOR_NAME} is Noida's leading physiotherapist with 7+ years of clinical experience in neurological and orthopaedic rehabilitation. He has successfully treated over 2,100 patients with conditions including stroke, slip disc, and post-surgical joint replacement.`,
-    "url": `${SITE_URL}/about`,
+    "url": `${SITE_URL}/about/`,
     "image": `${SITE_URL}/images/doctor_profile.jpg`,
     "telephone": "+918932082549",
     "email": "info@physioventure.in",
@@ -72,7 +72,7 @@ export default function About() {
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": `${SITE_URL}/about`
+        "item": `${SITE_URL}/about/`
       }
     ]
   };
@@ -293,7 +293,7 @@ export default function About() {
           </div>
 
           <Button variant="primary" className="w-full" asChild>
-            <Link href="/book" className="flex items-center justify-center gap-2">
+            <Link href="/book/" className="flex items-center justify-center gap-2">
               <Calendar className="w-4 h-4" /> Book Consultation
             </Link>
           </Button>

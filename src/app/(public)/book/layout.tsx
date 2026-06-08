@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Schedule a home-visit or clinic physiotherapy session with Dr. Rohit Verma in Noida. Book online for neurological, orthopaedic, or sports injury rehabilitation.",
   alternates: {
-    canonical: "/book",
+    canonical: "/book/",
   },
   openGraph: {
     title: "Book Appointment | PhysioVenture Noida",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Schedule your physiotherapy session — home visit or clinic. Expert neuro & ortho care in Noida.",
     type: "website",
     locale: "en_IN",
-    url: "/book",
+    url: "/book/",
   },
 };
 

@@ -163,9 +163,14 @@ export default function Home() {
       { "@type": "Place", "name": "Sector 50, Noida" },
       { "@type": "Place", "name": "Sector 51, Noida" },
       { "@type": "Place", "name": "Sector 62, Noida" },
+      { "@type": "Place", "name": "Sector 74, Noida" },
       { "@type": "Place", "name": "Sector 78, Noida" },
+      { "@type": "Place", "name": "Sector 93, Noida" },
+      { "@type": "Place", "name": "Sector 100, Noida" },
+      { "@type": "Place", "name": "Sector 137, Noida" },
       { "@type": "Place", "name": "Sector 150, Noida" },
       { "@type": "Place", "name": "Noida Expressway" },
+      { "@type": "Place", "name": "Greater Noida West" },
       { "@type": "Place", "name": "Noida, Uttar Pradesh" }
     ],
     "founder": {
@@ -193,7 +198,8 @@ export default function Home() {
         { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Shoulder Pain Treatment", "url": `${SITE_URL}/services/orthopedic-rehabilitation/` } },
         { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Geriatric Physiotherapy", "url": `${SITE_URL}/services/geriatric-rehabilitation/` } },
         { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Stroke Rehabilitation", "url": `${SITE_URL}/services/neurological-rehabilitation/` } },
-        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Home Visit Physiotherapy", "url": `${SITE_URL}/services/home-visit-physiotherapy/` } }
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Home Visit Physiotherapy", "url": `${SITE_URL}/services/home-visit-physiotherapy/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Sports Injury Rehabilitation", "url": `${SITE_URL}/services/sports-injury-rehabilitation/` } }
       ]
     },
     "aggregateRating": {
@@ -338,12 +344,12 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Button variant="primary" size="lg" asChild>
-                <Link href="/book" className="flex items-center gap-2">
+                <Link href="/book/" className="flex items-center gap-2">
                   Book Home Visit <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/services">
+                <Link href="/services/">
                   Explore Services
                 </Link>
               </Button>
@@ -462,7 +468,7 @@ export default function Home() {
 
             <div className="pt-2">
               <Button variant="primary" size="md" asChild>
-                <Link href="/book?type=home">Book Home Visit Session</Link>
+                <Link href="/book/?type=home">Book Home Visit Session</Link>
               </Button>
             </div>
           </div>
@@ -530,7 +536,7 @@ export default function Home() {
 
             <div className="pt-2">
               <Button variant="outline" size="md" asChild>
-                <Link href="/about">Read Detailed Credentials</Link>
+                <Link href="/about/">Read Detailed Credentials</Link>
               </Button>
             </div>
           </div>
@@ -574,7 +580,7 @@ export default function Home() {
 
           <div className="w-full flex justify-center mt-10">
             <Button variant="outline" size="md" asChild>
-              <Link href="/testimonials">View All Patient Reviews</Link>
+              <Link href="/testimonials/">View All Patient Reviews</Link>
             </Button>
           </div>
         </div>
@@ -599,7 +605,7 @@ export default function Home() {
           {BLOG_ARTICLES.filter((article, index, self) =>
             index === self.findIndex((a) => a.category === article.category)
           ).slice(0, 3).map((article, idx) => (
-            <Link key={idx} href={`/blogs/${article.slug}`} className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none">
+            <Link key={idx} href={`/blogs/${article.slug}/`} className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none">
               {/* Blog Card Image wrapper */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/20">
                 <Image
@@ -644,7 +650,7 @@ export default function Home() {
 
         <div className="w-full flex justify-center mt-12">
           <Button variant="outline" size="md" asChild>
-            <Link href="/blogs">View All Articles & Guides</Link>
+            <Link href="/blogs/">View All Articles & Guides</Link>
           </Button>
         </div>
       </section>
@@ -666,10 +672,10 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Button variant="accent" size="lg" asChild>
-                <Link href="/book">Schedule Home Visit</Link>
+                <Link href="/book/">Schedule Home Visit</Link>
               </Button>
               <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
-                <Link href="/contact" className="flex items-center gap-2">
+                <Link href="/contact/" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" /> Call Clinic
                 </Link>
               </Button>

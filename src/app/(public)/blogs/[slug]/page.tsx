@@ -27,15 +27,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: {
-      canonical: `/blogs/${resolvedParams.slug}`,
+      canonical: `/blogs/${resolvedParams.slug}/`,
     },
-    authors: [{ name: "Dr. Rohit Verma", url: "/about" }],
+    authors: [{ name: "Dr. Rohit Verma", url: "/about/" }],
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
       type: "article",
       locale: "en_IN",
-      url: `/blogs/${resolvedParams.slug}`,
+      url: `/blogs/${resolvedParams.slug}/`,
       images: [
         {
           url: `${article.image}`,
@@ -62,14 +62,14 @@ export default async function BlogArticlePage({ params }: Props) {
     "headline": article.title,
     "description": article.metaDescription,
     "image": `${SITE_URL}${article.image}`,
-    "url": `${SITE_URL}/blogs/${resolvedParams.slug}`,
+    "url": `${SITE_URL}/blogs/${resolvedParams.slug}/`,
     "datePublished": article.date,
     "dateModified": article.date,
     "inLanguage": "en-IN",
     "author": {
       "@type": "Person",
       "name": DOCTOR_NAME,
-      "@id": `${SITE_URL}/about#physician`
+      "@id": `${SITE_URL}/about/#physician`
     },
     "publisher": {
       "@type": "Organization",
@@ -82,7 +82,7 @@ export default async function BlogArticlePage({ params }: Props) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blogs/${resolvedParams.slug}`
+      "@id": `${SITE_URL}/blogs/${resolvedParams.slug}/`
     },
     "keywords": article.category,
     "articleSection": article.category,
@@ -103,13 +103,13 @@ export default async function BlogArticlePage({ params }: Props) {
         "@type": "ListItem",
         "position": 2,
         "name": "Blogs",
-        "item": `${SITE_URL}/blogs`
+        "item": `${SITE_URL}/blogs/`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": article.title,
-        "item": `${SITE_URL}/blogs/${resolvedParams.slug}`
+        "item": `${SITE_URL}/blogs/${resolvedParams.slug}/`
       }
     ]
   };
@@ -134,7 +134,7 @@ export default async function BlogArticlePage({ params }: Props) {
           </li>
           <li className="text-border">/</li>
           <li>
-            <Link href="/blogs" className="hover:text-accent transition-colors">
+            <Link href="/blogs/" className="hover:text-accent transition-colors">
               Blogs
             </Link>
           </li>
@@ -182,13 +182,13 @@ export default async function BlogArticlePage({ params }: Props) {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
-            href="/book"
+            href="/book/"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold bg-primary text-white hover:bg-accent transition-colors"
           >
             Book Appointment
           </Link>
           <Link
-            href="/contact"
+            href="/contact/"
             className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold border border-border bg-card hover:bg-secondary/50 text-primary transition-colors"
           >
             Contact Us

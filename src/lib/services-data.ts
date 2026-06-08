@@ -13,6 +13,7 @@ export interface ServiceDetail {
   ctaText: string;
   iconName: string;
   image: string;
+  isSubService?: boolean;
 }
 
 export const SERVICES_DATA: ServiceDetail[] = [
@@ -236,13 +237,15 @@ export const SERVICES_DATA: ServiceDetail[] = [
     category: "chiro",
     categoryLabel: "Spine Alignment & Hands-on",
     shortDesc: "Hands-on techniques focused on restoring joint mobility, improving posture, and reducing pain.",
-    longDesc: "Chiropractic & Manual Therapy at PhysioVenture focuses on manual spinal adjustments and joint mobilization. Dr. Rohit Verma uses precise, targeted manual techniques to release joint restrictions, correct alignment imbalances, and relieve nerve compression. By combining spine adjustments with myofascial release and muscle energy techniques, this hands-on therapy provides fast relief for neck stiffness, lumbar catches, tension headaches, and postural misalignment.",
+    longDesc: "Chiropractic & Manual Therapy at PhysioVenture focuses on manual spinal adjustments, joint mobilization, and advanced tissue release techniques. Dr. Rohit Verma uses precise, targeted manual adjustments, clinical dry needling, and cupping therapy to relieve deep muscle knots, restore joint articulation, correct postural compensations, and alleviate radiating nerve pain.",
     symptoms: [
       "Chiropractic Treatment",
       "Spine Mobilization",
       "Joint Mobilization",
       "Manual Therapy",
-      "Postural Correction"
+      "Postural Correction",
+      "Dry Needling Therapy",
+      "Cupping Therapy"
     ],
     highlightedConditions: [
       "Spinal Alignment Adjustments",
@@ -271,6 +274,10 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         question: "What causes the clicking sound during chiropractic care?",
         answer: "The sound is called cavitation. It is simply the release of gas bubbles (nitrogen) from the joint fluid when the joint space is gently opened, reducing internal pressure."
+      },
+      {
+        question: "What are Dry Needling and Cupping Therapy, and how do they help?",
+        answer: "Dry Needling uses sterile single-use needles to release painful trigger points (muscle knots), while Cupping Therapy uses suction cups to increase blood flow and relieve fascial tension. Both are highly effective when combined with manual chiropractic adjustments to speed up pain relief and muscle recovery."
       }
     ],
     ctaText: "Schedule Assessment",
@@ -324,6 +331,839 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ctaText: "Book Senior Care Consultation",
     iconName: "Users",
     image: "/images/service_geriatric.png"
+  },
+  {
+    name: "Back Pain Treatment",
+    slug: "back-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Specialized clinical therapy and non-surgical decompression for chronic and acute lower back pain, lumbago, and muscle spasms in Noida.",
+    longDesc: "Our Back Pain Treatment program focuses on diagnosing and treating the root cause of spinal discomfort. Whether caused by poor desk ergonomics, core weakness, or mechanical disc pressure, Dr. Rohit Verma utilizes manual spine mobilization, McKenzie protocol exercises, and deep myofascial release to relieve pressure, restore spinal articulation, and strengthen core stabilizer muscles to prevent recurring back pain.",
+    symptoms: [
+      "Lower Back Pain",
+      "Spine Stiffness",
+      "Muscle Spasms & Tightness",
+      "Lumbago",
+      "Postural Fatigue",
+      "Mechanical Back Ache"
+    ],
+    highlightedConditions: [
+      "Chronic Lower Back Pain",
+      "Acute Muscle Spasms",
+      "Ergonomic Back Strain",
+      "Core Stabilization Training"
+    ],
+    benefits: [
+      "Immediate relief from acute back muscle spasms",
+      "Improved spinal flexion, extension, and rotation",
+      "Strengthened core stabilizer muscles (transversus abdominis)",
+      "Ergonomic advice to prevent desk-related back pain",
+      "Reduced risk of future spinal disc compression"
+    ],
+    timeline: [
+      "Biomechanical spinal screening and movement assessment.",
+      "Acute pain relief using manual therapy and targeted heat/TENS.",
+      "Progressive core recruitment and spinal mobilization exercises.",
+      "Ergonomic coaching and home maintenance exercise planning."
+    ],
+    faqs: [
+      {
+        question: "How many physiotherapy sessions are needed for back pain?",
+        answer: "Most patients experience significant pain relief within 3 to 6 sessions. Long-term core strengthening may take 4 to 8 weeks of consistent progressive exercises."
+      },
+      {
+        question: "Do you offer home visit physiotherapy for severe back pain?",
+        answer: "Yes, we provide home visit physiotherapy across Noida, bringing portable electrotherapy and mobilization tools for patients with acute back spasms who cannot travel."
+      }
+    ],
+    ctaText: "Book Back Pain Assessment",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Knee Pain Treatment",
+    slug: "knee-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Targeted rehabilitation for knee osteoarthritis, meniscus tears, patella tracking issues, and joint stiffness in Noida.",
+    longDesc: "Our Knee Pain Treatment program is designed to restore joint stability, reduce inflammation, and improve alignment. We address osteoarthritis, cartilage wear, and ligament strain. By employing manual joint glides, quadriceps strengthening, patella mobilization, and clinical modalities (TENS/ultrasound), Dr. Rohit Verma helps patients walk pain-free and avoid or delay joint replacement surgery.",
+    symptoms: [
+      "Knee Joint Stiffness",
+      "Osteoarthritis Joint Wear",
+      "Patella Tracking Dysfunction",
+      "Meniscus Tear Soreness",
+      "Swelling & Warmth",
+      "Difficulty Climbing Stairs"
+    ],
+    highlightedConditions: [
+      "Knee Osteoarthritis",
+      "Patellofemoral Pain Syndrome",
+      "Meniscal Strain Recovery",
+      "Joint Mobilization & Stiff Knee Care"
+    ],
+    benefits: [
+      "Increased joint range of motion and flexion",
+      "Reduced knee joint friction and inflammation",
+      "Strengthened quadriceps, hamstrings, and hip stabilizers",
+      "Improved walking balance and stair climbing ease",
+      "Effective postponement or avoidance of knee replacement surgery"
+    ],
+    timeline: [
+      "Joint alignment assessment, ligament stability testing, and range of motion check.",
+      "Swelling control and pain relief using cold packs and portable electrotherapy.",
+      "Isometric quad sets and progressive closed-kinetic chain exercises.",
+      "Proprioception (balance) training and stair navigation retraining."
+    ],
+    faqs: [
+      {
+        question: "Can physiotherapy cure knee osteoarthritis?",
+        answer: "While physical therapy cannot reverse cartilage wear, it can build muscle strength around the knee to absorb shock, significantly reducing pain and improving daily mobility."
+      },
+      {
+        question: "Is patella mobilization therapy painful?",
+        answer: "Patella mobilization is generally not painful. We apply gentle, manual glides to the kneecap to restore its sliding motion, which actually provides instant movement relief."
+      }
+    ],
+    ctaText: "Book Knee Assessment",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Frozen Shoulder Treatment",
+    slug: "frozen-shoulder-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Comprehensive physical therapy and manual mobilization to resolve shoulder adhesive capsulitis and restore complete arm movement.",
+    longDesc: "Frozen Shoulder (Adhesive Capsulitis) is characterized by severe stiffness and deep joint pain that limits normal arm movements like dressing or reaching. Our program uses progressive manual stretching, glenohumeral joint mobilization, scapular tracking exercises, and deep heat modalities to break down thick capsular adhesions and safely restore pain-free shoulder motion.",
+    symptoms: [
+      "Severe Shoulder Stiffness",
+      "Adhesive Capsulitis Constraint",
+      "Radiating Shoulder Pain",
+      "Inability to Raise Arm",
+      "Night Pain on Affected Side",
+      "Rotator Cuff Tightness"
+    ],
+    highlightedConditions: [
+      "Adhesive Capsulitis (Frozen Shoulder)",
+      "Rotator Cuff Impingement",
+      "Scapular Dyskinesia",
+      "Glenohumeral Joint Mobilization"
+    ],
+    benefits: [
+      "Safe breakdown of joint capsule scar tissue",
+      "Restoration of overhead reach and internal/external rotation",
+      "Elimination of deep, throbbing night pain",
+      "Correction of compensatory shoulder shrugging patterns",
+      "Strengthened rotator cuff muscles to stabilize the joint"
+    ],
+    timeline: [
+      "Capsular pattern range of motion screening and pain threshold assessment.",
+      "Pain modulation using deep heat, TENS, and gentle passive range of motion.",
+      "Manual joint mobilization (Maitland/Mulligan techniques) and passive stretches.",
+      "Active-assisted exercises, rotator cuff loading, and home exercise compliance."
+    ],
+    faqs: [
+      {
+        question: "How long does frozen shoulder physiotherapy take?",
+        answer: "Frozen shoulder resolves in phases. With structured physical therapy, significant range-of-motion gains and pain reduction are achieved in 4 to 8 weeks, preventing the condition from lasting for years."
+      },
+      {
+        question: "Is it okay to push through the pain during shoulder stretches?",
+        answer: "No. Stretching a frozen shoulder must be controlled. Aggressive stretching can tear the inflamed capsule and increase pain. Dr. Rohit Verma applies precise manual glides within safe limits."
+      }
+    ],
+    ctaText: "Book Shoulder Assessment",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Slip Disc Treatment",
+    slug: "slip-disc-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Evidence-based spinal decompression, mechanical diagnostics, and core stabilization for lumbar and cervical disc herniation in Noida.",
+    longDesc: "A herniated or 'slip' disc can press against sensitive spinal nerves, causing sharp pain, numbness, and weakness. Our Slip Disc Treatment program utilizes mechanical diagnosis and therapy (McKenzie Method) to centralize radiating symptoms back to the spine. Dr. Rohit Verma combines gentle manual traction, nerve flossing, postural alignment correction, and deep core stabilization to relieve disc pressure and speed up disc healing.",
+    symptoms: [
+      "Disc Herniation & Bulge",
+      "Radiating Nerve Compression",
+      "Spinal Column Soreness",
+      "Numbness or Tingling in Limbs",
+      "Loss of Core Support",
+      "Increased Pain when Bending"
+    ],
+    highlightedConditions: [
+      "Lumbar Herniated Disc",
+      "Cervical Disc Protrusion",
+      "Radiculopathy & Nerve Pinching",
+      "McKenzie Spine Extension Therapy"
+    ],
+    benefits: [
+      "Centralization and reduction of radiating leg/arm pain",
+      "Decompression of pinched spinal nerve roots",
+      "Restoration of natural lumbar lordosis (spinal curve)",
+      "Strengthened deep core (multifidus and abdominis) to protect discs",
+      "Education on safe lifting mechanics and ergonomic sitting posture"
+    ],
+    timeline: [
+      "Neurological screening (reflexes, sensation, muscle power) and mechanical movement check.",
+      "Symptom centralization utilizing McKenzie extension protocols and manual traction.",
+      "Deep core stabilizer recruitment and progressive spine extension exercises.",
+      "Functional loading, lifting mechanics instruction, and posture correction templates."
+    ],
+    faqs: [
+      {
+        question: "Can a slip disc heal without surgery?",
+        answer: "Yes! Over 90% of slip disc cases recover successfully with conservative physical therapy. Decompressing the disc and building strong core support allows the herniated material to shrink and heal naturally."
+      },
+      {
+        question: "What is the McKenzie Method for slip disc?",
+        answer: "It is a standardized assessment and treatment system based on directional preference. By performing specific repetitive movements (like back extensions), we guide the bulging disc material away from the pinched nerve, reducing pain."
+      }
+    ],
+    ctaText: "Book Spinal Evaluation",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Sciatica Pain Treatment",
+    slug: "sciatica-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Targeted therapy to relieve sciatic nerve compression, radiating leg pain, numbness, and piriformis syndrome in Noida.",
+    longDesc: "Sciatica occurs when the sciatic nerve is compressed, usually by a lumbar disc herniation or a tight piriformis muscle, causing sharp shooting pain down the back of the leg. Our specialized Sciatica Pain Treatment program targets the source of compression. Through manual traction, sciatic nerve flossing, piriformis release, and lumbar stabilization exercises, Dr. Rohit Verma helps relieve nerve tension, restore leg sensation, and regain mobility.",
+    symptoms: [
+      "Shooting Leg Pain",
+      "Sciatic Nerve Numbness",
+      "Piriformis Syndrome Soreness",
+      "Weakness in Foot or Leg",
+      "Sharp Pain when Sitting",
+      "Burning Sensation in Thigh"
+    ],
+    highlightedConditions: [
+      "Sciatic Nerve Compression",
+      "Piriformis Muscle Tightness",
+      "Radiating Lumbar Radiculopathy",
+      "Nerve Gliding & Flossing Therapy"
+    ],
+    benefits: [
+      "Immediate reduction in radiating shooting leg pain",
+      "Release of sciatic nerve entrapment points",
+      "Relaxation of tight piriformis and gluteal muscles",
+      "Restored leg strength and normal walking gait",
+      "Decreased numbness, burning, and pins-and-needles sensations"
+    ],
+    timeline: [
+      "Straight Leg Raise (SLR) test, dermatomal sensory checks, and spinal palpation.",
+      "Manual spinal traction and gentle myofascial release of gluteal structures.",
+      "Sciatic nerve mobilization (flossing) to restore nerve mobility within its sheath.",
+      "Lumbar stabilization and hip strengthening to prevent nerve compression relapse."
+    ],
+    faqs: [
+      {
+        question: "What is nerve flossing for sciatica?",
+        answer: "Nerve flossing is a gentle exercise technique that pulls the sciatic nerve back and forth through its pathway, releasing adhesions and decreasing hypersensitivity and pain."
+      },
+      {
+        question: "Is sitting bad for sciatica?",
+        answer: "Yes, prolonged sitting increases pressure on lumbar discs and the piriformis muscle, which can worsen sciatic nerve compression. We teach you active stretching breaks and ergonomic postures."
+      }
+    ],
+    ctaText: "Book Sciatica Assessment",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Cervical Spondylitis Treatment",
+    slug: "cervical-spondylitis-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Specialized rehabilitation for neck stiffness, chronic cervical strain, headaches, and radiating arm numbness caused by cervical spondylosis.",
+    longDesc: "Cervical Spondylitis involves wear and tear of the neck bones and discs, causing chronic stiffness, radiating shoulder/arm pain, and tension headaches. Our program combines manual cervical traction, neck muscle strengthening (deep neck flexors), posture correction, and trigger-point dry needling to relieve muscle strain, decompress cervical nerves, and restore comfortable neck movement.",
+    symptoms: [
+      "Chronic Neck Stiffness",
+      "Cervical Nerve Compression",
+      "Cervicogenic Headaches",
+      "Numbness in Fingers/Hands",
+      "Shoulder Blade Aches",
+      "Dizziness or Vertigo when Turning Neck"
+    ],
+    highlightedConditions: [
+      "Cervical Spondylosis (Neck Wear)",
+      "Cervical Radiculopathy",
+      "Postural Kyphosis (Hunchback)",
+      "Deep Neck Flexor Strengthening"
+    ],
+    benefits: [
+      "Significant reduction in chronic neck pain and headaches",
+      "Restored neck rotation, bending, and extension ranges",
+      "Decompression of cervical nerves to eliminate finger numbness",
+      "Improved forward-head posture and shoulder alignment",
+      "Strengthened support muscles to reduce strain on cervical joints"
+    ],
+    timeline: [
+      "Cervical range of motion assessment, nerve compression tests (Spurling's), and posture checks.",
+      "Cervical traction (manual/mechanical) and soft-tissue release of tight trapezius muscles.",
+      "Deep neck flexor activation and thoracic spine extension mobilization.",
+      "Ergonomic workstation setups and posture maintenance guides."
+    ],
+    faqs: [
+      {
+        question: "Can neck pain cause headaches and dizziness?",
+        answer: "Yes. Tight neck muscles and compressed cervical joints can trigger cervicogenic headaches and affect balance receptors in the neck, causing mild dizziness. Treating the neck resolves these symptoms."
+      },
+      {
+        question: "Is traction safe for cervical spondylitis?",
+        answer: "Manual traction is highly safe when performed by an experienced clinical physiotherapist. It creates space between cervical vertebrae to relieve compressed nerve roots."
+      }
+    ],
+    ctaText: "Book Neck Assessment",
+    iconName: "Activity",
+    image: "/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Stroke Rehabilitation",
+    slug: "stroke-rehabilitation",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Specialized post-stroke recovery program utilizing Bobath concept, PNF facilitation, and neuroplasticity retraining in Noida.",
+    longDesc: "Recovering from a stroke requires rapid, structured rehabilitation to rebuild lost motor functions and coordination. Our Stroke Rehabilitation program utilizes neuroplasticity principles to help the brain reorganize and create new pathways. Dr. Rohit Verma provides personalized 1-on-1 therapy focusing on Bobath therapy, Proprioceptive Neuromuscular Facilitation (PNF), hemiplegic arm rehabilitation, sit-to-stand training, and progressive gait analysis.",
+    symptoms: [
+      "Hemiplegia / Hemiparesis Weakness",
+      "Post-Stroke Coordination Loss",
+      "Muscle Spasticity & Joint Contractures",
+      "Gait & Balance Instability",
+      "Difficulty Gripping Objects",
+      "Facial Muscle Drooping"
+    ],
+    highlightedConditions: [
+      "Post-Stroke Hemiplegia Recovery",
+      "Bobath & PNF Neuromuscular Therapy",
+      "Gait Training & Balance Rehabilitation",
+      "Upper Limb Motor Retraining"
+    ],
+    benefits: [
+      "Reactivation of dormant muscle groups on the hemiplegic side",
+      "Reduction of spastic muscle tone to prevent joint stiffness",
+      "Significant improvement in walking balance and safety",
+      "Restoration of daily tasks (eating, dressing, transfers)",
+      "Empowering training for family caregivers in transfer safety"
+    ],
+    timeline: [
+      "Brunnstrom stroke recovery stage check, spasticity screening, and safety audit.",
+      "PNF facilitation and passive/active-assisted movements to activate paretic muscles.",
+      "Task-oriented training (reaching, grasping, sit-to-stand repetitions).",
+      "Gait retraining with dynamic balance exercises on level and unlevel tracks."
+    ],
+    faqs: [
+      {
+        question: "What is the golden period for stroke rehabilitation?",
+        answer: "The first 3 to 6 months post-stroke is considered the golden period because the brain's neuroplasticity is at its highest, allowing for rapid motor recovery. However, improvements can still be made years later with consistent therapy."
+      },
+      {
+        question: "Is home visit physiotherapy good for stroke patients?",
+        answer: "Yes, in-home rehabilitation is highly effective because it allows us to retrain you on the exact furniture, beds, and stairs you use daily, accelerating your real-world independence."
+      }
+    ],
+    ctaText: "Book Stroke Consultation",
+    iconName: "Brain",
+    image: "/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Paralysis Rehabilitation",
+    slug: "paralysis-rehabilitation",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Specialized physiotherapy to rebuild motor function, prevent joint contractures, and restore daily independence for paralytic conditions.",
+    longDesc: "Paralysis rehabilitation requires systematic neuromuscular facilitation to stimulate paretic muscles, maintain muscle length, and prevent permanent joint stiffness (contractures). Whether caused by nerve injuries, neuropathy, or spinal trauma, Dr. Rohit Verma designs a custom protocol combining PNF techniques, active-assisted range of motion, muscle stimulation, and adaptive functional training to maximize movement potential.",
+    symptoms: [
+      "Loss of Voluntary Movement",
+      "Neuromuscular Weakness",
+      "Joint Stiffness & Tightness",
+      "Muscle Atrophy & Wasting",
+      "Impaired Reflexes",
+      "Sensory Sensation Changes"
+    ],
+    highlightedConditions: [
+      "Paresis & Paralytic Recovery",
+      "Neuromuscular Facilitation (PNF)",
+      "Contracture Prevention & Stretching",
+      "Functional Independence Training"
+    ],
+    benefits: [
+      "Rebuilding of voluntary muscle control and strength",
+      "Prevention of painful joint contractures and muscle wasting",
+      "Improved circulation and skin integrity in paretic limbs",
+      "Enhanced ability to perform bed mobility and chair transfers",
+      "Improved sensory awareness and coordination"
+    ],
+    timeline: [
+      "Detailed motor power screening (MRC scale), sensory check, and range of motion mapping.",
+      "Passive stretching and joint mobilization to preserve structural flexibility.",
+      "Neuromuscular electrical stimulation (NMES) to evoke muscle contractions.",
+      "Progressive active-assisted movements, trunk control, and transfer training."
+    ],
+    faqs: [
+      {
+        question: "How does electrical muscle stimulation help in paralysis?",
+        answer: "NMES passes small electrical currents through paretic muscles to evoke involuntary contractions, which maintains muscle mass, improves circulation, and helps re-educate the brain on movement patterns."
+      },
+      {
+        question: "Can physical therapy reverse paralysis?",
+        answer: "Recovery depends on the underlying cause and level of nerve damage. Physiotherapy maximizes the function of remaining nerve paths, builds muscle strength, and trains alternate patterns to achieve independence."
+      }
+    ],
+    ctaText: "Book Paralysis Consultation",
+    iconName: "Brain",
+    image: "/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Parkinson's Rehabilitation",
+    slug: "parkinsons-rehabilitation",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Specialized balance training, gait correction, and rigidity release to improve mobility and reduce fall risks for Parkinson's disease.",
+    longDesc: "Parkinson's Disease causes tremors, rigidity, slow movement (bradykinesia), and walking instability (shuffling gait). Our rehabilitation program focuses on expanding movement ranges, correcting gait, and improving balance. Dr. Rohit Verma utilizes large-amplitude movement training, cueing strategies, and balance exercises to reduce freezing episodes, increase walking speed, and help patients maintain active independence.",
+    symptoms: [
+      "Shuffling Gait (Walking Instability)",
+      "Muscle Rigidity & Stiffness",
+      "Bradykinesia (Slow Movement)",
+      "Postural Tremors",
+      "Freezing of Gait Episodes",
+      "Impaired Balance & Fall Risk"
+    ],
+    highlightedConditions: [
+      "Parkinsonian Shuffling Gait",
+      "Postural Rigidity & Coordination Loss",
+      "Gait Freezing Management",
+      "Large-Amplitude Exercise Training"
+    ],
+    benefits: [
+      "Reduced walking rigidity and body stiffness",
+      "Improved stride length and walking speed",
+      "Fewer freezing of gait episodes using sensory cues",
+      "Significantly reduced fall risk through balance conditioning",
+      "Maintained flexibility for everyday tasks"
+    ],
+    timeline: [
+      "Gait analysis, balance testing (Berg Scale), and assessment of rigidity.",
+      "Rigidity-relieving stretching and rotational spine mobilization exercises.",
+      "Large-amplitude exercise protocols (LSVT BIG principles) and stride drills.",
+      "Balance track practice, fall recovery training, and home safety guides."
+    ],
+    faqs: [
+      {
+        question: "How does physiotherapy help Parkinson's disease if it is progressive?",
+        answer: "Physiotherapy helps Parkinson's patients by training alternative pathways, maintaining joint flexibility, and improving balance, which slows the rate of functional decline and preserves independent mobility."
+      },
+      {
+        question: "What are sensory cueing strategies for gait freezing?",
+        answer: "Cueing involves using rhythmic auditory beats, visual lines on the floor, or mental commands to bypass the damaged basal ganglia in the brain, helping patients step out of freezing episodes safely."
+      }
+    ],
+    ctaText: "Book Parkinson's Assessment",
+    iconName: "Brain",
+    image: "/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Spinal Cord Injury Rehabilitation",
+    slug: "spinal-cord-injury-rehabilitation",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Advanced physical rehabilitation, trunk stabilization, wheelchair skills, and functional transfers training post spinal cord trauma in Noida.",
+    longDesc: "Spinal Cord Injury (SCI) rehab focuses on optimizing neurological recovery, strengthening intact muscle groups, and teaching functional independence. Whether dealing with paraplegia or tetraplegia, our specialized program includes progressive trunk control training, passive limb mobilization to prevent contractures, transfer training (bed to wheelchair), and pressure sore prevention techniques.",
+    symptoms: [
+      "Paraplegia or Tetraplegia Weakness",
+      "Loss of Sensation & Reflexes",
+      "Spasms or Flaccidity",
+      "Trunk Instability",
+      "Joint Stiffness & Tightness",
+      "Impaired Balance when Sitting"
+    ],
+    highlightedConditions: [
+      "Post-Traumatic Spinal Cord Rehabilitation",
+      "Trunk Control & Sitting Balance",
+      "Safe Bed-to-Wheelchair Transfers",
+      "Preventative Joint Mobilization"
+    ],
+    benefits: [
+      "Maximization of upper-body strength to compensate for lower-limb paresis",
+      "Excellent sitting balance and independent trunk control",
+      "Complete prevention of joint contractures and muscle wasting",
+      "Safe, independent transfers and wheelchair management",
+      "Caregiver guidance on skin checks and respiratory health"
+    ],
+    timeline: [
+      "ASIA impairment scale screening, muscle testing, and baseline mobility assessment.",
+      "Passive range of motion for paralyzed joints and respiratory muscle training.",
+      "Trunk mobilization, sitting balance training, and core stabilization.",
+      "Independent transfer training and customized home modifications advice."
+    ],
+    faqs: [
+      {
+        question: "What is the focus of spinal cord injury rehabilitation?",
+        answer: "The primary focus is to maximize your independent movement. We strengthen functional muscles, train sitting balance, teach wheelchair skills, and guide you through safe transfers to build a highly active life."
+      },
+      {
+        question: "Do you help with home setups for spinal cord injury patients?",
+        answer: "Yes, we evaluate your home layout and recommend modifications (ramps, bathroom grab bars, bed heights) to ensure safe, barrier-free mobility."
+      }
+    ],
+    ctaText: "Book SCI Assessment",
+    iconName: "Brain",
+    image: "/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "ACL Injury Rehabilitation",
+    slug: "acl-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Structured pre-operative and post-operative physical therapy for ACL/MCL reconstruction, knee ligament repairs, and meniscus tears.",
+    longDesc: "An Anterior Cruciate Ligament (ACL) tear requires meticulous, phase-based rehabilitation to restore joint stability and ensure a safe return to sports. Our program focuses on early swelling control, kneecap (patella) mobility, complete extension restoration, progressive weight-bearing, quadriceps hypertrophy, and sport-specific plyometrics/agility drills to prevent re-injury.",
+    symptoms: [
+      "Post-ACL Reconstruction Stiffness",
+      "Knee Ligament Laxity & Instability",
+      "Swelling & Fluid Build-up",
+      "Quadriceps Muscle Wasting",
+      "Loss of Terminal Knee Extension",
+      "Fear of Giving Way during Pivot"
+    ],
+    highlightedConditions: [
+      "Post-Op ACL/MCL Reconstruction Care",
+      "Pre-Surgery Joint Optimization (Prehab)",
+      "Quadriceps Strengthening & Girth Building",
+      "Plyometrics & Agility Sports Training"
+    ],
+    benefits: [
+      "Restoration of full terminal knee extension (straightening)",
+      "Elimination of post-surgical swelling and joint pain",
+      "Rebuilt quadriceps and hamstring muscle volume",
+      "Restored single-leg balance and pivoting confidence",
+      "Safe return to high-intensity running and athletic sports"
+    ],
+    timeline: [
+      "Swelling review, patellar mobility check, and quadriceps activation screening.",
+      "Gentle passive range of motion, patellar glides, and isometric quadriceps sets.",
+      "Closed-kinetic chain loading (squats, lunges) and proprioceptive balance training.",
+      "Agility ladders, jogging progressions, and sport-specific return-to-play testing."
+    ],
+    faqs: [
+      {
+        question: "Why is restoring knee extension (straightening) critical after ACL surgery?",
+        answer: "Restoring full knee extension within the first 2-3 weeks is critical. If delayed, scar tissue can build up in the joint, causing permanent extension loss and a limp."
+      },
+      {
+        question: "What is ACL prehab, and is it necessary?",
+        answer: "ACL Prehab is physical therapy performed before surgery to reduce swelling, restore extension, and build quadriceps strength. Research shows prehab significantly accelerates post-surgical recovery."
+      }
+    ],
+    ctaText: "Book ACL Assessment",
+    iconName: "Trophy",
+    image: "/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Tennis Elbow Rehabilitation",
+    slug: "tennis-elbow-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Specialized treatment for lateral epicondylitis (Tennis Elbow) and medial epicondylitis (Golfer's Elbow) using dry needling and eccentric loading.",
+    longDesc: "Tennis Elbow (lateral epicondylitis) is a painful tendon irritation caused by repetitive forearm movements, affecting athletes and office professionals alike. Our targeted rehabilitation program focuses on reducing tendon inflammation, releasing tight forearm extensor muscles using manual therapy and dry needling, and implementing progressive eccentric loading exercises to rebuild tendon strength and durability.",
+    symptoms: [
+      "Outer Elbow Pain (Lateral Epicondylitis)",
+      "Inner Elbow Soreness (Golfer's Elbow)",
+      "Weak Grip Strength & Pain",
+      "Forearm Muscle Stiffness",
+      "Pain when Typing or Lifting Cups",
+      "Radiating Wrist Ache"
+    ],
+    highlightedConditions: [
+      "Lateral Epicondylitis (Tennis Elbow)",
+      "Medial Epicondylitis (Golfer's Elbow)",
+      "Forearm Extensor Tendinopathy",
+      "Eccentric Forearm Strengthening"
+    ],
+    benefits: [
+      "Significant reduction in localized outer/inner elbow pain",
+      "Healed tendon fibers through structured eccentric exercise",
+      "Improved forearm flexibility and grip strength",
+      "Released muscle knots using deep tissue release and needling",
+      "Ergonomic adjustments for computer work to prevent recurrence"
+    ],
+    timeline: [
+      "Palpation of epicondyles, grip strength testing, and forearm flexibility screening.",
+      "Pain control using portable ultrasound, cold therapy, and soft-tissue mobilization.",
+      "Eccentric wrist extension loading using specialized light weights/flexbars.",
+      "Grip conditioning, stretching, and ergonomic mouse/keyboard setups."
+    ],
+    faqs: [
+      {
+        question: "Why does typing make my tennis elbow worse?",
+        answer: "Typing keeping your wrist extended runs forearm muscles constantly under isometric tension. This constant strain irritates the lateral epicondyle tendon. We teach you correct wrist positions and stretches."
+      },
+      {
+        question: "How does eccentric exercise help heal tendons?",
+        answer: "Eccentric exercise (strengthening the muscle while it lengthens) stimulates collagen production, helping realign and repair micro-tears in the tendon fibers to restore pain-free load capacity."
+      }
+    ],
+    ctaText: "Book Elbow Assessment",
+    iconName: "Trophy",
+    image: "/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Post-Surgery Rehabilitation",
+    slug: "post-surgery-rehabilitation",
+    category: "home",
+    categoryLabel: "In-Home Care",
+    shortDesc: "Advanced post-operative rehabilitation for total knee/hip replacements, spinal surgeries, and orthopedic fractures in Noida.",
+    longDesc: "Post-Surgery Rehabilitation is essential to recover joint range of motion, rebuild muscle bulk, and prevent post-surgical stiffness (arthrofibrosis). Dr. Rohit Verma brings comprehensive in-home rehabilitation protocols directly to Noida residents. Ideal for total knee replacements (TKR), hip replacements, and spine surgeries, this program features gentle manual tracking, swelling modulation, scar tissue mobilization, and progressive walking retraining.",
+    symptoms: [
+      "Post-TKR Knee Stiffness",
+      "Post-THR Hip Range Limitation",
+      "Surgical Scar Tightness",
+      "Post-Operative Muscle Wasting",
+      "Gait Limping or Balance Loss",
+      "Persistent Joint Swelling"
+    ],
+    highlightedConditions: [
+      "Total Knee Replacement (TKR) Rehab",
+      "Total Hip Replacement (THR) Rehab",
+      "Spinal Laminectomy / Fusion Recovery",
+      "Post-Fracture Stiffness Resolution"
+    ],
+    benefits: [
+      "Rapid restoration of knee bending and hip flexion",
+      "Prevention of permanent post-surgical joint stiffness",
+      "Safe walking retraining without a walker or cane",
+      "Reduced pain and swelling using sterile cold compression",
+      "Improved scar tissue mobility to prevent skin tightness"
+    ],
+    timeline: [
+      "Incision review, swelling check, and baseline passive joint range test.",
+      "Gentle passive range of motion, scar mobilization, and quad lag checks.",
+      "Active-assisted exercises, muscle activation (quads/glutes), and gait drills.",
+      "Progressive independent walking, stair climbing practice, and return-to-activity goals."
+    ],
+    faqs: [
+      {
+        question: "When should physiotherapy start after a total knee replacement?",
+        answer: "Physiotherapy should start within 24 to 48 hours after surgery. Early movements prevent blood clots, reduce initial swelling, and are critical to prevent joint stiffness."
+      },
+      {
+        question: "Why is in-home physiotherapy recommended after surgery?",
+        answer: "Home therapy is highly recommended. It eliminates the pain and risk of reopening incisions during travels, and allows you to practice walking and climbing stairs in your own safe home environment."
+      }
+    ],
+    ctaText: "Book Post-Op Consultation",
+    iconName: "Home",
+    image: "/images/service_home.png",
+    isSubService: true
+  },
+  {
+    name: "Geriatric Mobility & Fall Prevention",
+    slug: "fall-prevention-geriatric",
+    category: "geriatric",
+    categoryLabel: "Senior Care",
+    shortDesc: "Comprehensive fall risk screening, proprioception exercises, and mobility retraining to help seniors walk safely and independently.",
+    longDesc: "As we age, changes in balance, joint health, and muscle mass (sarcopenia) increase fall risks. Our Geriatric Mobility & Fall Prevention program evaluates balance and builds senior safety. Dr. Rohit Verma performs thorough fall-risk audits in the home, designs low-impact strength routines, and guides seniors through proprioception (balance) training, enabling them to move confidently without fear of falling.",
+    symptoms: [
+      "Walking Instability & Wobbles",
+      "Fear of Falling Outdoors",
+      "Age-Related Muscle Weakness",
+      "Joint Osteopenia & Stiffness",
+      "Slow, Shuffling Stride",
+      "Difficulty Standing Up from Low Chairs"
+    ],
+    highlightedConditions: [
+      "Senior Balance Training",
+      "Fall Risk Screening & Prevention",
+      "Lower Limb Strength Development",
+      "Independent Transfers Retraining"
+    ],
+    benefits: [
+      "Significantly reduced risk of falls and related fractures",
+      "Rebuilt thigh and hip muscle strength to stand up easily",
+      "Improved coordination, step tracking, and posture",
+      "Reclaimed confidence to walk outdoors and visit parks",
+      "Home-environment modifications advice to remove hazards"
+    ],
+    timeline: [
+      "Detailed balance screening (Berg Balance Test, Timed Up and Go) and home hazard audit.",
+      "Gentle joint mobilization and flexibility training to reduce joint stiffness.",
+      "Targeted balance training (single-leg stands, weight shifts) and lower body exercises.",
+      "Independent stair practice, walking speed conditioning, and long-term activity maps."
+    ],
+    faqs: [
+      {
+        question: "How can physiotherapy prevent falls in seniors?",
+        answer: "We focus on three areas: strengthening lower body muscles to prevent buckling, training balance receptors (proprioception) for steady footing, and recommending home safety changes to eliminate trip hazards."
+      },
+      {
+        question: "Can we do senior balance training at home?",
+        answer: "Yes, balance training at home is ideal because we train you on the exact floors, rugs, and hallways you navigate daily, directly translating exercises into daily safety."
+      }
+    ],
+    ctaText: "Book Senior Care Evaluation",
+    iconName: "Users",
+    image: "/images/service_geriatric.png",
+    isSubService: true
+  },
+  {
+    name: "Chiropractic Spinal Adjustments",
+    slug: "chiropractic-treatment",
+    category: "chiro",
+    categoryLabel: "Spine Alignment & Hands-on",
+    shortDesc: "Certified spinal adjustments, cervical manipulations, and joint mobilization to correct posture, alignment, and relieve nerve pain.",
+    longDesc: "Chiropractic Spinal Adjustments focus on correcting spinal alignments and joint play to restore smooth movement. Dr. Rohit Verma uses manual manipulation, drop-board mobilization, and gentle joint traction to treat neck pain, lumbar stiffness, and postural problems, decompressing spinal nerves and bringing immediate flexibility to stiff joints.",
+    symptoms: [
+      "Spinal Misalignment Aches",
+      "Acute Lumbar Stiffness",
+      "Cervical Joint Restrictions",
+      "Postural Kyphosis Strain",
+      "Pinched Spinal Nerve Pain",
+      "Rib Joint (Costochondral) Catch"
+    ],
+    highlightedConditions: [
+      "Manual Spinal Adjustments",
+      "Cervical & Lumbar Mobilization",
+      "Postural Kyphosis Correction",
+      "Joint Play Restoration"
+    ],
+    benefits: [
+      "Immediate relief from neck and spinal joint stiffness",
+      "Improved posture and structural alignment",
+      "Decompressed spinal nerves to relieve radiating limb pain",
+      "Restored range of motion in stiff vertebral segments",
+      "Increased blood flow and relaxed deep spinal muscles"
+    ],
+    timeline: [
+      "Postural screening, spinal segment palpation, and joint mobility checks.",
+      "Soft-tissue heating and myofascial trigger-point release of surrounding muscles.",
+      "Targeted manual adjustments to correct restricted vertebral joints.",
+      "Core stabilization exercises to secure the adjusted spinal segment."
+    ],
+    faqs: [
+      {
+        question: "Are spinal adjustments safe?",
+        answer: "Yes. When performed by a certified clinical physiotherapist like Dr. Rohit Verma, adjustments are highly safe. We perform a detailed screening to rule out contraindications like osteoporosis first."
+      },
+      {
+        question: "Does the joint 'click' mean it is aligned?",
+        answer: "The click (cavitation) is simply the release of gas bubbles from the joint fluid when the joint space is gently opened. Alignment is defined by the restoration of normal joint play and pain-free movement."
+      }
+    ],
+    ctaText: "Book Spinal Adjustment",
+    iconName: "Hand",
+    image: "/images/service_chiro.png",
+    isSubService: true
+  },
+  {
+    name: "Dry Needling Therapy",
+    slug: "dry-needling-therapy",
+    category: "chiro",
+    categoryLabel: "Spine Alignment & Hands-on",
+    shortDesc: "Intramuscular dry needling to release chronic myofascial trigger points, muscle knots, tension headaches, and sciatic tightness.",
+    longDesc: "Dry Needling involves inserting thin, sterile single-use needles directly into hyper-irritable muscle spots (trigger points). This technique triggers a local twitch response that instantly releases muscle spasms, increases blood flow, and deactivates painful knots, making it highly effective for chronic neck tension, sciatica, and hamstring stiffness.",
+    symptoms: [
+      "Chronic Myofascial Trigger Points",
+      "Deep Muscle Knots & Spasms",
+      "Tension Headaches",
+      "Hamstring & Calf Tightness",
+      "Gluteal Sciatica Compression",
+      "Myofascial Pain Syndrome"
+    ],
+    highlightedConditions: [
+      "Trigger Point Release",
+      "Intramuscular Stimulation (IMS)",
+      "Myofascial Pain Syndrome Care",
+      "Spasm Deactivation & Healing"
+    ],
+    benefits: [
+      "Rapid release of deep, stubborn muscle knots",
+      "Deactivated pain trigger points for lasting relief",
+      "Increased local blood circulation to speed up muscle healing",
+      "Improved flexibility in chronically tight muscles",
+      "Instant improvement in joint range of motion"
+    ],
+    timeline: [
+      "Identification of trigger points via muscle palpation and movement screening.",
+      "Skin sterilization and insertion of fine acupuncture needles.",
+      "Elicitation of local twitch responses to release muscle tension.",
+      "Post-needling stretching and active movements to restore muscle function."
+    ],
+    faqs: [
+      {
+        question: "Does dry needling hurt?",
+        answer: "You may feel a brief pinch during insertion and a dull ache or muscle twitch when the needle targets the trigger point, followed by immediate muscle relaxation."
+      },
+      {
+        question: "How is dry needling different from acupuncture?",
+        answer: "Acupuncture is based on traditional Chinese medicine mapping energy channels (meridians). Dry Needling is a Western medical treatment based on anatomical principles, targeting specific muscle trigger points to relieve pain."
+      }
+    ],
+    ctaText: "Book Dry Needling Session",
+    iconName: "Hand",
+    image: "/images/service_chiro.png",
+    isSubService: true
+  },
+  {
+    name: "Cupping Therapy",
+    slug: "cupping-therapy",
+    category: "chiro",
+    categoryLabel: "Spine Alignment & Hands-on",
+    shortDesc: "Advanced myofascial cupping to improve local blood flow, release restricted fascial layers, and reduce back stiffness.",
+    longDesc: "Myofascial Cupping Therapy utilizes localized suction cups to pull skin and fascia away from the muscle, creating space for blood flow and cellular exchange. Dr. Rohit Verma combines static and dynamic (sliding) cupping to break down fascial adhesions, relieve deep back stiffness, and accelerate muscle recovery after athletic training.",
+    symptoms: [
+      "Myofascial Fascial Adhesions",
+      "Chronic Back Muscle Stiffness",
+      "Restricted Blood Circulation",
+      "Lactic Acid Build-up",
+      "Sports Muscle Fatigue",
+      "Post-Workout Soreness"
+    ],
+    highlightedConditions: [
+      "Myofascial Cupping Therapy",
+      "Fascial Layer Release",
+      "Dynamic Sliding Cupping",
+      "Lactic Acid Flush & Recovery"
+    ],
+    benefits: [
+      "Released fascial layers to restore smooth movement",
+      "Increased blood flow and oxygenation to tight tissues",
+      "Accelerated recovery from heavy workouts and muscle soreness",
+      "Decompressed local sensory nerves to reduce pain signals",
+      "Deep tissue relaxation and reduced back stiffness"
+    ],
+    timeline: [
+      "Assessment of fascial mobility, muscle stiffness, and skin integrity.",
+      "Application of dynamic/sliding cups to warm up tissue and release fascia.",
+      "Placement of static cups on target trigger points for 5-10 minutes.",
+      "Gentle stretching and light active movements to integrate the tissue release."
+    ],
+    faqs: [
+      {
+        question: "What causes the circular marks after cupping?",
+        answer: "The marks are caused by suction drawing old blood and metabolic waste to the skin surface, indicating increased circulation. They are not bruises and fade in 3 to 7 days."
+      },
+      {
+        question: "Can cupping help with back muscle stiffness?",
+        answer: "Yes, cupping is highly effective. By lifting the fascia, it decompresses tight tissues, breaks up adhesions, and flushes out waste, providing deep muscle relief."
+      }
+    ],
+    ctaText: "Book Cupping Session",
+    iconName: "Hand",
+    image: "/images/service_chiro.png",
+    isSubService: true
   }
 ];
 

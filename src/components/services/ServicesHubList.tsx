@@ -37,7 +37,7 @@ export default function ServicesHubList() {
               onScroll={handleScroll}
               className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-4 scrollbar-none w-full -mx-4 px-4"
             >
-              {SERVICES_DATA.map((service, idx) => (
+              {SERVICES_DATA.filter(s => !s.isSubService).map((service, idx) => (
                 <div key={idx} className="w-[82vw] shrink-0 snap-start">
                   <ServiceCard
                     name={service.name}
@@ -67,7 +67,7 @@ export default function ServicesHubList() {
       ) : (
         /* Desktop 3x2 Grid */
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 py-4">
-          {SERVICES_DATA.map((service, idx) => (
+          {SERVICES_DATA.filter(s => !s.isSubService).map((service, idx) => (
             <ServiceCard
               key={idx}
               name={service.name}

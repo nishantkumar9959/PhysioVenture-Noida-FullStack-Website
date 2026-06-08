@@ -9,11 +9,11 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Blogs", href: "/blogs" },
-  { name: "Contact", href: "/contact" },
+  { name: "Services", href: "/services/" },
+  { name: "About", href: "/about/" },
+  { name: "Testimonials", href: "/testimonials/" },
+  { name: "Blogs", href: "/blogs/" },
+  { name: "Contact", href: "/contact/" },
 ];
 
 export default function Navbar() {
@@ -69,11 +69,11 @@ export default function Navbar() {
   // Computed active link for navbar styling (mutually exclusive)
   const getActiveLink = () => {
     if (pathname === "/") return "/";
-    if (pathname === "/services" || pathname.startsWith("/services/")) return "/services";
-    if (pathname === "/about" || pathname.startsWith("/about/")) return "/about";
-    if (pathname === "/testimonials" || pathname.startsWith("/testimonials/")) return "/testimonials";
-    if (pathname === "/blogs" || pathname.startsWith("/blogs/")) return "/blogs";
-    if (pathname === "/contact" || pathname.startsWith("/contact/")) return "/contact";
+    if (pathname === "/services/" || pathname.startsWith("/services/")) return "/services/";
+    if (pathname === "/about/" || pathname.startsWith("/about/")) return "/about/";
+    if (pathname === "/testimonials/" || pathname.startsWith("/testimonials/")) return "/testimonials/";
+    if (pathname === "/blogs/" || pathname.startsWith("/blogs/")) return "/blogs/";
+    if (pathname === "/contact/" || pathname.startsWith("/contact/")) return "/contact/";
     return null;
   };
 
@@ -126,7 +126,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
             <Link
-              href="/book"
+              href="/book/"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-white hover:bg-accent hover:text-primary transition-all duration-300 shadow-sm"
             >
               <Calendar className="w-[18px] h-[18px] shrink-0" />
@@ -190,7 +190,7 @@ export default function Navbar() {
           </ul>
           <div className="pt-2">
             <Link
-              href="/book"
+              href="/book/"
               onClick={() => setIsOpen(false)}
               className="flex w-full items-center justify-center gap-2 py-3 rounded-full text-base font-semibold bg-primary text-white hover:bg-accent hover:text-primary transition-colors"
             >

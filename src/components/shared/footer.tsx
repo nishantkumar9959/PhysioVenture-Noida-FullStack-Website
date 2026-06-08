@@ -49,16 +49,16 @@ export default function Footer() {
                 <Link href="/" className="hover:text-accent transition-colors">Home</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-accent transition-colors">Physiotherapy Services</Link>
+                <Link href="/services/" className="hover:text-accent transition-colors">Physiotherapy Services</Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-accent transition-colors">About Founder &amp; Clinic</Link>
+                <Link href="/about/" className="hover:text-accent transition-colors">About Founder &amp; Clinic</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-accent transition-colors">Contact &amp; Location</Link>
+                <Link href="/contact/" className="hover:text-accent transition-colors">Contact &amp; Location</Link>
               </li>
               <li>
-                <Link href="/book" className="hover:text-accent transition-colors">Book Appointment</Link>
+                <Link href="/book/" className="hover:text-accent transition-colors">Book Appointment</Link>
               </li>
             </ul>
           </div>
@@ -127,8 +127,8 @@ export default function Footer() {
             </p>
           </div>
           <div className="text-xs text-primary-foreground/60 flex gap-4">
-            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
+            <Link href="/privacy/" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link href="/terms/" className="hover:text-accent transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -114,10 +114,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
-      <head>
-        {/* Preload the first hero video so the browser fetches it as early as possible */}
-        <link rel="preload" as="video" href="/videos/hero-bg.mp4" type="video/mp4" />
-      </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         {children}
       </body>

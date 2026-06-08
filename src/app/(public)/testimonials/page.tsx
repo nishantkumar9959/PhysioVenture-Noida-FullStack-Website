@@ -50,10 +50,10 @@ export default function TestimonialsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Button variant="accent" size="md" asChild>
-                <Link href="/book">Book Appointment</Link>
+                <Link href="/book/">Book Appointment</Link>
               </Button>
               <Button variant="outline" size="md" className="border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
-                <Link href="/contact">Contact Our Team</Link>
+                <Link href="/contact/">Contact Our Team</Link>
               </Button>
             </div>
           </div>

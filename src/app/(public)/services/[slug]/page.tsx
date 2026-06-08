@@ -161,6 +161,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function getSymptomLink(symptomText: string): string | null {
+  const staticMap: Record<string, string> = {
+    "Shoulder Pain Treatment": "frozen-shoulder-treatment",
+    "Frozen Shoulder": "frozen-shoulder-treatment",
+    "Sciatica": "sciatica-pain-treatment",
+    "Slip Disc": "slip-disc-treatment",
+    "Cervical Spondylitis": "cervical-spondylitis-treatment",
+    "ACL Rehabilitation": "acl-rehabilitation",
+    "Tennis Elbow": "tennis-elbow-rehabilitation",
+    "Chiropractic Treatment": "chiropractic-treatment",
+    "Fall Prevention": "fall-prevention-geriatric",
+  };
+
+  const textClean = symptomText.trim();
+  if (staticMap[textClean]) {
+    return `/services/${staticMap[textClean]}/`;
+  }
+
+  // Attempt direct matching by name (case-insensitive)
+  const directMatch = SERVICES_DATA.find(
+    (s) => s.name.toLowerCase() === textClean.toLowerCase()
+  );
+  if (directMatch) {
+    return `/services/${directMatch.slug}/`;
+  }
+
+  // Attempt slug comparison
+  const slugifiedSymptom = textClean
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+  const slugMatch = SERVICES_DATA.find((s) => s.slug === slugifiedSymptom);
+  if (slugMatch) {
+    return `/services/${slugMatch.slug}/`;
+  }
+
+  return null;
+}
+
 export default async function ServicePage({ params }: Props) {
   const resolvedParams = await params;
   const service = getServiceBySlug(resolvedParams.slug);
@@ -365,12 +405,24 @@ export default async function ServicePage({ params }: Props) {
               Targeted Symptoms & Conditions
             </h3>
             <ul className="space-y-3">
-              {symptomItems.map((item) => (
-                <li key={item.id} className="flex items-start gap-2 text-xs text-muted-foreground text-left">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                  <span>{item.text}</span>
-                </li>
-              ))}
+              {symptomItems.map((item) => {
+                const linkHref = getSymptomLink(item.text);
+                return (
+                  <li key={item.id} className="flex items-start gap-2 text-xs text-muted-foreground text-left">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                    {linkHref ? (
+                      <Link
+                        href={linkHref}
+                        className="font-medium hover:text-accent hover:underline transition-colors cursor-pointer"
+                      >
+                        {item.text}
+                      </Link>
+                    ) : (
+                      <span>{item.text}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </Card>
 

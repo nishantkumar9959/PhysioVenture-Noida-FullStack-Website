@@ -140,14 +140,16 @@ export default function SymptomServicesSection() {
   };
 
   const filteredServices = useMemo(() => {
+    const mainServices = SERVICES_DATA.filter(s => !s.isSubService);
     return selectedCategory === "all"
-      ? SERVICES_DATA
-      : SERVICES_DATA.filter(s => getHomeCategories(s).includes(selectedCategory));
+      ? mainServices
+      : mainServices.filter(s => getHomeCategories(s).includes(selectedCategory));
   }, [selectedCategory]);
 
   const displayServices = useMemo(() => {
+    const mainServices = SERVICES_DATA.filter(s => !s.isSubService);
     return selectedCategory === "all" && !prefersReducedMotion
-      ? [...SERVICES_DATA, ...SERVICES_DATA]
+      ? [...mainServices, ...mainServices]
       : filteredServices;
   }, [filteredServices, selectedCategory, prefersReducedMotion]);
 
@@ -163,10 +165,12 @@ export default function SymptomServicesSection() {
   useEffect(() => {
     if (selectedCategory !== "all" || prefersReducedMotion) return;
     
+    const mainServicesCount = SERVICES_DATA.filter(s => !s.isSubService).length;
+    
     const updateWidth = () => {
-      if (trackRef.current && trackRef.current.children.length > SERVICES_DATA.length) {
+      if (trackRef.current && trackRef.current.children.length > mainServicesCount) {
         const firstCard = trackRef.current.children[0] as HTMLElement;
-        const middleCard = trackRef.current.children[SERVICES_DATA.length] as HTMLElement;
+        const middleCard = trackRef.current.children[mainServicesCount] as HTMLElement;
         
         const firstRect = firstCard.getBoundingClientRect();
         const middleRect = middleCard.getBoundingClientRect();
