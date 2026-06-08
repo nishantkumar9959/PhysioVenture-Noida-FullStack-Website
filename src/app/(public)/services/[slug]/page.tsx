@@ -170,6 +170,10 @@ function getSymptomLink(symptomText: string): string | null {
     "Cervical Spondylitis": "cervical-spondylitis-treatment",
     "ACL Rehabilitation": "acl-rehabilitation",
     "Tennis Elbow": "tennis-elbow-rehabilitation",
+    "Elbow Pain Treatment": "tennis-elbow-rehabilitation",
+    "Golfer's Elbow": "tennis-elbow-rehabilitation",
+    "Neck Pain Treatment": "cervical-spondylitis-treatment",
+    "Osteoarthritis": "knee-pain-treatment",
     "Chiropractic Treatment": "chiropractic-treatment",
     "Fall Prevention": "fall-prevention-geriatric",
   };
