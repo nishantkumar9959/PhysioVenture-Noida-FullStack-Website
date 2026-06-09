@@ -217,16 +217,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Personalized exercise therapy using portable resistance bands and cuffs.",
       "Caregiver orientation and progressive independent home activity mapping."
     ],
-    faqs: [
-      {
-        question: "Which areas in Noida do you cover for home visits?",
-        answer: "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West."
-      },
-      {
-        question: "Is the quality of treatment at home same as in the clinic?",
-        answer: "Absolutely. We bring the exact same clinical-grade portable modalities, exercise tools, and expertise, ensuring no compromise in your rehabilitation outcomes."
-      }
-    ],
+    faqs: [],
     ctaText: "Book Home Visit",
     iconName: "Home",
     image: "/images/service_home.png"

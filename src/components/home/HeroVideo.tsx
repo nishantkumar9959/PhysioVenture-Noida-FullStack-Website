@@ -89,7 +89,7 @@ export default function HeroVideo() {
         preload="auto"
         onEnded={handleEnded}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          activeElement === "A" ? "opacity-100 lg:opacity-90 z-10" : "opacity-0 z-0"
+          activeElement === "A" ? "opacity-100 lg:opacity-100 z-10" : "opacity-0 z-0"
         }`}
       >
         <source src={srcA} type="video/mp4" />
@@ -101,7 +101,7 @@ export default function HeroVideo() {
         preload="auto"
         onEnded={handleEnded}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          activeElement === "B" ? "opacity-100 lg:opacity-90 z-10" : "opacity-0 z-0"
+          activeElement === "B" ? "opacity-100 lg:opacity-100 z-10" : "opacity-0 z-0"
         }`}
       >
         <source src={srcB} type="video/mp4" />
