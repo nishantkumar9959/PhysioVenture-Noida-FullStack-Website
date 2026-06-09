@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "functions": {
+    "/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/get-bookings": {},
+    "/admin-dfhfvjhzbdsvhjzdgvbjhzbdv/update-status": {},
+    "/api/admin-login": {},
+    "/api/bookings": {},
+    "/api/contact": {},
+    "/api/enquiries": {},
+    "/api/verify-captcha": {}
+  }
+}

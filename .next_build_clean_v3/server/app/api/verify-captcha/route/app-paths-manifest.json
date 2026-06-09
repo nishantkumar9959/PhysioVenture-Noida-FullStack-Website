@@ -1,0 +1,3 @@
+{
+  "/api/verify-captcha/route": "app-edge-has-no-entrypoint"
+}

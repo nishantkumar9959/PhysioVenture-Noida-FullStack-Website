@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/admin-cr7m10vk18msd7r45n16/layout,_N_T_/admin-cr7m10vk18msd7r45n16/login/layout,_N_T_/admin-cr7m10vk18msd7r45n16/login/page,_N_T_/admin-cr7m10vk18msd7r45n16/login"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/admin-cr7m10vk18msd7r45n16/login/__PAGE__",
+    "/admin-cr7m10vk18msd7r45n16/login",
+    "/admin-cr7m10vk18msd7r45n16",
+    "/_index",
+    "/_head"
+  ]
+}

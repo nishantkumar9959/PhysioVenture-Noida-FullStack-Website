@@ -1,0 +1,7 @@
+.next
+.next_build
+.next_build_prod
+.next_build_final
+out
+functions
+node_modules

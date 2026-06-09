@@ -1,0 +1,3 @@
+module.exports=[10810,a=>{"use strict";a.s(["default",0,function({children:a}){return a},"metadata",0,{title:"Book Physiotherapy Appointment in Noida | PhysioVenture",description:"Schedule a home-visit or clinic physiotherapy session with Dr. Rohit Verma in Noida. Book online for neurological, orthopaedic, or sports injury rehabilitation.",alternates:{canonical:"/book/"},openGraph:{title:"Book Appointment | PhysioVenture Noida",description:"Schedule your physiotherapy session — home visit or clinic. Expert neuro & ortho care in Noida.",type:"website",locale:"en_IN",url:"/book/"}}])},95934,a=>{a.n(a.i(10810))}];
+
+//# sourceMappingURL=src_app_%28public%29_book_layout_tsx_09v_r9_._.js.map

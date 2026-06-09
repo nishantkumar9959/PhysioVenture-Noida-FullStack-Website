@@ -1,0 +1,3 @@
+module.exports=[88799,a=>{"use strict";a.s(["default",0,function({children:a}){return a},"metadata",0,{title:"Contact PhysioVenture — Physiotherapy Clinic Noida | Sector 49",description:"Get in touch with PhysioVenture clinic in Sector 49, Noida. Call, WhatsApp, or visit us for expert neurological and orthopaedic physiotherapy. Mon-Sat 8AM-8PM.",alternates:{canonical:"/contact/"},openGraph:{title:"Contact Us | PhysioVenture Noida",description:"Reach PhysioVenture — Sector 49, Noida. Phone, WhatsApp, email, or visit for physiotherapy appointments.",type:"website",locale:"en_IN",url:"/contact/"}}])},82124,a=>{a.n(a.i(88799))}];
+
+//# sourceMappingURL=src_app_%28public%29_contact_layout_tsx_0bj8rno._.js.map

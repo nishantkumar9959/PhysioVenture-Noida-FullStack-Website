@@ -1,0 +1,18 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(public)/layout,_N_T_/(public)/blogs/layout,_N_T_/(public)/blogs/category/layout,_N_T_/(public)/blogs/category/[category]/layout,_N_T_/(public)/blogs/category/[category]/page,_N_T_/blogs/category/geriatric-care"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHB1YmxpYyk/blogs/category/$d$category/__PAGE__",
+    "/!KHB1YmxpYyk/blogs/category/$d$category",
+    "/!KHB1YmxpYyk/blogs/category",
+    "/!KHB1YmxpYyk/blogs",
+    "/!KHB1YmxpYyk",
+    "/_index",
+    "/_head"
+  ]
+}
