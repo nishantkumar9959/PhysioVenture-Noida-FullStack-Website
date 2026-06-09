@@ -5,12 +5,10 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   CheckCircle,
-  MapPin,
   Phone,
   Calendar,
   HelpCircle,
   Activity,
-  Sparkles,
   ChevronRight,
   TrendingUp,
   Brain,
@@ -24,6 +22,7 @@ import { BLOG_ARTICLES, getBlogCategoryByService } from "@/lib/blogs-data";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion } from "@/components/ui/accordion";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 interface Props {
@@ -143,21 +142,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const localKeywords = getLocalKeywords(service.slug, service.name);
+  const description = `Specialized ${service.name} and physiotherapy in Noida by Dr. Rohit Verma. Clinic and home physiotherapy for ${service.symptoms.slice(0, 3).join(", ")}.`;
 
   return {
     title: `${service.name} in Noida | PhysioVenture Home Rehabilitation`,
-    description: `Specialized ${service.name} by Dr. Rohit Verma (7+ Yrs Exp) in Sector 49, Noida. We treat ${service.symptoms.slice(0, 4).join(", ")}. Book a premium home visit session today.`,
-    keywords: localKeywords,
+    description,
+    keywords: [
+      ...localKeywords,
+      "physiotherapy in noida",
+      "physiotherapy",
+      "best physiotherapy in noida",
+      "physiotherapy noida",
+      "home physiotherapy noida",
+      "physiotherapist near me",
+      "physiotherapy at home in noida",
+    ],
     alternates: {
       canonical: `/services/${resolvedParams.slug}/`,
     },
     openGraph: {
       title: `${service.name} in Noida | PhysioVenture`,
-      description: service.shortDesc,
+      description,
       type: "website",
       locale: "en_IN",
       url: `/services/${resolvedParams.slug}/`,
-    }
+      siteName: "PhysioVenture",
+      images: [
+        {
+          url: service.image,
+          width: 1200,
+          height: 630,
+          alt: `${service.name} physiotherapy in Noida by PhysioVenture`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.name} in Noida | PhysioVenture`,
+      description,
+      images: [service.image],
+    },
   };
 }
 
@@ -358,7 +382,7 @@ export default async function ServicePage({ params }: Props) {
                 color: "hsl(160, 84%, 12%)"
               }}
             >
-              "Consistent, evidence-based physical therapy is essential to restore proper biomechanics. By bringing specialized clinical care directly to your home, we optimize safety and speed up recovery times."
+              &quot;Consistent, evidence-based physical therapy is essential to restore proper biomechanics. By bringing specialized clinical care directly to your home, we optimize safety and speed up recovery times.&quot;
               <span className="block mt-2 text-xs font-bold not-italic text-muted-foreground">
                 — {DOCTOR_NAME}, Lead Physiotherapist & Clinical Director
               </span>
@@ -531,6 +555,15 @@ export default async function ServicePage({ params }: Props) {
           <Accordion items={faqAccordionItems} />
         </div>
       )}
+
+      <SeoContentBlock
+        pageType="service"
+        title={service.name}
+        summary={service.shortDesc}
+        category={service.categoryLabel}
+        symptoms={service.symptoms}
+        benefits={service.benefits}
+      />
 
       {/* CTA Box */}
       <div className="bg-primary text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl max-w-5xl mx-auto">

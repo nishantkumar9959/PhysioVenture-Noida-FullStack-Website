@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogArticleBySlug, BLOG_ARTICLES } from "@/lib/blogs-data";
-import { Calendar, ChevronRight } from "lucide-react";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 interface Props {
@@ -26,6 +26,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: article.metaTitle,
     description: article.metaDescription,
+    keywords: [
+      "physiotherapy in noida",
+      "physiotherapy",
+      "physiotherapy noida",
+      "home physiotherapy noida",
+      "physiotherapist in noida",
+      "physiotherapy clinic near me",
+      article.category,
+      article.title,
+    ],
     alternates: {
       canonical: `/blogs/${resolvedParams.slug}/`,
     },
@@ -36,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       locale: "en_IN",
       url: `/blogs/${resolvedParams.slug}/`,
+      siteName: "PhysioVenture",
       images: [
         {
           url: `${article.image}`,
@@ -44,6 +55,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: article.title,
         }
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.metaTitle,
+      description: article.metaDescription,
+      images: [article.image],
     },
   };
 }
@@ -195,6 +212,8 @@ export default async function BlogArticlePage({ params }: Props) {
           </Link>
         </div>
       </div>
+
+      <SeoContentBlock pageType="blog" title={article.title} category={article.category} />
     </article>
   );
 }

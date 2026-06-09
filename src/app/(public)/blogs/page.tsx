@@ -1,8 +1,51 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { Calendar, ChevronRight, BookOpen } from "lucide-react";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { CardContent } from "@/components/ui/card";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
+
+export const metadata: Metadata = {
+  title: "Physiotherapy Blog in Noida | PhysioVenture Health Guides",
+  description:
+    "Read PhysioVenture blogs on physiotherapy in Noida, home physiotherapy, pain relief, stroke rehab, sports injury recovery, and senior care.",
+  keywords: [
+    "physiotherapy in noida",
+    "physiotherapy",
+    "physiotherapy noida",
+    "home physiotherapy noida",
+    "physiotherapy at home in noida",
+    "physiotherapist in noida",
+    "physiotherapy clinic near me",
+  ],
+  alternates: {
+    canonical: "/blogs/",
+  },
+  openGraph: {
+    title: "Physiotherapy Blog in Noida | PhysioVenture",
+    description:
+      "Clinical guides from PhysioVenture on physiotherapy, home visits, rehabilitation, pain relief, and recovery in Noida.",
+    url: "/blogs/",
+    siteName: "PhysioVenture",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/images/home_ergonomics_blog.png",
+        width: 1200,
+        height: 630,
+        alt: "PhysioVenture physiotherapy blog and health guides in Noida",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Physiotherapy Blog in Noida | PhysioVenture",
+    description: "Read physiotherapy and rehabilitation guides from PhysioVenture Noida.",
+    images: ["/images/home_ergonomics_blog.png"],
+  },
+};
 
 const CATEGORIES = [
   { name: "All Articles", slug: "all" },
@@ -126,6 +169,7 @@ export default function BlogsPage() {
           </div>
         )}
 
+        <SeoContentBlock pageType="blogs" title="physiotherapy blogs" />
       </div>
     </div>
   );

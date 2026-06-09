@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Calendar, ChevronRight, BookOpen, ArrowLeft } from "lucide-react";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { CardContent } from "@/components/ui/card";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import { SITE_URL } from "@/lib/constants";
 
 interface Props {
@@ -82,6 +83,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    keywords: [
+      "physiotherapy in noida",
+      "physiotherapy",
+      "physiotherapy noida",
+      "home physiotherapy noida",
+      "physiotherapist in noida",
+      categoryName,
+      `${categoryName} Noida`,
+    ],
     alternates: {
       canonical: `/blogs/category/${resolvedParams.category}/`,
     },
@@ -91,7 +101,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: "en_IN",
       url: `/blogs/category/${resolvedParams.category}/`,
-    }
+      siteName: "PhysioVenture",
+      images: [
+        {
+          url: "/images/home_ergonomics_blog.png",
+          width: 1200,
+          height: 630,
+          alt: `${categoryName} physiotherapy guides by PhysioVenture Noida`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/home_ergonomics_blog.png"],
+    },
   };
 }
 
@@ -259,10 +284,12 @@ export default async function BlogCategoryPage({ params }: Props) {
             <BookOpen className="w-10 h-10 mx-auto text-muted-foreground mb-4" />
             <h3 className="text-lg font-bold text-primary mb-2">No articles found</h3>
             <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-              We haven't added articles to this category yet. Check back soon for expert updates!
+              We haven&apos;t added articles to this category yet. Check back soon for expert updates!
             </p>
           </div>
         )}
+
+        <SeoContentBlock pageType="blogs" title={`${categoryName} guides`} />
       </div>
     </div>
   );

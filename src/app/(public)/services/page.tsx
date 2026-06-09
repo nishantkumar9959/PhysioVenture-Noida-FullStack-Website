@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServicesHubList from "@/components/services/ServicesHubList";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
 
 export default function ServicesHub() {
   return (
@@ -35,7 +36,7 @@ export default function ServicesHub() {
             <span className="text-[10px] font-bold uppercase tracking-wider text-primary">In-Home Rehabilitation</span>
           </div>
           <h3 className="text-2xl font-display font-extrabold text-primary leading-tight">
-            Can't Travel to the Clinic?
+            Can&apos;t Travel to the Clinic?
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
             All services are available as clinical home visits. Dr. Rohit Verma travels with compact electrotherapy modalities, chiropractic adjusters, and diagnostic gear to deliver custom recovery sessions directly to you in Noida.
@@ -52,6 +53,8 @@ export default function ServicesHub() {
           </Button>
         </div>
       </div>
+
+      <SeoContentBlock pageType="services" title="all physiotherapy services" />
     </div>
   );
 }

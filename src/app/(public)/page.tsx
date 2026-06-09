@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   ShieldCheck,
   MapPin,
@@ -24,8 +25,63 @@ import SymptomServicesSection from "@/components/home/SymptomServicesSection";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import SuccessStoriesCarousel from "@/components/home/SuccessStoriesCarousel";
 import HeroVideo from "@/components/home/HeroVideo";
+import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Physiotherapy in Noida | Best Physiotherapist at Home",
+  description:
+    "PhysioVenture offers physiotherapy in Noida for pain, stroke, sports injury, post-surgery rehab, and home physiotherapy across Noida.",
+  keywords: [
+    "physiotherapy in noida",
+    "physiotherapy",
+    "best physiotherapy in noida",
+    "physiotherapy noida",
+    "physiotherapy noida at home",
+    "home physiotherapy noida",
+    "physiotherapy near me",
+    "physiotherapy clinic near me",
+    "physiotherapy clinic",
+    "physiotherapy centre near me",
+    "physiotherapist near me",
+    "physiotherapist",
+    "best physiotherapist near me",
+    "physiotherapist noida",
+    "physiotherapist in noida",
+    "physiotherapy at home",
+    "physiotherapy at home near me",
+    "physiotherapy at home charges",
+    "physiotherapy at home in noida",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Physiotherapy in Noida | PhysioVenture",
+    description:
+      "Clinic and home physiotherapy in Noida by PhysioVenture for pain relief, neurological rehab, sports injury, and post-surgery recovery.",
+    url: "/",
+    siteName: "PhysioVenture",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/images/hero_physiotherapy_bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PhysioVenture physiotherapy clinic and home physiotherapy in Noida",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Physiotherapy in Noida | PhysioVenture",
+    description:
+      "Book clinic or home physiotherapy in Noida with PhysioVenture.",
+    images: ["/images/hero_physiotherapy_bg.jpg"],
+  },
+};
 
 const PATIENT_TESTIMONIALS: {
   name: string;
@@ -329,7 +385,7 @@ export default function Home() {
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:py-1.5 rounded-full bg-secondary/60 border border-accent/20 w-fit backdrop-blur-xs">
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent animate-pulse shrink-0" />
-              <span className="text-[12px] sm:text-[13px] font-semibold text-primary">Noida's Premier Home-Visit & Clinic Rehab</span>
+              <span className="text-[12px] sm:text-[13px] font-semibold text-primary">Noida&apos;s Premier Home-Visit & Clinic Rehab</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-primary leading-[1.1] max-w-2xl">
@@ -509,13 +565,13 @@ export default function Home() {
 
             <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
-                Dr. Rohit Verma is Noida's leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 2,100 patients back to peak mobility and pain-free living.
+                Dr. Rohit Verma is Noida&apos;s leading physical therapist specializing in comprehensive Neurological & Orthopaedic Rehabilitation. Over a career spanning <strong>more than 7 years</strong>, he has successfully guided over 2,100 patients back to peak mobility and pain-free living.
               </p>
               <p>
                 Having worked across renowned multi-specialty hospitals and active sports academies, Dr. Rohit Verma recognized that recovery is fastest, safest, and most lasting when clinical expertise is combined with a stress-free environment. This realization drove him to pioneer the <strong>PhysioVenture Home Rehabilitation Program</strong> in Noida.
               </p>
               <p>
-                He combines cutting-edge physical therapeutic methods (like neuro-developmental therapy, chiropractic spine adjustments, dry needling, and clinical myofascial release) with empathetic, personalized care, ensuring every treatment plan aligns with the patient's lifestyle goals.
+                He combines cutting-edge physical therapeutic methods (like neuro-developmental therapy, chiropractic spine adjustments, dry needling, and clinical myofascial release) with empathetic, personalized care, ensuring every treatment plan aligns with the patient&apos;s lifestyle goals.
               </p>
             </div>
 
@@ -597,7 +653,7 @@ export default function Home() {
             Latest Guides & Recovery Tips
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
-            Read medical insights, posture guidelines, and treatment resources curated by Noida's home-visit rehabilitation specialist.
+            Read medical insights, posture guidelines, and treatment resources curated by Noida&apos;s home-visit rehabilitation specialist.
           </p>
         </div>
 
@@ -692,6 +748,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SeoContentBlock pageType="home" />
     </div>
   );
 }
