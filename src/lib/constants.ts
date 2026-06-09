@@ -2,7 +2,9 @@
  * Canonical business data — single source of truth for all pages.
  * Import from here instead of hard-coding values.
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.CF_PAGES_URL || "https://physioventure.in";
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL && !process.env.NEXT_PUBLIC_SITE_URL.includes("pages.dev"))
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : "https://physioventure.in";
 export const DOCTOR_NAME = "Dr. Rohit Verma";
 
 export const BUSINESS = {
