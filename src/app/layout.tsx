@@ -4,6 +4,7 @@ import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import FloatingCTAs from "@/components/shared/floating-ctas";
 import { SITE_URL } from "@/lib/constants";
+import Script from "next/script";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -117,6 +118,19 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         {children}
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-DLB81CE6G3"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DLB81CE6G3');
+        `}
+      </Script>
     </html>
   );
 }
