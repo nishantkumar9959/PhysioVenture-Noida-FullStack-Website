@@ -271,19 +271,8 @@ export default function Home() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    "url": SITE_URL,
     "name": "PhysioVenture",
-    "description": "Premier Neurological & Orthopaedic Physiotherapy Clinic in Noida",
-    "inLanguage": "en-IN",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${SITE_URL}/services?q={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://physioventure.in"
   };
 
   const faqSchema = {
