@@ -173,6 +173,21 @@
   }
 }
 
+@utility read-more-gradient {
+  background: linear-gradient(
+    to top,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.98) 15%,
+    hsl(var(--background) / 0.92) 30%,
+    hsl(var(--background) / 0.82) 43%,
+    hsl(var(--background) / 0.68) 55%,
+    hsl(var(--background) / 0.5) 67%,
+    hsl(var(--background) / 0.3) 78%,
+    hsl(var(--background) / 0.12) 89%,
+    hsl(var(--background) / 0) 100%
+  );
+}
+
 /* ── Suppress browser-injected password reveal & credential icons ── */
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
