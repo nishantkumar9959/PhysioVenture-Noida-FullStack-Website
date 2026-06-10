@@ -131,6 +131,12 @@ export default function Footer() {
             <Link href="/terms/" className="hover:text-accent transition-colors">Terms of Service</Link>
           </div>
         </div>
+
+        {/* Developer Attribution */}
+        <div className="mt-8 pt-6 border-t border-primary-foreground/10 text-center text-sm text-primary-foreground/50 space-y-1">
+          <div>Designed &amp; Developed by</div>
+          <div className="text-base font-bold text-white tracking-wide">N16 WebStudio</div>
+        </div>
       </div>
     </footer>
   );
