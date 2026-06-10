@@ -100,25 +100,8 @@ export default function FaqSection() {
   const visibleFaqItems = faqItems.slice(0, 5);
   const hiddenFaqItems = faqItems.slice(5);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqItems.map((item) => ({
-      "@type": "Question",
-      "name": item.trigger,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.content,
-      },
-    })),
-  };
-
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-t border-border/40 text-left bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-2 mb-8">
           <HelpCircle className="w-6 h-6 text-accent" />

@@ -292,66 +292,66 @@ export default function Home() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is home visit physiotherapy in Noida?",
+        "name": "How to Select Best Physiotherapist for Treatment in Noida ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `Home visit physiotherapy in Noida is a professional rehabilitation service where a licensed physiotherapist — like ${DOCTOR_NAME} at PhysioVenture — visits your home with clinical-grade equipment including TENS units, electrotherapy devices, and chiropractic adjustment instruments. With over 7 years of clinical expertise, this localized delivery eliminates the need for painful commutes and provides 1-on-1 focused care.`
+          "text": `To select the best physiotherapist in Noida, verify their clinical credentials (BPT and MPT certifications), clinical experience (7+ years is standard for specialized care), patient reviews (look for high ratings such as 4.9/5 stars), and depth of expertise in neurological or orthopaedic rehabilitation. Ensure they offer both clinical visits and comprehensive home visit programs in Noida. At PhysioVenture, ${DOCTOR_NAME} (MPT Neuro) leads all sessions directly rather than delegating to junior assistants, guaranteeing personalized, high-quality rehabilitation.`
         }
       },
       {
         "@type": "Question",
-        "name": "Which areas in Noida does PhysioVenture cover for home visits?",
+        "name": "Do I need doctor prescription for physiotherapy treatment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "PhysioVenture provides home visit physiotherapy across all major Noida sectors including Sectors 49, 50, 51, 62, 74, 78, 93, 100, 137, 150, Noida Expressway, and Greater Noida West."
+          "text": "No, you do not need a doctor's prescription or reference to begin physiotherapy treatment in India. Physiotherapists are qualified direct-access healthcare professionals. You can contact PhysioVenture directly to schedule your detailed clinical assessment and begin your recovery immediately."
         }
       },
       {
         "@type": "Question",
-        "name": "How many sessions are required for stroke rehabilitation?",
+        "name": "When to go for physiotherapy at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Stroke rehabilitation typically requires 30-60 sessions for meaningful recovery, with dynamic exercises recommended to maximize neuroplasticity optimization within the first 3 months."
+          "text": "In-home physiotherapy is highly recommended for patients recovering from major orthopaedic surgeries (like knee or hip replacements), individuals dealing with acute, debilitating back pain or sciatica, geriatric patients seeking balance or fall-prevention training, and neurological cases (such as stroke, Parkinson's disease, or paralysis recovery) where traveling to a clinic is difficult or unsafe."
         }
       },
       {
         "@type": "Question",
-        "name": "Is a doctor referral required for physiotherapy?",
+        "name": "Which areas in Noida do you cover for home visits?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `No doctor referral is required for physiotherapy in India. You can directly schedule a biomechanical assessment with ${DOCTOR_NAME} at PhysioVenture.`
+          "text": "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the difference between orthopaedic and neurological physiotherapy?",
+        "name": "Is the quality of treatment at home same as in the clinic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Orthopaedic physiotherapy focuses on musculoskeletal targets (bones, joints, muscles, and ligaments), while neurological physiotherapy targets the nervous system (rehabilitation for stroke, Parkinson's disease, and Multiple Sclerosis)."
+          "text": "Absolutely. We bring the exact same clinical-grade portable modalities, exercise tools, and expertise, ensuring no compromise in your rehabilitation outcomes."
         }
       },
       {
         "@type": "Question",
-        "name": "What equipment does PhysioVenture bring for home visits?",
+        "name": "What is the 80 20 rule in physiotherapy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "PhysioVenture brings portable clinical machines including IFT/TENS electrotherapy units, chiropractic adjustment devices, traction equipment, and resistance tools."
+          "text": "The 80/20 rule in physiotherapy refers to the collaborative split between therapist and patient for a successful recovery. About 20% of your progress comes from hands-on clinical sessions, manual therapy, and adjustments with the physiotherapist. The remaining 80% is driven by the patient's consistency in performing prescribed home exercises, modifying posture, and following ergonomic guidelines in their daily routine."
         }
       },
       {
         "@type": "Question",
-        "name": "How much does a home visit physiotherapy session cost in Noida?",
+        "name": "Can physiotherapy cure leg pain?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Home visit physiotherapy session costs in Noida by PhysioVenture are highly competitive and nominal. Rates vary based on specialized treatment requirements. Please call or book online to discuss packages and pricing."
+          "text": "Yes, physiotherapy can effectively cure leg pain by identifying and treating its root cause. Whether the pain is caused by sciatic nerve compression, a muscle strain, ligament sprain, knee joint wear-and-tear (osteoarthritis), or a slip disc, targeted physical therapy uses decompression stretches, nerve flossing, manual release, and progressive strengthening to provide permanent relief."
         }
       },
       {
         "@type": "Question",
-        "name": "Can physiotherapy help with chronic back pain and sciatica?",
+        "name": "Is it worth paying for physiotherapy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Physiotherapy is highly effective for chronic back pain and sciatica. Evidence-based treatments including core stabilization, McKenzie Method, and spinal manual manipulation can significantly reduce nerve compression and pain."
+          "text": "Absolutely. Paying for physiotherapy is highly cost-effective because it resolves the underlying cause of pain instead of briefly masking symptoms with medication. Proper physical therapy improves long-term joint health, restores correct posture, speeds up post-surgical healing, and prevents future injuries, helping you avoid expensive medical bills and invasive surgeries later."
         }
       }
     ]
