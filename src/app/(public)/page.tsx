@@ -26,6 +26,7 @@ import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import SuccessStoriesCarousel from "@/components/home/SuccessStoriesCarousel";
 import HeroVideo from "@/components/home/HeroVideo";
 import SeoContentBlock from "@/components/shared/SeoContentBlock";
+import FaqSection from "@/components/shared/FaqSection";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
@@ -750,6 +751,7 @@ export default function Home() {
       </section>
 
       <SeoContentBlock pageType="home" />
+      <FaqSection />
     </div>
   );
 }

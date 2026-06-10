@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import ServicesHubList from "@/components/services/ServicesHubList";
 import SeoContentBlock from "@/components/shared/SeoContentBlock";
+import FaqSection from "@/components/shared/FaqSection";
 
 export default function ServicesHub() {
   return (
@@ -55,6 +56,7 @@ export default function ServicesHub() {
       </div>
 
       <SeoContentBlock pageType="services" title="all physiotherapy services" />
+      <FaqSection />
     </div>
   );
 }

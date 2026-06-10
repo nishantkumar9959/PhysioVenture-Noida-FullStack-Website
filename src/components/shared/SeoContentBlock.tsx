@@ -21,11 +21,11 @@ export default function SeoContentBlock({ pageType, title }: SeoContentBlockProp
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16 mt-10 border-t border-border/40 text-left bg-background">
-      <div className="max-w-4xl">
-        <p className="text-xs font-bold uppercase tracking-wider text-accent mb-3">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-xs font-bold uppercase tracking-wider text-accent mb-3 md:text-center">
           PHYSIOVENTURE NOIDA
         </p>
-        <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary mb-6 leading-tight">
+        <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary mb-6 leading-tight md:text-center">
           Physiotherapy in Noida{dynamicTitle}: PhysioVenture Care Guide
         </h2>
 
@@ -89,11 +89,11 @@ export default function SeoContentBlock({ pageType, title }: SeoContentBlockProp
                 The aim is simple: help patients move better, reduce pain, rebuild confidence, and return to work, sport, family life, and independent daily routines. Whether you need a physiotherapist Noida residents trust for a single painful joint or a full rehabilitation plan after surgery or stroke, PhysioVenture combines local access with condition-specific care. Patients can begin by reviewing the relevant service page, reading the blog guides, or booking a consultation for clinic or home treatment.
               </p>
 
-              <p className="border-l-4 border-accent pl-4 text-sm">
+              <p className="border-l-4 border-accent pl-4 text-sm md:text-center md:border-l-0 md:pl-0">
                 For personal advice, contact {BUSINESS.shortName} and speak with {DOCTOR_NAME}. Medical content on this website is educational and should be matched with a direct assessment before starting treatment.
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-wrap gap-3 pt-2 md:justify-center">
                 <Link href="/services/" className="text-sm font-bold text-accent hover:text-primary transition-colors">
                   Explore physiotherapy services
                 </Link>

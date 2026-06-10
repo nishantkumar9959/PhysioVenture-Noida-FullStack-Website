@@ -1,8 +1,13 @@
-import { HelpCircle } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { HelpCircle, ChevronDown } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
 import { DOCTOR_NAME } from "@/lib/constants";
 
 export default function FaqSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const faqItems = [
     {
       id: "faq-select-physio",
@@ -11,7 +16,7 @@ export default function FaqSection() {
     },
     {
       id: "faq-prescription",
-      trigger: "Do i need doctor prescription for physiotherapy treatment?",
+      trigger: "Do I need doctor prescription for physiotherapy treatment?",
       content: "No, you do not need a doctor's prescription or reference to begin physiotherapy treatment in India. Physiotherapists are qualified direct-access healthcare professionals. You can contact PhysioVenture directly to schedule your detailed clinical assessment and begin your recovery immediately.",
     },
     {
@@ -91,6 +96,10 @@ export default function FaqSection() {
     },
   ];
 
+  // Split items: first 5 visible, remaining hidden
+  const visibleFaqItems = faqItems.slice(0, 5);
+  const hiddenFaqItems = faqItems.slice(5);
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -117,7 +126,31 @@ export default function FaqSection() {
             Frequently Asked Questions
           </h2>
         </div>
-        <Accordion items={faqItems} allowMultiple={true} />
+
+        <div className="relative">
+          <Accordion items={visibleFaqItems} allowMultiple={true} />
+
+          <div
+            className={`transition-all duration-700 ease-in-out overflow-hidden ${isExpanded
+              ? "max-h-[5000px] opacity-100 space-y-3 mt-3"
+              : "max-h-0 opacity-0 pointer-events-none"
+              }`}
+          >
+            <Accordion items={hiddenFaqItems} allowMultiple={true} />
+          </div>
+
+          {!isExpanded && (
+            <div className="absolute bottom-0 left-0 right-0 h-24 read-more-gradient backdrop-blur-[1px] flex items-end justify-center pointer-events-none pb-2">
+              <button
+                onClick={() => setIsExpanded(true)}
+                className="group flex items-center gap-1.5 px-4 py-1.5 bg-primary text-primary-foreground font-semibold rounded-full shadow-sm hover:bg-accent hover:text-white transition-all duration-300 pointer-events-auto transform hover:-translate-y-0.5 cursor-pointer text-xs border border-border/20"
+              >
+                <span>Show More</span>
+                <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
