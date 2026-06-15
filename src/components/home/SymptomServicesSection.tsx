@@ -326,7 +326,7 @@ export default function SymptomServicesSection() {
                 className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
               >
                 <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
-                  <h3 className="text-xs md:text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
+                  <h3 className="text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
                     {service.name}
                   </h3>
                   <p className="line-clamp-2 md:line-clamp-3 text-xs leading-relaxed mt-2 font-medium text-muted-foreground/90">
@@ -390,7 +390,7 @@ export default function SymptomServicesSection() {
                 className="group relative flex flex-col justify-between h-[310px] sm:h-[335px] md:h-auto md:aspect-square overflow-hidden border border-border/40 bg-card rounded-2xl transition-all duration-500 ease-out hover:shadow-md md:hover:shadow-lg lg:hover:shadow-xl hover:translate-y-0 hover:scale-100 md:hover:-translate-y-[3px] md:hover:scale-[1.005] lg:hover:-translate-y-[5px] lg:hover:scale-[1.01] transform-gpu w-[82vw] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] shrink-0 snap-start outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1"
               >
                 <div className="relative z-20 p-3 md:p-6 pb-2 md:pb-3 text-left">
-                  <h3 className="text-xs md:text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
+                  <h3 className="text-lg leading-tight md:leading-snug font-extrabold group-hover:text-accent transition-colors duration-200 line-clamp-3 md:line-clamp-2 text-primary">
                     {service.name}
                   </h3>
                   <p className="line-clamp-2 md:line-clamp-3 text-xs leading-relaxed mt-2 font-medium text-muted-foreground/90">
