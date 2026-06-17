@@ -84,31 +84,30 @@ export default function Contact() {
           <span className="text-xs font-bold uppercase tracking-wider text-primary">Get In Touch</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-display font-extrabold text-primary tracking-tight">
-          Contact & Clinic Location
+          Contact Us
         </h1>
         <p className="text-muted-foreground text-sm leading-relaxed">
-          Have general questions about our physical therapy programs or need to inquire about a home visit session? Drop us a line or drop by.
+          Have general questions about our physical therapy programs or need to inquire about a home visit session? Drop us a line and we'll get back to you.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Info Column */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          {/* Clinic Details */}
+          {/* Contact Details */}
           <div className="bg-secondary/30 rounded-3xl p-6 md:p-8 border border-border/50">
-            <h3 className="font-display font-extrabold text-lg text-primary mb-6">PhysioVenture Noida</h3>
+            <h3 className="font-display font-extrabold text-lg text-primary mb-6">Contact Info</h3>
 
             <div className="space-y-6">
-              {/* Address */}
+              {/* Service Area */}
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-accent flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Clinic Address</h4>
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Service Area</h4>
                   <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    A-31, Block A, Sector 49,<br />
-                    Noida, Uttar Pradesh - 201303
+                    All sectors in Noida, Greater Noida, and nearby regions.
                   </p>
                 </div>
               </div>
@@ -218,7 +217,7 @@ export default function Contact() {
 
                   {/* Phone */}
                   <Input
-                    label="Phone Number (Optional)"
+                    label="Phone Number"
                     placeholder="e.g. 9876543210"
                     error={errors.phone?.message}
                     {...register("phone")}
@@ -261,20 +260,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Embedded Google Map */}
-        <div className="lg:col-span-12 bg-card border border-border shadow-xs rounded-3xl overflow-hidden p-2 h-[320px] md:h-[400px] relative w-full">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.743126868516!2d77.362143!3d28.577488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5d9842a201d%3A0xe96cfbfa8b14a2c!2sSector%2049%2C%20Noida%2C%20Uttar%20Pradesh%20201303!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-2xl"
-            title="PhysioVenture Noida Location Map"
-          />
-        </div>
       </div>
     </div>
   );

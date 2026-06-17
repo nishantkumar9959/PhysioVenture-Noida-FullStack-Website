@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { Clock, Phone, AlertCircle, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import { Clock, Phone, AlertCircle, CheckCircle2, MapPin } from "lucide-react";
 import { appointmentSchema, type AppointmentInput } from "@/lib/validation";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceCombobox } from "@/components/service-combobox";
@@ -85,10 +85,6 @@ export default function Book() {
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto flex flex-col gap-3 items-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 w-fit">
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">Biomechanical Evaluation</span>
-        </div>
         <h1 className="text-3xl sm:text-4xl font-display font-extrabold text-primary tracking-tight">
           Schedule Your Consultation
         </h1>
@@ -97,52 +93,9 @@ export default function Book() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Info Column */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="bg-secondary/40 rounded-2xl p-6 border border-border/50 text-left">
-            <h3 className="font-display font-extrabold text-base text-primary mb-3">Rehab Booking Info</h3>
-
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Service Area</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">All sectors in Noida, Greater Noida, and nearby regions.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Timings</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">Monday to Saturday<br />8:00 AM - 8:00 PM</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <Phone className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Quick Support</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    Need instant booking? Call or WhatsApp us at <span className="font-semibold text-primary">+91 89320 82549</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-primary text-white rounded-2xl p-6 shadow-md text-left relative overflow-hidden">
-            <div className="absolute -right-10 -bottom-10 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
-            <h4 className="font-display font-extrabold text-sm uppercase tracking-wider text-accent mb-2">Home Visit Advantage</h4>
-            <p className="text-xs text-primary-foreground/95 leading-relaxed">
-              Skip the painful commutes. Dr. Rohit Verma brings high-end clinical mobilization bands, electrotherapy modalities, and diagnostic expertise directly to your home.
-            </p>
-          </div>
-        </div>
-
+      <div className="flex flex-col gap-8 max-w-3xl mx-auto w-full">
         {/* Form Column */}
-        <div className="lg:col-span-8">
+        <div className="w-full">
           {submitSuccess ? (
             <div className="bg-white dark:bg-card border border-border shadow-md rounded-2xl p-8 text-center flex flex-col items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-secondary text-accent flex items-center justify-center">
@@ -301,6 +254,41 @@ export default function Book() {
               </Button>
             </form>
           )}
+        </div>
+
+        {/* Info Column */}
+        <div className="w-full">
+          <div className="bg-secondary/40 rounded-2xl p-6 sm:p-8 border border-border/50 text-left">
+            <h3 className="font-display font-extrabold text-base text-primary mb-6 sm:text-center uppercase tracking-wider">Rehab Booking Info</h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="flex gap-3 sm:flex-col sm:items-center sm:text-center">
+                <MapPin className="w-6 h-6 text-accent flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Service Area</h4>
+                  <p className="text-xs text-muted-foreground mt-1">All sectors in Noida, Greater Noida, and nearby regions.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 sm:flex-col sm:items-center sm:text-center">
+                <Clock className="w-6 h-6 text-accent flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Timings</h4>
+                  <p className="text-xs text-muted-foreground mt-1">Monday to Saturday<br />8:00 AM - 8:00 PM</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 sm:flex-col sm:items-center sm:text-center">
+                <Phone className="w-6 h-6 text-accent flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Quick Support</h4>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Need instant booking? Call or WhatsApp us at <span className="font-semibold text-primary block mt-0.5">+91 89320 82549</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

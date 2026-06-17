@@ -1,29 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { Star, Home as HomeIcon, MapPin } from "lucide-react";
+import Image from "next/image";
 
-interface Testimonial {
-  name: string;
-  role: string;
-  location: string;
-  condition: string;
-  quote: string;
-  rating: number;
-  type: "Home Visit" | "Clinic Visit";
-}
+const TESTIMONIAL_IMAGES = [
+  "/Media_Assets/testimonials/Physiotherapy-Noida-for-Neckpain.jpg",
+  "/Media_Assets/testimonials/Physiotherapy-in-Noida-for-vertigo.jpg",
+  "/Media_Assets/testimonials/cupping.jpeg",
+  "/Media_Assets/testimonials/needling.jpeg",
+  "/Media_Assets/testimonials/physiotherapy-Noida-back-pain.jpg",
+  "/Media_Assets/testimonials/physiotherapy-Noida-for-Lower-Back-Pain.jpg",
+  "/Media_Assets/testimonials/physiotherapy-Noida-services-at-home-294x300.jpg",
+  "/Media_Assets/testimonials/physiotherapy-noida-for-frozen-shoulder.jpg",
+  "/Media_Assets/testimonials/therapy103.jpeg",
+  "/Media_Assets/testimonials/therapy104.jpeg",
+  "/Media_Assets/testimonials/therapy105.jpeg",
+  "/Media_Assets/testimonials/therapy106.jpeg",
+  "/Media_Assets/testimonials/therapy107.jpeg",
+  "/Media_Assets/testimonials/therapy108.jpeg",
+  "/Media_Assets/testimonials/therapy109.jpeg"
+];
 
-interface TestimonialsCarouselProps {
-  testimonials: Testimonial[];
-}
-
-export default function TestimonialsCarousel({
-  testimonials,
-}: TestimonialsCarouselProps) {
+export default function TestimonialsCarousel() {
   const [isTouched, setIsTouched] = useState(false);
 
   // Duplicate testimonials to create a seamless infinite loop effect
-  const loopItems = [...testimonials, ...testimonials];
+  const loopItems = [...TESTIMONIAL_IMAGES, ...TESTIMONIAL_IMAGES];
 
   return (
     <div className="w-full relative py-4 group overflow-hidden">
@@ -42,50 +44,31 @@ export default function TestimonialsCarousel({
             animationPlayState: isTouched ? "paused" : undefined,
           }}
         >
-          {loopItems.map((t, idx) => (
+          {loopItems.map((imgSrc, idx) => (
             <div
               key={idx}
-              className="w-[85vw] md:w-[calc((100vw-4rem)/2)] lg:w-[calc((min(100vw,80rem)-6rem)/3)] shrink-0 bg-card border border-border/30 shadow-sm rounded-2xl p-5 flex flex-col gap-3 relative overflow-hidden transition-all duration-300 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1 cursor-default"
+              className="w-[280px] sm:w-[320px] aspect-[4/3] shrink-0 bg-neutral-900 border border-border/30 shadow-sm rounded-2xl relative overflow-hidden transition-all duration-300 hover:border-accent/40 hover:shadow-lg hover:-translate-y-1 cursor-default"
             >
-              {/* Decorative quote glyph */}
-              <span className="absolute right-4 top-2 text-7xl font-display font-extrabold text-accent/8 select-none leading-none pointer-events-none">
-                ❝
-              </span>
-
-              {/* Stars */}
-              <div className="flex items-center gap-0.5">
-                {[...Array(t.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-3.5 h-3.5 fill-amber-400 text-amber-400 drop-shadow-sm"
-                  />
-                ))}
+              {/* Blurred background image to fill letterbox space */}
+              <div className="absolute inset-0 z-0 opacity-30 blur-md scale-110 pointer-events-none">
+                <Image
+                  src={imgSrc}
+                  alt=""
+                  fill
+                  sizes="100px"
+                  className="object-cover"
+                />
               </div>
 
-              {/* Quote */}
-              <p className="text-xs italic text-muted-foreground leading-relaxed flex-1 relative z-10">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              {/* Footer */}
-              <div className="border-t border-border/30 pt-3 flex flex-col gap-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-primary">{t.name}</span>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary/80 text-primary border border-primary/5">
-                    {t.type === "Home Visit" ? (
-                      <>
-                        <HomeIcon className="w-3 h-3 text-accent shrink-0" /> Home
-                      </>
-                    ) : (
-                      <>
-                        <MapPin className="w-3 h-3 text-accent shrink-0" /> Clinic
-                      </>
-                    )}
-                  </span>
-                </div>
-                <span className="text-[11px] text-muted-foreground">
-                  {t.role} · {t.location}
-                </span>
+              {/* Main contained image */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center p-1">
+                <Image
+                  src={imgSrc}
+                  alt={`Testimonial image ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 280px, 320px"
+                  className="object-contain"
+                />
               </div>
             </div>
           ))}
@@ -97,7 +80,6 @@ export default function TestimonialsCarousel({
       </div>
 
       <style>{`
-
         @keyframes infiniteSlide {
           from {
             transform: translateX(0);
@@ -117,5 +99,3 @@ export default function TestimonialsCarousel({
     </div>
   );
 }
-
-

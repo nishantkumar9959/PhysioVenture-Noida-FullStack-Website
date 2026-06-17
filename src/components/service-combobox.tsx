@@ -49,15 +49,19 @@ export function ServiceCombobox({
 
     const options: { slug: string; name: string; categoryLabel: string }[] = [];
 
+    // First pass: add all primary/sub services
     SERVICES_DATA.forEach((srv) => {
-      // Add the primary service
-      options.push({
-        slug: srv.slug,
-        name: srv.name,
-        categoryLabel: srv.categoryLabel,
-      });
+      if (!options.some((opt) => opt.slug === srv.slug)) {
+        options.push({
+          slug: srv.slug,
+          name: srv.name,
+          categoryLabel: srv.categoryLabel,
+        });
+      }
+    });
 
-      // Add each symptom/treatment as a selectable option
+    // Second pass: add unique symptoms/treatments that aren't already added
+    SERVICES_DATA.forEach((srv) => {
       srv.symptoms.forEach((symptom) => {
         const symptomSlug = slugify(symptom);
         if (!options.some((opt) => opt.slug === symptomSlug)) {

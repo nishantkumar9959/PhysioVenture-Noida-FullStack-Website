@@ -92,10 +92,8 @@ export const contactSchema = z.object({
     .transform((val) => val.trim().toLowerCase()),
   phone: z
     .string()
-    .optional()
-    .or(z.literal(""))
-    .transform((val) => (val ? normalizePhone(val) : ""))
-    .refine((val) => !val || phoneRegex.test(val), {
+    .transform(normalizePhone)
+    .refine((val) => phoneRegex.test(val), {
       message: "Please enter a valid 10-digit phone number.",
     }),
   message: z

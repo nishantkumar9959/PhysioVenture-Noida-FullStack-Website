@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Lora, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import FloatingCTAs from "@/components/shared/floating-ctas";
@@ -7,16 +7,22 @@ import { SITE_URL } from "@/lib/constants";
 import Script from "next/script";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -113,7 +119,7 @@ export default function RootLayout({
     <html
       lang="en-IN"
       suppressHydrationWarning
-      className={`${outfit.variable} ${inter.variable} h-full antialiased`}
+      className={`${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         {children}

@@ -90,8 +90,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
   
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lora), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @layer base {
@@ -124,8 +125,9 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     font-weight: 700;
+    text-wrap: balance;
   }
 }
 
@@ -197,4 +199,30 @@ input::-webkit-credentials-auto-fill-button,
 input::-webkit-strong-password-auto-fill-button {
   display: none !important;
   visibility: hidden !important;
+}
+
+/* ── PhysioVenture Biomechanical Design Enhancements ── */
+.ortho-dot-grid {
+  background-image: radial-gradient(hsl(var(--accent) / 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.rom-pivoting-hover {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom center;
+}
+
+.group:hover .rom-pivoting-hover,
+.rom-pivoting-hover:hover {
+  transform: rotate(12deg) scale(1.05);
+}
+
+.precision-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(var(--border) / 0.5);
+}
+
+p, blockquote {
+  text-wrap: pretty;
 }

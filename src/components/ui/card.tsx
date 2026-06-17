@@ -8,8 +8,8 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-2xl border border-border bg-card text-card-foreground shadow-sm overflow-hidden transition-all duration-300",
-      hoverEffect && "hover:shadow-md hover:-translate-y-1 hover:border-accent/30",
+      "rounded-2xl border border-border bg-card text-card-foreground shadow-xs overflow-hidden transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)]",
+      hoverEffect && "hover:shadow-md hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent/40",
       glass && "glass-panel",
       className
     )}

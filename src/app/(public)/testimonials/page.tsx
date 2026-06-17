@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TestimonialsFilterList from "@/components/testimonials/TestimonialsFilterList";
+import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 
 export default function TestimonialsPage() {
   return (
@@ -22,7 +23,7 @@ export default function TestimonialsPage() {
         </nav>
 
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
+        <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 w-fit mb-4">
             <MessageSquare className="w-4 h-4 text-accent" />
             <span className="text-xs font-bold uppercase tracking-wider text-primary">Patient Testimonials</span>
@@ -34,6 +35,11 @@ export default function TestimonialsPage() {
             Read real stories from our patients across Noida. Learn how Dr. Rohit Verma’s tailored therapeutic programs helped them overcome complex pain, stroke impairments, and joint limitations.
           </p>
         </div>
+        
+        {/* Carousel */}
+        <div className="mb-12 sm:mb-16">
+            <TestimonialsCarousel />
+        </div>
 
         {/* Interactive Testimonials Filter & Grid */}
         <TestimonialsFilterList />
@@ -43,10 +49,10 @@ export default function TestimonialsPage() {
           <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-accent/20 blur-3xl" />
           <div className="relative z-10 flex flex-col gap-6 items-center max-w-2xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight">
-              Begin Your Own Success Story
+              Ready to move without pain again?
             </h2>
             <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed">
-              Schedule your comprehensive initial assessment. Choose between a home visit by Dr. Rohit Verma or a consultation at our Sector 49 clinic.
+              Take the first step towards a pain-free life. Choose between a clinic visit or let Dr. Rohit Verma come directly to your home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Button variant="accent" size="md" asChild>

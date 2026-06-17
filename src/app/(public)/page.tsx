@@ -13,7 +13,6 @@ import {
   HeartHandshake,
   CheckCircle,
   Sparkles,
-  Star,
   BookOpen,
   Calendar
 } from "lucide-react";
@@ -432,19 +431,7 @@ export default function Home() {
       {/* 2. Google Review / Social Proof Strip */}
       <section className="w-full bg-secondary/30 border-y border-border/40 py-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div>
-              <h2 className="font-display font-extrabold text-lg text-primary">Trusted by Noida Residents</h2>
-              <div className="flex items-center gap-1.5 justify-start mt-1" role="img" aria-label="4.9 out of 5 stars rating">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-                <span className="text-sm font-semibold text-muted-foreground ml-2">4.9 Star Rating (150+ Reviews)</span>
-              </div>
-            </div>
-          </div>
-
-          <TestimonialsCarousel testimonials={PATIENT_TESTIMONIALS} />
+          <TestimonialsCarousel />
         </div>
       </section>
 
@@ -453,10 +440,10 @@ export default function Home() {
       <SymptomServicesSection />
 
       {/* 4. Specialized Home-Visit Spotlight */}
-      <section className="w-full bg-secondary/20 border-y border-border/40 py-16">
+      <section className="w-full bg-secondary/20 ortho-dot-grid border-y border-border/40 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
-            <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 dark:border-primary/10">
+            <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[420px] rounded-2xl overflow-hidden shadow-lg border-2 border-white/60 dark:border-primary/10">
               <Image
                 src="/Media_Assets/images/home_visit.jpg"
                 alt="Dr. Rohit Verma providing physical therapy at patient's home"
@@ -468,7 +455,7 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 w-fit">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 w-fit font-mono text-[9px] tracking-widest">
               <HeartHandshake className="w-4 h-4 text-accent" />
               <span className="text-xs font-bold uppercase tracking-wider text-primary">Specialized In-Home Care</span>
             </div>
