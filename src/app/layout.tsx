@@ -119,6 +119,7 @@ export default function RootLayout({
     <html
       lang="en-IN"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${lora.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">

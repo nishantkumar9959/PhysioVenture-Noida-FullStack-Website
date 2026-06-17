@@ -201,8 +201,8 @@ export default function SymptomServicesSection() {
   useAnimationFrame((t, delta) => {
     if (selectedCategory !== "all" || prefersReducedMotion || isDraggingRef.current || isHovered || trackWidth === 0) return;
     
-    // Calibrate speed: 35 seconds for desktop, 40 seconds for mobile (fast & dynamic)
-    const loopDuration = isMobile ? 40000 : 35000;
+    // Calibrate speed: 30 seconds for both desktop and mobile
+    const loopDuration = 30000;
     const moveBy = (trackWidth / loopDuration) * delta;
     let newX = x.get() - moveBy;
     
