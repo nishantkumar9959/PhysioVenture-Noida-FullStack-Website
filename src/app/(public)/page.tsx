@@ -26,6 +26,7 @@ import SuccessStoriesCarousel from "@/components/home/SuccessStoriesCarousel";
 import HeroVideo from "@/components/home/HeroVideo";
 import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import FaqSection from "@/components/shared/FaqSection";
+import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
@@ -409,11 +410,11 @@ export default function Home() {
             {/* Quick trust trustmarks */}
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border max-w-lg">
               <div className="flex flex-col gap-1">
-                <span className="font-display font-extrabold text-2xl text-primary">7+ Yrs</span>
+                <span className="font-display font-extrabold text-2xl text-primary"><AnimatedCounter end={7} suffix="+" syncId="hero-trustmarks" /> Yrs</span>
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Expertise</span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="font-display font-extrabold text-2xl text-primary">2100+</span>
+                <span className="font-display font-extrabold text-2xl text-primary"><AnimatedCounter end={2100} suffix="+" syncId="hero-trustmarks" /></span>
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Patients Restored</span>
               </div>
               <div className="flex flex-col gap-1">
@@ -430,7 +431,7 @@ export default function Home() {
 
       {/* 2. Google Review / Social Proof Strip */}
       <section className="w-full bg-secondary/30 border-y border-border/40 py-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
+        <div className="w-full flex flex-col gap-6">
           <TestimonialsCarousel />
         </div>
       </section>

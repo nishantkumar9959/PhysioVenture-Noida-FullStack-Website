@@ -7,8 +7,7 @@ import { motion, useAnimationFrame, useMotionValue, useReducedMotion, animate } 
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { 
   ChevronLeft, 
-  ChevronRight, 
-  ArrowRight 
+  ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SERVICES_DATA, ServiceDetail } from "@/lib/services-data";
@@ -244,43 +243,17 @@ export default function SymptomServicesSection() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 w-full">
-        <div className="text-left max-w-2xl flex flex-col gap-3">
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-primary">
-            Find the Right Treatment for Your Pain
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base">
-            Select a target body region or recovery type to discover specialized physical therapy plans designed to restore function.
-          </p>
-        </div>
-      </div>
-
-      {/* Selector Tabs with Layout-Level Chevron */}
-      <div className="flex items-center w-full md:w-fit mb-8 gap-2">
-        <div 
-          ref={categoryScrollRef}
-          onScroll={handleCategoryScroll}
-          className="flex-1 flex flex-row overflow-x-auto md:flex-wrap scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-2 bg-secondary/30 p-1.5 rounded-2xl md:rounded-full border border-border/30 whitespace-nowrap min-w-0"
-        >
-          {SYMPTOM_CATEGORIES.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`snap-start shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 outline-none ${
-                selectedCategory === cat.id
-                  ? "bg-primary text-white shadow-xs"
-                  : "text-muted-foreground hover:text-primary"
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Explicit Un-overlapped Chevron Indicator (Mobile Only) */}
-        <div className={`w-6 shrink-0 flex items-center justify-center md:hidden transition-opacity duration-300 ${showRightCatFade ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-           <ChevronRight className="w-6 h-6 text-primary animate-pulse" />
+    <section className="w-full py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 w-full">
+          <div className="text-left max-w-2xl flex flex-col gap-3">
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-primary">
+              Find the Right Treatment for Your Pain
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              Explore our specialized physical therapy plans designed to help you recover faster, move better, and get back to doing what you love.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -364,16 +337,7 @@ export default function SymptomServicesSection() {
                   }}
                 />
 
-                <div className="p-3 md:p-6 pt-0 pb-3 md:pb-6 flex flex-col mt-auto w-full relative z-20 pointer-events-none">
-                  <div className="flex items-center justify-start w-full">
-                    <div
-                      className="w-8 h-8 rounded-full bg-white dark:bg-secondary shadow-md flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                      aria-hidden="true"
-                    >
-                      <ArrowRight className="w-4.5 h-4.5" />
-                    </div>
-                  </div>
-                </div>
+
               </Link>
             ))}
           </motion.div>
@@ -428,16 +392,7 @@ export default function SymptomServicesSection() {
                   }}
                 />
 
-                <div className="p-3 md:p-6 pt-0 pb-3 md:pb-6 flex flex-col mt-auto w-full relative z-20 pointer-events-none">
-                  <div className="flex items-center justify-start w-full">
-                    <div
-                      className="w-8 h-8 rounded-full bg-white dark:bg-secondary shadow-md flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                      aria-hidden="true"
-                    >
-                      <ArrowRight className="w-4.5 h-4.5" />
-                    </div>
-                  </div>
-                </div>
+
               </Link>
             ))}
           </div>
@@ -454,9 +409,7 @@ export default function SymptomServicesSection() {
           </button>
         )}
 
-        {/* Faded edges to indicate scroll track depth on overflow */}
-        <div className={`absolute top-3 bottom-3 left-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none z-10 transition-opacity duration-300 ${canScrollLeft || selectedCategory === "all" ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
-        <div className={`absolute top-3 bottom-3 right-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none z-10 transition-opacity duration-300 ${canScrollRight || selectedCategory === "all" ? "opacity-0 sm:opacity-100" : "opacity-0"}`} />
+
       </div>
 
       <div className="w-full flex justify-center mt-6">

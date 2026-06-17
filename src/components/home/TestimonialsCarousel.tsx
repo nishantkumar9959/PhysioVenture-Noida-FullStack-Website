@@ -32,7 +32,7 @@ export default function TestimonialsCarousel() {
       
       {/* ── Unified Infinite Marquee Container (Pauses on Hover/Touch) ── */}
       <div 
-        className="flex overflow-hidden relative w-full -mx-4 px-4 sm:mx-0 sm:px-0"
+        className="flex overflow-hidden relative w-full"
         onTouchStart={() => setIsTouched(true)}
         onTouchEnd={() => setIsTouched(false)}
         onTouchCancel={() => setIsTouched(false)}
@@ -73,11 +73,9 @@ export default function TestimonialsCarousel() {
             </div>
           ))}
         </div>
-
-        {/* Fade Overlays for seamless blending at edges */}
-        <div className="absolute inset-y-0 left-0 w-8 md:w-16 bg-gradient-to-r from-secondary/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-8 md:w-16 bg-gradient-to-l from-secondary/30 to-transparent pointer-events-none" />
       </div>
+
+
 
       <style>{`
         @keyframes infiniteSlide {
