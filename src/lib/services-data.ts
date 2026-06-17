@@ -77,7 +77,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Consultation",
     iconName: "Activity",
-    image: "/images/service_ortho.png"
+    image: "/Media_Assets/images/service_ortho.png"
   },
   {
     name: "Neurological Rehabilitation",
@@ -127,7 +127,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Start Recovery Program",
     iconName: "Brain",
-    image: "/images/service_neuro.png"
+    image: "/Media_Assets/images/service_neuro.png"
   },
   {
     name: "Sports Injury Rehabilitation",
@@ -181,7 +181,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Get Sports Assessment",
     iconName: "Trophy",
-    image: "/images/service_sports.png"
+    image: "/Media_Assets/images/service_sports.png"
   },
   {
     name: "Home Visit Physiotherapy",
@@ -220,7 +220,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     faqs: [],
     ctaText: "Book Home Visit",
     iconName: "Home",
-    image: "/images/service_home.png"
+    image: "/Media_Assets/images/service_home.png"
   },
   {
     name: "Chiropractic & Manual Therapy",
@@ -273,7 +273,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Schedule Assessment",
     iconName: "Hand",
-    image: "/images/service_chiro.png"
+    image: "/Media_Assets/images/service_chiro.png"
   },
   {
     name: "Geriatric Rehabilitation",
@@ -321,7 +321,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Senior Care Consultation",
     iconName: "Users",
-    image: "/images/service_geriatric.png"
+    image: "/Media_Assets/images/service_geriatric.png"
   },
   {
     name: "Back Pain Treatment",
@@ -369,7 +369,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Back Pain Assessment",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -418,7 +418,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Knee Assessment",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -467,7 +467,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Shoulder Assessment",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -516,7 +516,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Spinal Evaluation",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -565,7 +565,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Sciatica Assessment",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -614,7 +614,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Neck Assessment",
     iconName: "Activity",
-    image: "/images/service_ortho.png",
+    image: "/Media_Assets/images/service_ortho.png",
     isSubService: true
   },
   {
@@ -663,7 +663,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Stroke Consultation",
     iconName: "Brain",
-    image: "/images/service_neuro.png",
+    image: "/Media_Assets/images/service_neuro.png",
     isSubService: true
   },
   {
@@ -712,7 +712,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Paralysis Consultation",
     iconName: "Brain",
-    image: "/images/service_neuro.png",
+    image: "/Media_Assets/images/service_neuro.png",
     isSubService: true
   },
   {
@@ -761,7 +761,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Parkinson's Assessment",
     iconName: "Brain",
-    image: "/images/service_neuro.png",
+    image: "/Media_Assets/images/service_neuro.png",
     isSubService: true
   },
   {
@@ -810,7 +810,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book SCI Assessment",
     iconName: "Brain",
-    image: "/images/service_neuro.png",
+    image: "/Media_Assets/images/service_neuro.png",
     isSubService: true
   },
   {
@@ -859,7 +859,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book ACL Assessment",
     iconName: "Trophy",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     isSubService: true
   },
   {
@@ -908,7 +908,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Elbow Assessment",
     iconName: "Trophy",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     isSubService: true
   },
   {
@@ -957,7 +957,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Post-Op Consultation",
     iconName: "Home",
-    image: "/images/service_home.png",
+    image: "/Media_Assets/images/service_home.png",
     isSubService: true
   },
   {
@@ -1006,7 +1006,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Senior Care Evaluation",
     iconName: "Users",
-    image: "/images/service_geriatric.png",
+    image: "/Media_Assets/images/service_geriatric.png",
     isSubService: true
   },
   {
@@ -1055,7 +1055,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Spinal Adjustment",
     iconName: "Hand",
-    image: "/images/service_chiro.png",
+    image: "/Media_Assets/images/service_chiro.png",
     isSubService: true
   },
   {
@@ -1104,7 +1104,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Dry Needling Session",
     iconName: "Hand",
-    image: "/images/service_chiro.png",
+    image: "/Media_Assets/images/service_chiro.png",
     isSubService: true
   },
   {
@@ -1153,7 +1153,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
     ctaText: "Book Cupping Session",
     iconName: "Hand",
-    image: "/images/service_chiro.png",
+    image: "/Media_Assets/images/service_chiro.png",
     isSubService: true
   }
 ];

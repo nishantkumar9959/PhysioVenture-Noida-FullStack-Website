@@ -14,7 +14,7 @@ function MobileHeader() {
     <header className="h-[60px] bg-white border-b border-gray-100 flex items-center justify-between px-4 sticky top-0 z-40 shrink-0">
       <Link href="/admin-cr7m10vk18msd7r45n16" className="flex items-center gap-2">
         <div className="relative w-8 h-8 shrink-0">
-          <Image src="/images/logo.png" alt="PhysioVenture" fill sizes="32px" className="object-contain" priority />
+          <Image src="/Media_Assets/images/logo.png" alt="PhysioVenture" fill sizes="32px" className="object-contain" priority />
         </div>
         <span className="font-display font-extrabold text-[17px] leading-none">
           <span className="text-primary">Physio</span><span className="text-accent">Venture</span>

@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 
 
 const PLAYLIST = [
-  "/videos/hero-bg.mp4",
-  "/videos/hero-bg-3.mp4",
+  "/Media_Assets/videos/hero-bg.mp4",
+  "/Media_Assets/videos/hero-bg-3.mp4",
 ];
 
 export default function HeroVideo() {

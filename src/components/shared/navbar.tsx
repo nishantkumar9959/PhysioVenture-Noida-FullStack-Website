@@ -94,7 +94,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative w-10 h-10 md:w-11 md:h-11 transition-transform duration-300 group-hover:scale-105">
               <Image
-                src="/images/logo.png"
+                src="/Media_Assets/images/logo.png"
                 alt="PhysioVenture Logo"
                 fill
                 sizes="(max-width: 768px) 40px, 44px"

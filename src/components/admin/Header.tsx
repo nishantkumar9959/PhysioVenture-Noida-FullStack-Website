@@ -19,7 +19,7 @@ export function Header() {
         <Link href="/admin-cr7m10vk18msd7r45n16" className="flex items-center gap-2">
           <div className="relative w-7 h-7 shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/Media_Assets/images/logo.png"
               alt="PhysioVenture Logo"
               fill
               sizes="28px"

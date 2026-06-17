@@ -37,7 +37,7 @@ export function Sidebar({ onClose }: SidebarProps) {
       <div className="flex items-center justify-between px-6 pt-5 pb-3 lg:px-6 lg:pt-6 lg:pb-4 border-b border-gray-50/50 lg:border-none">
         <Link href="/admin-cr7m10vk18msd7r45n16" onClick={onClose} className="flex items-center gap-2.5">
           <div className="relative w-8 h-8 lg:w-9 lg:h-9 shrink-0">
-            <Image src="/images/logo.png" alt="PhysioVenture" fill sizes="36px" className="object-contain" priority />
+            <Image src="/Media_Assets/images/logo.png" alt="PhysioVenture" fill sizes="36px" className="object-contain" priority />
           </div>
           <span className="font-display font-extrabold text-[18px] lg:text-xl leading-none tracking-tight">
             <span className="text-primary">Physio</span><span className="text-accent">Venture</span>

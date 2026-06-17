@@ -94,7 +94,7 @@ export default async function BlogArticlePage({ params }: Props) {
       "url": SITE_URL,
       "logo": {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/images/logo.png`
+        "url": `${SITE_URL}/Media_Assets/images/logo.png`
       }
     },
     "mainEntityOfPage": {

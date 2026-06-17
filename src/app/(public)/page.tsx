@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/images/hero_physiotherapy_bg.jpg",
+        url: "/Media_Assets/images/hero_physiotherapy_bg.jpg",
         width: 1200,
         height: 630,
         alt: "PhysioVenture physiotherapy clinic and home physiotherapy in Noida",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "Physiotherapy in Noida | PhysioVenture",
     description:
       "Book clinic or home physiotherapy in Noida with PhysioVenture.",
-    images: ["/images/hero_physiotherapy_bg.jpg"],
+    images: ["/Media_Assets/images/hero_physiotherapy_bg.jpg"],
   },
 };
 
@@ -174,7 +174,7 @@ export default function Home() {
     "name": "PhysioVenture Neuro & Ortho Physiotherapy Clinic",
     "alternateName": "PhysioVenture",
     "description": "Premium neurological and orthopaedic physiotherapy clinic in Sector 49, Noida. Specializing in stroke recovery, joint pain, sports injuries, and post-surgery rehabilitation with expert home-visit services across all Noida sectors.",
-    "image": `${SITE_URL}/images/hero_physiotherapy_bg.jpg`,
+    "image": `${SITE_URL}/Media_Assets/images/hero_physiotherapy_bg.jpg`,
     "@id": `${SITE_URL}/#medicalbusiness`,
     "url": SITE_URL,
     "telephone": "+91 89320 82549",
@@ -458,7 +458,7 @@ export default function Home() {
           <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
             <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 dark:border-primary/10">
               <Image
-                src="/images/home_visit.jpg"
+                src="/Media_Assets/images/home_visit.jpg"
                 alt="Dr. Rohit Verma providing physical therapy at patient's home"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
@@ -539,7 +539,7 @@ export default function Home() {
             <div className="flex lg:hidden justify-center w-full my-2">
               <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
                 <Image
-                  src="/images/doctor_profile.jpg"
+                  src="/Media_Assets/images/doctor_profile.jpg"
                   alt="Dr. Rohit Verma - Lead Physiotherapist in Noida"
                   fill
                   priority
@@ -591,7 +591,7 @@ export default function Home() {
           <div className="hidden lg:flex lg:col-span-5 justify-center">
             <div className="relative w-full aspect-[3/4] max-w-[340px] rounded-3xl overflow-hidden shadow-xl bg-secondary/40 border border-border">
               <Image
-                src="/images/doctor_profile.jpg"
+                src="/Media_Assets/images/doctor_profile.jpg"
                 alt="Dr. Rohit Verma - Lead Physiotherapist in Noida"
                 fill
                 priority

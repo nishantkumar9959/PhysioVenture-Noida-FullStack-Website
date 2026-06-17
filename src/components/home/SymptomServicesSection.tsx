@@ -39,19 +39,19 @@ function getHomeCategories(service: ServiceDetail): string[] {
 function getServiceImage(slug: string): string {
   switch (slug) {
     case "orthopedic-rehabilitation":
-      return "/images/service_ortho.png";
+      return "/Media_Assets/images/service_ortho.png";
     case "neurological-rehabilitation":
-      return "/images/service_neuro.png";
+      return "/Media_Assets/images/service_neuro.png";
     case "sports-injury-rehabilitation":
-      return "/images/service_sports.png";
+      return "/Media_Assets/images/service_sports.png";
     case "home-visit-physiotherapy":
-      return "/images/service_home.png";
+      return "/Media_Assets/images/service_home.png";
     case "chiropractic-manual-therapy":
-      return "/images/service_chiro.png";
+      return "/Media_Assets/images/service_chiro.png";
     case "geriatric-rehabilitation":
-      return "/images/service_geriatric.png";
+      return "/Media_Assets/images/service_geriatric.png";
     default:
-      return "/images/service_sports.png";
+      return "/Media_Assets/images/service_sports.png";
   }
 }
 

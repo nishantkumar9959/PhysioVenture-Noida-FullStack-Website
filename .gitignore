@@ -59,3 +59,7 @@ next-env.d.ts
 /context.md
 /supabase_schema.sql
 /admin_migration.sql
+
+# generated media assets (synced from Media_Assets)
+/public/Media_Assets/
+/src/app/favicon.ico

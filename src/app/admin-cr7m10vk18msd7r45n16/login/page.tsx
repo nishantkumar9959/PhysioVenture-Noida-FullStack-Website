@@ -97,7 +97,7 @@ export default function AdminLogin() {
       {/* ── Logo ── */}
       <a href="/" className="flex items-center gap-2 mb-5">
         <div className="relative w-8 h-8 shrink-0">
-          <Image src="/images/logo.png" alt="PhysioVenture" fill sizes="32px" className="object-contain" priority />
+          <Image src="/Media_Assets/images/logo.png" alt="PhysioVenture" fill sizes="32px" className="object-contain" priority />
         </div>
         <span className="font-display font-extrabold text-[21px] tracking-tight leading-none select-none">
           <span className="text-primary">Physio</span>

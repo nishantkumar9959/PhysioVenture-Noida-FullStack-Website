@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "PhysioVenture",
     images: [
       {
-        url: "/images/service_home.png",
+        url: "/Media_Assets/images/service_home.png",
         width: 1200,
         height: 630,
         alt: "PhysioVenture physiotherapy services in Noida",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "23+ Physiotherapy Services | PhysioVenture Noida",
     description:
       "Comprehensive physiotherapy services including neuro, ortho, sports, geriatric, and home-visit treatments in Noida.",
-    images: ["/images/service_home.png"],
+    images: ["/Media_Assets/images/service_home.png"],
   },
 };
 

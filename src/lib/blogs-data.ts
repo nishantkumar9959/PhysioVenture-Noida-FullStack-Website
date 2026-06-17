@@ -20,7 +20,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "June 01, 2026",
     readTime: "5 min read",
     category: "Orthopedic Care",
-    image: "/images/home_ergonomics_blog.png",
+    image: "/Media_Assets/images/home_ergonomics_blog.png",
     body: [
       "Frozen shoulder, clinically known as adhesive capsulitis, is a painful condition characterized by severe stiffness, restricted range of motion, and persistent dull aches in the shoulder joint. It typically progresses through three distinct stages: freezing, frozen, and thawing. Understanding the underlying causes is essential to start the correct treatment early.",
       "The exact causes of frozen shoulder can range from prolonged joint immobilization (such as after a fracture or surgery) to systemic conditions like diabetes or thyroid disorders. In diabetic patients, the excess sugar molecules bind to collagen fibers in the joint capsule, making it sticky, thick, and highly prone to contractures.",
@@ -37,7 +37,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 28, 2026",
     readTime: "6 min read",
     category: "Orthopedic Care",
-    image: "/images/home_ergonomics_blog.png",
+    image: "/Media_Assets/images/home_ergonomics_blog.png",
     body: [
       "Sciatica is not a disease itself, but rather a set of symptoms caused by compression or irritation of the sciatic nerve. It typically manifests as a sharp, shooting, or burning pain that radiates from the lower back down through the buttock, thigh, and calf.",
       "Most sciatica cases stem from a herniated lumbar disc (slip disc) or bone spurs that pinch the nerve roots. Noida's corporate professionals are particularly vulnerable due to prolonged sitting, poor office ergonomics, and weak deep-core stabilizer muscles.",
@@ -54,7 +54,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 22, 2026",
     readTime: "4 min read",
     category: "Orthopedic Care",
-    image: "/images/home_ergonomics_blog.png",
+    image: "/Media_Assets/images/home_ergonomics_blog.png",
     body: [
       "Cervical spondylitis is an age-related wear-and-tear condition affecting the spinal discs in your neck. With modern screen usage, it is increasingly affecting younger Noida professionals who suffer from 'text neck' or prolonged computer work.",
       "Symptoms include chronic neck stiffness, shoulder blade pain, tension headaches, and sometimes numbness in the hands. The key to management is strengthening the deep cervical flexors and stretching tight chest and neck muscles.",
@@ -71,7 +71,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 18, 2026",
     readTime: "5 min read",
     category: "Orthopedic Care",
-    image: "/images/home_ergonomics_blog.png",
+    image: "/Media_Assets/images/home_ergonomics_blog.png",
     body: [
       "Osteoarthritis (OA) is the most common joint disorder, characterized by the progressive degeneration of articular cartilage. It frequently affects weight-bearing joints, especially the knees and hips, leading to morning stiffness, swelling, and bone friction pain.",
       "While cartilage wear cannot be reversed, osteoarthritis symptoms can be managed. By strengthening the quadriceps, hamstrings, and gluteal muscles, we can decompress the knee joint, reducing bone-on-bone loading and pain.",
@@ -88,7 +88,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 10, 2026",
     readTime: "4 min read",
     category: "Orthopedic Care",
-    image: "/images/home_ergonomics_blog.png",
+    image: "/Media_Assets/images/home_ergonomics_blog.png",
     body: [
       "Back pain is one of the primary reasons Noida corporate workers seek physical therapy. Prolonged sitting at unsupportive desks dehydrates spinal discs and strains lower back muscles, leading to painful spasms or slip discs.",
       "Key ergonomics tips: place your computer screen at eye level, keep your lower back supported, and set feet flat on the floor. Take short breaks every 30 minutes to stand and stretch.",
@@ -107,7 +107,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 15, 2026",
     readTime: "5 min read",
     category: "Neurological Rehabilitation",
-    image: "/images/stroke_recovery_blog.png",
+    image: "/Media_Assets/images/stroke_recovery_blog.png",
     body: [
       "Stroke recovery is a time-sensitive journey. The first 90 days after a stroke represent a 'golden window' of high neuroplasticity, during which the brain is most receptive to rewiring damaged neural connections.",
       "Starting structured neurological physiotherapy early helps activate dormant motor pathways. We focus on Bobath concepts and PNF (proprioceptive neuromuscular facilitation) to restore balance and muscle tone.",
@@ -124,7 +124,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 29, 2026",
     readTime: "5 min read",
     category: "Neurological Rehabilitation",
-    image: "/images/stroke_recovery_blog.png",
+    image: "/Media_Assets/images/stroke_recovery_blog.png",
     body: [
       "Parkinson's disease is a progressive neurological disorder that impacts dopamine-producing brain cells, leading to muscle rigidity, resting tremors, bradykinesia (slowed movement), and walking instability.",
       "Targeted rehabilitation focuses on gait conditioning and balance training. Using rhythm-based stepping drills and large-amplitude movement exercises, we help patients overcome freezing episodes and shuffling steps.",
@@ -141,7 +141,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 22, 2026",
     readTime: "6 min read",
     category: "Neurological Rehabilitation",
-    image: "/images/stroke_recovery_blog.png",
+    image: "/Media_Assets/images/stroke_recovery_blog.png",
     body: [
       "Paralysis post-injury or stroke can feel overwhelming. Managing recovery requires a structured approach to prevent secondary complications like muscle wasting (atrophy) and joint stiffness (contractures).",
       "We combine passive range-of-motion stretching with Neuromuscular Electrical Stimulation (NMES) to keep muscles active. Proprioceptive Neuromuscular Facilitation (PNF) patterns stimulate nerve pathways, encouraging movement.",
@@ -158,7 +158,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 15, 2026",
     readTime: "5 min read",
     category: "Neurological Rehabilitation",
-    image: "/images/stroke_recovery_blog.png",
+    image: "/Media_Assets/images/stroke_recovery_blog.png",
     body: [
       "Neurological injuries often disrupt the sensory-motor systems, leading to walking instability, dizziness, or a fear of falling. Re-training balance is a key milestone in neurological recovery.",
       "We use progressive balance exercises on stable and unstable surfaces, combining visual and head movements. This re-trains the brain to process spatial orientation.",
@@ -177,7 +177,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 05, 2026",
     readTime: "5 min read",
     category: "Sports Rehabilitation",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     body: [
       "Recovering from anterior cruciate ligament (ACL) reconstruction is a multi-month process. Following a phased, criteria-based recovery plan is essential to protect the new graft and restore athletic performance.",
       "Phase 1 (Weeks 1-4) focus on swelling control, restoring full knee extension, and activating the quadriceps. Phase 2 (Weeks 5-12) introduces closed-kinetic chain exercises and progressive weight bearing.",
@@ -194,7 +194,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 18, 2026",
     readTime: "4 min read",
     category: "Sports Rehabilitation",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     body: [
       "ACL and MCL tears are common knee injuries, but they affect different structures. The ACL is inside the knee joint, preventing forward movement of the tibia, while the MCL is on the inner side, preventing outward bending.",
       "ACL injuries often feature a 'pop' sound, immediate swelling, and joint instability. MCL injuries usually cause pain and swelling on the inner knee, but the joint remains stable when walking straight.",
@@ -211,7 +211,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 10, 2026",
     readTime: "4 min read",
     category: "Sports Rehabilitation",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     body: [
       "In sports, prevention is key. Many athletic injuries, such as hamstring strains, ankle sprains, and tendonitis, are caused by inadequate warm-ups, muscle imbalances, or poor movement mechanics.",
       "We recommend replacing static stretching before exercise with dynamic warm-ups like leg swings, lunges, and high knees. This prepares muscles and joints for movement.",
@@ -228,7 +228,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 02, 2026",
     readTime: "5 min read",
     category: "Sports Rehabilitation",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     body: [
       "Tennis elbow, or lateral epicondylitis, is an overuse injury causing pain on the outside of the elbow. It affects tennis players, computer users, painters, and cooks who perform repetitive wrist movements.",
       "The pain comes from micro-tears in the forearm extensor tendons. Treatment focus is on reducing tendon strain, managing pain, and gradually reloading the tissue.",
@@ -245,7 +245,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "March 25, 2026",
     readTime: "5 min read",
     category: "Sports Rehabilitation",
-    image: "/images/service_sports.png",
+    image: "/Media_Assets/images/service_sports.png",
     body: [
       "The meniscus is a C-shaped cartilage pad in the knee that acts as a shock absorber. Meniscus tears are common sports injuries, often caused by twisting movements under load.",
       "Grade 1 and 2 tears usually respond well to conservative physiotherapy. We focus on knee stabilization, quadriceps strengthening, and restoring joint range of motion.",
@@ -264,7 +264,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 02, 2026",
     readTime: "5 min read",
     category: "Home Physiotherapy",
-    image: "/images/home_visit.png",
+    image: "/Media_Assets/images/home_visit.png",
     body: [
       "For many patients, traveling to a clinic is a major hurdle to recovery. Home-visit physiotherapy removes the stress of commuting and brings expert care directly to your living room.",
       "In-home therapy is highly effective because it allows therapists to train you on the actual chairs, beds, and stairs you use daily. We also conduct safety audits to reduce fall risks.",
@@ -281,7 +281,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 08, 2026",
     readTime: "5 min read",
     category: "Home Physiotherapy",
-    image: "/images/home_visit.png",
+    image: "/Media_Assets/images/home_visit.png",
     body: [
       "Recovering from surgeries like a total knee replacement, hip replacement, or spine surgery requires structured rehabilitation. Starting therapy early is essential to prevent joint stiffness and scar tissue buildup.",
       "In-home physical therapy offers a safe, convenient recovery path. We focus on gentle range-of-motion work, swelling management, and progressive weight-bearing exercises.",
@@ -298,7 +298,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "March 20, 2026",
     readTime: "4 min read",
     category: "Home Physiotherapy",
-    image: "/images/home_visit.png",
+    image: "/Media_Assets/images/home_visit.png",
     body: [
       "As we age, maintaining physical independence and strength becomes a priority. Gentle muscle conditioning and mobility work can prevent functional decline in seniors.",
       "In-home physiotherapy is a safe, stress-free option for older adults. We focus on sit-to-stand training, lower-limb strengthening, and balance exercises.",
@@ -317,7 +317,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "May 06, 2026",
     readTime: "5 min read",
     category: "Geriatric Care",
-    image: "/images/geriatric_rehab_blog.png",
+    image: "/Media_Assets/images/geriatric_rehab_blog.png",
     body: [
       "Falls are a leading cause of injury in older adults, often leading to fractures or a loss of independence. Developing a proactive fall-prevention strategy is essential for senior safety.",
       "We focus on balance training and lower-limb strengthening to improve stability. Simple exercises like calf raises, single-leg stands, and sit-to-stands build necessary muscle support.",
@@ -334,7 +334,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 20, 2026",
     readTime: "4 min read",
     category: "Geriatric Care",
-    image: "/images/geriatric_rehab_blog.png",
+    image: "/Media_Assets/images/geriatric_rehab_blog.png",
     body: [
       "Maintaining balance is key to walking confidence and independence in seniors. Incorporating simple balance exercises into a daily routine can improve stability.",
       "We recommend safe exercises: Tandem Stance (heel-to-toe standing), Side Stepping, and Chair Squats. Performing these near a counter or chair ensures safety.",
@@ -351,7 +351,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: "April 05, 2026",
     readTime: "5 min read",
     category: "Geriatric Care",
-    image: "/images/geriatric_rehab_blog.png",
+    image: "/Media_Assets/images/geriatric_rehab_blog.png",
     body: [
       "Aging is a natural process, but active physical conditioning can help seniors stay strong, flexible, and pain-free.",
       "Physiotherapy helps manage chronic issues like arthritis and osteoporosis, preserves bone density, and improves joint flexibility through gentle stretching and loading.",

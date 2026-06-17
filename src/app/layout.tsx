@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/hero_physiotherapy_bg.jpg",
+        url: "/Media_Assets/images/hero_physiotherapy_bg.jpg",
         width: 1200,
         height: 630,
         alt: "PhysioVenture — Premier Physiotherapy Clinic in Noida",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PhysioVenture | Premier Physiotherapy Noida",
     description: "Premium physiotherapy clinic in Sector 49, Noida. Expert stroke recovery, joint pain treatment, and home visits.",
-    images: ["/images/hero_physiotherapy_bg.jpg"],
+    images: ["/Media_Assets/images/hero_physiotherapy_bg.jpg"],
   },
   // Robots: allow all indexing, enable AI snippet reading
   robots: {
@@ -93,12 +93,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico?v=5' },
-      { url: '/favicon-16x16.png?v=5', type: 'image/png', sizes: '16x16' },
-      { url: '/favicon-32x32.png?v=5', type: 'image/png', sizes: '32x32' },
+      { url: '/Media_Assets/favicon.ico?v=5' },
+      { url: '/Media_Assets/favicon-16x16.png?v=5', type: 'image/png', sizes: '16x16' },
+      { url: '/Media_Assets/favicon-32x32.png?v=5', type: 'image/png', sizes: '32x32' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png?v=5', sizes: '180x180', type: 'image/png' },
+      { url: '/Media_Assets/apple-touch-icon.png?v=5', sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: "/site.webmanifest?v=5",

@@ -16,7 +16,7 @@ export default function Footer() {
               <div className="bg-white p-1.5 sm:p-2 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/10 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center shrink-0">
                 <div className="relative w-7 h-7 sm:w-8 sm:h-8">
                   <Image
-                    src="/images/logo.png"
+                    src="/Media_Assets/images/logo.png"
                     alt="PhysioVenture Logo"
                     fill
                     sizes="(max-width: 768px) 28px, 32px"

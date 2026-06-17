@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/images/home_ergonomics_blog.png",
+        url: "/Media_Assets/images/home_ergonomics_blog.png",
         width: 1200,
         height: 630,
         alt: "PhysioVenture physiotherapy blog and health guides in Noida",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Physiotherapy Blog in Noida | PhysioVenture",
     description: "Read physiotherapy and rehabilitation guides from PhysioVenture Noida.",
-    images: ["/images/home_ergonomics_blog.png"],
+    images: ["/Media_Assets/images/home_ergonomics_blog.png"],
   },
 };
 

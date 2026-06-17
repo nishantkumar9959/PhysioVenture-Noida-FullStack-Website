@@ -66,8 +66,8 @@ The platform is built on a high-throughput, low-latency, and serverless architec
 .
 ├── public/                                 # Static assets (images, logos, videos)
 │   ├── images/                             # Service illustrations, logos, and avatars
-│   ├── 4520181-hd_1920_1080_30fps.mp4      # Background video assets
-│   └── 6111095-uhd_3840_2160_25fps.mp4     # Core promotional video
+│   ├── Media_Assets/4520181-hd_1920_1080_30fps.mp4  # Background video assets
+│   └── Media_Assets/6111095-uhd_3840_2160_25fps.mp4 # Core promotional video
 ├── src/                                    # Application Source Code
 │   ├── app/                                # Next.js App Router root
 │   │   ├── (public)/                       # Public-facing page routes group

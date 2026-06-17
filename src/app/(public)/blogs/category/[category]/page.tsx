@@ -104,7 +104,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "PhysioVenture",
       images: [
         {
-          url: "/images/home_ergonomics_blog.png",
+          url: "/Media_Assets/images/home_ergonomics_blog.png",
           width: 1200,
           height: 630,
           alt: `${categoryName} physiotherapy guides by PhysioVenture Noida`,
@@ -115,7 +115,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/home_ergonomics_blog.png"],
+      images: ["/Media_Assets/images/home_ergonomics_blog.png"],
     },
   };
 }
