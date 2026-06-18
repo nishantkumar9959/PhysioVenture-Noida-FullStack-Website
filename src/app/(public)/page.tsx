@@ -31,7 +31,9 @@ import { BLOG_ARTICLES } from "@/lib/blogs-data";
 import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Physiotherapy in Noida | Best Physiotherapist at Home",
+  title: {
+    absolute: "Best Physiotherapist in Noida | PhysioVenture",
+  },
   description:
     "PhysioVenture offers physiotherapy in Noida for pain, stroke, sports injury, post-surgery rehab, and home physiotherapy across Noida.",
   keywords: [
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Physiotherapy in Noida | PhysioVenture",
+    title: "Best Physiotherapist in Noida | PhysioVenture",
     description:
       "Clinic and home physiotherapy in Noida by PhysioVenture for pain relief, neurological rehab, sports injury, and post-surgery recovery.",
     url: "/",
@@ -77,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Physiotherapy in Noida | PhysioVenture",
+    title: "Best Physiotherapist in Noida | PhysioVenture",
     description:
       "Book clinic or home physiotherapy in Noida with PhysioVenture.",
     images: ["/Media_Assets/images/hero_physiotherapy_bg.jpg"],
