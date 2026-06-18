@@ -506,7 +506,7 @@ export default async function ServicePage({ params }: Props) {
               <Link
                 key={idx}
                 href={`/blogs/${article.slug}/`}
-                className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 outline-none"
+                className={`group bg-card border border-border/40 overflow-hidden flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 outline-none ${idx === 0 ? "flex" : "hidden md:flex"}`}
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/20">
                   <Image

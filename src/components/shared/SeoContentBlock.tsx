@@ -58,7 +58,7 @@ export default function SeoContentBlock({ pageType, title }: SeoContentBlockProp
                 Many patients also need home physiotherapy Noida services because travel is painful, unsafe, or simply difficult during recovery. PhysioVenture provides physiotherapy Noida at home for post-operative patients, seniors, neurological cases, acute back pain, and families who prefer private one-to-one rehabilitation. Portable electrotherapy, resistance tools, manual therapy skills, balance drills, gait practice, and functional training can be delivered at home where the patient actually sits, walks, climbs stairs, and performs daily activities. This makes physiotherapy at home in Noida especially useful when the goal is independence inside the patient&apos;s own environment.
               </p>
 
-              <h3 className="text-xl font-display font-extrabold text-primary pt-3">
+              <h3 className="text-xl font-display font-extrabold text-primary pt-3 text-left md:text-justify">
                 Conditions, Treatments, and Home Visit Support
               </h3>
 
