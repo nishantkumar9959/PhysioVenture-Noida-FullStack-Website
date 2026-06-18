@@ -63,7 +63,7 @@ function getLocalKeywords(slug: string, serviceName: string): string[] {
     `Physiotherapist in Noida`,
     `Home visit physiotherapist Noida`,
   ];
-  
+
   if (slug === "orthopedic-rehabilitation") {
     return [
       ...baseKeywords,
@@ -187,17 +187,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function getSymptomLink(symptomText: string): string | null {
   const staticMap: Record<string, string> = {
-    "Shoulder Pain Treatment": "frozen-shoulder-treatment",
+    "Shoulder Pain Treatment": "shoulder-pain-treatment",
     "Frozen Shoulder": "frozen-shoulder-treatment",
     "Sciatica": "sciatica-pain-treatment",
     "Slip Disc": "slip-disc-treatment",
     "Cervical Spondylitis": "cervical-spondylitis-treatment",
     "ACL Rehabilitation": "acl-rehabilitation",
     "Tennis Elbow": "tennis-elbow-rehabilitation",
-    "Elbow Pain Treatment": "tennis-elbow-rehabilitation",
-    "Golfer's Elbow": "tennis-elbow-rehabilitation",
-    "Neck Pain Treatment": "cervical-spondylitis-treatment",
-    "Osteoarthritis": "knee-pain-treatment",
+    "Elbow Pain Treatment": "elbow-pain-treatment",
+    "Golfer's Elbow": "golfers-elbow-treatment",
+    "Neck Pain Treatment": "neck-pain-treatment",
+    "Osteoarthritis": "osteoarthritis-treatment",
     "Chiropractic Treatment": "chiropractic-treatment",
     "Fall Prevention": "fall-prevention-geriatric",
   };
@@ -308,7 +308,7 @@ export default async function ServicePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
       />
-      
+
       {/* Dynamic Breadcrumbs */}
       <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium mb-6">
         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -474,6 +474,15 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </div>
 
+      <SeoContentBlock
+        pageType="service"
+        title={service.name}
+        summary={service.shortDesc}
+        category={service.categoryLabel}
+        symptoms={service.symptoms}
+        benefits={service.benefits}
+      />
+
       {/* Related Health Guides (Automated Internal Linking Component) */}
       {relatedArticles.length > 0 && (
         <div className="border-t border-border/45 pt-12 mb-16 text-left">
@@ -484,19 +493,19 @@ export default async function ServicePage({ params }: Props) {
                 Read medical guidelines and exercises for {service.name} by Dr. Rohit Verma.
               </p>
             </div>
-            <Link 
-              href={`/blogs/category/${getBlogCategorySlug(blogCategory)}/`} 
+            <Link
+              href={`/blogs/category/${getBlogCategorySlug(blogCategory)}/`}
               className="text-xs font-bold text-accent hover:text-primary transition-colors flex items-center gap-1.5 self-start sm:self-center"
             >
               View All {blogCategory} Articles <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedArticles.map((article, idx) => (
-              <Link 
-                key={idx} 
-                href={`/blogs/${article.slug}/`} 
+              <Link
+                key={idx}
+                href={`/blogs/${article.slug}/`}
                 className="group bg-card border border-border/40 overflow-hidden flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 outline-none"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary/20">
@@ -538,15 +547,6 @@ export default async function ServicePage({ params }: Props) {
           <Accordion items={faqAccordionItems} />
         </div>
       )}
-
-      <SeoContentBlock
-        pageType="service"
-        title={service.name}
-        summary={service.shortDesc}
-        category={service.categoryLabel}
-        symptoms={service.symptoms}
-        benefits={service.benefits}
-      />
 
       {/* CTA Box */}
       <div className="bg-primary text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl max-w-5xl mx-auto">

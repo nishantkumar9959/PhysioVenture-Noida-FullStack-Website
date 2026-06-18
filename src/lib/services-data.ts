@@ -1155,6 +1155,1231 @@ export const SERVICES_DATA: ServiceDetail[] = [
     iconName: "Hand",
     image: "/Media_Assets/images/service_chiro.png",
     isSubService: true
+  },
+  {
+    name: "Shoulder Pain Treatment",
+    slug: "shoulder-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Specialized physical therapy and shoulder mobilization to relieve pain, restore range of motion, and treat rotator cuff strains.",
+    longDesc: "Our Shoulder Pain Treatment program targets rotator cuff strains, shoulder impingement, and tendonitis to restore full range of motion. Using manual joint mobilization, posture correction, and progressive load-bearing exercises, Dr. Rohit Verma constructs a customized protocol to decompress the shoulder joint, correct scapular movement, and rebuild arm strength.",
+    symptoms: [
+      "Rotator Cuff Strain",
+      "Shoulder Impingement",
+      "Tendonitis",
+      "Bursitis",
+      "Shoulder Joint Stiffness",
+      "Difficulty Lifting Arm"
+    ],
+    highlightedConditions: [
+      "Rotator Cuff Tear Rehabilitation",
+      "Shoulder Impingement Care",
+      "Scapular Dyskinesia Correction",
+      "Active Joint Range Recovery"
+    ],
+    benefits: [
+      "Immediate relief from sharp and throbbing shoulder pain",
+      "Full restoration of arm rotation and overhead reach",
+      "Rebuilt strength in surrounding stabilizing muscles",
+      "Correction of compensatory shoulder shrugging patterns",
+      "Enhanced ability to carry and lift objects safely"
+    ],
+    timeline: [
+      "Initial screening of shoulder mobility, range of motion, and joint stability.",
+      "Pain relief utilizing manual therapy, thermal therapy, and gentle passive stretches.",
+      "Progressive activation of rotator cuff and scapular stabilizer muscles.",
+      "Functional overhead integration and long-term joint health planning."
+    ],
+    faqs: [
+      {
+        question: "How long does shoulder pain recovery take?",
+        answer: "Minor strains can resolve in 2 to 4 weeks. Chronic impingement or rotator cuff rehab might take 6 to 12 weeks of consistent strengthening and manual therapy."
+      },
+      {
+        question: "Can I do exercises on my own for shoulder pain?",
+        answer: "You should start under professional guidance. Incorrect overhead movements can worsen shoulder impingement. We design a safe home exercise plan for you."
+      }
+    ],
+    ctaText: "Book Shoulder Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_shoulder.png",
+    isSubService: true
+  },
+  {
+    name: "Elbow Pain Treatment",
+    slug: "elbow-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Targeted clinical rehabilitation for tendonitis, nerve entrapment, and joint stiffness around the elbow.",
+    longDesc: "Our Elbow Pain Treatment program is designed to resolve local tendon inflammation and joint restriction. Whether caused by repetitive occupational strains or direct injury, Dr. Rohit Verma combines manual therapy, soft-tissue mobilization, and eccentric loading exercises to reduce forearm muscle tension, relieve joint compression, and restore pain-free elbow extension and grip strength.",
+    symptoms: [
+      "Elbow Joint Stiffness",
+      "Forearm Extensor Tightness",
+      "Repetitive Strain Injury",
+      "Nerve Pinning / Tingling",
+      "Weak Grip Strength",
+      "Pain when Lifting Objects"
+    ],
+    highlightedConditions: [
+      "Elbow Tendinitis Care",
+      "Joint Play Restoration",
+      "Nerve Gliding Therapy",
+      "Grip Strength Rehabilitation"
+    ],
+    benefits: [
+      "Significant reduction in local elbow joint pain and stiffness",
+      "Restoration of full elbow extension and flexion range",
+      "Enhanced forearm muscle flexibility and elasticity",
+      "Increased grip strength and typing endurance",
+      "Safe return to daily lifting and occupational activities"
+    ],
+    timeline: [
+      "Palpation of joint line, checking range of motion and grip strength.",
+      "Pain reduction using gentle manual glides and portable electrotherapy/ultrasound.",
+      "Eccentric loading exercises for forearm musculature to rebuild tendon strength.",
+      "Functional grip conditioning and workplace ergonomics setup."
+    ],
+    faqs: [
+      {
+        question: "What causes sharp pain in the outer elbow?",
+        answer: "This is often lateral epicondylitis (tennis elbow), caused by repetitive wrist extension and forearm rotations that create micro-tears in the tendon. Eccentric strengthening is highly effective for recovery."
+      },
+      {
+        question: "Should I wear a brace for elbow pain?",
+        answer: "A brace can help unload the tendon during strenuous activities, but it should not replace active physical therapy to strengthen the muscle."
+      }
+    ],
+    ctaText: "Book Elbow Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Hip Pain Treatment",
+    slug: "hip-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Comprehensive physical therapy for hip bursitis, arthritis, joint tightness, and muscle imbalances in Noida.",
+    longDesc: "Our Hip Pain Treatment program targets structural imbalances and joint wear to restore fluid, pain-free mobility. Using advanced manual joint mobilization, stretching of tight hip flexors/piriformis, and targeted gluteal strengthening, Dr. Rohit Verma constructs a comprehensive recovery plan to stabilize the hip joint, correct walking posture, and reduce pressure on the lower back.",
+    symptoms: [
+      "Hip Joint Stiffness",
+      "Deep Groin Pain",
+      "Bursitis Swelling",
+      "Difficulty Walking or Climbing Stairs",
+      "Gluteal Muscle Weakness",
+      "Hip Flexor Tightness"
+    ],
+    highlightedConditions: [
+      "Hip Osteoarthritis Care",
+      "Trochanteric Bursitis Rehabilitation",
+      "Gait & Alignment Correction",
+      "Gluteal Stabilization Exercises"
+    ],
+    benefits: [
+      "Significant reduction in deep hip joint discomfort and groin pain",
+      "Improved dynamic balance and walking stride length",
+      "Enhanced joint range of motion for bending and sitting",
+      "Strengthened gluteal and hip stabilizer muscle groups",
+      "Reduced compensatory stress on the knees and lower back"
+    ],
+    timeline: [
+      "Biomechanical evaluation of hip rotation, gait, and pelvic alignment.",
+      "Gentle hip joint traction and manual mobilization to ease stiffness.",
+      "Progressive gluteal and core strengthening exercises.",
+      "Functional gait integration, stair navigation, and walking balance drills."
+    ],
+    faqs: [
+      {
+        question: "Can hip physiotherapy help delay joint replacement?",
+        answer: "Yes. Strengthening the muscles around the hip joint absorbs shock and stabilizes the bone, which can significantly reduce osteoarthritis pain and delay surgical intervention."
+      },
+      {
+        question: "What is trochanteric bursitis?",
+        answer: "It is inflammation of the fluid-filled sac (bursa) on the outer side of the hip. Targeted stretching and low-impact loading help relieve the friction and pain."
+      }
+    ],
+    ctaText: "Book Hip Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Wrist Pain Treatment",
+    slug: "wrist-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Specialized rehabilitation for wrist sprains, repetitive typing strains, and joint stiffness to restore wrist strength.",
+    longDesc: "Our Wrist Pain Treatment program addresses pain and stiffness resulting from repetitive wrist movement, typing, or sudden falls. Dr. Rohit Verma applies precise manual joint mobilization, wrist tendon gliding exercises, and progressive grip and forearm loading to release compressed nerves, restore tendon compliance, and build structural hand and wrist stability.",
+    symptoms: [
+      "Wrist Joint Stiffness",
+      "Tendon Soreness & Crepitus",
+      "Numbness in Fingers",
+      "Weak Hand Grip",
+      "Pain when Typing or Writing",
+      "Clicking Sounds in Wrist"
+    ],
+    highlightedConditions: [
+      "Repetitive Strain Injury (RSI)",
+      "Wrist Tendinopathy Care",
+      "Nerve Gliding Exercises",
+      "Grip Strength Development"
+    ],
+    benefits: [
+      "Immediate relief from wrist stiffness and local tendon aches",
+      "Restoration of full wrist flexion, extension, and rotation",
+      "Improved nerve conduction and reduced finger numbness",
+      "Rebuilt hand grip and typing endurance",
+      "Safe return to daily computer work and physical activities"
+    ],
+    timeline: [
+      "Evaluation of wrist range of motion, nerve response, and grip strength.",
+      "Pain reduction using cold compression, ultrasound, and gentle passive mobilization.",
+      "Tendon and nerve gliding exercises alongside light wrist flexor loading.",
+      "Ergonomic advice and functional hand strengthening drills."
+    ],
+    faqs: [
+      {
+        question: "How do I prevent wrist pain from office work?",
+        answer: "Maintain a neutral wrist position while typing, avoid rest pads that compress the carpal tunnel, and perform regular forearm stretches. We offer detailed ergonomic guidelines during therapy."
+      },
+      {
+        question: "Can physiotherapy help with old wrist sprains?",
+        answer: "Yes. Chronic wrist stiffness can be treated with deep tissue release, joint mobilization, and progressive loading to break down old scar tissue."
+      }
+    ],
+    ctaText: "Book Wrist Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Foot Pain Treatment",
+    slug: "foot-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Clinical therapy for plantar fasciitis, heel spurs, ankle stiffness, and flat feet gait imbalances.",
+    longDesc: "Our Foot Pain Treatment program is tailored to restore normal weight-bearing mechanics and relieve foot pain. We address conditions like plantar fasciitis, Achilles tendonitis, and heel spurs. Dr. Rohit Verma utilizes manual myofascial release of the plantar fascia, calf stretching, joint mobilization of foot bones, and custom arch support advice to correct gait compensations and resolve chronic foot soreness.",
+    symptoms: [
+      "Sharp Heel Pain in Morning",
+      "Arch Soreness & Tension",
+      "Achilles Tendon Stiffness",
+      "Walking Gait Compensations",
+      "Ankle Joint Restrictions",
+      "Flat Foot Imbalances"
+    ],
+    highlightedConditions: [
+      "Plantar Fasciitis Recovery",
+      "Achilles Tendonitis Rehab",
+      "Foot Arch Optimization",
+      "Ankle Mobilization & Glides"
+    ],
+    benefits: [
+      "Complete relief from sharp morning heel and arch pain",
+      "Restored flexibility in the calf muscles and plantar fascia",
+      "Improved ankle range of motion and weight-bearing capability",
+      "Corrected walking gait to prevent knee and hip stress",
+      "Advice on orthotics and proper therapeutic footwear"
+    ],
+    timeline: [
+      "Weight-bearing analysis, gait check, and foot arch inspection.",
+      "Myofascial release of the foot sole and local pain relief via electrotherapy.",
+      "Progressive loading of the foot intrinsic muscles and Achilles tendon.",
+      "Dynamic balance drills, gait correction, and daily activity return maps."
+    ],
+    faqs: [
+      {
+        question: "Why is heel pain worse during the first steps of the day?",
+        answer: "This is a classic sign of plantar fasciitis. Overnight, the fascia contracts and heals. The first step stretches and re-tears the tissue. Custom stretching and night splints help resolve this."
+      },
+      {
+        question: "Can flat feet cause knee and back pain?",
+        answer: "Yes. A collapsed arch causes the ankle to roll inward (pronation), which rotates the shin bone and puts extra strain on the knee and hip joints."
+      }
+    ],
+    ctaText: "Book Foot Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_foot_ankle.png",
+    isSubService: true
+  },
+  {
+    name: "Muscle Pain Treatment",
+    slug: "muscle-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Advanced physical therapy to release chronic muscle tightness, trigger points, and muscle fatigue in Noida.",
+    longDesc: "Our Muscle Pain Treatment program focuses on diagnosing and treating myofascial pain syndrome, deep muscle knots, and fatigue. Dr. Rohit Verma combines advanced manual therapy, trigger point compression, instrument-assisted soft tissue mobilization (IASTM), and therapeutic dry needling to decompress restricted muscle fibers, flush out metabolic waste, and restore normal muscle compliance.",
+    symptoms: [
+      "Deep Throbbing Muscle Aches",
+      "Painful Muscle Knots (Trigger Points)",
+      "Chronic Muscle Stiffness",
+      "Restricted Range of Motion",
+      "Localized Muscle Spasms",
+      "Post-Workout Soreness"
+    ],
+    highlightedConditions: [
+      "Myofascial Pain Syndrome Care",
+      "Trigger Point Release",
+      "IASTM Soft Tissue Therapy",
+      "Muscle Recovery & Stretching"
+    ],
+    benefits: [
+      "Immediate release of stubborn muscle knots and tension",
+      "Significant improvement in joint range of motion and flexibility",
+      "Increased blood flow and oxygenation to recovering muscle fibers",
+      "Reduced muscle fatigue and faster athletic recovery",
+      "Decreased radiating pain caused by trigger point compression"
+    ],
+    timeline: [
+      "Palpation of muscles to locate trigger points and check muscle length.",
+      "Manual compression therapy, stretching, and deep heat application.",
+      "Localized myofascial release and optional clinical dry needling.",
+      "Active stretching routines and posture training to prevent recurrence."
+    ],
+    faqs: [
+      {
+        question: "What is a trigger point?",
+        answer: "A trigger point is a hyper-irritable spot in a taut band of muscle fibers (a knot). It can cause localized pain or refer pain to other parts of the body when compressed."
+      },
+      {
+        question: "How does dry needling help muscle pain?",
+        answer: "It inserts a fine needle into the knot, triggering a local twitch response. This twitch resets the muscle fibers, instantly releasing the spasm and improving local blood flow."
+      }
+    ],
+    ctaText: "Book Muscle Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Neck Pain Treatment",
+    slug: "neck-pain-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Targeted clinical rehabilitation for neck stiffness, poor desk posture, and chronic muscle strain in Noida.",
+    longDesc: "Our Neck Pain Treatment program addresses mechanical neck pain, muscle fatigue, and poor alignment. Whether caused by long hours at a computer (text neck) or muscle spasms, Dr. Rohit Verma combines manual cervical mobilization, deep neck flexor strengthening, upper back posture correction, and stretching of tight trapezius muscles to reduce spinal load and restore pain-free neck movement.",
+    symptoms: [
+      "Neck Joint Stiffness",
+      "Trapezius Muscle Soreness",
+      "Postural Kyphosis Strain",
+      "Tension Headaches",
+      "Clicking Sounds when Turning Head",
+      "Forward Head Posture"
+    ],
+    highlightedConditions: [
+      "Mechanical Neck Pain Care",
+      "Text Neck Correction",
+      "Deep Neck Flexor Activation",
+      "Thoracic Spine Mobilization"
+    ],
+    benefits: [
+      "Significant reduction in chronic neck pain and tension headaches",
+      "Restored cervical rotation, side-bending, and extension ranges",
+      "Improved forward-head alignment and shoulder posture",
+      "Strengthened supporting neck stabilizers to reduce disc pressure",
+      "Ergonomic advice to prevent desk-related neck strains"
+    ],
+    timeline: [
+      "Assessment of neck posture, range of motion, and muscle strength.",
+      "Acute pain relief using manual therapy and targeted heat/TENS.",
+      "Progressive deep neck stabilizer activation and upper back exercises.",
+      "Ergonomic workspace guidance and home care stretches."
+    ],
+    faqs: [
+      {
+        question: "Why does computer work cause neck pain?",
+        answer: "A forward-head posture puts massive extra weight on the neck joints and muscles. For every inch forward, the head's effective weight doubles, straining the trapezius muscle."
+      },
+      {
+        question: "Can neck tightness cause headaches?",
+        answer: "Yes. Tension in the upper neck muscles can refer pain to the forehead, temples, and behind the eyes (cervicogenic headaches)."
+      }
+    ],
+    ctaText: "Book Neck Pain Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_back.png",
+    isSubService: true
+  },
+  {
+    name: "Post-Accident Rehabilitation",
+    slug: "post-accident-rehabilitation",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Structured physical recovery program post orthopedic fractures, whiplash, and multi-joint trauma in Noida.",
+    longDesc: "Our Post-Accident Rehabilitation program is designed to rebuild physical function, strength, and mobility after traumatic events, fractures, or joint surgery. Dr. Rohit Verma constructs a gradual, safe, evidence-based protocol combining gentle joint mobilization, muscle activation, gait training with assistive aids, and swelling modulation to resolve joint stiffness and restore daily independence.",
+    symptoms: [
+      "Post-Fracture Joint Stiffness",
+      "Whiplash Neck Pain",
+      "Severe Muscle Wasting",
+      "Walking Gait Imbalances",
+      "Joint Swelling & Warmth",
+      "Fear of Weight Bearing"
+    ],
+    highlightedConditions: [
+      "Orthopedic Fracture Recovery",
+      "Whiplash & Cervical Strain Care",
+      "Joint Stiffness Resolution",
+      "Progressive Weight Bearing Rehab"
+    ],
+    benefits: [
+      "Safe, accelerated bone and soft-tissue healing support",
+      "Restoration of joint flexibility and muscle bulk in immobilized limbs",
+      "Improved walking balance and safe independent mobility",
+      "Reduced post-traumatic joint swelling and chronic pain",
+      "Enhanced confidence in performing daily self-care tasks"
+    ],
+    timeline: [
+      "Detailed screening of bone healing, joint play, and muscle power.",
+      "Swelling control, pain relief, and gentle passive range of motion.",
+      "Active-assisted exercises and progressive weight bearing with support.",
+      "Gait correction, balance conditioning, and independent movement integration."
+    ],
+    faqs: [
+      {
+        question: "When should post-fracture physiotherapy start?",
+        answer: "As soon as your orthopedic surgeon allows weight-bearing or removes the cast. Early passive movements are critical to prevent permanent joint stiffness."
+      },
+      {
+        question: "What is whiplash?",
+        answer: "It is a neck injury caused by rapid back-and-forth movement, commonly in car accidents. Gentle mobilization and stabilization help restore normal neck alignment."
+      }
+    ],
+    ctaText: "Book Rehabilitation Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_post_op.png",
+    isSubService: true
+  },
+  {
+    name: "Osteoarthritis Treatment",
+    slug: "osteoarthritis-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Specialized non-surgical joint management, shock-absorption strengthening, and joint play restoration for osteoarthritis.",
+    longDesc: "Our Osteoarthritis Treatment program is designed to relieve pain and improve mobility for degenerated joints. While cartilage wear cannot be reversed, physical therapy builds the surrounding muscles to act as natural shock absorbers. Dr. Rohit Verma utilizes gentle manual joint mobilization, low-impact strength loading, flexibility training, and swelling control to reduce bone friction and delay or avoid joint replacement surgery.",
+    symptoms: [
+      "Joint Crepitus & Grating",
+      "Morning Joint Stiffness",
+      "Deep Aching Joint Pain",
+      "Swelling after Activity",
+      "Muscle Weakness around Joint",
+      "Loss of Flexibility"
+    ],
+    highlightedConditions: [
+      "Knee Osteoarthritis Care",
+      "Hip Osteoarthritis Rehab",
+      "Joint Play & Lubrication Glides",
+      "Low-Impact Muscle Strengthening"
+    ],
+    benefits: [
+      "Significant reduction in chronic joint pain and grating sensation",
+      "Improved joint flexibility and morning stiffness resolution",
+      "Strengthened surrounding muscles to absorb walking impacts",
+      "Enhanced ability to walk, bend, and climb stairs",
+      "Delay or complete avoidance of orthopedic joint replacement"
+    ],
+    timeline: [
+      "Evaluation of joint range of motion, muscle strength, and gait posture.",
+      "Swelling modulation using cold therapy and gentle manual mobilization.",
+      "Low-impact muscle building and targeted loading exercises.",
+      "Gait retraining, balance drills, and joint preservation advice."
+    ],
+    faqs: [
+      {
+        question: "Can exercise worsen my osteoarthritis?",
+        answer: "High-impact exercises can irritate the joint, but structured low-impact exercises are essential. They strengthen muscles to decompress the joint, actually reducing pain."
+      },
+      {
+        question: "How does joint mobilization help arthritis?",
+        answer: "Gentle manual glides stimulate the production of synovial fluid (the joint's natural lubricant), which reduces friction and stiffness."
+      }
+    ],
+    ctaText: "Book Osteoarthritis Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_arthritis.png",
+    isSubService: true
+  },
+  {
+    name: "Carpal Tunnel Syndrome Treatment",
+    slug: "carpal-tunnel-syndrome-treatment",
+    category: "ortho",
+    categoryLabel: "Orthopaedic & Spine Care",
+    shortDesc: "Nerve decompression, wrist tendon gliding, and ergonomic rehabilitation to resolve hand numbness and tingling.",
+    longDesc: "Our Carpal Tunnel Syndrome Treatment program focuses on decompressing the median nerve in the wrist. If you suffer from finger numbness, tingling, or hand weakness, Dr. Rohit Verma utilizes manual carpal bone mobilization, nerve flossing, tendon gliding exercises, and ergonomic wrist modifications to reduce pressure in the carpal tunnel, restore sensation, and prevent surgical release.",
+    symptoms: [
+      "Numbness in Thumb & Fingers",
+      "Tingling / Pins-and-needles",
+      "Hand Grip Weakness",
+      "Burning Wrist Pain at Night",
+      "Difficulty Holding Small Objects",
+      "Forearm Tightness"
+    ],
+    highlightedConditions: [
+      "Median Nerve Decompression",
+      "Nerve Flossing & Glides",
+      "Carpal Bone Mobilization",
+      "Workplace Ergonomic Review"
+    ],
+    benefits: [
+      "Significant reduction in finger numbness and night pain",
+      "Decompressed median nerve without surgical intervention",
+      "Restored hand grip and finger coordination",
+      "Improved wrist flexor and extensor tendon flexibility",
+      "Ergonomic workspace adjustments to prevent relapse"
+    ],
+    timeline: [
+      "Nerve conduction checks, sensory screening, and wrist posture check.",
+      "Gentle manual carpal bone mobilization and localized pain control.",
+      "Tendon and nerve gliding exercises to restore nerve mobility.",
+      "Workplace ergonomic set-up and progressive grip strengthening."
+    ],
+    faqs: [
+      {
+        question: "Can carpal tunnel heal without surgery?",
+        answer: "Yes! Most mild-to-moderate cases respond exceptionally well to physical therapy, nerve flossing, and nighttime wrist splinting to reduce pressure on the nerve."
+      },
+      {
+        question: "Why does carpal tunnel pain worsen at night?",
+        answer: "Many people sleep with their wrists bent, which decreases the space in the carpal tunnel and pinches the median nerve. Splinting keeps the wrist neutral."
+      }
+    ],
+    ctaText: "Book Carpal Tunnel Assessment",
+    iconName: "Activity",
+    image: "/Media_Assets/images/service_ortho.png",
+    isSubService: true
+  },
+  {
+    name: "Alzheimer's Treatment",
+    slug: "alzheimers-treatment",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Specialized balance training, gait safety, cognitive physical exercises, and caregiver training for Alzheimer's patients in Noida.",
+    longDesc: "Our Alzheimer's Treatment program focuses on maintaining physical mobility, improving gait safety, and enhancing quality of life. Dr. Rohit Verma designs gentle, structured, and repetitive physical routines to preserve motor memory, improve static and dynamic balance, reduce fall risks, and support families with safe transfer and handling techniques.",
+    symptoms: [
+      "Gait Apraxia (Walking Loss)",
+      "Shuffling Steps & Instability",
+      "Loss of Balance & Fall Risks",
+      "Muscle Rigidity",
+      "Difficulty Standing Up",
+      "Spatial Disorientation"
+    ],
+    highlightedConditions: [
+      "Balance & Fall Prevention",
+      "Motor Memory Preservation",
+      "Structured Mobility Drills",
+      "Caregiver Safety Training"
+    ],
+    benefits: [
+      "Significantly reduced fall risk inside and outside the home",
+      "Preserved walking ability and muscle strength for daily tasks",
+      "Enhanced sensory-motor coordination and spatial awareness",
+      "Improved sleep and decreased behavioral agitation",
+      "Caregiver guidance on safe transfers to prevent back strain"
+    ],
+    timeline: [
+      "Assessment of walking stability, balance, and home fall hazards.",
+      "Gentle, repetitive range of motion and pacing exercises.",
+      "Balance track training and functional chair transfers practice.",
+      "Continuous tracking, motor memory reinforcement, and caregiver review."
+    ],
+    faqs: [
+      {
+        question: "How does physical therapy help Alzheimer's patients?",
+        answer: "Regular exercise slows motor decline, preserves muscle memory for walking, reduces joint stiffness, and improves balance to prevent dangerous falls."
+      },
+      {
+        question: "Is home visit therapy better for Alzheimer's?",
+        answer: "Yes. Patients feel much safer and more cooperative in their familiar home environment. We can also audit the home for safety hazards."
+      }
+    ],
+    ctaText: "Book Senior Assessment",
+    iconName: "Brain",
+    image: "/Media_Assets/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Diabetic Neuropathy Treatment",
+    slug: "diabetic-neuropathy-treatment",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Balance rehabilitation, sensory stimulation, nerve flossing, and foot circulation therapy for diabetic neuropathy.",
+    longDesc: "Our Diabetic Neuropathy Treatment program targets peripheral nerve issues causing numbness, burning, and balance loss in the legs. Dr. Rohit Verma utilizes manual sensory stimulation, foot nerve flossing, balance training (proprioceptive tracks), and circulation-boosting exercise therapies to reduce nerve pain, restore walking stability, and prevent fall risks.",
+    symptoms: [
+      "Numbness in Feet & Toes",
+      "Burning or Tingling Sensation",
+      "Walking Instability & Wobbles",
+      "Loss of Temperature Sensation",
+      "Muscle Weakness in Ankles",
+      "Hypersensitive Skin Pain"
+    ],
+    highlightedConditions: [
+      "Peripheral Neuropathy Rehab",
+      "Balance & Proprioception Training",
+      "Sensory Stimulation Therapy",
+      "Foot Circulation Optimization"
+    ],
+    benefits: [
+      "Improved walking balance and reduced fall risks",
+      "Reduced burning, numbness, and tingling sensations",
+      "Enhanced blood flow and circulation in the lower limbs",
+      "Strengthened ankle muscles to prevent foot drop",
+      "Educated foot check protocols to prevent diabetic ulcers"
+    ],
+    timeline: [
+      "Sensory screening (monofilament check), balance test, and ankle range check.",
+      "Sensory stimulation therapy and active ankle mobilization.",
+      "Static and dynamic balance track training (proprioceptive drills).",
+      "Gait retraining, foot safety audit, and home activity guidance."
+    ],
+    faqs: [
+      {
+        question: "Why does diabetic neuropathy affect balance?",
+        answer: "Nerve damage in the feet blocks messages about joint position (proprioception) from reaching the brain, making it hard to feel the floor and walk steadily."
+      },
+      {
+        question: "Can nerve pain from neuropathy be reduced?",
+        answer: "Yes, targeted exercise increases local circulation and nerve flossing helps desensitize hypersensitive nerves, reducing burning and pain."
+      }
+    ],
+    ctaText: "Book Neuropathy Assessment",
+    iconName: "Brain",
+    image: "/Media_Assets/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Myasthenia Gravis Treatment",
+    slug: "myasthenia-gravis-treatment",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Paced physical conditioning, energy conservation training, and respiratory muscle strengthening for Myasthenia Gravis.",
+    longDesc: "Our Myasthenia Gravis Treatment program focuses on safe physical training without causing excessive muscle fatigue. Dr. Rohit Verma designs customized, low-impact stretching, paced strengthening, respiratory muscle training, and energy conservation protocols to maintain joint flexibility and build endurance safely.",
+    symptoms: [
+      "Fluctuating Muscle Weakness",
+      "Rapid Physical Fatigue",
+      "Shallow Breathing / Weak Chest",
+      "Difficulty Climbing Stairs",
+      "Eyelid Drooping & Double Vision",
+      "Swallowing Fatigue"
+    ],
+    highlightedConditions: [
+      "Paced Muscle Strengthening",
+      "Respiratory Muscle Training",
+      "Energy Conservation Coaching",
+      "Joint Flexibility Maintenance"
+    ],
+    benefits: [
+      "Maintained muscle strength without trigger-fatigue episodes",
+      "Improved lung capacity and chest wall expansion",
+      "Restored stamina for walking and daily home transfers",
+      "Reduced risk of joint contractures and muscle wasting",
+      "Empowered energy conservation techniques for daily activities"
+    ],
+    timeline: [
+      "Strength screening, lung capacity check, and fatigue timing review.",
+      "Gentle, paced active-assisted movements and breathing exercises.",
+      "Low-resistance isometric conditioning during peak strength hours.",
+      "Caregiver pacing assistance plans and home energy conservation advice."
+    ],
+    faqs: [
+      {
+        question: "What is the rule of exercise in Myasthenia Gravis?",
+        answer: "Exercise must be low-impact, paced, and performed when strength is highest (typically in the morning). We avoid training to the point of exhaustion."
+      },
+      {
+        question: "Do you offer breathing exercises for Myasthenia Gravis?",
+        answer: "Yes, we teach diaphragmatic breathing and chest expansion to keep your respiratory muscles active and improve oxygen levels."
+      }
+    ],
+    ctaText: "Book Myasthenia Assessment",
+    iconName: "Brain",
+    image: "/Media_Assets/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Meningitis Rehabilitation",
+    slug: "meningitis-rehabilitation",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Post-meningitis neuromuscular recovery, neck stiffness release, balance training, and sensory integration in Noida.",
+    longDesc: "Our Meningitis Rehabilitation program helps patients recover from neurological complications, chronic neck rigidity, and balance issues following meningitis. Dr. Rohit Verma combines manual therapy for spinal flexibility, neuromuscular re-education, coordination training, and cognitive-motor integration exercises to restore full spinal movement and walking balance.",
+    symptoms: [
+      "Chronic Neck & Spine Stiffness",
+      "Loss of Balance & Dizziness",
+      "Muscle Weakness / Paresis",
+      "Sensory Hypersensitivity",
+      "Coordination Difficulties",
+      "Generalized Physical Fatigue"
+    ],
+    highlightedConditions: [
+      "Neuromuscular Recovery",
+      "Neck & Spine Rigidity Release",
+      "Vestibular & Balance Training",
+      "Sensory Integration Therapy"
+    ],
+    benefits: [
+      "Significant reduction in chronic neck and back stiffness",
+      "Restored walking coordination and static/dynamic balance",
+      "Improved sensory processing and reduced dizziness",
+      "Rebuilt muscle strength and physical stamina",
+      "Reclaimed independence in performing daily home tasks"
+    ],
+    timeline: [
+      "Neurological reflex screen, spinal range check, and balance audit.",
+      "Gentle manual spinal mobilization and soft-tissue stretches.",
+      "Neuromuscular coordination exercises and balance track drills.",
+      "Functional walking retraining, cognitive-motor integration, and home guidelines."
+    ],
+    faqs: [
+      {
+        question: "Why is neck stiffness common after meningitis?",
+        answer: "Meningitis causes inflammation of the protective membranes around the brain and spinal cord, leading to reflex muscle guarding and severe stiffness. Manual therapy helps release this safely."
+      },
+      {
+        question: "How does coordination training help?",
+        answer: "Meningitis can temporarily affect balance centers in the brain. Coordination drills re-train the brain to process balance signals correctly."
+      }
+    ],
+    ctaText: "Book Meningitis Assessment",
+    iconName: "Brain",
+    image: "/Media_Assets/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "Encephalitis Treatment",
+    slug: "encephalitis-treatment",
+    category: "neuro",
+    categoryLabel: "Neurological & Stroke Care",
+    shortDesc: "Post-encephalitis motor recovery, neuromuscular facilitation, balance retraining, and cognitive physical therapy.",
+    longDesc: "Our Encephalitis Treatment program focuses on rebuilding physical function and coordination after brain inflammation. Dr. Rohit Verma applies Proprioceptive Neuromuscular Facilitation (PNF), balance retraining, muscle strengthening, and multi-tasking mobility exercises to stimulate neuroplasticity, correct gait, and help patients return to daily life.",
+    symptoms: [
+      "Neuromuscular Weakness",
+      "Coordination & Balance Loss",
+      "Cognitive-Physical Lag",
+      "Muscle Spasticity or Flaccidity",
+      "Difficulty walking independently",
+      "Spatial Disorientation"
+    ],
+    highlightedConditions: [
+      "Post-Encephalitis Recovery",
+      "PNF Neuromuscular Therapy",
+      "Balance & Coordination Training",
+      "Cognitive-Physical Reintegration"
+    ],
+    benefits: [
+      "Restored voluntary muscle control and limb strength",
+      "Significantly improved walking coordination and balance",
+      "Re-stimulated neuroplastic pathways to speed up recovery",
+      "Reduced muscle spasticity and joint stiffness",
+      "Enhanced ability to perform daily tasks with less cognitive fatigue"
+    ],
+    timeline: [
+      "Cognitive-motor screening, muscle power test, and balance checks.",
+      "Neuromuscular facilitation (PNF) to stimulate movement patterns.",
+      "Task-oriented training (reaching, transfer drills, coordinate steps).",
+      "Gait retraining, multi-tasking mobility, and caregiver safety guidance."
+    ],
+    faqs: [
+      {
+        question: "How long does recovery take after encephalitis?",
+        answer: "Recovery can take months as brain tissue heals. Early, structured physical therapy leverages neuroplasticity to accelerate movement recovery."
+      },
+      {
+        question: "What is PNF therapy?",
+        answer: "Proprioceptive Neuromuscular Facilitation uses diagonal movement patterns and resistance to stimulate dormant muscle groups and restore coordination."
+      }
+    ],
+    ctaText: "Book Encephalitis Assessment",
+    iconName: "Brain",
+    image: "/Media_Assets/images/service_neuro.png",
+    isSubService: true
+  },
+  {
+    name: "MCL Injury Rehabilitation",
+    slug: "mcl-injury-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Structured brace-unloading, progressive lateral loading, and inner knee stability rehab for MCL sprains in Noida.",
+    longDesc: "Our Medial Collateral Ligament (MCL) Rehabilitation program focuses on healing inner knee pain and restoring lateral joint stability. Dr. Rohit Verma uses a structured, phase-based protocol combining brace-unloading, local swelling reduction, progressive closed-kinetic chain exercises (squats/lunges), and lateral alignment correction to restore strength and prevent recurrence.",
+    symptoms: [
+      "Inner Knee Joint Pain",
+      "Knee Instability / Wobbles",
+      "Local Swelling & Tenderness",
+      "Difficulty Bending the Knee",
+      "Inner Knee Stiffness in Morning",
+      "Giving Way during Side Movement"
+    ],
+    highlightedConditions: [
+      "MCL Sprain Care (Grade I/II/III)",
+      "Inner Knee Joint Stabilization",
+      "Lateral Alignment Correction",
+      "Proprioception & Pivot Training"
+    ],
+    benefits: [
+      "Significant reduction in inner knee pain and swelling",
+      "Restored joint stability and confidence during side movements",
+      "Rebuilt quadriceps and hamstring muscle strength",
+      "Avoidance of chronic joint laxity or meniscus tears",
+      "Safe, accelerated return to running and sports activities"
+    ],
+    timeline: [
+      "Inner knee ligament play test, checking range of motion and joint stability.",
+      "Pain and swelling control using cold compression, ultrasound, and gentle passive range.",
+      "Isometric quad sets and straight leg raises in a protective plane.",
+      "Lateral loading progressions, agility drills, and return-to-sport testing."
+    ],
+    faqs: [
+      {
+        question: "Does an MCL tear require surgery?",
+        answer: "Most MCL tears (Grade I and II) heal successfully without surgery using structured physical therapy and protective bracing to align the ligament fibers."
+      },
+      {
+        question: "Why is lateral stability training critical?",
+        answer: "The MCL prevents the knee from collapsing inward. Strengthening hip stabilizers and quadriceps helps support the ligament and prevents re-injury."
+      }
+    ],
+    ctaText: "Book MCL Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "PCL Injury Rehabilitation",
+    slug: "pcl-injury-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Quadriceps-dominant knee reloading and posterior joint stability rehabilitation for PCL injuries.",
+    longDesc: "Our Posterior Cruciate Ligament (PCL) Rehabilitation program focuses on resolving knee instability when stepping down or decelerating. Because the PCL prevents the shin bone from sliding backward, Dr. Rohit Verma structures a quadriceps-dominant loading program, combined with hamstring control, to provide dynamic stability, reduce knee wear, and guide patients back to peak activity.",
+    symptoms: [
+      "Posterior Knee Pain",
+      "Instability when Walking Downhill",
+      "Difficulty Decelerating or Stopping",
+      "Shin Bone Sagging Backward",
+      "Joint Swelling & Stiffness",
+      "Knee Buckling under Load"
+    ],
+    highlightedConditions: [
+      "PCL Sprain Rehabilitation",
+      "Quadriceps-Dominant Loading",
+      "Deceleration & Landing Control",
+      "Posterior Joint Play Control"
+    ],
+    benefits: [
+      "Significant improvement in knee stability when stepping down or stopping",
+      "Elimination of deep posterior knee pain and swelling",
+      "Rebuilt quadriceps strength to act as a dynamic PCL support",
+      "Avoidance of chronic cartilage wear on the kneecap",
+      "Safe return to pivoting sports and running activities"
+    ],
+    timeline: [
+      "Posterior drawer test, checking shin alignment and extension range.",
+      "Swelling control, pain relief, and gentle passive range of motion.",
+      "Quadriceps activation (isometrics, leg raises) without bending knee past 90 degrees.",
+      "Closed-kinetic loading (squats, lunges) and deceleration landing drills."
+    ],
+    faqs: [
+      {
+        question: "Can I recover from a PCL injury without surgery?",
+        answer: "Yes! The quadriceps muscle can be trained to dynamically pull the shin bone forward, compensating for a PCL injury and restoring knee stability without surgery."
+      },
+      {
+        question: "Why should I avoid deep bending initially?",
+        answer: "Bending the knee past 90 degrees pulls the shin bone backward, putting extra strain on the healing PCL. We restrict deep bending during the early recovery phases."
+      }
+    ],
+    ctaText: "Book PCL Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Golfer's Elbow Treatment",
+    slug: "golfers-elbow-treatment",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Clinical therapy for medial epicondylitis (Golfer's Elbow) using dry needling, eccentric flexor loading, and grip retraining.",
+    longDesc: "Our Golfer's Elbow Treatment program targets medial epicondylitis, which causes pain on the inner side of the elbow. Dr. Rohit Verma combines manual myofascial release of the wrist flexor tendons, clinical dry needling to release knots, and progressive eccentric flexor strengthening to rebuild tendon resilience, increase grip strength, and allow pain-free forearm movement.",
+    symptoms: [
+      "Inner Elbow Pain (Medial Epicondylitis)",
+      "Wrist Flexor Stiffness",
+      "Weak Grip Strength",
+      "Pain when Squeezing or Shaking Hands",
+      "Inner Forearm Aches",
+      "Radiating Pain to Wrist"
+    ],
+    highlightedConditions: [
+      "Medial Epicondylitis (Golfer's Elbow)",
+      "Wrist Flexor Tendinopathy Care",
+      "Eccentric Flexor Strengthening",
+      "Myofascial Trigger Point Release"
+    ],
+    benefits: [
+      "Significant reduction in inner elbow pain and local tenderness",
+      "Healed inner elbow tendons through progressive loading",
+      "Improved grip strength and forearm flexibility",
+      "Released wrist flexor muscle tightness and trigger points",
+      "Ergonomic advice for hand movements to prevent recurrence"
+    ],
+    timeline: [
+      "Palpation of medial epicondyle, grip check, and wrist flexor length test.",
+      "Pain reduction using cold therapy, ultrasound, and manual release.",
+      "Eccentric wrist flexor loading using specialized resistance tools.",
+      "Grip strengthening, stretching, and forearm movement biomechanics."
+    ],
+    faqs: [
+      {
+        question: "What is the difference between tennis elbow and golfer's elbow?",
+        answer: "Tennis elbow affects the outer tendon (extensors) and is caused by wrist extension. Golfer's elbow affects the inner tendon (flexors) and is caused by wrist flexion and gripping."
+      },
+      {
+        question: "How does eccentric exercise heal golfer's elbow?",
+        answer: "Eccentric exercise loads the tendon while it is lengthening, which stimulates collagen synthesis and strengthens tendon structure to handle repetitive hand movements."
+      }
+    ],
+    ctaText: "Book Golfer's Elbow Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Ligament Injury Rehabilitation",
+    slug: "ligament-injury-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Targeted physical therapy for joint sprains, ligament tears (ankle, knee, wrist), and joint laxity in Noida.",
+    longDesc: "Our Ligament Injury Rehabilitation program is designed to restore joint stability and structural integrity after ligament tears (such as ankle sprains or wrist ligament injuries). Dr. Rohit Verma constructs a comprehensive recovery plan combining progressive load-bearing, joint proprioception (balance) training, manual therapy to break down scar tissue, and muscle strengthening to support joint alignment.",
+    symptoms: [
+      "Joint Instability & Wobbles",
+      "Local Swelling & Bruising",
+      "Sharp Pain on Weight Bearing",
+      "Restricted Range of Motion",
+      "Joint Laxity / Hypermobility",
+      "Popping Sound during Injury"
+    ],
+    highlightedConditions: [
+      "Ligament Sprain Care (Ankle, Knee, Wrist)",
+      "Proprioception & Balance Retraining",
+      "Joint Stabilization Strengthening",
+      "Scar Tissue Adhesions Release"
+    ],
+    benefits: [
+      "Significant reduction in local joint pain and chronic swelling",
+      "Full restoration of joint range of motion and flexibility",
+      "Rebuilt joint balance and reflex stability (proprioception)",
+      "Stronger supporting muscles to protect the ligament from stretching",
+      "Reduced risk of recurring sprains and chronic joint instability"
+    ],
+    timeline: [
+      "Ligament stress test, joint play review, and swelling check.",
+      "Swelling reduction using compression, elevation, and ultrasound.",
+      "Proprioceptive training and protective plane loading.",
+      "Progressive high-impact agility drills and sport-specific movements."
+    ],
+    faqs: [
+      {
+        question: "How long does a ligament sprain take to heal?",
+        answer: "Grade I sprains can recover in 2 to 4 weeks. Grade II or III tears may require 6 to 12 weeks of structured rehabilitation to restore joint stability and strength."
+      },
+      {
+        question: "Why is balance training critical after a sprain?",
+        answer: "Ligament tears damage balance receptors (proprioception) in the joint, making you prone to rolling it again. Balance exercises re-train these receptors."
+      }
+    ],
+    ctaText: "Book Ligament Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Meniscus Injury Rehabilitation",
+    slug: "meniscus-injury-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Non-surgical meniscus repair support, manual joint glides, and progressive load loading for knee cartilage tears.",
+    longDesc: "Our Meniscus Injury Rehabilitation program focuses on reducing knee clicking, swelling, and joint line pain caused by meniscus tears. Dr. Rohit Verma structures a non-surgical joint management plan utilizing manual joint glides, progressive closed-kinetic chain strengthening, and alignment training to decompress the knee cartilage and restore smooth, pain-free walking.",
+    symptoms: [
+      "Knee Joint Line Tenderness",
+      "Clicking or Catching in Knee",
+      "Joint Swelling & Warmth",
+      "Difficulty Bending or Squatting",
+      "Knee Locking Episodes",
+      "Pain when Pivoting on Knee"
+    ],
+    highlightedConditions: [
+      "Meniscal Tear Rehab (Medial/Lateral)",
+      "Knee Decompression Glides",
+      "Closed-Kinetic Chain Exercises",
+      "Gait & Alignment Correction"
+    ],
+    benefits: [
+      "Significant reduction in knee clicking and local joint line pain",
+      "Complete resolution of joint locking and catching episodes",
+      "Strengthened quad and hip stabilizer muscles to absorb impact",
+      "Improved knee bending and squatting range of motion",
+      "Effective prevention or delay of arthroscopic knee surgery"
+    ],
+    timeline: [
+      "Knee joint line palpation, McMurray's test, and swelling review.",
+      "Swelling control and gentle manual glides to decompress the joint.",
+      "Isometric quad sets and hip alignment correction exercises.",
+      "Progressive squatting loading, balance training, and pivoting drills."
+    ],
+    faqs: [
+      {
+        question: "Can a meniscus tear heal without surgery?",
+        answer: "Yes! The outer third of the meniscus has a good blood supply and can heal, while tears in the inner zone can be managed by strengthening surrounding muscles to absorb impact."
+      },
+      {
+        question: "What should I avoid with a meniscus tear?",
+        answer: "Avoid deep squats, heavy twisting on a loaded knee, and running on hard surfaces during the early phases of rehabilitation."
+      }
+    ],
+    ctaText: "Book Meniscus Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Patella Mobilization Therapy",
+    slug: "patella-mobilization-therapy",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Manual patellar glides, patellofemoral tracking correction, and quadriceps alignment training in Noida.",
+    longDesc: "Our Patella Mobilization Therapy program is designed to correct kneecap tracking issues (patellofemoral pain syndrome) and release knee stiffness. Dr. Rohit Verma applies precise, hands-on manual glides to the patella to break down retinacular tightness, combined with selective muscle activation (VMO strengthening) to restore normal kneecap tracking and walk pain-free.",
+    symptoms: [
+      "Kneecap Grinding (Crepitus)",
+      "Dull Ache behind Kneecap",
+      "Patellofemoral Tracking Issues",
+      "Knee Stiffness after Sitting",
+      "Pain when Walking Down Stairs",
+      "Quadriceps Muscle Imbalances"
+    ],
+    highlightedConditions: [
+      "Patellofemoral Pain Syndrome Care",
+      "Manual Patellar Mobilization",
+      "Vastus Medialis Obliquus (VMO) Activation",
+      "Knee Retinacular Tightness Release"
+    ],
+    benefits: [
+      "Complete relief from grinding sensations and pain behind the kneecap",
+      "Restored smooth movement of the kneecap during bending",
+      "Corrected patellar tracking through selective muscle building",
+      "Reduced knee stiffness after prolonged sitting (theater sign)",
+      "Safe return to stair climbing and running activities"
+    ],
+    timeline: [
+      "Patellar tracking check, tilt test, and quadriceps angle review.",
+      "Manual patellar glides (medial, lateral, superior, inferior) and heat.",
+      "Selective VMO muscle recruitment and foam rolling of tight lateral structures.",
+      "Progressive squat loading with correct kneecap tracking check."
+    ],
+    faqs: [
+      {
+        question: "What is patellofemoral pain syndrome?",
+        answer: "It is pain behind or around the kneecap caused by the patella rubbing unevenly against the thigh bone, often due to tight outer thigh tissues or weak inner quad muscles."
+      },
+      {
+        question: "How does patella mobilization help?",
+        answer: "Gentle manual glides stretch tight ligaments around the kneecap, allowing it to slide smoothly within its groove, reducing friction and pain."
+      }
+    ],
+    ctaText: "Book Patella Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Sprain Rehabilitation",
+    slug: "sprain-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Targeted clinical rehabilitation for ligament sprains (ankle, knee, wrist) to restore joint balance and prevent chronic laxity.",
+    longDesc: "Our Sprain Rehabilitation program focuses on restoring stability, balance, and movement after a joint sprain. Dr. Rohit Verma uses a structured, phase-based recovery protocol combining manual joint mobilization, local swelling reduction, progressive load-bearing, and intensive balance conditioning (proprioceptive training) to protect the joint and prevent re-injury.",
+    symptoms: [
+      "Joint Laxity & Wobbles",
+      "Local Swelling & Tenderness",
+      "Bruising around Joint",
+      "Pain on Weight Bearing",
+      "Restricted Range of Motion",
+      "Joint Stiffness after Rest"
+    ],
+    highlightedConditions: [
+      "Ankle Sprain Care (Grade I/II/III)",
+      "Knee Sprain Rehabilitation",
+      "Wrist Sprain Care",
+      "Proprioception & Balance Track"
+    ],
+    benefits: [
+      "Significant reduction in local joint pain and chronic swelling",
+      "Restored joint range of motion and flexibility",
+      "Improved dynamic balance and walking stride length",
+      "Stronger supporting muscles to protect the joint",
+      "Reduced risk of developing chronic joint instability"
+    ],
+    timeline: [
+      "Joint stability screening, range of motion check, and swelling review.",
+      "Swelling modulation using cold compression, elevation, and ultrasound.",
+      "Proprioceptive training and progressive loading exercises.",
+      "Agility drills, running progressions, and return-to-play testing."
+    ],
+    faqs: [
+      {
+        question: "Should I use ice or heat for a sprain?",
+        answer: "Use ice for the first 48 hours to control swelling and acute pain. After the initial inflammation subsides, heat helps relax tight surrounding muscles."
+      },
+      {
+        question: "Why does my ankle feel weak after a sprain?",
+        answer: "Ligament sprains damage sensory nerve endings that tell your brain where your foot is. Balance training is essential to rebuild these pathways."
+      }
+    ],
+    ctaText: "Book Sprain Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Strain Rehabilitation",
+    slug: "strain-rehabilitation",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Structured muscle tear rehabilitation, scar tissue breakdown, and eccentric loading for strains (hamstring, calf, back).",
+    longDesc: "Our Strain Rehabilitation program is designed to heal pulled muscles (such as hamstring, calf, or quad strains) and rebuild tissue elasticity. Dr. Rohit Verma combines myofascial release, instrument-assisted soft tissue mobilization (IASTM) to break down restricted scar tissue, and progressive eccentric loading exercises to restore muscle length and prevent chronic pulls.",
+    symptoms: [
+      "Sharp Muscle Tear Pain",
+      "Local Muscle Swelling & Spasm",
+      "Restricted Muscle Flexibility",
+      "Weakness during Muscle Contraction",
+      "Taut Bands & Tenderness",
+      "Bruising in Muscle Belly"
+    ],
+    highlightedConditions: [
+      "Hamstring Pull Rehabilitation",
+      "Calf Strain Recovery",
+      "Quad Strain Care",
+      "Eccentric loading & Elasticity Rehab"
+    ],
+    benefits: [
+      "Significant reduction in sharp muscle pain and local swelling",
+      "Restored muscle length, flexibility, and range of motion",
+      "Healed muscle fibers aligned through structured eccentric loading",
+      "Stronger muscle tissue resilient to future strains",
+      "Safe return to running, sprinting, and sports activities"
+    ],
+    timeline: [
+      "Muscle palpation, length testing, and contraction power check.",
+      "Pain relief, gentle active stretching, and localized heat/TENS.",
+      "Progressive eccentric loading (strengthening while muscle is lengthening).",
+      "Agility drills, sport-specific sprints, and return-to-sport testing."
+    ],
+    faqs: [
+      {
+        question: "How is a strain different from a sprain?",
+        answer: "A strain is an injury to a muscle or tendon (pulled muscle). A sprain is an injury to a ligament (joint stabilizer). Strains respond well to progressive loading."
+      },
+      {
+        question: "Why do muscle strains recur frequently?",
+        answer: "If a strained muscle heals without stretching and eccentric loading, it forms stiff scar tissue that easily tears again under stress. We focus on rebuilding elasticity."
+      }
+    ],
+    ctaText: "Book Strain Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Muscle Spasm Treatment",
+    slug: "muscle-spasm-treatment",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Advanced spasm release, myofascial trigger-point therapy, dry needling, and muscle relaxation for acute catches in Noida.",
+    longDesc: "Our Muscle Spasm Treatment program is designed to quickly release painful muscle catches and cramps. Dr. Rohit Verma combines clinical dry needling, myofascial release, static stretching, and thermal therapy to deactivate hyperactive nerve signals, improve local circulation, and provide immediate muscle relaxation.",
+    symptoms: [
+      "Acute Painful Muscle Catches",
+      "Involuntary Muscle Cramping",
+      "Severe Muscle Tightness",
+      "Restricted Range of Motion",
+      "Localized Muscle Soreness",
+      "Difficulty Moving Joint"
+    ],
+    highlightedConditions: [
+      "Acute Muscle Spasm Release",
+      "Myofascial Trigger Point Therapy",
+      "Dry Needling & Cupping",
+      "Localized Deep Heat Release"
+    ],
+    benefits: [
+      "Immediate relief from sharp, locking muscle catches and spasms",
+      "Restored range of motion and joint flexibility",
+      "Increased local blood circulation to ease muscle tightness",
+      "Reduced muscle soreness and metabolic waste build-up",
+      "Educated stretches to prevent future muscle locking"
+    ],
+    timeline: [
+      "Palpation of spasm zone, checking joint range of motion.",
+      "Localized heat therapy, TENS, and gentle passive stretching.",
+      "Deep tissue trigger point release and optional dry needling.",
+      "Active range of motion exercises and posture integration guidance."
+    ],
+    faqs: [
+      {
+        question: "What causes sudden muscle spasms?",
+        answer: "Spasms are involuntary contractions often triggered by muscle fatigue, dehydration, poor posture, or nerve irritation. Targeted stretching helps release them."
+      },
+      {
+        question: "How quickly does physiotherapy relieve a spasm?",
+        answer: "Many patients experience immediate relief from acute spasms within 1 to 2 sessions of manual release and dry needling."
+      }
+    ],
+    ctaText: "Book Spasm Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
+  },
+  {
+    name: "Muscle Stiffness Treatment",
+    slug: "muscle-stiffness-treatment",
+    category: "sports",
+    categoryLabel: "Sports & Performance Rehab",
+    shortDesc: "Therapeutic heat, clinical stretching, myofascial release, and mobility retraining to resolve chronic muscle tightness.",
+    longDesc: "Our Muscle Stiffness Treatment program targets chronic, diffuse muscle tightness that limits joint movement and creates posture fatigue. Dr. Rohit Verma combines thermal therapy, myofascial release, instrument-assisted soft tissue mobilization (IASTM), and active mobility routines to increase muscle compliance, improve blood flow, and make everyday movements feel light and free.",
+    symptoms: [
+      "Chronic Muscle Tightness",
+      "Ergonomic Posture Fatigue",
+      "Morning Muscle Rigidity",
+      "Diffuse Body Aches",
+      "Restricted Joint Movement",
+      "Lactic Acid Accumulation"
+    ],
+    highlightedConditions: [
+      "Chronic Muscle Rigidity Care",
+      "Myofascial Release & IASTM",
+      "Active Mobility Exercises",
+      "Workplace Ergonomic Correction"
+    ],
+    benefits: [
+      "Significant reduction in chronic muscle stiffness and body aches",
+      "Improved flexibility, posture, and joint range of motion",
+      "Increased blood circulation and oxygen supply to muscles",
+      "Decreased morning muscle stiffness and fatigue",
+      "Enhanced ease of movement during daily activities"
+    ],
+    timeline: [
+      "Assessment of muscle length, joint range of motion, and posture.",
+      "Deep heat therapy, foam rolling, and active-assisted stretches.",
+      "Targeted myofascial release and localized soft-tissue glides.",
+      "Active mobility integration, posture habits, and home stretches."
+    ],
+    faqs: [
+      {
+        question: "Why do my muscles feel stiff in the morning?",
+        answer: "During sleep, circulation slows and inflammatory markers can pool in tight muscles. Gentle movement and thermal therapy help increase circulation and resolve stiffness."
+      },
+      {
+        question: "Can stretching alone cure muscle stiffness?",
+        answer: "Stretching helps, but releasing myofascial restrictions and improving posture habits are critical for long-term relief."
+      }
+    ],
+    ctaText: "Book Stiffness Assessment",
+    iconName: "Trophy",
+    image: "/Media_Assets/images/service_sports.png",
+    isSubService: true
   }
 ];
 

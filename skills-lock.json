@@ -7,6 +7,12 @@
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
     },
+    "images-search": {
+      "source": "brave/brave-search-skills",
+      "sourceType": "github",
+      "skillPath": "skills/images-search/SKILL.md",
+      "computedHash": "9f84826cdb63ad23c52a9d8e481f2347ee767dcaf712d5f972bab0e8195f61d8"
+    },
     "programmatic-seo": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
