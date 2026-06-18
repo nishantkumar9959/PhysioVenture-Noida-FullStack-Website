@@ -2,14 +2,17 @@
   "css.lint.unknownAtRules": "ignore",
   "files.exclude": {
     "**/.next": true,
-    "**/.next_build": true
+    "**/.next_build": true,
+    "**/.next_build_clean_v3": true
   },
   "search.exclude": {
     "**/.next": true,
-    "**/.next_build": true
+    "**/.next_build": true,
+    "**/.next_build_clean_v3": true
   },
   "files.watcherExclude": {
     "**/.next/**": true,
-    "**/.next_build/**": true
+    "**/.next_build/**": true,
+    "**/.next_build_clean_v3/**": true
   }
 }
