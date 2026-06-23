@@ -27,7 +27,7 @@ export default function FaqSection() {
     {
       id: "faq-home-visit-areas",
       trigger: "Which areas in Noida do you cover for home visits?",
-      content: "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West.",
+      content: "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 47, 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West.",
     },
     {
       id: "faq-home-vs-clinic-quality",

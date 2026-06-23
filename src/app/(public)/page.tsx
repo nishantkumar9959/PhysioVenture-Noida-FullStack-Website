@@ -28,7 +28,7 @@ import SeoContentBlock from "@/components/shared/SeoContentBlock";
 import FaqSection from "@/components/shared/FaqSection";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import { BLOG_ARTICLES } from "@/lib/blogs-data";
-import { SITE_URL, DOCTOR_NAME } from "@/lib/constants";
+import { SITE_URL, DOCTOR_NAME, LOCATION } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
@@ -175,7 +175,7 @@ export default function Home() {
     "@type": "MedicalBusiness",
     "name": "PhysioVenture Neuro & Ortho Physiotherapy Clinic",
     "alternateName": "PhysioVenture",
-    "description": "Premium neurological and orthopaedic physiotherapy clinic in Sector 49, Noida. Specializing in stroke recovery, joint pain, sports injuries, and post-surgery rehabilitation with expert home-visit services across all Noida sectors.",
+    "description": "Premium neurological and orthopaedic physiotherapy clinic in Sector 47, Noida. Specializing in stroke recovery, joint pain, sports injuries, and post-surgery rehabilitation with expert home-visit services across all Noida sectors.",
     "image": `${SITE_URL}/Media_Assets/images/hero_physiotherapy_bg.jpg`,
     "@id": `${SITE_URL}/#medicalbusiness`,
     "url": SITE_URL,
@@ -186,7 +186,7 @@ export default function Home() {
     "paymentAccepted": "Cash, UPI, Bank Transfer",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "A-31, Block A, Sector 49",
+      "streetAddress": "A-256, Block A, Sector 47",
       "addressLocality": "Noida",
       "addressRegion": "Uttar Pradesh",
       "postalCode": "201303",
@@ -194,8 +194,8 @@ export default function Home() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 28.577488,
-      "longitude": 77.362143
+      "latitude": LOCATION.lat,
+      "longitude": LOCATION.lng
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -218,6 +218,7 @@ export default function Home() {
     ],
     "availableLanguage": ["English", "Hindi"],
     "areaServed": [
+      { "@type": "Place", "name": "Sector 47, Noida" },
       { "@type": "Place", "name": "Sector 49, Noida" },
       { "@type": "Place", "name": "Sector 50, Noida" },
       { "@type": "Place", "name": "Sector 51, Noida" },
@@ -310,7 +311,7 @@ export default function Home() {
         "name": "Which areas in Noida do you cover for home visits?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West."
+          "text": "We provide home-visit physiotherapy across all major sectors of Noida, including Sector 47, 49, 50, 51, 62, 78, 100, 137, 150, Noida Expressway, and Greater Noida West."
         }
       },
       {

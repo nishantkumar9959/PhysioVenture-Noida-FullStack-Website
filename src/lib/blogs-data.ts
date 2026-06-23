@@ -25,7 +25,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Frozen shoulder, clinically known as adhesive capsulitis, is a painful condition characterized by severe stiffness, restricted range of motion, and persistent dull aches in the shoulder joint. It typically progresses through three distinct stages: freezing, frozen, and thawing. Understanding the underlying causes is essential to start the correct treatment early.",
       "The exact causes of frozen shoulder can range from prolonged joint immobilization (such as after a fracture or surgery) to systemic conditions like diabetes or thyroid disorders. In diabetic patients, the excess sugar molecules bind to collagen fibers in the joint capsule, making it sticky, thick, and highly prone to contractures.",
       "At PhysioVenture, Dr. Rohit Verma designs customized shoulder protocols that accelerate the thawing phase. We combine gentle capsular mobilization, heat therapy, dry needling, and scapular stabilization exercises. This clinical hands-on approach helps break down thick capsular adhesions and restore overhead mobility.",
-      "If you are experiencing pain when reaching behind your back or raising your arm, do not force the joint. Professional physiotherapy in Sector 49, Noida, offers personalized home-visit and clinic-based sessions to help you recover normal movement without the risk of capsular tears."
+      "If you are experiencing pain when reaching behind your back or raising your arm, do not force the joint. Professional physiotherapy in Sector 47, Noida, offers personalized home-visit and clinic-based sessions to help you recover normal movement without the risk of capsular tears."
     ],
     metaTitle: "Causes of Frozen Shoulder & Treatment in Noida | PhysioVenture",
     metaDescription: "Suffering from Frozen Shoulder in Noida? Discover adhesive capsulitis causes and how Dr. Rohit Verma's manual therapy protocols restore full joint mobility."
@@ -93,7 +93,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Back pain is one of the primary reasons Noida corporate workers seek physical therapy. Prolonged sitting at unsupportive desks dehydrates spinal discs and strains lower back muscles, leading to painful spasms or slip discs.",
       "Key ergonomics tips: place your computer screen at eye level, keep your lower back supported, and set feet flat on the floor. Take short breaks every 30 minutes to stand and stretch.",
       "Active restoration is essential. Instead of absolute bed rest, which weakens muscles, gentle movement, chiropractic adjustments, and core stabilization restore spinal balance and speed up healing.",
-      "PhysioVenture offers specialized back pain and slip disc rehabilitation at Sector 49, Noida, and through convenient home visits across Noida sectors."
+      "PhysioVenture offers specialized back pain and slip disc rehabilitation at Sector 47, Noida, and through convenient home visits across Noida sectors."
     ],
     metaTitle: "Back Pain & Slip Disc Treatment in Noida | PhysioVenture",
     metaDescription: "Suffering from back pain or lumbar strain in Noida? Get expert recovery tips, ergonomics setup advice, and spine adjustments from Dr. Rohit Verma."
@@ -163,7 +163,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Neurological injuries often disrupt the sensory-motor systems, leading to walking instability, dizziness, or a fear of falling. Re-training balance is a key milestone in neurological recovery.",
       "We use progressive balance exercises on stable and unstable surfaces, combining visual and head movements. This re-trains the brain to process spatial orientation.",
       "Gait analysis allows us to correct stepping symmetry and weight shifting. Correcting these patterns builds confidence and reduces the risk of falls.",
-      "Our specialized neuro-rehab program in Sector 49, Noida, offers balance-specific home visits, ensuring patients can walk safely on their home surfaces."
+      "Our specialized neuro-rehab program in Sector 47, Noida, offers balance-specific home visits, ensuring patients can walk safely on their home surfaces."
     ],
     metaTitle: "Neurological Balance & Gait Training Noida | PhysioVenture",
     metaDescription: "Overcome walking instability and balance deficits after stroke or nerve injury in Noida. Read our balance retraining guide by Dr. Rohit Verma."
@@ -199,7 +199,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "ACL and MCL tears are common knee injuries, but they affect different structures. The ACL is inside the knee joint, preventing forward movement of the tibia, while the MCL is on the inner side, preventing outward bending.",
       "ACL injuries often feature a 'pop' sound, immediate swelling, and joint instability. MCL injuries usually cause pain and swelling on the inner knee, but the joint remains stable when walking straight.",
       "MCL tears often heal with bracing and physiotherapy, while complete ACL tears usually require surgical reconstruction. Both injuries benefit from targeted knee stabilization exercises.",
-      "PhysioVenture offers expert knee injury assessments and customized rehabilitation programs in Sector 49, Noida, and through home visits."
+      "PhysioVenture offers expert knee injury assessments and customized rehabilitation programs in Sector 47, Noida, and through home visits."
     ],
     metaTitle: "ACL vs MCL Knee Injury Diagnosis & Rehab Noida | PhysioVenture",
     metaDescription: "Differentiate between ACL and MCL tears. Discover symptoms, recovery paths, and knee physiotherapy options in Noida with Dr. Rohit Verma."

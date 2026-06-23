@@ -18,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Turnstile, type TurnstileInstance } from "@/components/ui/turnstile";
+import { BUSINESS } from "@/lib/constants";
+import MapSection from "@/components/shared/MapSection";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -99,15 +101,16 @@ export default function Contact() {
             <h3 className="font-display font-extrabold text-lg text-primary mb-6">Contact Info</h3>
 
             <div className="space-y-6">
-              {/* Service Area */}
+              {/* Clinic Address */}
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-accent flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Service Area</h4>
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Clinic Address</h4>
                   <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    All sectors in Noida, Greater Noida, and nearby regions.
+                    {BUSINESS.address.streetAddress},<br />
+                    {BUSINESS.address.addressLocality}, {BUSINESS.address.addressRegion} - {BUSINESS.address.postalCode}
                   </p>
                 </div>
               </div>
@@ -258,6 +261,11 @@ export default function Contact() {
               </form>
             )}
           </div>
+        </div>
+
+        {/* Google Maps Section */}
+        <div className="lg:col-span-12 mt-4">
+          <MapSection />
         </div>
 
       </div>

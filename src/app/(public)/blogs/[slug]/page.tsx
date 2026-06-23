@@ -195,7 +195,7 @@ export default async function BlogArticlePage({ params }: Props) {
           Need Expert Physiotherapy in Noida?
         </h2>
         <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
-          Book a consultation with Dr. Rohit Verma — at our Sector 49 clinic or through a convenient home visit.
+          Book a consultation with Dr. Rohit Verma — at our Sector 47 clinic or through a convenient home visit.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link

@@ -74,7 +74,7 @@ export default function SeoContentBlock({ pageType, title }: SeoContentBlockProp
                 <div className="rounded-2xl border border-border/40 bg-secondary/20 p-5">
                   <h4 className="font-display font-extrabold text-primary mb-2">Clinic physiotherapy</h4>
                   <p>
-                    Best for detailed assessment, manual therapy, advanced modalities, progressive strengthening, posture correction, and patients who can travel safely to the Sector 49 clinic.
+                    Best for detailed assessment, manual therapy, advanced modalities, progressive strengthening, posture correction, and patients who can travel safely to the Sector 47 clinic.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-border/40 bg-secondary/20 p-5">

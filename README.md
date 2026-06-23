@@ -357,7 +357,7 @@ There are naming differences between local migration scripts and live API routes
 4. **`admin_notifications`:**
    - Real-time notifications table. Columns: `id`, `type` (`new_appointment`, `new_inquiry`, `system`), `message`, `is_read`, `related_id`, `created_at`.
 5. **`locations`:**
-   - Stores clinic locations (e.g., Sector 49, Noida).
+   - Stores clinic locations (e.g., Sector 47, Noida).
 
 ---
 
